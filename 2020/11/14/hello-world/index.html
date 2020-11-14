@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, 风渡巛">
+    <meta name="keywords" content="Hello World, Python Bioinformatics 宅男 书呆子 自言自语">
     <meta name="description" content="一条没有故事的巛">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -556,6 +556,33 @@
     </div>
 
     
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '15ee0d597851591dfa73',
+        clientSecret: '63f89fc448902cb0b0bddff3eb9d443e08439d90',
+        repo: 'Achuan-2.github.io',
+        owner: 'Achuan-2',
+        admin: null,
+        id: '2020-11-14T10-03-48',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
 
     
 
@@ -819,7 +846,7 @@
         notify: 'true' === 'true',
         verify: 'true' === 'true',
         visitor: 'true' === 'true',
-        avatar: 'mm',
+        avatar: 'wavatar',
         pageSize: '10',
         lang: 'zh-cn',
         placeholder: '欢迎留下您的足迹'
@@ -1177,6 +1204,12 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     </a>
 
 
+    <a href="https://www.zhihu.com/people/su-ji-xiong-62" class="tooltipped" target="_blank" data-tooltip="关注我的B站: https://www.zhihu.com/people/su-ji-xiong-62" data-position="top" data-delay="50">
+        <i class="fad fa-tv-retro"></i>
+    </a>
+
+
+
 
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
@@ -1263,6 +1296,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"superSample":2,"position":"right","width":150,"height":300,"hOffset":20,"vOffset":50},"mobile":{"show":true,"scale":0.5},"react":{"opacity":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"superSample":2,"position":"right","width":150,"height":300,"hOffset":20,"vOffset":50},"mobile":{"show":false,"scale":0.5},"react":{"opacity":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 
 </html>
