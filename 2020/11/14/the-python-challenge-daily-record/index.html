@@ -470,21 +470,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-14
+                    2020-11-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.1k
+                    9.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    45 分
+                    47 分
                 </div>
                 
 
@@ -1650,6 +1650,38 @@ f2<span class="token punctuation">.</span>close<span class="token punctuation">(
 <div align="center" style="color:red">f2.png</div>
 
 <p>so next level: <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/hex/bin.html">http://www.pythonchallenge.com/pc/hex/bin.html</a><br>username: butter<br>password: fly</p>
+<h2 id="day-19-bin-2020-11-14"><a href="#day-19-bin-2020-11-14" class="headerlink" title="day_19_bin_2020.11.14"></a>day_19_bin_2020.11.14</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yongdaimi/p/10722355.html">音频属性相关：声道、采样率、采样位数、样本格式、比特率</a></p>
+<blockquote>
+<p>WAV有三个重要的参数：声道数、取样频率和量化位数。<br>声道数：可以是单声道或者是双声道<br>采样频率：一秒内对声音信号的采集次数，常用的有8kHz, 16kHz, 32kHz, &gt;48kHz, 11.025kHz, 22.05kHz, 44.1kHz<br>量化位数：用多少bit表达一次采样所采集的数据，通常有8bit、16bit、24bit和&gt;32bit等几种<br>Wave_read.getnchannels()<br>返回声道数量（1 为单声道，2 为立体声）</p>
+<p>Wave_read.getsampwidth()<br>返回采样字节长度。</p>
+<p>Wave_read.getframerate()<br>返回采样频率。</p>
+<p>Wave_read.getnframes()¶<br>返回音频总帧数。<br>Wave_read.readframes(n)<br>读取并返回以 bytes 对象表示的最多 n 帧音频。</p>
+</blockquote>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> base64
+<span class="token keyword">import</span> wave
+
+<span class="token comment" spellcheck="true"># 将view-source:http://www.pythonchallenge.com/pc/hex/bin.html的base64编码复制为文本处理</span>
+message <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">"assets/day_19.txt"</span><span class="token punctuation">,</span> <span class="token string">"rb"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+open<span class="token punctuation">(</span><span class="token string">'output/day_19_indian.wav'</span><span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>write<span class="token punctuation">(</span>base64<span class="token punctuation">.</span>decodebytes<span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>得到的wav打开之后听到sorry……<br>打开<a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/hex/sorry.html">http://www.pythonchallenge.com/pc/hex/sorry.html</a><br>得到- “what are you apologizing for?”<br>回头看网页显示的地图，陆地的颜色明显和海洋的颜色颠倒了，提示将音频的帧颠倒</p>
+<pre class=" language-python"><code class="language-python">
+w <span class="token operator">=</span> wave<span class="token punctuation">.</span>open<span class="token punctuation">(</span><span class="token string">'output/day_19_indian.wav'</span><span class="token punctuation">,</span> <span class="token string">"rb"</span><span class="token punctuation">)</span>
+h <span class="token operator">=</span> wave<span class="token punctuation">.</span>open<span class="token punctuation">(</span><span class="token string">'output/day_19_result.wav'</span><span class="token punctuation">,</span> <span class="token string">"wb"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>w<span class="token punctuation">.</span>getnchannels<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>w<span class="token punctuation">.</span>getsampwidth<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>w<span class="token punctuation">.</span>getframerate<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+h<span class="token punctuation">.</span>setnchannels<span class="token punctuation">(</span>w<span class="token punctuation">.</span>getnchannels<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+h<span class="token punctuation">.</span>setsampwidth<span class="token punctuation">(</span>w<span class="token punctuation">.</span>getsampwidth<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">//</span><span class="token number">2</span><span class="token punctuation">)</span>
+h<span class="token punctuation">.</span>setframerate<span class="token punctuation">(</span>w<span class="token punctuation">.</span>getframerate<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">)</span>
+frames <span class="token operator">=</span> w<span class="token punctuation">.</span>readframes<span class="token punctuation">(</span>w<span class="token punctuation">.</span>getnframes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># big_endiana 字节序，低地址端 存放 高位字节。</span>
+wave<span class="token punctuation">.</span>big_endiana <span class="token operator">=</span> <span class="token number">1</span>
+h<span class="token punctuation">.</span>writeframes<span class="token punctuation">(</span>frames<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># for i in range(w.getnframes()):</span>
+<span class="token comment" spellcheck="true">#     h.writeframes(w.readframes(1)[::-1])</span>
+
+h<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p>听出You are a idiot<br>打开 <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/hex/idiot.html">http://www.pythonchallenge.com/pc/hex/idiot.html</a><br>“Now you should apologize…”<br><a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/hex/idiot2.html">http://www.pythonchallenge.com/pc/hex/idiot2.html</a></p>
 
             </div>
             <hr/>
@@ -2309,7 +2341,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">9.2k</span>&nbsp;字
+                class="white-color">9.5k</span>&nbsp;字
             
             
             
