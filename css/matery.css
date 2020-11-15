@@ -581,7 +581,7 @@ header .go-back i {
 .bg-cover:after {
     /* -webkit-animation: rainbow 60s infinite; */
     /* animation: rainbow 60s infinite; */
-    background: linear-gradient(45deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
+    background: linear-gradient(45deg, rgb(212 25 11 / 30%) 0%, rgb(144 57 159 / 65%) 100%);
 }
 
 .bg-cover:before,
