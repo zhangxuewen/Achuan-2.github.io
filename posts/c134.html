@@ -479,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.5k
+                    10.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    47 分
+                    50 分
                 </div>
                 
 
@@ -1684,6 +1684,133 @@ h<span class="token punctuation">.</span>writeframes<span class="token punctuati
 
 h<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <p>听出You are a idiot<br>打开 <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/hex/idiot.html">http://www.pythonchallenge.com/pc/hex/idiot.html</a><br>“Now you should apologize…”<br><a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/hex/idiot2.html">http://www.pythonchallenge.com/pc/hex/idiot2.html</a></p>
+<h2 id="day-20-idiot2-2020-11-15"><a href="#day-20-idiot2-2020-11-15" class="headerlink" title="day_20_idiot2_2020.11.15"></a>day_20_idiot2_2020.11.15</h2><p>开始用Jupyter跑python代码了，感觉飞起呀！！！！</p>
+<p>又是看不懂的一关，直接copy网上的代码吧……</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">,</span> base64<span class="token punctuation">,</span>re
+
+request <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>Request<span class="token punctuation">(</span><span class="token string">'http://www.pythonchallenge.com/pc/hex/unreal.jpg'</span><span class="token punctuation">)</span>
+cred <span class="token operator">=</span> base64<span class="token punctuation">.</span>b64encode<span class="token punctuation">(</span>b<span class="token string">"butter:fly"</span><span class="token punctuation">)</span>
+request<span class="token punctuation">.</span>add_header<span class="token punctuation">(</span><span class="token string">"Authorization"</span><span class="token punctuation">,</span> <span class="token string">"Basic %s"</span> <span class="token operator">%</span> cred<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>headers<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># {'Authorization': 'Basic YnV0dGVyOmZseQ=='}</span>
+
+response <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>request<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>headers<span class="token punctuation">)</span></code></pre>
+<pre><code>{'Authorization': 'Basic YnV0dGVyOmZseQ=='}
+Content-Type: image/jpeg
+Content-Range: bytes 0-30202/2123456789
+Connection: close
+Transfer-Encoding: chunked
+Date: Sun, 15 Nov 2020 05:52:24 GMT
+Server: lighttpd/1.4.35</code></pre>
+<pre class=" language-python"><code class="language-python">pattern <span class="token operator">=</span> re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span><span class="token string">'bytes (\d+)-(\d+)/(\d+)'</span><span class="token punctuation">)</span>
+content_range <span class="token operator">=</span> response<span class="token punctuation">.</span>headers<span class="token punctuation">[</span><span class="token string">'content-range'</span><span class="token punctuation">]</span>
+<span class="token punctuation">(</span>start<span class="token punctuation">,</span> end<span class="token punctuation">,</span> length<span class="token punctuation">)</span> <span class="token operator">=</span> pattern<span class="token punctuation">.</span>search<span class="token punctuation">(</span>content_range<span class="token punctuation">)</span><span class="token punctuation">.</span>groups<span class="token punctuation">(</span><span class="token punctuation">)</span>
+request<span class="token punctuation">.</span>headers<span class="token punctuation">[</span><span class="token string">'Range'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'bytes=%i-'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>int<span class="token punctuation">(</span>end<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+response <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>request<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>headers<span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<pre><code>Content-Type: application/octet-stream
+Content-Transfer-Encoding: binary
+Content-Range: bytes 30237-30283/2123456789
+Connection: close
+Transfer-Encoding: chunked
+Date: Sun, 15 Nov 2020 05:52:40 GMT
+Server: lighttpd/1.4.35
+
+
+we can go on in this way for really long time.</code></pre>
+<p>So now the content between 30203 and 30236 is served, which is “Why don’t you respect my privacy?”; continue for a few iterations:</p>
+<pre class=" language-python"><code class="language-python">pattern <span class="token operator">=</span> re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span><span class="token string">'bytes (\d+)-(\d+)/(\d+)'</span><span class="token punctuation">)</span>
+content_range <span class="token operator">=</span> response<span class="token punctuation">.</span>headers<span class="token punctuation">[</span><span class="token string">'content-range'</span><span class="token punctuation">]</span>
+<span class="token punctuation">(</span>start<span class="token punctuation">,</span> end<span class="token punctuation">,</span> length<span class="token punctuation">)</span> <span class="token operator">=</span> pattern<span class="token punctuation">.</span>search<span class="token punctuation">(</span>content_range<span class="token punctuation">)</span><span class="token punctuation">.</span>groups<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        request<span class="token punctuation">.</span>headers<span class="token punctuation">[</span><span class="token string">'Range'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'bytes=%i-'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>int<span class="token punctuation">(</span>end<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+        response <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>request<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>headers<span class="token punctuation">)</span>
+        <span class="token punctuation">(</span>start<span class="token punctuation">,</span> end<span class="token punctuation">,</span> length<span class="token punctuation">)</span> <span class="token operator">=</span> pattern<span class="token punctuation">.</span>search<span class="token punctuation">(</span>response<span class="token punctuation">.</span>headers<span class="token punctuation">[</span><span class="token string">'content-range'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>groups<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span><span class="token punctuation">:</span>
+        <span class="token keyword">break</span></code></pre>
+<pre><code>stop this!
+
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: binary
+Content-Range: bytes 30284-30294/2123456789
+Connection: close
+Transfer-Encoding: chunked
+Date: Sun, 15 Nov 2020 05:53:12 GMT
+Server: lighttpd/1.4.35
+
+
+invader! invader!
+
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: binary
+Content-Range: bytes 30295-30312/2123456789
+Connection: close
+Transfer-Encoding: chunked
+Date: Sun, 15 Nov 2020 05:53:13 GMT
+Server: lighttpd/1.4.35
+
+ok, invader. you are inside now. 
+
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: binary
+Content-Range: bytes 30313-30346/2123456789
+Connection: close
+Transfer-Encoding: chunked
+Date: Sun, 15 Nov 2020 05:53:13 GMT
+Server: lighttpd/1.4.35</code></pre>
+<p>The last request ends at 30346.</p>
+<blockquote>
+<p>Why don’t you respect my privacy?<br>we can go on in this way for really long time.<br>stop this!<br>invader! invader!<br>ok, invader. you are inside now.</p>
+</blockquote>
+<pre class=" language-python"><code class="language-python">request<span class="token punctuation">.</span>headers<span class="token punctuation">[</span><span class="token string">'Range'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'bytes=%i-'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>int<span class="token punctuation">(</span>length<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+response <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>request<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>headers<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<pre><code>Content-Type: application/octet-stream
+Content-Transfer-Encoding: binary
+Content-Range: bytes 2123456744-2123456788/2123456789
+Connection: close
+Transfer-Encoding: chunked
+Date: Sun, 15 Nov 2020 05:54:13 GMT
+Server: lighttpd/1.4.35
+
+
+
+esrever ni emankcin wen ruoy si drowssap eht</code></pre>
+<p>​    </p>
+<p>The content is reversed: “the password is your new nickname in reverse”. The “nickname” is “invader”, so password is “redavni”. Now “reverse” the search:</p>
+<pre class=" language-python"><code class="language-python">request<span class="token punctuation">.</span>headers<span class="token punctuation">[</span><span class="token string">'Range'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'bytes=2123456743-'</span>
+response <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>request<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>headers<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<pre><code>Content-Type: application/octet-stream
+Content-Transfer-Encoding: binary
+Content-Range: bytes 2123456712-2123456743/2123456789
+Connection: close
+Transfer-Encoding: chunked
+Date: Sun, 15 Nov 2020 05:54:52 GMT
+Server: lighttpd/1.4.35
+
+
+and it is hiding at 1152983631.</code></pre>
+<pre class=" language-python"><code class="language-python">request<span class="token punctuation">.</span>headers<span class="token punctuation">[</span><span class="token string">'Range'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'bytes=1152983631-'</span>
+response <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>request<span class="token punctuation">)</span>
+
+<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"output/day_21.zip"</span><span class="token punctuation">,</span> <span class="token string">"wb"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>response<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>Yes! This is really level 21 in here.<br>And yes, After you solve it, you’ll be in level 22!</p>
+<p>Now for the level:</p>
+<ul>
+<li>We used to play this game when we were kids</li>
+<li>When I had no idea what to do, I looked backwards.</li>
+</ul>
 
             </div>
             <hr/>
@@ -2343,7 +2470,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">9.5k</span>&nbsp;字
+                class="white-color">10.2k</span>&nbsp;字
             
             
             
