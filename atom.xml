@@ -3,11 +3,11 @@
   <title>风渡巛</title>
   
   <subtitle>用心沉淀</subtitle>
-  <link href="https://achuan-2.github.io/atom.xml" rel="self"/>
+  <link href="https://achuan-2.top/atom.xml" rel="self"/>
   
-  <link href="https://achuan-2.github.io/"/>
+  <link href="https://achuan-2.top/"/>
   <updated>2020-11-16T14:20:41.789Z</updated>
-  <id>https://achuan-2.github.io/</id>
+  <id>https://achuan-2.top/</id>
   
   <author>
     <name>风渡巛</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>阿巛的Hexo博客搭建</title>
-    <link href="https://achuan-2.github.io/posts/a881.html"/>
-    <id>https://achuan-2.github.io/posts/a881.html</id>
+    <link href="https://achuan-2.top/posts/a881.html"/>
+    <id>https://achuan-2.top/posts/a881.html</id>
     <published>2020-11-15T11:57:21.000Z</published>
     <updated>2020-11-16T14:20:41.789Z</updated>
     
@@ -45,8 +45,8 @@
   
   <entry>
     <title>The Python Challenge Daily Record</title>
-    <link href="https://achuan-2.github.io/posts/c134.html"/>
-    <id>https://achuan-2.github.io/posts/c134.html</id>
+    <link href="https://achuan-2.top/posts/c134.html"/>
+    <id>https://achuan-2.top/posts/c134.html</id>
     <published>2020-11-14T03:18:09.000Z</published>
     <updated>2020-11-16T12:37:57.862Z</updated>
     
@@ -61,17 +61,17 @@
     
     
     
-    <category term="Python" scheme="https://achuan-2.github.io/categories/Python/"/>
+    <category term="Python" scheme="https://achuan-2.top/categories/Python/"/>
     
     
-    <category term="基本练习" scheme="https://achuan-2.github.io/tags/%E5%9F%BA%E6%9C%AC%E7%BB%83%E4%B9%A0/"/>
+    <category term="基本练习" scheme="https://achuan-2.top/tags/%E5%9F%BA%E6%9C%AC%E7%BB%83%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://achuan-2.github.io/posts/3eeb.html"/>
-    <id>https://achuan-2.github.io/posts/3eeb.html</id>
+    <link href="https://achuan-2.top/posts/3eeb.html"/>
+    <id>https://achuan-2.top/posts/3eeb.html</id>
     <published>2020-11-14T02:03:48.236Z</published>
     <updated>2020-11-15T04:39:02.850Z</updated>
     
