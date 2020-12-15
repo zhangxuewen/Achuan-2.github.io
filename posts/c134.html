@@ -1921,8 +1921,9 @@ cx<span class="token punctuation">,</span> cy <span class="token operator">=</sp
     draw<span class="token punctuation">.</span>point<span class="token punctuation">(</span><span class="token punctuation">[</span>cx<span class="token punctuation">,</span> cy<span class="token punctuation">]</span><span class="token punctuation">)</span>
 new<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <h2 id="level-23-2020-12-15"><a href="#level-23-2020-12-15" class="headerlink" title="level_23_2020.12.15"></a>level_23_2020.12.15</h2><blockquote>
-<p>额，之前为了考试周，于是拖了好久，然后就一直捡不起来了哇！剧刷腻了，b站搞笑视频也觉得不好玩了，就又回来写python了<br>希望之后可以一直坚持下去哇！！！！<br>解题思路：源代码里的’va gur snpr bs jung?’明显也是解码，title为”what is this module?“，结合后面的”it can’t find it. this is an undocumented module”，猜测为this模块（就是大名鼎鼎的The Zen of Python啦）！<br>方法1：可以尝试用ocr那题（level_1）的代码试试，依次检验26个偏移量能否得到一个有含义的句子</p>
+<p>额，之前为了考试周，于是拖了好久，然后就一直捡不起来了哇！剧刷腻了，b站搞笑视频也觉得不好玩了，就又回来写python了<br>希望之后可以一直坚持下去哇！！！！</p>
 </blockquote>
+<p>解题思路：源代码里的’va gur snpr bs jung?’明显也是解码，title为”what is this module?“，结合后面的”it can’t find it. this is an undocumented module”，猜测为this模块（就是大名鼎鼎的The Zen of Python啦）！<br>方法1：可以尝试用ocr那题（level_1）的代码试试，依次检验26个偏移量能否得到一个有含义的句子</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">ocr</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     text <span class="token operator">=</span> <span class="token string">'va gur snpr bs jung?'</span>
     <span class="token keyword">for</span> offset <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">26</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
