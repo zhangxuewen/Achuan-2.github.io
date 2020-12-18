@@ -472,21 +472,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-15
+                    2020-12-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    11.6k
+                    13.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    57 分
+                    65 分
                 </div>
                 
 
@@ -1989,6 +1989,164 @@ Gur Mra bs Clguba, ol Gvz Crgref</code></pre>
 <blockquote>
 <p>老实说,隔了这么久,不知道再继续玩python challenge还有没有必要哈,但是我好像确实没什么其他想到能做的事了(咸鱼一只),所以就脚踏实地吧,总要坚持一件事,我也相信前方或许会有意想不到的收获.不知道为什么,进入大三之后,整个人变得浮躁不堪,静不下心去踏实学东西,我觉得这样很糟!</p>
 </blockquote>
+<h2 id="level-24-maze-2020-12-16"><a href="#level-24-maze-2020-12-16" class="headerlink" title="level_24_maze_2020.12.16"></a>level_24_maze_2020.12.16</h2><p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/maze-2020-12-18.png" alt="maze">]<br>发现Vscode真的适合把图片放大到像素级<br><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201218190652-2020-12-18.png" alt="图片放大"><br><strong>思路</strong><br>  这一关真的好有趣呀，就是得先找到迷宫的entrance和exit，然后就需要使用数据结构的知识来走迷宫啦，我用的是栈深度搜索，队列就是广度搜索了吧，收集走迷宫的路径每个像素位置以及点的R通道值，然后转化为二进制数据，发现开头是PK，提示为压缩包，所以就将数据生成为压缩包，解压即得到下一关提示。<br><strong>学到</strong></p>
+<ul>
+<li>二进制开头b’PK’为压缩包</li>
+<li><code>ImageDraw.Draw</code>模块</li>
+<li>栈和队列复习</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
+<span class="token keyword">from</span> PIL <span class="token keyword">import</span> ImageDraw
+maze <span class="token operator">=</span> Image<span class="token punctuation">.</span>open<span class="token punctuation">(</span><span class="token string">"assets/maze.png"</span><span class="token punctuation">)</span>
+directions <span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># 方向</span>
+white <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span><span class="token number">255</span><span class="token punctuation">,</span><span class="token number">255</span><span class="token punctuation">,</span><span class="token number">255</span><span class="token punctuation">)</span>
+w<span class="token punctuation">,</span>h <span class="token operator">=</span> maze<span class="token punctuation">.</span>size
+
+next_map <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true"># 通过for i in range(w): print(maze.getpixel((i, 0)))可知入口的黑色像素位置</span>
+entrance <span class="token operator">=</span> <span class="token punctuation">(</span>w <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 通过 for i in range(w): print(maze.getpixel((i, h - 1)))可知出口位置</span>
+exit <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> h <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> 
+<span class="token comment" spellcheck="true"># stack代表的用栈来存储可能的路口</span>
+stack <span class="token operator">=</span> <span class="token punctuation">[</span>exit<span class="token punctuation">]</span>
+<span class="token keyword">while</span> stack<span class="token punctuation">:</span>
+    pos <span class="token operator">=</span> stack<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 当前位置</span>
+    <span class="token keyword">if</span> pos <span class="token operator">==</span> entrance<span class="token punctuation">:</span>
+        <span class="token keyword">break</span>
+    <span class="token keyword">for</span> d <span class="token keyword">in</span> directions<span class="token punctuation">:</span>
+        tmp <span class="token operator">=</span> <span class="token punctuation">(</span>pos<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> d<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> pos<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> d<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#tmp代表的是可能的下一个位置</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> tmp <span class="token keyword">in</span> next_map <span class="token operator">and</span> <span class="token number">0</span> <span class="token operator">&lt;=</span> tmp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> w <span class="token operator">and</span> <span class="token number">0</span> <span class="token operator">&lt;=</span> tmp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> h <span class="token operator">and</span> maze<span class="token punctuation">.</span>getpixel<span class="token punctuation">(</span>tmp<span class="token punctuation">)</span> <span class="token operator">!=</span> white<span class="token punctuation">:</span>
+            next_map<span class="token punctuation">[</span>tmp<span class="token punctuation">]</span> <span class="token operator">=</span> pos  <span class="token comment" spellcheck="true"># next_map放的是下一个位置←该位置的字典，但该程序会记录错误的路线而不会删除，虽然不影响回溯</span>
+            stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span>tmp<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 会把所有可能的路口都入栈</span>
+
+path <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+img <span class="token operator">=</span> Image<span class="token punctuation">.</span>new<span class="token punctuation">(</span><span class="token string">'RGBA'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">641</span><span class="token punctuation">,</span> <span class="token number">641</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span><span class="token number">255</span><span class="token punctuation">,</span><span class="token number">255</span><span class="token punctuation">,</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+draw <span class="token operator">=</span> ImageDraw<span class="token punctuation">.</span>Draw<span class="token punctuation">(</span>img<span class="token punctuation">)</span>
+<span class="token keyword">while</span> pos <span class="token operator">!=</span> exit<span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># pos 将从起点开始回溯</span>
+    path<span class="token punctuation">.</span>append<span class="token punctuation">(</span>maze<span class="token punctuation">.</span>getpixel<span class="token punctuation">(</span>pos<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 只输出第一个RGB值</span>
+    draw<span class="token punctuation">.</span>point<span class="token punctuation">(</span>pos<span class="token punctuation">,</span>maze<span class="token punctuation">.</span>getpixel<span class="token punctuation">(</span>pos<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    pos <span class="token operator">=</span> next_map<span class="token punctuation">[</span>pos<span class="token punctuation">]</span>
+
+img<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+img<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">'output/level_24_path.png'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># print(path)</span>
+<span class="token comment" spellcheck="true"># print(path[1::2])</span>
+<span class="token comment" spellcheck="true"># print(bytes(path[1::2]))</span>
+<span class="token comment" spellcheck="true"># open('output/level_24_maze.zip','wb').write(bytes(path))</span>
+open<span class="token punctuation">(</span><span class="token string">'output/level_24_maze.zip'</span><span class="token punctuation">,</span><span class="token string">'wb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>write<span class="token punctuation">(</span>bytes<span class="token punctuation">(</span>path<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># path[1::2]的原因只是因为R通道即红点都是至少都是间隔分布的</span>
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/level_24_path-2020-12-18.png" alt="level_24_path"><br><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201218190741-2020-12-18.png" alt="放大图片"></p>
+<h2 id="level-25-wave拼图-2020-12-17"><a href="#level-25-wave拼图-2020-12-17" class="headerlink" title="level_25_wave拼图_2020.12.17"></a>level_25_wave拼图_2020.12.17</h2><p>Link: <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/hex/lake.html">http://www.pythonchallenge.com/pc/hex/lake.html</a><br><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201218184825-2020-12-18.png" alt="关卡图"></p>
+<p><strong>思路：</strong><br>看到图片名是“lake1.jpg”，根据提示尝试获取“lake1.wav”，文件存在，猜测应该还有“lake2.wav”，“lake3.wav”，……于是构造一个网络爬虫<br>以音频方式打开文件，发现都是杂音，根据图片中拼图的提示，将每个音频转化一共图片，25个正好对应了关卡图中5*5拼图，然后把25个图片拼在一起，就得到结果啦<br><strong>学到：</strong></p>
+<ul>
+<li>python创建文件不会自动创建文件夹吗<ul>
+<li>是的，如果路径不存在，必须手动先创建，可以使用os.makedirs(path) <a target="_blank" rel="noopener" href="https://blog.csdn.net/Homewm/article/details/80766894">https://blog.csdn.net/Homewm/article/details/80766894</a></li>
+</ul>
+</li>
+<li>HTTPPasswordMgrWithDefaultRealm()类将创建一个密码管理对象，用来保存 HTTP 请求相关的用户名和密码，主要应用两个场景：<ul>
+<li>验证代理授权的用户名和密码 (ProxyBasicAuthHandler())</li>
+<li>验证Web客户端的的用户名和密码 (HTTPBasicAuthHandler())</li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weicao1990/article/details/80066655">https://blog.csdn.net/weicao1990/article/details/80066655</a></li>
+</ul>
+</li>
+<li><code>Image.frombytes</code>从二进制中创建，im.paste()粘贴图片上去</li>
+</ul>
+<p><strong>code</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request<span class="token punctuation">,</span> error
+<span class="token keyword">import</span> wave
+<span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
+<span class="token keyword">import</span> os
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"\033[31mLevel 25\033[0m"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 原来可以打印红色字欸</span>
+
+
+<span class="token keyword">def</span> <span class="token function">mkdir</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 创建文件夹函数</span>
+    folder <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>path<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token operator">not</span> folder<span class="token punctuation">:</span>
+        os<span class="token punctuation">.</span>makedirs<span class="token punctuation">(</span>path<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"---new folder {path}---"</span><span class="token punctuation">)</span>
+
+
+<span class="token comment" spellcheck="true"># 爬虫部分</span>
+<span class="token comment" spellcheck="true"># 1. 构建一个密码管理对象，用来保存需要处理的用户名和密码</span>
+password_mgr <span class="token operator">=</span> request<span class="token punctuation">.</span>HTTPPasswordMgrWithDefaultRealm<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 2. 添加账户信息，第一个参数realm是与远程服务器相关的域信息，一般没人管它都是写None，后面三个参数分别是 代理服务器、用户名、密码</span>
+password_mgr<span class="token punctuation">.</span>add_password<span class="token punctuation">(</span>
+    None<span class="token punctuation">,</span> <span class="token string">"http://www.pythonchallenge.com/"</span><span class="token punctuation">,</span> <span class="token string">"butter"</span><span class="token punctuation">,</span> <span class="token string">"fly"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 3. 构建一个HTTP基础用户名/密码验证的HTTPBasicAuthHandler处理器对象，参数是创建的密码管理对象</span>
+handler <span class="token operator">=</span> request<span class="token punctuation">.</span>HTTPBasicAuthHandler<span class="token punctuation">(</span>password_mgr<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># passowrd_mgr→handler，HTTPBasicAuthHandler基本的HTTP验证处理</span>
+
+<span class="token comment" spellcheck="true"># 4. 通过 build_opener()方法使用这些代理Handler对象，创建自定义opener对象，</span>
+opener <span class="token operator">=</span> request<span class="token punctuation">.</span>build_opener<span class="token punctuation">(</span>handler<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># handler→opener</span>
+mkdir<span class="token punctuation">(</span><span class="token string">"output/level_25"</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">26</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"Processing {i:2d}..."</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">'\t'</span><span class="token punctuation">)</span>
+    url <span class="token operator">=</span> f<span class="token string">"http://www.pythonchallenge.com/pc/hex/lake{i}.wav"</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        response <span class="token operator">=</span> opener<span class="token punctuation">.</span>open<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+    <span class="token keyword">except</span> error<span class="token punctuation">.</span>HTTPError<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"HTTP ERROR 404"</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">with</span> open<span class="token punctuation">(</span>f<span class="token string">"output/level_25/lake{i}.wav"</span><span class="token punctuation">,</span> <span class="token string">"wb"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> file<span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># 'wb'写入二进制文件</span>
+            data <span class="token operator">=</span> response<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            file<span class="token punctuation">.</span>write<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Successfully Saved."</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 一共25个wav文件</span>
+
+<span class="token comment" spellcheck="true">#创建图片 →把25个wav转成5*5的拼图块→合并图片</span>
+im <span class="token operator">=</span> Image<span class="token punctuation">.</span>new<span class="token punctuation">(</span><span class="token string">"RGB"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">,</span> <span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">)</span> 
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">26</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># wave.open()返回Wave_write对象</span>
+    <span class="token keyword">with</span> wave<span class="token punctuation">.</span>open<span class="token punctuation">(</span>f<span class="token string">"output/level_25/lake{i}.wav"</span><span class="token punctuation">,</span> <span class="token string">"rb"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> file<span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># getnframes()返回音频帧数</span>
+        <span class="token comment" spellcheck="true"># readframes(n)最多读取并返回n帧音频，作为字节对象。</span>
+        <span class="token comment" spellcheck="true"># file.readframes(file.getnframes())就是先读取一共几帧，然后把所有帧都输出成二进制</span>
+        data <span class="token operator">=</span> file<span class="token punctuation">.</span>readframes<span class="token punctuation">(</span>file<span class="token punctuation">.</span>getnframes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        block_im <span class="token operator">=</span> Image<span class="token punctuation">.</span>frombytes<span class="token punctuation">(</span><span class="token string">"RGB"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+        x<span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token punctuation">(</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">5</span> <span class="token operator">*</span> <span class="token number">60</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">//</span> <span class="token number">5</span> <span class="token operator">*</span> <span class="token number">60</span> <span class="token comment" spellcheck="true"># 超过5个就换下一行</span>
+        im<span class="token punctuation">.</span>paste<span class="token punctuation">(</span>block_im<span class="token punctuation">,</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">)</span>
+im<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">"output/level_25/result.jpg"</span><span class="token punctuation">)</span></code></pre>
+<h2 id="level-26-md5-2020-12-18"><a href="#level-26-md5-2020-12-18" class="headerlink" title="level_26_md5_2020.12.18"></a>level_26_md5_2020.12.18</h2><p>Link: <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/hex/decent.html">http://www.pythonchallenge.com/pc/hex/decent.html</a></p>
+<p><strong>思路：</strong><br>源码说已经得到邮箱了（我咋不知道），原来早在第19关网页的源代码就给了个邮箱，<a href="mailto:leopold.moz@pythonchallenge.com">leopold.moz@pythonchallenge.com</a>，然后发送，标题为Apologize，内容为Sorry的邮件，你就可以得到以下回复:</p>
+<blockquote>
+<p>Never mind that.</p>
+<p>Have you found my broken zip?</p>
+<p>md5: bbb8b499a0eef99b52c7f13f4e78c24b</p>
+<p>Can you believe what one mistake can lead to?</p>
+</blockquote>
+<p>意思就是说之前我们maze那关得到的压缩包不是除了图片还有一共压缩包吗？如果解压的话就会提示校验值错误，这个回复就是说压缩包的二进制数据有一个错误，要让咱一个个尝试，把它改对，用md5来校验文件是否修复好。（然而之前我用bzip不修复照样也解压出来了……有点尴尬,,ԾㅂԾ,,）<br>最后得到的图片显示”speed”,然后再结合Hurry up, I’m missing the boat,下一关网址就是”speedboat”</p>
+<p><strong>学到：</strong></p>
+<ul>
+<li>原来python终端可以打印出颜色呀，学到了<ul>
+<li>Python基础之控制台输出颜色 <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_33567641/article/details/82769523">https://blog.csdn.net/qq_33567641/article/details/82769523</a></li>
+</ul>
+</li>
+<li>切片是左闭右开，我又忘了</li>
+<li>对二进制的操作还是似懂非懂哇，有空专门学习下！</li>
+</ul>
+<p><strong>Code：</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> hashlib
+
+<span class="token keyword">def</span> <span class="token function">repair</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> pos <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> pos <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">:</span>
+            <span class="token keyword">break</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"Trying repairing the position {pos} ..."</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token punctuation">:</span>pos<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">256</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># try 0-255</span>
+            newData <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token punctuation">:</span>pos<span class="token punctuation">]</span> <span class="token operator">+</span> bytes<span class="token punctuation">(</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> data<span class="token punctuation">[</span>pos<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># 替换pos那个位置的值</span>
+            <span class="token keyword">if</span> hashlib<span class="token punctuation">.</span>md5<span class="token punctuation">(</span>newData<span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> md5code<span class="token punctuation">:</span>
+                open<span class="token punctuation">(</span><span class="token string">'output/level_26_repaired.zip'</span><span class="token punctuation">,</span><span class="token string">'wb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>write<span class="token punctuation">(</span>newData<span class="token punctuation">)</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"\033[1;31m Zip have been repaired！\033[0m"</span><span class="token punctuation">)</span>
+                <span class="token keyword">return</span>
+
+
+md5code <span class="token operator">=</span> <span class="token string">"bbb8b499a0eef99b52c7f13f4e78c24b"</span>
+data <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">'assets/mybroken.zip'</span><span class="token punctuation">,</span><span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+repair<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="level-27-2020-12-19"><a href="#level-27-2020-12-19" class="headerlink" title="level_27_2020.12.19"></a>level_27_2020.12.19</h2><p>Link: <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/hex/speedboat.html">http://www.pythonchallenge.com/pc/hex/speedboat.html</a></p>
 
             </div>
             <hr/>
@@ -2585,7 +2743,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">12.2k</span>&nbsp;字
+                class="white-color">13.8k</span>&nbsp;字
             
             
             
