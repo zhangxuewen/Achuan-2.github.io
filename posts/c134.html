@@ -1858,7 +1858,8 @@ result <span class="token operator">=</span> <span class="token string">""</span
       ###          ###      ##          ##          ##########  ##      ##</code></pre>
 <h2 id="level-22-2020-11-17"><a href="#level-22-2020-11-17" class="headerlink" title="level_22_2020.11.17"></a>level_22_2020.11.17</h2><p><a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/hex/copper.html">http://www.pythonchallenge.com/pc/hex/copper.html</a></p>
 <p><img src="https://pic4.zhimg.com/80/v2-d85ac1b3c4e471f8dc8f6cd22cbafdbe.png" alt="leverl_22"></p>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>查看源代码提示下载文件“white.gif”<a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/hex/white.gif">http://www.pythonchallenge.com/pc/hex/white.gif</a></p>
+<p><strong>Solution</strong></p>
+<p>查看源代码提示下载文件“white.gif”<a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/hex/white.gif">http://www.pythonchallenge.com/pc/hex/white.gif</a></p>
 <p>发现每一帧都是黑的，但每一帧都有一个像素点不是纯黑的 RGB != (0,0,0)，且该像素都在中心点(100,100)附近，再由游戏摇杆得到启发。举例来说，详见下表</p>
 <table>
 <thead>
@@ -1898,8 +1899,9 @@ result <span class="token operator">=</span> <span class="token string">""</span
 <ul>
 <li>gif. n_frame返回所有关键帧</li>
 <li>gif.seek()在给定的文件序列中查找指定的帧。如果查找超越了序列的末尾，则产生一个EOFError异常。当文件序列被打开时，PIL库自动指定到第0帧上。</li>
-<li>gif.tell()返回当前帧<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3></li>
+<li>gif.tell()返回当前帧</li>
 </ul>
+<p><strong>Code</strong></p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image<span class="token punctuation">,</span> ImageDraw
 
 gif <span class="token operator">=</span> Image<span class="token punctuation">.</span>open<span class="token punctuation">(</span><span class="token string">"assets/white.gif"</span><span class="token punctuation">)</span>
