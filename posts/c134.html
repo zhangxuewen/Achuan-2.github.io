@@ -440,8 +440,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%9F%BA%E6%9C%AC%E7%BB%83%E4%B9%A0/">
-                                <span class="chip bg-color">基本练习</span>
+                            <a href="/tags/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">编程学习</span>
                             </a>
                         
                     </div>
@@ -472,21 +472,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-18
+                    2020-12-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    13.2k
+                    13.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    65 分
+                    68 分
                 </div>
                 
 
@@ -2148,7 +2148,57 @@ md5code <span class="token operator">=</span> <span class="token string">"bbb8b4
 data <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">'assets/mybroken.zip'</span><span class="token punctuation">,</span><span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
 repair<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
 </code></pre>
-<h2 id="level-27-2020-12-19"><a href="#level-27-2020-12-19" class="headerlink" title="level_27_2020.12.19"></a>level_27_2020.12.19</h2><p>Link: <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/hex/speedboat.html">http://www.pythonchallenge.com/pc/hex/speedboat.html</a></p>
+<h2 id="level-27-between-the-tables-2020-12-19"><a href="#level-27-between-the-tables-2020-12-19" class="headerlink" title="level_27_between the tables_2020.12.19"></a>level_27_between the tables_2020.12.19</h2><p>Link: <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/hex/speedboat.html">http://www.pythonchallenge.com/pc/hex/speedboat.html</a></p>
+<p><strong>思路</strong><br>点击图片就能直接进入下一关，然而不知账号密码。<br>这一关涉及到图像色板、映射、常见但依旧不了解的二进制数据处理还有keyword模块<br>也没啥思路了，毕竟是copy别人的代码嘛！</p>
+<p><strong>学到</strong></p>
+<ul>
+<li>im.getpalette()以列表形式返回图像调色板，putpalette给对象加上调色板，相当于上色,然而暂时不懂调色板是什么东东</li>
+<li>im.tobytes()，把图片转化为二进制</li>
+<li><code>maketrans(A,B)</code>和<code>newData = data.translate()</code>明明很早接触了，然而还是不熟悉</li>
+<li>filter和lambda的用法<code>diff = list(filter(lambda p: p[0] != p[1], zipped))</code></li>
+<li>index的复数形式是indices（滑稽）</li>
+</ul>
+<p><strong>Code</strong></p>
+<p>建立二进制索引和色板, 映射到图片字节流数据<br>什么，你问我为什么要这样做？不知道……，毕竟这一关的标题就是between the tables，毕竟别人是这样解题的。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> keyword
+<span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
+<span class="token keyword">import</span> bz2
+
+im <span class="token operator">=</span> Image<span class="token punctuation">.</span>open<span class="token punctuation">(</span><span class="token string">'assets/zigzag.gif'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># im.getpalette()以列表形式返回图像调色板，getpalette（）获取图片对应的调色板；putpalette给对象加上调色板，相当于上色</span>
+<span class="token comment" spellcheck="true"># [37, 229, 162, 136, 59, 212, 9, 41, 24, 156, 148, 112, 254, 91,..]</span>
+palette <span class="token operator">=</span> im<span class="token punctuation">.</span>getpalette<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># print(palette)</span>
+len<span class="token punctuation">(</span>palette<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#256</span>
+
+<span class="token comment" spellcheck="true"># 建立二进制索引和色板, 映射到图片字节流数据</span>
+table <span class="token operator">=</span> bytes<span class="token punctuation">.</span>maketrans<span class="token punctuation">(</span>bytes<span class="token punctuation">(</span><span class="token punctuation">[</span>i <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">256</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>bytes<span class="token punctuation">(</span>palette<span class="token punctuation">)</span><span class="token punctuation">)</span>
+raw <span class="token operator">=</span> im<span class="token punctuation">.</span>tobytes<span class="token punctuation">(</span><span class="token punctuation">)</span>
+trans <span class="token operator">=</span> raw<span class="token punctuation">.</span>translate<span class="token punctuation">(</span>table<span class="token punctuation">)</span></code></pre>
+<p>比较raw和trans数据，发现除去raw的第一个和tran的最后一个，大致数据差不多</p>
+<pre class=" language-python"><code class="language-python"> <span class="token keyword">print</span><span class="token punctuation">(</span>raw<span class="token punctuation">)</span>
+ <span class="token keyword">print</span>（trans<span class="token punctuation">)</span></code></pre>
+<p>所以下一步就是把不一样的数据过滤出来</p>
+<pre class=" language-python"><code class="language-python">zipped <span class="token operator">=</span> list<span class="token punctuation">(</span>zip<span class="token punctuation">(</span>raw<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">,</span>trans<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+diff <span class="token operator">=</span> list<span class="token punctuation">(</span>filter<span class="token punctuation">(</span><span class="token keyword">lambda</span> p<span class="token punctuation">:</span> p<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">!=</span>p<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> zipped<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 这里用来匿名函数+filter过滤</span>
+indices <span class="token operator">=</span> <span class="token punctuation">[</span>i <span class="token keyword">for</span> i<span class="token punctuation">,</span> p <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>zipped<span class="token punctuation">)</span> <span class="token keyword">if</span> p<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">!=</span> p<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># indices是index的复数形式</span></code></pre>
+<p>处理diff数据，转化为text</p>
+<pre class=" language-python"><code class="language-python">s<span class="token operator">=</span><span class="token punctuation">[</span>t<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">for</span> t <span class="token keyword">in</span> diff<span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># t[1]即trans的数据则没有提示</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>bytes<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 熟悉的bz开头</span>
+text <span class="token operator">=</span> bz2<span class="token punctuation">.</span>decompress<span class="token punctuation">(</span>bytes<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#解码成文本</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#发现是有一堆python关键字</span></code></pre>
+<p>新建一个白底的图像，利用之前数据不一样的索引，把该位置都改为黑色</p>
+<pre class=" language-python"><code class="language-python">im2 <span class="token operator">=</span> Image<span class="token punctuation">.</span>new<span class="token punctuation">(</span><span class="token string">'RGB'</span><span class="token punctuation">,</span> im<span class="token punctuation">.</span>size<span class="token punctuation">)</span>
+colors <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token operator">*</span>len<span class="token punctuation">(</span>raw<span class="token punctuation">)</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> indices<span class="token punctuation">:</span>
+    colors<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+im2<span class="token punctuation">.</span>putdata<span class="token punctuation">(</span>colors<span class="token punctuation">)</span></code></pre>
+<p>竟然能得到一张图，提示not keyword，就是说我们要把text里不是keyword的词给提取出来<br><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201219151302-2020-12-19.png" alt="not keyword的提示"></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> keyword
+<span class="token keyword">print</span><span class="token punctuation">(</span>set<span class="token punctuation">(</span><span class="token punctuation">[</span>w <span class="token keyword">for</span> w <span class="token keyword">in</span> text<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token operator">not</span> keyword<span class="token punctuation">.</span>iskeyword<span class="token punctuation">(</span>w<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>最终得到</p>
+<pre class=" language-python"><code class="language-python"><span class="token punctuation">{</span>b<span class="token string">'print'</span><span class="token punctuation">,</span> b<span class="token string">'../ring/bell.html'</span><span class="token punctuation">,</span> b<span class="token string">'repeat'</span><span class="token punctuation">,</span> b<span class="token string">'exec'</span><span class="token punctuation">,</span> b<span class="token string">'switch'</span><span class="token punctuation">}</span></code></pre>
+<p>值得注意的是，“print”和“exec”在Python2中式关键字，在Python3中变成了函数，所以没有被去掉。<br>经过尝试，bell.html网页的用户名为repeat，密码为switch。<br>Over！ </p>
 
             </div>
             <hr/>
@@ -2162,8 +2212,8 @@ repair<span class="token punctuation">(</span>data<span class="token punctuation
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%9F%BA%E6%9C%AC%E7%BB%83%E4%B9%A0/">
-                                    <span class="chip bg-color">基本练习</span>
+                                <a href="/tags/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">编程学习</span>
                                 </a>
                             
                         </div>
@@ -2745,7 +2795,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">13.8k</span>&nbsp;字
+                class="white-color">14.5k</span>&nbsp;字
             
             
             
