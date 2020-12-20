@@ -472,21 +472,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-19
+                    2020-12-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    13.9k
+                    14.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    68 分
+                    69 分
                 </div>
                 
 
@@ -2199,6 +2199,31 @@ im2<span class="token punctuation">.</span>putdata<span class="token punctuation
 <p>最终得到</p>
 <pre class=" language-python"><code class="language-python"><span class="token punctuation">{</span>b<span class="token string">'print'</span><span class="token punctuation">,</span> b<span class="token string">'../ring/bell.html'</span><span class="token punctuation">,</span> b<span class="token string">'repeat'</span><span class="token punctuation">,</span> b<span class="token string">'exec'</span><span class="token punctuation">,</span> b<span class="token string">'switch'</span><span class="token punctuation">}</span></code></pre>
 <p>值得注意的是，“print”和“exec”在Python2中式关键字，在Python3中变成了函数，所以没有被去掉。<br>经过尝试，bell.html网页的用户名为repeat，密码为switch。<br>Over！ </p>
+<h2 id="level-28-many-pairs-ring-ring-2020-12-20"><a href="#level-28-many-pairs-ring-ring-2020-12-20" class="headerlink" title="level_28_many pairs ring-ring_2020.12.20"></a>level_28_many pairs ring-ring_2020.12.20</h2><p><strong>思路</strong><br>本关考察对图片和字节流的处理能力。提示让我们大声说“RING-RING-RING”，是指“RING”谐音“GREEN”，就是指RGB的绿色通道。我们需要将绿色通道的数据两两配对，每组作差取绝对值，例如 green = [55, 97, 73, 115, 120, 78, ……]，操作后的结果是 diff = [42, 42, 42, ……]。查看列表diff的值，发现几乎都是“42”，去掉数值“42”，剩下的数值转成字符构成一条语句：<br>whodunnit().split()[0] ?<br>whodunnit直译是侦探小说,但明显不是这个意思,结合本关的谐音,可以知道是who done it的谐音,再结合<code>.split()[0] </code>可以知道是问python之父是谁<br>当然是那个死胖子,Guido啦,哈哈哈哈<br><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201220133143-2020-12-20.png" alt="Guido van Rossum"></p>
+<p><strong>学到</strong></p>
+<ul>
+<li><code>list(im.split()[1].getdata())</code> 获得green像素值列表</li>
+<li><code>abs(a-b)for a, b in zip(green[0::2], green[1::2])</code> 列表的前一个减后一个</li>
+<li>filter+lambda过滤列表</li>
+</ul>
+<p><strong>Code</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
+
+im <span class="token operator">=</span> Image<span class="token punctuation">.</span>open<span class="token punctuation">(</span><span class="token string">'assets/bell.png'</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># ring-ring的谐音是green,所以提取green值</span>
+green <span class="token operator">=</span> list<span class="token punctuation">(</span>im<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>getdata<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 发现green前一个和后一个几乎都是差42,有猫腻</span>
+diff <span class="token operator">=</span> <span class="token punctuation">[</span>abs<span class="token punctuation">(</span>a<span class="token operator">-</span>b<span class="token punctuation">)</span><span class="token keyword">for</span> a<span class="token punctuation">,</span> b <span class="token keyword">in</span> zip<span class="token punctuation">(</span>green<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> green<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># print(diff)</span>
+
+<span class="token comment" spellcheck="true"># 把42过滤掉</span>
+filtered <span class="token operator">=</span> list<span class="token punctuation">(</span>filter<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x <span class="token operator">!=</span> <span class="token number">42</span><span class="token punctuation">,</span> diff<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 过滤后的数据转化为二进制并解码</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>bytes<span class="token punctuation">(</span>filtered<span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># whodunnit().split()[0] ?</span>
+</code></pre>
 
             </div>
             <hr/>
@@ -2795,7 +2820,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">14.5k</span>&nbsp;字
+                class="white-color">14.8k</span>&nbsp;字
             
             
             
