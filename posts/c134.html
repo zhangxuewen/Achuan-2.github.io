@@ -29,9 +29,9 @@
 
     <script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="风渡巛" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.2.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="风渡巛" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -472,21 +472,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-21
+                    2020-12-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    14.6k
+                    15k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    71 分
+                    72 分
                 </div>
                 
 
@@ -2229,7 +2229,6 @@ filtered <span class="token operator">=</span> list<span class="token punctuatio
 <li>网页Authorization这个始终记不住……</li>
 <li>splitlines()直接切割行，把内容转化为列表</li>
 <li>列表转bytes，直接bytes(list),bytes转列表 list（bytes）</li>
-<li></li>
 </ul>
 <p><strong>Code</strong><br>解题</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib<span class="token punctuation">.</span>request <span class="token keyword">import</span> Request<span class="token punctuation">,</span> urlopen
@@ -2249,20 +2248,60 @@ data <span class="token operator">=</span> bytes<span class="token punctuation">
 <p>我们也从作者的角度来反推这个谜题是怎么做出来的<br>加密我们想说的话</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> bz2
 
-message <span class="token operator">=</span> b<span class="token string">"Merry Christmas"</span> <span class="token comment" spellcheck="true"># 这得二进制</span>
+message <span class="token operator">=</span> b<span class="token string">""</span> <span class="token comment" spellcheck="true"># 这得二进制</span>
 compressed <span class="token operator">=</span> bz2<span class="token punctuation">.</span>compress<span class="token punctuation">(</span>message<span class="token punctuation">)</span>
 num_list <span class="token operator">=</span> list<span class="token punctuation">(</span>compressed<span class="token punctuation">)</span>
 <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"level_29_silence.txt"</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> file<span class="token punctuation">:</span>
     <span class="token keyword">for</span> num <span class="token keyword">in</span> num_list<span class="token punctuation">:</span>
         file<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">' '</span> <span class="token operator">*</span> num <span class="token operator">+</span> <span class="token string">'\n'</span><span class="token punctuation">)</span></code></pre>
-<p>解密</p>
+<p>解密,<br>哈哈，毕竟圣诞节到了嘛，不过这个silent.txt发给女生估计会被打！</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"level_29_silence.txt"</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> file<span class="token punctuation">:</span>
     raw <span class="token operator">=</span> file<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>splitlines<span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token comment" spellcheck="true"># print(raw)</span>
 <span class="token comment" spellcheck="true"># 数13行之后每行的长度，并转化为二进制</span>
 data <span class="token operator">=</span> bytes<span class="token punctuation">(</span><span class="token punctuation">[</span>len<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> raw<span class="token punctuation">]</span><span class="token punctuation">)</span>
 <span class="token comment" spellcheck="true"># 解压二进制</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>bz2<span class="token punctuation">.</span>decompress<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<span class="token keyword">print</span><span class="token punctuation">(</span>bz2<span class="token punctuation">.</span>decompress<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># Merry Christmas</span></code></pre>
+<h2 id="level-30-图片翻转质数之积-2020-12-22"><a href="#level-30-图片翻转质数之积-2020-12-22" class="headerlink" title="level_30_图片翻转质数之积_2020.12.22"></a>level_30_图片翻转质数之积_2020.12.22</h2><p><strong>思路</strong><br>根据提示，下载“yankeedoodle.csv”，里面是一堆浮点数<br>还以为原来的行列可能有玄机，谁知道是直接数多少个数，然后发现可以拆分为两个质数的积，7367 = 53*139， 构造一个53*139的图片，得到一个带公式的图片<code>n = str(x[i])[5] + str(x[i+1])[5] + str(x[i+2])[6]</code>，就按照这个公式来处理csv得到的数据，最终得到“look at grandpa”的提示，剩下的信息别想太多，确实没用</p>
+<p><strong>学到</strong></p>
+<ul>
+<li>图片左右翻转 <code>img.transpose(Image.FLIP_LEFT_RIGHT)</code></li>
+<li>图片旋转 <code>img.transpose(Image.ROTATE_90)</code></li>
+<li>大概懂了<code>img.putdata</code>的意思</li>
+<li>感觉学来学去，一直都在学图像处理呀！！！哈哈哈哈哈哈</li>
+<li>不知道为什么VSCode现在写markdown卡的要死……一回车就卡死</li>
+</ul>
+<p><strong>Code</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
+
+<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'assets/yankeedoodle.csv'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 处理成列表</span>
+    data <span class="token operator">=</span> <span class="token punctuation">[</span>x<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+    <span class="token comment" spellcheck="true"># 计算列表长度</span>
+    length <span class="token operator">=</span> len<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>length<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 7367</span>
+
+factor <span class="token operator">=</span> <span class="token punctuation">[</span>x <span class="token keyword">for</span> x <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> length<span class="token punctuation">)</span> <span class="token keyword">if</span> length <span class="token operator">%</span> x <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>factor<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 计算这个length的因子为53*139</span>
+
+img <span class="token operator">=</span> Image<span class="token punctuation">.</span>new<span class="token punctuation">(</span><span class="token string">"F"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">53</span><span class="token punctuation">,</span> <span class="token number">139</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+img<span class="token punctuation">.</span>putdata<span class="token punctuation">(</span><span class="token punctuation">[</span>float<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> data<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">256</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 左右翻转</span>
+img <span class="token operator">=</span> img<span class="token punctuation">.</span>transpose<span class="token punctuation">(</span>Image<span class="token punctuation">.</span>FLIP_LEFT_RIGHT<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 顺时针旋转90度</span>
+img <span class="token operator">=</span> img<span class="token punctuation">.</span>transpose<span class="token punctuation">(</span>Image<span class="token punctuation">.</span>ROTATE_90<span class="token punctuation">)</span>
+img<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 根据图片给的hint</span>
+a <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span>
+b <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span>
+c <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span>
+res <span class="token operator">=</span> bytes<span class="token punctuation">(</span><span class="token punctuation">[</span>int<span class="token punctuation">(</span>x1<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token operator">+</span> x2<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token operator">+</span> x3<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">for</span> x1<span class="token punctuation">,</span> x2<span class="token punctuation">,</span> x3 <span class="token keyword">in</span> zip<span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span></code></pre>
+<p>得到的图片<br><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201222110626-2020-12-22.png" alt="formula"><br>最终输出结果</p>
+<pre><code>b'So, you found the hidden message.\nThere is lots of room here for a long message, but we only need very little space to say "look at grandpa", so the rest is just garbage. \nVTZ.l\'\x7ftf*Om@I"p]</code></pre>
 
             </div>
             <hr/>
@@ -2859,7 +2898,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">15.2k</span>&nbsp;字
+                class="white-color">15.6k</span>&nbsp;字
             
             
             
