@@ -2304,7 +2304,7 @@ res <span class="token operator">=</span> bytes<span class="token punctuation">(
 <pre><code>b'So, you found the hidden message.\nThere is lots of room here for a long message, but we only need very little space to say "look at grandpa", so the rest is just garbage. \nVTZ.l\'\x7ftf*Om@I"p]</code></pre>
 <h2 id="level-31-Mandelbrot-set-2020-12-23"><a href="#level-31-Mandelbrot-set-2020-12-23" class="headerlink" title="level_31_Mandelbrot set_2020.12.23"></a>level_31_Mandelbrot set_2020.12.23</h2><p><strong>思路</strong><br>点击图片进入下一关,需要用户名和密码,用户名是“kohsamui”，密码是“thailand”，进入第二部分。<br>第二部分的图片名词为mandelbrot,而图片的雪花本身就是曼德博集合.</p>
 <p>注意到网页源代码的window和option标签，我们需要构造一个复平面，宽度对应x轴，高度对应y轴，范围由window标签给出。<br>left=“0.34” top=“0.57” width=“0.036” height=“0.027”<br>w = 640px —— x轴 范围 [left, left+width] = [0.34, 0.376]<br>h = 480px —— y轴 范围 [top, top+height] = [0.57, 0.597]</p>
-<p>对于每个像素点,根据比例计算其在复平面的坐标(x,y) ,记复数c=x+yi,从z0=0开始迭代,迭代公式为zi+1=zi**2+c,c=x+yi,<br>记Mandelbrot集为M,根据定理,若复数c ∈ M  ，则|zi| &lt; 2, ∀ i ∈ N<br>迭代次数由option标签给出，最多128次，若迭代完128次，其模仍小于2，则该点的颜色值为127，若|zi|&lt;2&gt; and|zi+1|&gt;=2, 则该点颜色为i.(对应图片的palette表)<br>然后将得到的list绘制图片比较两张图的像素差异,把不同的像素点提取出来,最后转化成黑白的图片,图片为阿雷西博信息,所以答案为“arecibo ”</p>
+<p>对于每个像素点,根据比例计算其在复平面的坐标(x,y) ,记复数c=x+yi,从z0=0开始迭代,迭代公式为zi+1=zi**2+c,c=x+yi,<br>记Mandelbrot集为M,根据定理,若复数c ∈ M  ，则|zi| &lt; 2, ∀ i ∈ N<br>迭代次数由option标签给出，最多128次，若迭代完128次，其模仍小于2，则该点的颜色值为127，若|zi|&lt;2 and|zi+1|&gt;=2, 则该点颜色为i，对应图片的palette表<br>然后将得到的list绘制图片比较两张图的像素差异,把不同的像素点提取出来,最后转化成黑白的图片,图片为阿雷西博信息,所以答案为“arecibo ”</p>
 <p><strong>学到</strong></p>
 <ul>
 <li>复习图像模式,P-8bit-使用调色板映射到其他任何模式,L-8bit-黑白…对,我又忘记了(,,ԾㅂԾ,,)</li>
@@ -2379,6 +2379,7 @@ im2<span class="token punctuation">.</span>putdata<span class="token punctuation
 im2<span class="token punctuation">.</span>resize<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">230</span><span class="token punctuation">,</span> <span class="token number">730</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
 im2<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">"output/level_31/result.jpg"</span><span class="token punctuation">)</span>
 </code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/mandelbrot_2-2020-12-23.gif" alt="mandelbrot"><br><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/result-2020-12-23.jpg" alt="Arecibo message"></p>
 
             </div>
             <hr/>
