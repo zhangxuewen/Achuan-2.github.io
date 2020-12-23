@@ -472,21 +472,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-22
+                    2020-12-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    15k
+                    16.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    72 分
+                    77 分
                 </div>
                 
 
@@ -2302,6 +2302,82 @@ res <span class="token operator">=</span> bytes<span class="token punctuation">(
 <span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span></code></pre>
 <p>得到的图片<br><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201222110626-2020-12-22.png" alt="formula"><br>最终输出结果</p>
 <pre><code>b'So, you found the hidden message.\nThere is lots of room here for a long message, but we only need very little space to say "look at grandpa", so the rest is just garbage. \nVTZ.l\'\x7ftf*Om@I"p]</code></pre>
+<h2 id="level-31-Mandelbrot-set-2020-12-23"><a href="#level-31-Mandelbrot-set-2020-12-23" class="headerlink" title="level_31_Mandelbrot set_2020.12.23"></a>level_31_Mandelbrot set_2020.12.23</h2><p><strong>思路</strong><br>点击图片进入下一关,需要用户名和密码,用户名是“kohsamui”，密码是“thailand”，进入第二部分。<br>第二部分的图片名词为mandelbrot,而图片的雪花本身就是曼德博集合.</p>
+<p>注意到网页源代码的window和option标签，我们需要构造一个复平面，宽度对应x轴，高度对应y轴，范围由window标签给出。<br>left=“0.34” top=“0.57” width=“0.036” height=“0.027”<br>w = 640px —— x轴 范围 [left, left+width] = [0.34, 0.376]<br>h = 480px —— y轴 范围 [top, top+height] = [0.57, 0.597]</p>
+<p>对于每个像素点,根据比例计算其在复平面的坐标(x,y) ,记复数c=x+yi,从z0=0开始迭代,迭代公式为zi+1=zi**2+c,c=x+yi,<br>记Mandelbrot集为M,根据定理,若复数c ∈ M  ，则|zi| &lt; 2, ∀ i ∈ N<br>迭代次数由option标签给出，最多128次，若迭代完128次，其模仍小于2，则该点的颜色值为127，若|zi|&lt;2&gt; and|zi+1|&gt;=2, 则该点颜色为i.(对应图片的palette表)<br>然后将得到的list绘制图片比较两张图的像素差异,把不同的像素点提取出来,最后转化成黑白的图片,图片为阿雷西博信息,所以答案为“arecibo ”</p>
+<p><strong>学到</strong></p>
+<ul>
+<li>复习图像模式,P-8bit-使用调色板映射到其他任何模式,L-8bit-黑白…对,我又忘记了(,,ԾㅂԾ,,)</li>
+<li>感觉对getpalette(),putpalete()的理解加深了,返回的列表其实是[r, g, b, r, g, b…],三个一个RGB排列下去,P模式，才具有调色板属性,RGB模式getpixel((x,y))是RGB值,而P模式getpixel((x,y))是一个值,即索引,大小范围在0~255之间<br>调色板就是来减少存储空间使用量的,它存储着256种不同的调色方案<br>以下代码将会打印出图像img的调色板情况，按照256个配色方案*3个通道值的格式排列：<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>img<span class="token punctuation">.</span>getpalette<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">256</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+使用了调色盘的图像将会被单通道存储，每个像素位置的值是调色盘“表”中的索引，这在存储图像的时候空间要求从RGB的<strong>3</strong>个字节变成了<strong>1</strong>个字节。达到减小空间的目的.<br>但是,因为表中有限的配色方案数量（256），能使用的颜色也是有限制的，这也是P格式图像的一个缺点。<br>  <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/334057386/answer/774192372">python中的pil库中的p模式是干什么用的？</a><br>  <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40005329/article/details/103481553">Python PIL 图像处理中模式为”P”的含义以及与”RGB”之间的转换</a></li>
+<li>图像的原点是在左上角吧,X轴是从左到右增长的，而Y轴是从上到下增长,所以例如本题构造result图片时因为提前确定好高度和宽度,1679个值从上放到下</li>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%9B%BC%E5%BE%B7%E5%8D%9A%E9%9B%86%E5%90%88">曼德勃罗集（Mandelbrot Set）</a>,<a target="_blank" rel="noopener" href="https://www.dogedoge.com/results?q=python+mandelbrot&amp;lang=auto">Python绘制Mandelbrot</a></li>
+<li>原来python中for也有else呀,<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/37076998">如何在Python中使用break跳出多层循环？</a></li>
+</ul>
+<p><strong>Code</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
+<span class="token keyword">import</span> os
+
+
+<span class="token keyword">def</span> <span class="token function">mkdir</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 创建文件夹函数</span>
+    folder <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>path<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token operator">not</span> folder<span class="token punctuation">:</span>
+        os<span class="token punctuation">.</span>makedirs<span class="token punctuation">(</span>path<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"---new folder {path}---"</span><span class="token punctuation">)</span>
+
+
+mkdir<span class="token punctuation">(</span><span class="token string">"output/level_31"</span><span class="token punctuation">)</span>
+im0 <span class="token operator">=</span> Image<span class="token punctuation">.</span>open<span class="token punctuation">(</span><span class="token string">'assets/mandelbrot.gif'</span><span class="token punctuation">)</span>
+w<span class="token punctuation">,</span> h <span class="token operator">=</span> im0<span class="token punctuation">.</span>size  <span class="token comment" spellcheck="true"># 640, 480</span>
+im1 <span class="token operator">=</span> Image<span class="token punctuation">.</span>new<span class="token punctuation">(</span><span class="token string">'P'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>w<span class="token punctuation">,</span> h<span class="token punctuation">)</span><span class="token punctuation">)</span>
+im1<span class="token punctuation">.</span>putpalette<span class="token punctuation">(</span>im0<span class="token punctuation">.</span>getpalette<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+left<span class="token punctuation">,</span> top<span class="token punctuation">,</span> width<span class="token punctuation">,</span> height <span class="token operator">=</span> <span class="token number">0.34</span><span class="token punctuation">,</span> <span class="token number">0.57</span><span class="token punctuation">,</span> <span class="token number">0.036</span><span class="token punctuation">,</span> <span class="token number">0.027</span>
+
+
+<span class="token comment" spellcheck="true"># 曼德勃罗集（Mandelbrot Set）</span>
+<span class="token comment" spellcheck="true"># ! 构造复平面</span>
+<span class="token comment" spellcheck="true"># left=“0.34” top=“0.57” width=“0.036” height=“0.027”</span>
+<span class="token comment" spellcheck="true"># w = 640px —— x轴 范围 [left, left+width] = [0.34, 0.376]</span>
+<span class="token comment" spellcheck="true"># h = 480px —— y轴 范围 [top, top+height] = [0.57, 0.597]</span>
+<span class="token comment" spellcheck="true"># 复平面坐标(x,y)</span>
+<span class="token keyword">for</span> x <span class="token keyword">in</span> range<span class="token punctuation">(</span>w<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> y <span class="token keyword">in</span> range<span class="token punctuation">(</span>h<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 从左上角开始遍历</span>
+        z <span class="token operator">=</span> complex<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># z0 = 0</span>
+        <span class="token comment" spellcheck="true"># c = x + yi</span>
+        c <span class="token operator">=</span> complex<span class="token punctuation">(</span>left <span class="token operator">+</span> x <span class="token operator">*</span> width <span class="token operator">/</span> <span class="token number">640</span><span class="token punctuation">,</span> top <span class="token operator">+</span> <span class="token punctuation">(</span>h<span class="token number">-1</span><span class="token operator">-</span>y<span class="token punctuation">)</span> <span class="token operator">*</span> height <span class="token operator">/</span> <span class="token number">480</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 进行迭代 ,迭代次数 &lt;option iterations="128"/></span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">128</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            z <span class="token operator">=</span> z<span class="token operator">**</span><span class="token number">2</span> <span class="token operator">+</span> c  <span class="token comment" spellcheck="true"># zi = zi-1**2 + c</span>
+            <span class="token comment" spellcheck="true"># 若复数c ∈ M  ，则|zi| &lt; 2, ∀ i ∈ N </span>
+            <span class="token keyword">if</span> abs<span class="token punctuation">(</span>z<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">2</span><span class="token punctuation">:</span>
+                im1<span class="token punctuation">.</span>putpixel<span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">,</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+                <span class="token keyword">break</span>
+        <span class="token comment" spellcheck="true"># 128次迭代完, 其模仍小于2，则该点的颜色值为127</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>  
+            <span class="token comment" spellcheck="true"># ! 不只是if有，while和for都有else分支:循环体的else分支触发条件是循环正常结束。如果循环内被break跳出，就不执行else。</span>
+            im1<span class="token punctuation">.</span>putpixel<span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">127</span><span class="token punctuation">)</span>
+im1<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">"output/level_31/mandelbrot_2.gif"</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 比较两张图的差别,得到diff列表</span>
+data0 <span class="token operator">=</span> list<span class="token punctuation">(</span>im0<span class="token punctuation">.</span>getdata<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+data1 <span class="token operator">=</span> list<span class="token punctuation">(</span>im1<span class="token punctuation">.</span>getdata<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 如果p0&lt;p1,则取0即黑色,如果p0>p1,则取255,即白色</span>
+diff <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">255</span> <span class="token operator">*</span> <span class="token punctuation">(</span>p0 <span class="token operator">&lt;</span> p1<span class="token punctuation">)</span> <span class="token keyword">for</span> p0<span class="token punctuation">,</span> p1 <span class="token keyword">in</span> zip<span class="token punctuation">(</span>data0<span class="token punctuation">,</span> data1<span class="token punctuation">)</span> <span class="token keyword">if</span> p0 <span class="token operator">!=</span> p1<span class="token punctuation">]</span>
+len <span class="token operator">=</span> len<span class="token punctuation">(</span>diff<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>diff<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"length: {len}"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 1679</span>
+factors <span class="token operator">=</span> <span class="token punctuation">[</span>f <span class="token keyword">for</span> f <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> len<span class="token punctuation">)</span> <span class="token keyword">if</span> len <span class="token operator">%</span> f <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>factors<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># [23,73]</span>
+
+<span class="token comment" spellcheck="true"># 输出</span>
+im2 <span class="token operator">=</span> Image<span class="token punctuation">.</span>new<span class="token punctuation">(</span><span class="token string">"L"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">23</span><span class="token punctuation">,</span> <span class="token number">73</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+im2<span class="token punctuation">.</span>putdata<span class="token punctuation">(</span>diff<span class="token punctuation">)</span>
+im2<span class="token punctuation">.</span>resize<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">230</span><span class="token punctuation">,</span> <span class="token number">730</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+im2<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">"output/level_31/result.jpg"</span><span class="token punctuation">)</span>
+</code></pre>
 
             </div>
             <hr/>
@@ -2898,7 +2974,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">15.6k</span>&nbsp;字
+                class="white-color">16.7k</span>&nbsp;字
             
             
             
