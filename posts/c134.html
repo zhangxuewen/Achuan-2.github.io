@@ -472,21 +472,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-24
+                    2020-12-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    17.2k
+                    17.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    83 分
+                    86 分
                 </div>
                 
 
@@ -2380,7 +2380,7 @@ im2<span class="token punctuation">.</span>resize<span class="token punctuation"
 im2<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">"output/level_31/result.jpg"</span><span class="token punctuation">)</span>
 </code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/mandelbrot_2-2020-12-23.gif" alt="mandelbrot"><br><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/result-2020-12-23.jpg" alt="Arecibo message"></p>
-<h2 id="level-32-刻印-2020-12-24"><a href="#level-32-刻印-2020-12-24" class="headerlink" title="level_32_刻印_2020.12.24"></a>level_32_刻印_2020.12.24</h2><p><strong>思路</strong><br>啊，没有思路，完全不知道这是啥，等以后补吧<br>学习<br>见识到复杂的代码，觉得自己毫无长进吧</p>
+<h2 id="level-32-刻印-2020-12-24"><a href="#level-32-刻印-2020-12-24" class="headerlink" title="level_32_刻印_2020.12.24"></a>level_32_刻印_2020.12.24</h2><p><strong>思路</strong><br>啊，没有思路，完全不知道这是啥，等以后补吧<br>学习<br>见识到复杂的代码，觉得自己毫无长进吧<br><strong>学到</strong><br><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Nonogram">Nonogram</a>,一种类似于数独的游戏，每一行每一列的数字来填格子，行列都符合的图案就是要求的答案</p>
 <p><strong>代码</strong></p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
 <span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
@@ -2539,7 +2539,7 @@ ans_points<span class="token punctuation">[</span>ans_points <span class="token 
 im <span class="token operator">=</span> Image<span class="token punctuation">.</span>fromarray<span class="token punctuation">(</span>ans_points<span class="token punctuation">.</span>astype<span class="token punctuation">(</span>np<span class="token punctuation">.</span>uint8<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"L"</span><span class="token punctuation">)</span>
 im<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token comment" spellcheck="true"># im.save("level_32/python.jpg")</span></code></pre>
-<p><strong>OutPut</strong></p>
+<p><strong>OutPut</strong><br><a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/rock/warmup.txt">warmup.txt</a></p>
 <pre><code>██×.█×.██
 █×.███××█
 ×.█████××
@@ -2550,6 +2550,7 @@ im<span class="token punctuation">.</span>show<span class="token punctuation">(<
 ██×███×██
 ██×███×██
 </code></pre>
+<p><a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/rock/up.txt">up.text</a></p>
 <pre><code>...................███×██×......
 ..................████████×.....
 .................██████████×....
@@ -2583,6 +2584,55 @@ im<span class="token punctuation">.</span>show<span class="token punctuation">(<
 ×××××××××××××××××××█████××××××××
 </code></pre>
 <p>输入“python.html”到下一页面，直接搜索下面那段话 “Free” as in “Free speech”, not as in “free…<br>了解到“Free as in beer”指免费软件，“Free as in speech”指开源软件，答案就是“beer”。</p>
+<h2 id="level-33-remove-light-2020-12-25"><a href="#level-33-remove-light-2020-12-25" class="headerlink" title="level_33_remove light_2020.12.25"></a>level_33_remove light_2020.12.25</h2><p><strong>思路</strong><br>不明白为什么32关那么难,33关又正常了…小小吐槽一下<br>这一关就是根据网页提示得到beer2.png图片,保存到本地,打开,发现图片是138*138的正方形<br>之前的网页源代码提示,”如果你被光蒙蔽了双眼，用它的力量移除它的力量。然后在灰烬中，另一个真相将向你光明正大地展示。”<br>额,这句话真有哲理<br>总之,是之后用im.getdata()查看图片的灰度值,找到最大的两个数c0,c1,把等于c0,c1的数都变为255(白色),把小于的数都变成0(黑色),然后再删除等于c0和c1的数,得到的列表长度依然是一个平方数,之后需要重复操作33次,得到33张图片,发现33张图片里几张被方框括起来了,按顺序拼接,于是答案就为”gremlins”<br><strong>学习</strong></p>
+<ul>
+<li>最后一关的输出我用了红色和绿色来美化输出哦,还回想起了<code>center(10,'*')</code></li>
+<li>numpy可能要学习一下<ul>
+<li> <code>data_np = np.array(data_list, dtype=np.uint8).reshape(n, n)</code>把列表搞成n*n的矩阵</li>
+<li> <code>data_np[data_np &gt;= max_2] = 255</code>可以直接把矩阵里大于某个数的值重新赋值</li>
+</ul>
+</li>
+</ul>
+<p><strong>Code</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
+<span class="token keyword">import</span> math
+<span class="token keyword">import</span> os
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> heapq
+
+
+<span class="token keyword">def</span> <span class="token function">mkdir</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 创建文件夹函数</span>
+    folder <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>path<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token operator">not</span> folder<span class="token punctuation">:</span>
+        os<span class="token punctuation">.</span>makedirs<span class="token punctuation">(</span>path<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"---new folder {path} created---"</span><span class="token punctuation">)</span>
+
+
+mkdir<span class="token punctuation">(</span><span class="token string">'output/level_33'</span><span class="token punctuation">)</span>
+im <span class="token operator">=</span> Image<span class="token punctuation">.</span>open<span class="token punctuation">(</span><span class="token string">'assets/beer2.png'</span><span class="token punctuation">)</span>
+data_list <span class="token operator">=</span> list<span class="token punctuation">(</span>im<span class="token punctuation">.</span>getdata<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">33</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">'\033[31m开始处理第{i+1}张图片\033[0m'</span><span class="token punctuation">)</span>
+    max_number <span class="token operator">=</span> heapq<span class="token punctuation">.</span>nlargest<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> set<span class="token punctuation">(</span>data_list<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"data中最大的两个数：{max_number}"</span><span class="token punctuation">)</span>
+    max_2 <span class="token operator">=</span> max_number<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+    length <span class="token operator">=</span> len<span class="token punctuation">(</span>data_list<span class="token punctuation">)</span>
+    n <span class="token operator">=</span> int<span class="token punctuation">(</span>math<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span>len<span class="token punctuation">(</span>data_list<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">'列表总长度：{length}'</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">'图片大小:{n}*{n}'</span><span class="token punctuation">)</span>
+    data_np <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>data_list<span class="token punctuation">,</span> dtype<span class="token operator">=</span>np<span class="token punctuation">.</span>uint8<span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span>n<span class="token punctuation">,</span> n<span class="token punctuation">)</span>
+    data_np<span class="token punctuation">[</span>data_np <span class="token operator">>=</span> max_2<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">255</span>
+    data_np<span class="token punctuation">[</span>data_np <span class="token operator">&lt;</span> max_2<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+    data_list <span class="token operator">=</span> <span class="token punctuation">[</span>x <span class="token keyword">for</span> x <span class="token keyword">in</span> data_list <span class="token keyword">if</span> x <span class="token operator">&lt;</span> max_2<span class="token punctuation">]</span>
+    im1 <span class="token operator">=</span> Image<span class="token punctuation">.</span>new<span class="token punctuation">(</span><span class="token string">'L'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>n<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    im <span class="token operator">=</span> Image<span class="token punctuation">.</span>fromarray<span class="token punctuation">(</span>data_np<span class="token punctuation">,</span> <span class="token string">"L"</span><span class="token punctuation">)</span>
+    im<span class="token punctuation">.</span>save<span class="token punctuation">(</span>f<span class="token string">'output/level_33/{i+1}.png'</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">'\033[32m第{i+1}张图片成功保存至本地\033[0m'</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p><strong>输出</strong><br><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201225110813-2020-12-25.png" alt="生成的33张图"></p>
+<p>撒花完结!!!!<br><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201225111138-2020-12-25.png"></p>
 
             </div>
             <hr/>
@@ -3179,7 +3229,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">17.7k</span>&nbsp;字
+                class="white-color">18.3k</span>&nbsp;字
             
             
             
