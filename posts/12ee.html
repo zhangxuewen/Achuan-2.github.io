@@ -1,0 +1,1722 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="【生信资源与实践】第六次上机-Protein Domain&amp;Enrichment Analysis, Python Bioinformatics 宅男 书呆子 自言自语">
+    <meta name="description" content="一条没有故事的巛">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>【生信资源与实践】第六次上机-Protein Domain&amp;Enrichment Analysis | 风渡巛</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="风渡巛" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/artitalk/artitalk.min.css">
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    <div>
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                        
+                        <span class="logo-span">风渡巛</span>
+                    </div>
+
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/artitalk" class="waves-effect waves-light">
+      
+      <i class="fas fa-envelope" style="zoom: 0.6;"></i>
+      
+      <span>碎语</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">风渡巛</div>
+        <div class="logo-desc">
+            
+            一条没有故事的巛
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/artitalk" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-envelope"></i>
+			
+			Artitalk
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/Achuan-2/Achuan-2.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/Achuan-2/Achuan-2.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/medias/featureimages/19.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">【生信资源与实践】第六次上机-Protein Domain&amp;Enrichment Analysis</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0/">
+                                <span class="chip bg-color">基础练习</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF/" class="post-category">
+                                生物信息
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-12-25
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-12-25
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    19 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="一、熟悉UniProt"><a href="#一、熟悉UniProt" class="headerlink" title="一、熟悉UniProt"></a>一、熟悉UniProt</h2><p>地址：<a target="_blank" rel="noopener" href="http://www.uniprot.org/">http://www.uniprot.org/</a></p>
+<p>Uniprot （Universal Protein ）是包含蛋白质序列，功能信息，研究论文索引的蛋白质数据库，整合了包括EBI（ European Bioinformatics Institute），SIB（the Swiss Institute of Bioinformatics），PIR（Protein Information Resource）三大数据库的资源。</p>
+<blockquote>
+<p>EBI（ European Bioinformatics Institute）：欧洲生物信息学研究所（EMBL-EBI）是欧洲生命科学旗舰实验室EMBL的一部分。位于英国剑桥欣克斯顿的惠康基因组校园内，是世界上基因组学领域最强的地带之一。</p>
+<p>SIB（the Swiss Institute of Bioinformatics）：瑞士日内瓦的SIB维护着ExPASy（专家蛋白质分析系统）服务器，这里包含有蛋白质组学工具和数据库的主要资源。</p>
+<p>PIR（Protein Information Resource）：PIR由美国国家生物医学研究基金会（NBRF）于1984年成立，旨在协助研究人员识别和解释蛋白质序列信息。</p>
+</blockquote>
+<p><strong>UniProt 主要数据库</strong></p>
+<table>
+<thead>
+<tr>
+<th>数据库名</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UniProtKB/Swiss-Prot</td>
+<td>高质量的、手工注释的、非冗余的数据库</td>
+</tr>
+<tr>
+<td>UniProtKB/TrEMBL</td>
+<td>自动翻译蛋白质序列，预测序列，未验证的数据库</td>
+</tr>
+<tr>
+<td>UniParc</td>
+<td>非冗余蛋白质序列数据库</td>
+</tr>
+<tr>
+<td>UniRef</td>
+<td>聚类序列减小数据库，加快搜索的速度</td>
+</tr>
+<tr>
+<td>Proteomes</td>
+<td>为全测序基因组物种提供蛋白质组信息</td>
+</tr>
+</tbody></table>
+<ul>
+<li> Swiss-Prot是一个蛋白质数据库，其中收录的数据是完全人工注释的蛋白数据，诸如蛋白质的功能等信息都是经过了科学家验证的，有60个数据库的交叉引用信息；</li>
+<li>TrEMBL则是Swiss-Prot的补充，意味Translation of EMBL，从EMBL的cDNA序列翻译而来，相比于Swiss-Prot数据库，TrEMBL收录的是未经人工注释的编码DNA序列翻译数据、人造蛋白序列、专利序列、T细胞受体家族、免疫球蛋白家族蛋白序列，还有小于8个氨基酸的多肽等。</li>
+</ul>
+<p>几个数据库的关系如下：</p>
+<p><img src="https://i.loli.net/2020/12/25/ELxVFkcb1dOD9YS.png"></p>
+<h3 id="1-1-获得Uniprot数据统计"><a href="#1-1-获得Uniprot数据统计" class="headerlink" title="1.1 获得Uniprot数据统计"></a>1.1 获得Uniprot数据统计</h3><p>两个数据库的数据统计：Swiss-Prot(563552) vs TrEMBL(195104019)</p>
+<img src="https://i.loli.net/2020/12/25/CHG8Mnm5OjkvgEU.png" style="zoom:50%;">
+
+<p>每个物种的序列数目统计, 可以直接看到人类的蛋白质序列有192814个</p>
+<img src="https://i.loli.net/2020/12/25/Q4EXh98wAzvHBTS.png" style="zoom:50%;">
+
+<h3 id="1-2-UniRef"><a href="#1-2-UniRef" class="headerlink" title="1.2 UniRef"></a>1.2 UniRef</h3><p><a target="_blank" rel="noopener" href="https://www.uniprot.org/help/uniref">UniRef (uniprot.org)</a></p>
+<p>UniRef（UniProt参考资料库）对来自UniProtKB的各种数据包括各种剪接变异体进行了分类汇总，还从UniParc中选取了一些数据以求能完整的、没有遗漏的收录所有数据，同时也保证没有冗余数据。可以通过序列同一性对最相近的序列进行合并，加快搜索速度。</p>
+<p>UniRef100序列来自任何生物体的11个或更多残基的相同序列和序列片段合并到一个UniRef条目中，用于显示代表性蛋白质的序列。 使用 MMseqs2 算法对UniRef100序列进行聚类，并构建UniRef90，再从UniRef90构建UniRef50。</p>
+<p>UniRef90和UniRef50的数据库大小分别减少了约58%和79%，序列相似度搜索速度显著加快。</p>
+<p>点击<kbd>Download</kbd>可以下载所选择序列的format文件</p>
+<img src="https://i.loli.net/2020/12/25/C68dYtwfz1RElTg.png" style="zoom:50%;">
+
+<h3 id="1-3-UniProt-Proteomes"><a href="#1-3-UniProt-Proteomes" class="headerlink" title="1.3  UniProt Proteomes"></a>1.3  UniProt Proteomes</h3><p>蛋白质组是由生物体表达的所有蛋白质。UniProt为具有完全测序基因组的物种提供蛋白质组方面的信息。</p>
+<img src="https://i.loli.net/2020/12/25/BvQqZPfC18oeXHp.png" style="zoom: 33%;">
+
+<h3 id="1-4-了解UniProt注释信息"><a href="#1-4-了解UniProt注释信息" class="headerlink" title="1.4 了解UniProt注释信息"></a>1.4 了解UniProt注释信息</h3><ul>
+<li>Search “atpase AND human”进入<a target="_blank" rel="noopener" href="https://www.uniprot.org/uniprot/P00846">P00846</a>查看UniProt的所有注释信息</li>
+</ul>
+<p>蛋白全称：ATP synthase subunit a</p>
+<p>Gene：MT-ATP6</p>
+<p>Function： 详细的说明了这个蛋白质的功能，线粒体膜ATP合酶，具有质子跨膜转运活性，在呼吸作用过程中通过电子传递链释放的能量先转换为跨膜质子(H+)梯差，之后质子流顺质子梯差通过ATP合酶可以使ADP+Pi合成ATP。</p>
+<p>Names &amp; Taxonomy：可以更详细知道蛋白质和基因别名，所属的物种和蛋白组，还展示了该蛋白和编码基因在EuPathDB、HGNC、MIM、neXtPtot数据库的ID和链接</p>
+<p>Subcellular location：提供蛋白质亚细胞定位的信息物种以及该物种的分类学谱系等。</p>
+<p>Pathology &amp; Biotech：病理学与生物技术，提供蛋白质突变或缺失导致的疾病及表型信息。</p>
+<p>PTM / Processing：提供蛋白质翻译后修饰或翻译后加工的相关信息。</p>
+<p>Expression：提供了基因在 mRNA 水平上的表达信息、蛋白质水平上 的表达信息</p>
+<p>Interaction：提供了蛋白质之间相互作用的信息。</p>
+<p>Structure：提供蛋白质二级结构和三级结构信息，但该蛋白无此项，因为只有那些已通过实验方法测定三级结构并且已提交到蛋白质结构数据库 PDB 的蛋白质才有结构注释。）</p>
+<p>Family &amp; Domains：提供蛋白质家族及结构域信息。</p>
+<p>Sequence：提供蛋白质氨基酸序列信息。含有多个异构体的蛋白质会显示多条序列。</p>
+<p>Similar Proteins：在 UniRef 数据库里找到与该蛋白质在序列水平上相似的其他蛋白质，并按相似度高低分组。</p>
+<p>Cross-references：列出了所有通往其他含有该蛋白质信息的数据库的链接。</p>
+<p>Entry information：提供有关这条数据库记录的录入信息，外加一个免责声明。</p>
+<p>Miscellaneous：杂项，包含任何无法归入前几项的内容。</p>
+<img src="https://i.loli.net/2020/12/25/DTfzJHCFXcKQwtn.png" style="zoom:33%;">
+
+
+
+<h2 id="二、熟悉Pfam，InterPro"><a href="#二、熟悉Pfam，InterPro" class="headerlink" title="二、熟悉Pfam，InterPro"></a>二、熟悉Pfam，InterPro</h2><h3 id="2-1-熟悉Pfam和InterPro数据库内容，了解其异同，查看Pfam中domain的HMM-model文件"><a href="#2-1-熟悉Pfam和InterPro数据库内容，了解其异同，查看Pfam中domain的HMM-model文件" class="headerlink" title="2.1 熟悉Pfam和InterPro数据库内容，了解其异同，查看Pfam中domain的HMM  model文件"></a>2.1 熟悉Pfam和InterPro数据库内容，了解其异同，查看Pfam中domain的HMM  model文件</h3><h4 id="2-1-1-Pfam"><a href="#2-1-1-Pfam" class="headerlink" title="2.1.1 Pfam"></a>2.1.1 Pfam</h4><p> Pfam提供蛋白质家族和结构域的完整准确的分类，被广泛用于查询蛋白家族或蛋白结构域的注释，结构及其多序列比对信息。在该数据库中，每个蛋白家族由多个序列比对和HMMs（hidden Markovmodels，隐马尔可夫模型）所体现。是欧洲生物信息研究所（EMBL-EBI）旗下的数据库。</p>
+<p>①<strong>Pfam将蛋白质家族被分为质量高低的两类</strong>：Pfam-A和Pfam-B。</p>
+<ol>
+<li><p> Pfam-A来自基础序列数据库Pfamseq，是根据最新的UniProtKB数据库建立，质量较高</p>
+</li>
+<li><p> Pfam-B做为Pfam-A的补充，是一个未注释的低质量数据库，一般是由ADDA数据中的非冗余cluster自动生成的。虽然质量较低，但对于鉴定Pfam-A无法覆盖到的功能保守区域也是非常有用的。</p>
+</li>
+</ol>
+<p>②<strong>pfam数据库常用的三种功能：</strong></p>
+<ol>
+<li>SEQUENCE SEARCH</li>
+</ol>
+<p>如果你有一条蛋白质序列，想知道这条蛋白质序列上有哪些结构域，可以用这个入口快速找到结构域信息：点击-&gt;SEQUENCE SEARCH-&gt;输入序列-&gt;GO</p>
+<ol start="2">
+<li>KEYWORD SEARCH</li>
+</ol>
+<p>如果你知道你要研究的基因家族相关功能关键字，或者名称等等信息，想知道在pfam数据库当中，是否存在这个家族的pfam号。这时候可以使用keyword search这个功能，快速找到pfam数据库中是否有收录这个家族的的pfam号，然后就可以下载hmm模型文件，查看motif等信息，用于后续研究。</p>
+<ol start="3">
+<li>JUMP TO</li>
+</ol>
+<p>当你通过读文献阅读，知道某个家族的Pfam号的时候，就可以通过这个功能，快速的找到相应家族的信息。</p>
+<p>③<strong>Pfam的搜索结果内容</strong></p>
+<p>1）Family：蛋白家族名称；</p>
+<p>2）Description：蛋白家族描述；</p>
+<p>3）Entry type：类型；</p>
+<p>4）Clan：宗族（根据序列，结构，功能和HMM比较的相似度将多个蛋白家族整合为宗族），2005年首次将Clan引入Pfam；</p>
+<p>5）Envelope (From To)：比对到的蛋白序列（the region on the sequence over which the match lies）；</p>
+<p>6）Alignment（Start End）：高置信度的比对蛋白序列（the region over which the alignment confidence is high）；</p>
+<p>7）HMM （From To）：比对到结构域区域；</p>
+<p>8）HMM length：Pfam结构域的长度；</p>
+<p>9）Bit Score：比对打分；</p>
+<p>10）E-value：比对的E值(pfam结构域筛选阈值为: E-value &lt; 0.001)；</p>
+<p>11）Predicted active sites：预测的活性位点。</p>
+<p>点击show/hide alignment会显示</p>
+<p>#HMM: 与查询序列相同的残基显示为浅蓝色，与查询序列类似标记为深蓝色；</p>
+<p>#PP：每个氨基酸残基位点比对的后验概率（posterior probability），PP越高表示在HMM图谱中该位点比对的置信度越高；</p>
+<p>#SEQ：蛋白序列标记原则同#HMM。   </p>
+<p><strong>④</strong>从Pfam中下载HMMmodel</p>
+<p>使用keyword search，例如搜索ATPase，然后选择一条ID，查看Alignment，选择Format an alignment，下载Stockholm文件，之后可以使用HMMbuild软件建立HMM模型；</p>
+<img src="https://i.loli.net/2020/12/25/9BnQliespGLg1fC.png" style="zoom: 33%;">
+
+<img src="https://i.loli.net/2020/12/25/goCwsMQRe7YnbZN.png" style="zoom: 67%;">
+
+<h4 id="2-1-2-InterPro"><a href="#2-1-2-InterPro" class="headerlink" title="2.1.2 InterPro"></a>2.1.2 InterPro</h4><p>InterPro Quick tour <a target="_blank" rel="noopener" href="https://www.ebi.ac.uk/training-beta/online/courses/interpro-quick-tour/what-is-interpro/">https://www.ebi.ac.uk/training-beta/online/courses/interpro-quick-tour/what-is-interpro/</a></p>
+<p> InterPro Documentation <a target="_blank" rel="noopener" href="https://interpro-documentation.readthedocs.io/en/latest/index.html">https://interpro-documentation.readthedocs.io/en/latest/index.html</a></p>
+<p>通过整合多个蛋白相关数据库，提供了一个方便的对蛋白序列进行功能注释的平台，包括对蛋白质家族、结构域、功能位点的预测. </p>
+<p>为了将蛋白分类，InterPro使用先验模型，整合了不同的数据库形成一个整体, interoro 在整合多个数据库的同时，去掉了冗余，提供了一个统一的接口，用来对序列进行功能注释；而且还提供了interproscan 这样的命令行工具，可以方便的对大规模的蛋白序列进行注释</p>
+<p><img src="https://i.loli.net/2020/12/25/flXC7Brb5JogE6i.png"></p>
+<p>Unintegrated代表的来自不是Interpro成员数据库的预测,但可能可以提供其他信息的domain</p>
+<h4 id="2-1-3-Pfam和InterPro的异同"><a href="#2-1-3-Pfam和InterPro的异同" class="headerlink" title="2.1.3 Pfam和InterPro的异同"></a>2.1.3 Pfam和InterPro的异同</h4><p>同:</p>
+<p>​    这两个都是蛋白质数据库，包含大量的蛋白质结构域和家族数据,都可以对蛋白质进行功能域预测</p>
+<p>异:</p>
+<ul>
+<li>InterPro有13个成员数据库，每个数据库都使用不同的方法对蛋白质进行分类,其中包括Pfam, 因此Interpro可以查询到更多注释</li>
+<li>InterPro可以提供Go Term</li>
+</ul>
+<h3 id="2-2-从UniProt下载1条bZIP的蛋白质序列分别在上述两者网站上预测功能结构域"><a href="#2-2-从UniProt下载1条bZIP的蛋白质序列分别在上述两者网站上预测功能结构域" class="headerlink" title="2.2 从UniProt下载1条bZIP的蛋白质序列分别在上述两者网站上预测功能结构域"></a>2.2 从UniProt下载1条bZIP的蛋白质序列分别在上述两者网站上预测功能结构域</h3><p>在UniProt键入搜索bZIP, 选择<a target="_blank" rel="noopener" href="https://www.uniprot.org/uniprot/Q6ZLB0">Q6ZLB0</a>,其fasta序列如下</p>
+<pre><code>&gt;sp|Q6ZLB0|RSBZ1_ORYSJ bZIP transcription factor RISBZ1 OS=Oryza sativa subsp. japonica OX=39947 GN=RISBZ1 PE=1 SV=1
+MEHVFAVDEIPDPLWAPPPPVQPAAAAGVDDVGAVSGGGLLERCPSGWNLERFLEELDGV
+PAPAASPDGAAIYPSPMPAAAAEAAARWSRGYGDREAVGVMPMPAAALPAAPASAAMDPV
+EYNAMLKRKLDEDLATVAMWRASGAIHSESPLGNKTSLSIVGSILSSQKCIEGNGILVQT
+KLSPGPNGGSGPYVNQNTDAHAKQATSGSSREPSPSEDDDMEGDAEAMGNMILDEEDKVK
+KRKESNRESARRSRSRKAARLKDLEEQVSLLRVENSSLLRRLADANQKYSAAAIDNRVLM
+ADIEALRAKVRMAEESVKMVTGARQLHQAIPDMQSPLNVNSDASVPIQNNNPMNYFSNAN
+NAGVNSFMHQVSPAFQIVDSVEKIDPTDPVQLQQQQMASLQHLQNRACGGGASSNEYTAW
+GSSLMDANELVNMELQ</code></pre>
+<p><strong>在Pfam预测功能结构域</strong></p>
+<p><img src="https://i.loli.net/2020/12/25/aNPuCqwHVRWEADL.png"></p>
+<p><strong>InterPro</strong></p>
+<img src="https://i.loli.net/2020/12/25/SEfr46pYRok8qWg.png" style="zoom: 33%;">
+
+<img src="https://i.loli.net/2020/12/25/hsQUtyOwelLknY9.png" style="zoom:33%;">
+
+<h3 id="2-3-Linux下使用HMMER软件预测多个protein序列的domain，解析结果文件。"><a href="#2-3-Linux下使用HMMER软件预测多个protein序列的domain，解析结果文件。" class="headerlink" title="2.3 Linux下使用HMMER软件预测多个protein序列的domain，解析结果文件。"></a>2.3 Linux下使用HMMER软件预测多个protein序列的domain，解析结果文件。</h3><p>下载服务器的/tmp/目录下E2F.fas.txt和PF02319.hmm, 查看PF02319.hmm文件，这是该E2F domain的隐马尔科夫模型的表征文件</p>
+<p>•查看HMMER软件有哪些程序<a target="_blank" rel="noopener" href="https://www.msi.umn.edu/sw/hmmerphmmer">https://www.msi.umn.edu/sw/hmmerphmmer</a></p>
+<table>
+<thead>
+<tr>
+<th>programs</th>
+<th>functions</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>phmmer</td>
+<td>根据序列数据库搜索序列</td>
+</tr>
+<tr>
+<td>jackhmmer</td>
+<td>根据序列数据库迭代搜索序列</td>
+</tr>
+<tr>
+<td>hmmbuild</td>
+<td>从输入多重对齐构建一个profile HMM</td>
+</tr>
+<tr>
+<td>hmmsearch</td>
+<td>将输入的HMM模型与蛋白质序列进行比对，返回与HMM模型比对成功的序列</td>
+</tr>
+<tr>
+<td>hmmscan</td>
+<td>用序列在profile HMM数据库搜索</td>
+</tr>
+<tr>
+<td>hmmalign</td>
+<td>将多个序列与 common profile HMM进行多重比对</td>
+</tr>
+<tr>
+<td>hmmconvert</td>
+<td>Convert profile formats to/from HMMER3 format.</td>
+</tr>
+<tr>
+<td>hmmemit</td>
+<td>从profile HMM生成序列</td>
+</tr>
+<tr>
+<td>hmmfetch</td>
+<td>从HMM数据库中按名称或序列号获取一个profile HMM</td>
+</tr>
+<tr>
+<td>hmmpress</td>
+<td>将HMM数据库格式化为hmmscan的二进制格式</td>
+</tr>
+<tr>
+<td>hmmstat</td>
+<td>显示HMM数据库中每个概要文件的摘要统计信息</td>
+</tr>
+</tbody></table>
+<p>•使用HMMER软件预测E2F.fas.txt中哪些序列的哪些片段含有该PF02319 domain. </p>
+<p>hmmscan和hmmsearch有何不同？分别使用</p>
+<ol>
+<li>hmmsearch</li>
+</ol>
+<pre class=" language-bash"><code class="language-bash"> hmmsearch PF02319.hmm E2F.fas.txt <span class="token operator">></span>hmmsearch.out</code></pre>
+<p>使用<code>cat -n hmmsearch.out </code> 查看输出序列</p>
+<p>hmmsearch将输入的HMM模型与蛋白质序列进行比对，返回与HMM模型比对成功的序列，一次query就包含所有符合的序列分析结果</p>
+<p>.hmmout文件大体上可以分为三部分：开头的注释，中间的比对统计信息和后面详细的序列注释信息</p>
+<img src="https://i.loli.net/2020/12/25/Ldf5ZI1HyrDQmvb.png" style="zoom: 33%;">
+
+<ol start="2">
+<li>hmmscan </li>
+</ol>
+<pre class=" language-bash"><code class="language-bash"> hmmpress PF02319.hmm
+ hmmscan PF02319.hmm E2F.fas.txt <span class="token operator">></span> hmmscan.hmm.out</code></pre>
+<p>hmmscan将输入的蛋白质序列与HMM结构域库进行比对，返回每个蛋白质包含的结构域，一次query只返回一条序列结果。<strong>使用前要首先要对HMM数据库进行格式化（包括压缩以及创建索引）</strong></p>
+<img src="https://i.loli.net/2020/12/25/HLKkB7jPy9aGu2c.png" style="zoom: 33%;">
+
+<p>最后，从上面可得，ENSP00000262904 位置178到243、 ENSP00000355249位置129到194、 ENSP00000345571位置127到192片段这个片段含有PF02319 domain。</p>
+<p>•使用linux或perl提取出hmm生成的结果文件中每个protein含有的domain位置和E-value</p>
+<p>从上面的hmmsearch生成的out文件分析可知，第17-19行是数据分析结果，所以可以用sed命令提取这三行</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sed</span> -n \17,19\ p hmmsearch.out</code></pre>
+<pre><code>-n选项会很严肃地警告sed 命令：除非是明确表明要输出的行，否则不要给我胡乱输出！
+-n选项经常和 p 配合使用，其含义就是，输出那些匹配的行。</code></pre>
+<p>但是这三行并不包括domain位置，所以还得另想法子。观察输出文件每条序列都有‘&gt;&gt;’符号，而底下3行便是匹配的详细信息，所以便以此为模式识别，来输出序列，本想使用sed，却发现grep简单的多</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">grep</span> -A 3 <span class="token string">'^>>'</span>  hmmsearch.out</code></pre>
+<pre><code>grep -A 3 打印匹配行的后3行
+grep -B 3 打印匹配行的后3行
+grep -C 3 打印匹配行的前后3行</code></pre>
+<p><img src="https://i.loli.net/2020/12/25/SY72AZJkgn9dwM6.png"></p>
+<h2 id="三、熟悉Gene-Ontology（GO）"><a href="#三、熟悉Gene-Ontology（GO）" class="headerlink" title="三、熟悉Gene Ontology（GO）"></a>三、熟悉Gene Ontology（GO）</h2><p>•<a target="_blank" rel="noopener" href="http://geneontology.org/">http://geneontology.org/</a></p>
+<p>本体论（Ontology ）是探究世界的本原或基质的哲学理论 。Gene Ontology（GO），为了达成对各种数据库中基因产物功能描述相一致而提出的项目。参与合作的数据库会使用GO的定义方法，对它们所包含的基因产物进行注解，并且提供支持这种注解的参考和证据。</p>
+<p>GO主要分为三个主要领域：</p>
+<ol>
+<li><p> 分子功能 molecular function（简称 MF）记录基因产物的分子功能</p>
+</li>
+<li><p>细胞组成 cellular component （简称CC）指基因产物位于何种细胞器或基因产物组中(如糙面内质网，核糖体，蛋白酶体等)，即基因产物在什么地方起作用。</p>
+</li>
+<li><p> 生物过程 biological process（简称BP）记录由多个基因产物构成的通路和生化过程</p>
+</li>
+</ol>
+<p>GO的基本单位是term（词条、节点），每个term都对应一个属性。</p>
+<p>每个基因或基因产物都会有一个列表，列出与之相关的GO术语。每个数据库都会给出这些基因产物和GO术语的联系数据库，并 且也可以在GO的ftp站点上和WEB方式查询到。</p>
+<p>常见的GO浏览器</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://amigo.geneontology.org/amigo">AmiGO from BDGP</a>。在 AmiGO中，可以通过查询一个GO术语而得到所有具有这个注释的基因产物，或查询一个基因产物而得到它所有的注释关系。还可以浏览本体论，得到术语之间的关系和术语对应的基因产物数目。AmiGO直接连接GO下的MySQL。</li>
+<li>QuickGO at EBI。整合在EBI下的InterPro中，可以通过查询一个GO术语而得到它的定义与关系描述、在SWISS-PROT中的定位、在酶分类学（EC）和转运分类学（TC）中的定位和InterPro中的定位等。</li>
+</ul>
+<h3 id="3-1-search-ATPase，了解含有ATPase的GO-term和gene"><a href="#3-1-search-ATPase，了解含有ATPase的GO-term和gene" class="headerlink" title="3.1 search ATPase，了解含有ATPase的GO term和gene"></a>3.1 search ATPase，了解含有ATPase的GO term和gene</h3><p> Ontology：可以对涉及到ATPase的所有Go Tems进行查询和筛选</p>
+<p>Genes and gene products：提供了与ATPase有关的基因和基因产物</p>
+<p>Annotations：将Go terms和基因产物表合并，对涉及到基因和基因产物进行Go注释</p>
+<img src="https://i.loli.net/2020/12/25/tMwbCYAdBr8KLIx.png" style="zoom:67%;">
+
+<p>点击Ontology，查看有关的Go Terms</p>
+<img src="https://i.loli.net/2020/12/25/4rkHWNgno6TOEj2.png" style="zoom: 33%;">
+
+<p>点击Genes and gene products，查看与ATPase有关的基因</p>
+<img src="https://i.loli.net/2020/12/25/WSXLzZcBHlKJpxy.png" style="zoom:33%;">
+
+<h3 id="3-2-使用gene-list文件的gene-做Enrichment-Analysis"><a href="#3-2-使用gene-list文件的gene-做Enrichment-Analysis" class="headerlink" title="3.2 使用gene list文件的gene 做Enrichment Analysis"></a>3.2 使用gene list文件的gene 做Enrichment Analysis</h3><p>所谓富集，就是比较某个GO term里的基因在前景基因所占的比例是否显著高于这个 GO term里的基因在背景基因所占的比例，然后根据p&lt;0.05，判断是否有显著富集,帮助认知寻找到的基因是否具有某方面的共性(如功能、组成等等).</p>
+<blockquote>
+<p>为什么要显著高于背景基因呢？因为这样才有特色啊，大家都有的common Go Term还有什么好分析的？</p>
+</blockquote>
+<p>通过计算得到的P value会进一步经过多重检验校正，通常应用的是BH（Benjaminiand Hochberg法）方法，得到FDR值。然后以FDR≤0.05为阈值，满足此条件的GO term定义为在差异表达基因中显著富集的GO term。</p>
+<p>Go官网使用的基因富集工具是PANTHE（<a target="_blank" rel="noopener" href="http://pantherdb.org/pathway%EF%BC%89">http://pantherdb.org/pathway）</a></p>
+<img src="https://i.loli.net/2020/12/25/LUfqk1HRoQnmPhy.png" style="zoom:53%;">
+
+<p>如对gene list进行biological process 富集分析，得到如下图结果</p>
+<img src="https://i.loli.net/2020/12/25/gvB4unNOYked6Et.png" style="zoom:40%;">
+
+
+
+
+<h2 id="四、熟悉KEGG、biocarta"><a href="#四、熟悉KEGG、biocarta" class="headerlink" title="四、熟悉KEGG、biocarta"></a>四、熟悉KEGG、biocarta</h2><h3 id="4-1-KEGG"><a href="#4-1-KEGG" class="headerlink" title="4.1 KEGG"></a>4.1 KEGG</h3><blockquote>
+<p> 了解KEGG有哪些数据库？详细查看其中pathway数据库的类别和单个内容，会下载KEGG某个pathway的详细信息和基因列表</p>
+</blockquote>
+<p>KEGG（Kyoto Encyclopedia of Genes and Genomes,京都基因与基因组百科全书）</p>
+<p>目前发展为一个综合性数据库，一共有四大类17个数据库，其中最核心的为 KEGG PATHWAY 和 KEGG ORTHOLOGY 数据库。KEGG的主要用途有：查询通路信息、信号通路检索，以及使用分析工具KEGG Mapper，它可以根据前期筛选得到的差异分子列表去构建分子调控网络，得到清晰简明的通路图。</p>
+<img src="https://i.loli.net/2020/12/25/Ry3CK4lYkHqZuBx.png" style="zoom:50%;">
+
+<p>它的主页主要由以下几部分构成:</p>
+<img src="https://i.loli.net/2020/12/25/8ayiQWhUxH1dOAt.png" style="zoom:50%;">
+
+<p>Brite 是存储分类信息的数据库，提供了包含pathway, ko, module, drug, disease，organism 等所有记录的分类；分类信息通过文件进行存储，有htext和table两种格式。提供了两种格式的文件用于下载，htext 对应的后缀为 keg， json 对应json，keg文件分类层级按照字母顺序排列，例如A 为第一级分类，B, C, D 依次为第二级。</p>
+<p>KEGG Orthology 简称KO,该数据库中的每一条记录用K number 唯一标识。基于同源基因具有相似功能的假设，把基因的功能进行了扩充。对于某个物种中功能研究的很清楚的基因，在不同的物种间搜寻该基因的同源基因，将这些同源基因定义为一个orthology, 用该基因的功能作为该orthology 的功能；这样就将对于不同物种基因功能的研究都利用起来，提供了一个全面的研究基因功能的数据库。</p>
+<p>而在 KEGG PATHWAY 数据库中，将生物代谢通路划分为 7大类，分别为：细胞过程（Cellular Processes）、环境信息处理（Environmental Information Processing）、遗传信息处理（Genetic Information Processing）、人类疾病（Human Diseases）、新陈代谢（Metabolism）、生物体系统（Organismal Systems），药物开发(Drug Development)其中每类又被系统分类为二、三、四层。第三层即为其代谢通路图；第四层为每个代谢通路图的具体注释信息。</p>
+<p>pathway 建立在KO 数据库的基础上,构建了复杂的调控网络，采用通路图的形式，进行展示,通路图中融合了KO，module, compound, reaction，disease, drug 等 数据库中的信息.</p>
+<p>在pathway 数据库中，每条pathway 的标识符由2-4个字母的前缀加上5个数字构成，共有5种不同的前缀，5种前缀其实都是同一张通路图，只不过高亮显示的内容不同：</p>
+<ol>
+<li>map - Reference pathway：map 代表reference pathway，表示KEGG中通用代谢通路图；无色；</li>
+<li>ko - Reference pathway(KO)：在reference pathway 的基础上，将所有的ko用蓝色高亮显示</li>
+<li>ec - Reference pathway(EC)：在reference pathway 的基础上，将酶编号高亮显示</li>
+<li>rn - Reference pathway(Reaction)：在reference pathway 的基础上，将reaction 高亮显示</li>
+<li>org - Organism-specific pathway map：org 代表的是organisam 数据库中物种的代码，将特定物种基因对应的KO高亮显示</li>
+</ol>
+<p>pathway 通路图图中各元素代表的意思</p>
+<p><img src="https://i.loli.net/2020/12/25/oTRyvdYH74D6CbF.png"></p>
+<ul>
+<li>下载KEGG某个pathway的详细信息和基因列表</li>
+</ul>
+<p>①在KEGG网站查看</p>
+<p>以hsa05161      Hepatitis B为例，在pathway搜索Hepatitis B，进入如下页面，可以看到关于Hepatitis B的description和详细通路</p>
+<img src="https://i.loli.net/2020/12/25/lfOFQX5ILPqYMpo.png" style="zoom:50%;">
+
+<p>点击Pathway entry进入到如下页面，可以右侧的All links可以看到该Pathway与其他数据库的相关数据量</p>
+<img src="https://i.loli.net/2020/12/25/kw5VzXlPN1qxBvA.jpg" style="zoom:50%;">
+
+<p>点击GENES，网页展现出Gene List</p>
+<img src="https://i.loli.net/2020/12/25/SvF4yu6TPCH1MEd.png" style="zoom:50%;">
+
+<p>②使用R包KEGGREST</p>
+<p>安装R包</p>
+<pre class=" language-R"><code class="language-R">if(!requireNamespace("BiocManager", quietly = TRUE))      
+   install.packages("BiocManager") 
+BiocManager::install("KEGGREST") </code></pre>
+<p>这个包含了KEGG数据库的19个子数据库</p>
+<pre class=" language-R"><code class="language-R">> library("KEGGREST") 
+> listDatabases()  
+ [1] "pathway"  "brite"    "module"   "ko"       "genome"   "vg"       "ag"      
+ [8] "compound" "glycan"   "reaction" "rclass"   "enzyme"   "disease"  "drug"    
+[15] "dgroup"   "environ"  "genes"    "ligand"   "kegg"  </code></pre>
+<p>使用 keggGet 函数获取人类基因信号通路 hsa04650 的信息，并缓存<br>逐步run可以看到结果包括了通路介绍、基因，基因间的联系方式，以及链接等等。</p>
+<pre class=" language-R"><code class="language-R">keggGet('hsa05161') 
+gs<-keggGet('hsa05161')
+#获取通路中gene信息 
+gs[[1]]$GENE 
+#查找所有基因 
+genes<-unlist(lapply(gs[[1]]$GENE,function(x) strsplit(x,';'))) 
+genelist <- genes[1:length(genes)%%3 ==2] 
+genelist <- data.frame(genelist)  
+#把结果写入表格中 
+write.table(genelist, "F:\\01-学途\\05大三上\\生信资源与实践\\第6次上机Protein_domain\\hsa05161.csv",            
+row.names=FALSE,col.names=TRUE,sep=",") </code></pre>
+<p><img src="https://i.loli.net/2020/12/25/LXBNUQ6SIzox9g7.png"></p>
+<p>查看生成的hsa05161.csv中的genelist，共162个基因名，与KEGG官网查看的数量一致</p>
+<img src="https://i.loli.net/2020/12/25/etTgbKBvxjhoRpi.png" style="zoom:43%;">
+
+<h3 id="4-2-Biocarta-Pathways"><a href="#4-2-Biocarta-Pathways" class="headerlink" title="4.2 Biocarta Pathways"></a>4.2 Biocarta Pathways</h3><p>了解Biocarta信号通路数据库内容，会下载pathway gene list</p>
+<p>Biocarta是经典的信号转导途径图集, 特点是对通路数据，用来进行分子互作关系、富集分析、通路为基础的研究等。观察基因如何相互作用的动态图形化模型。从分子的关系角度描绘了一个网络图模型。</p>
+<p>找到的biocarta的网址均打不开或者不知如何使用：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://cgap.nci.nih.gov/Pathways/BioCarta_Pathways%EF%BC%88CGAP%E7%BD%91%E7%AB%99%E5%B7%B2%E7%BB%8F%E6%97%A0%E4%BA%86%EF%BC%89">https://cgap.nci.nih.gov/Pathways/BioCarta_Pathways（CGAP网站已经无了）</a></li>
+<li><a target="_blank" rel="noopener" href="https://maayanlab.cloud/Harmonizome/dataset/Biocarta+Pathways">https://maayanlab.cloud/Harmonizome/dataset/Biocarta+Pathways</a></li>
+<li> <a target="_blank" rel="noopener" href="https://www.biocarta.com/">https://www.biocarta.com</a></li>
+</ul>
+<p>没办法，只好另辟蹊径。我直接在Google 上搜索“BIOCARTA p53”，在<a target="_blank" rel="noopener" href="https://www.gsea-msigdb.org/gsea/msigdb/cards/BIOCARTA_P53_PATHWAY.html">GSEA</a>找到了Biocarta p53 pathway的信息</p>
+<img src="https://i.loli.net/2020/12/25/DF47Kjqw65hWA3s.gif" style="zoom:40%;">
+
+<p>p53 信号通路图</p>
+<img src="https://i.loli.net/2020/12/25/CzuspNvYoHk4E73.png" style="zoom:50%;">
+
+<p>下载gene list</p>
+<img src="https://i.loli.net/2020/12/25/stzIk8bYxBgVwDe.png" style="zoom:50%;">
+
+<h2 id="五、DAVID富集分析"><a href="#五、DAVID富集分析" class="headerlink" title="五、DAVID富集分析"></a>五、DAVID富集分析</h2><p><a target="_blank" rel="noopener" href="https://david.ncifcrf.gov/tools.jsp">https://david.ncifcrf.gov/tools.jsp</a></p>
+<h3 id="5-1了解DAVID功能富集分析的方法和原理"><a href="#5-1了解DAVID功能富集分析的方法和原理" class="headerlink" title="5.1了解DAVID功能富集分析的方法和原理"></a>5.1了解DAVID功能富集分析的方法和原理</h3><p>DAVID是最早也是目前最经典的做富集分析的数据库，它整合了大量生物学数据和分析工具，为大规模的基因或蛋白列表提供系统综合的生物功能注释信息。但是网上有看到说其数据库更新慢，不准确。</p>
+<p>DAVID需要用户提供感兴趣的基因列表，在基因背景下，使用提供的分析工具，提取该列表中含有的生物信息</p>
+<p><strong>DAVID为实现各项功能分析，提供了以下4个分析内容（共6个分析工具</strong>）：</p>
+<ol>
+<li>Gene Name Batch Viewer能够实现将基因ID迅速翻译成基因名称</li>
+<li>Gene ID Conversion实现不同数据库的基因标识间的转换。包含NCBI, PIR 和 Uniprot/SwissProt等重要数据库的基因标识信息。</li>
+<li>Gene Functional Classification基于基因共同的注释信息，采用全新的模糊聚类算法，能够实现将功能相关的基因聚到一起作为一个单元，在生物学网络水平上去研究这些基因群。对聚类结果打分，分值越高，代表该组内的基因在基因列表中越重要。同时还提供了2-D View，以热图形式展现聚类到同一组的基因和该组内各个Term之间的关系。</li>
+<li>Functional Annotation是DAVID最核心的分析内容，包含了三个子工具：</li>
+</ol>
+<ul>
+<li>Functional Annotation Chart：提供gene-term的富集分析。相比于其他富集分析软件而言，DAVID在该功能上最显著的特点是，注释范围的可扩展性：从最初的GO注释，扩展到现在超过40中的注释种类，包括GO注释，KEGG注释，蛋白相互作用，蛋白功能区域，疾病相关，生物代谢通路，序列特点，异构体，基因功能总结，基因在组织里的表达和论文等。用户可以根据需要选择其中的某些或者所有种类的注释信息。</li>
+<li>Functional Annotation Clustering使用类似于Gene Functional Classification工具的模糊聚类方法，基于注释共同出现的程度作聚类，对被注释上的Terms做聚类，即Terms被分成多组，并将给出聚类的分值。</li>
+<li>Functional Annotation Table该工具实现了基因的功能注释，将输入列表中每个基因在选定数据库中的注释以表格形式呈现</li>
+</ul>
+<h3 id="5-2-使用DAVID-做gene-list-analysis"><a href="#5-2-使用DAVID-做gene-list-analysis" class="headerlink" title="5.2. 使用DAVID 做gene list analysis"></a>5.2. 使用DAVID 做gene list analysis</h3><p>(1) 在 “Enter Gene List” 中上传基因列表，格式是每行一个基因。按照 DAVID 的要求，总的基因个数不得超过 3000 个。在这里粘贴gene_list.txt文件的基因list</p>
+<p>(2) 在 “Select Identifier” 中选择上传的基因类型，因为我们上传的是基因名（Gene Symbol），所以在下拉菜单中选择 “OFFICIAL_GENE_SYMBOL”</p>
+<p>(3) 在 “List Type” 中有两个单选框，选择 “Gene List” 这一项（Background是背景基因）</p>
+<p>(4) 点击 “Submit List” 即可</p>
+<img src="https://i.loli.net/2020/12/25/jK1AHDWsd8Ou37t.png" style="zoom:50%;">
+
+<p>操作完成后，显示下面四种分析功能</p>
+<img src="https://i.loli.net/2020/12/25/8jU4NvFs9aHmwJb.png" style="zoom:50%;">
+
+<p>点击Gene Name Batch Viewer，将基因symbol转化成Gene 全名</p>
+<img src="https://i.loli.net/2020/12/25/RMFGzYb9tfojHDw.png" style="zoom:50%;">
+
+<p>点击Gene ID Conversion Tool可以实现查看gene list在entrez的ID</p>
+<img src="https://i.loli.net/2020/12/25/R71fUCclhps6i83.png" style="zoom:50%;">
+
+<p>点击Gene Functional Classification Tool，只有把Classification Stringency调到lowest，才能显示出1个Cluster</p>
+<img src="https://i.loli.net/2020/12/25/M4kXldpcRazyOxj.png" style="zoom:50%;">
+
+<p>2-D View展示gene-term关系</p>
+<img src="https://i.loli.net/2020/12/25/lPeOj98FyWz1YoL.png" style="zoom:50%;">
+
+<p>点击Function Annotation Tool就可以得到如下图所示的分析结果。</p>
+<p>在功能富集分析的结果中有多个折叠栏，其中 Gene_Ontology 这一折叠栏中有有三个栏目：GOTERM_BP_FAT、GOTERM_CC_FAT、GOTERM_MF_FAT 就是我们想要的 GO 功能富集分析结果。而 Pathways 里面有一个 KEGG_PATHWAY 就是我们想要的Pathway富集结果。 点击每个栏目后面的 “Chart” ，可查看BP、CC、MF 和 KEGG 对应的详细结果。</p>
+<img src="https://i.loli.net/2020/12/25/UBvcXWO95zF6Knf.png" style="zoom:50%;">
+
+<p>以GOTERM_BP_DIRECT为例， 点击 “Chart” 之后，即可出现如下图所示的结果，这里面有几列数据分别是：Category、Term、RT、Genes、Count、%、P-Value 和 Benjamini。点击Download File</p>
+<img src="https://i.loli.net/2020/12/25/QCdtW214XDkU6aP.png" style="zoom:50%;">
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0/">
+                                    <span class="chip bg-color">基础练习</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/valine/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '6iI0iLCmPt2RF0cVJ4mpzk9g-MdYXbMMI',
+        appKey: '65lnN4gsqHUBYBdA1ULByihM',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'wavatar',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '欢迎留下您的足迹'
+    });
+</script>
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/posts/12ee.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/medias/featureimages/19.jpg" class="responsive-img" alt="【生信资源与实践】第六次上机-Protein Domain&amp;Enrichment Analysis">
+                        
+                        <span class="card-title">【生信资源与实践】第六次上机-Protein Domain&amp;Enrichment Analysis</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            蛋白质功能结构域和基因富集分析
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF/" class="post-category">
+                                    生物信息
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0/">
+                        <span class="chip bg-color">基础练习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/b08.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="【生信资源与实践】第五次上机-Ensembl和UCSC">
+                        
+                        <span class="card-title">【生信资源与实践】第五次上机-Ensembl和UCSC</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            在生物信息学中，基因组浏览器是高通量测序分析的一个重要的可视化工具，相比于最终提供的表格，基因组浏览器可以提供更多的信息。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF/" class="post-category">
+                                    生物信息
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0/">
+                        <span class="chip bg-color">基础练习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="136126210"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.5'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align"
+        style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+            <span id="year">2020</span>
+            
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">风渡巛</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">45.8k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "11";
+                    var startDate = "14";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已艰难运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已艰难运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Achuan-2" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:270992395@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=270992395" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 270992395" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/su-ji-xiong-62" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/su-ji-xiong-62" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+    <a href="https://space.bilibili.com/349243695" class="tooltipped" target="_blank" data-tooltip="关注我的B站: https://space.bilibili.com/349243695" data-position="top" data-delay="50">
+        <i >B</i>
+    </a>
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    
+    <!--动态线条背景-->
+    <script type="text/javascript" color="122 103 238" opacity='0.7' zIndex="-2" count="200"
+        src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+        </script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"superSample":2,"position":"right","width":150,"height":300,"hOffset":-30,"vOffset":60},"mobile":{"show":false,"scale":0.5},"react":{"opacity":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+</html>

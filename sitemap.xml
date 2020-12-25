@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://achuan-2.top/posts/b08.html</loc>
+    
+    <lastmod>2020-12-25</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://achuan-2.top/posts/e3b7.html</loc>
+    
+    <lastmod>2020-12-25</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://achuan-2.top/posts/649f.html</loc>
+    
+    <lastmod>2020-12-25</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://achuan-2.top/posts/2c94.html</loc>
+    
+    <lastmod>2020-12-25</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://achuan-2.top/posts/8849.html</loc>
+    
+    <lastmod>2020-12-25</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://achuan-2.top/posts/12ee.html</loc>
+    
+    <lastmod>2020-12-25</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://achuan-2.top/posts/c134.html</loc>
     
     <lastmod>2020-12-25</lastmod>
@@ -73,10 +115,24 @@
     <priority>0.6</priority>
   </url>
   
+  <url>
+    <loc>https://achuan-2.top/tags/%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0/</loc>
+    <lastmod>2020-12-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   
   <url>
     <loc>https://achuan-2.top/categories/Python/</loc>
+    <lastmod>2020-12-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://achuan-2.top/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF/</loc>
     <lastmod>2020-12-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

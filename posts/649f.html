@@ -1,0 +1,1932 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="【生信资源与实践】第三次上机-miRNA-seq&amp;exome-seq, Python Bioinformatics 宅男 书呆子 自言自语">
+    <meta name="description" content="一条没有故事的巛">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>【生信资源与实践】第三次上机-miRNA-seq&amp;exome-seq | 风渡巛</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="风渡巛" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/artitalk/artitalk.min.css">
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    <div>
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                        
+                        <span class="logo-span">风渡巛</span>
+                    </div>
+
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/artitalk" class="waves-effect waves-light">
+      
+      <i class="fas fa-envelope" style="zoom: 0.6;"></i>
+      
+      <span>碎语</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">风渡巛</div>
+        <div class="logo-desc">
+            
+            一条没有故事的巛
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/artitalk" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-envelope"></i>
+			
+			Artitalk
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/Achuan-2/Achuan-2.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/Achuan-2/Achuan-2.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/medias/featureimages/8.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">【生信资源与实践】第三次上机-miRNA-seq&amp;exome-seq</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0/">
+                                <span class="chip bg-color">基础练习</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF/" class="post-category">
+                                生物信息
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-12-25
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-12-25
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    8 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="一、miRNA-seq"><a href="#一、miRNA-seq" class="headerlink" title="一、miRNA-seq"></a>一、miRNA-seq</h2><h3 id="背景和软件技术介绍"><a href="#背景和软件技术介绍" class="headerlink" title="背景和软件技术介绍"></a>背景和软件技术介绍</h3><p><strong>①miRNA-seq的基本介绍：</strong></p>
+<p>miRNA-seq是一种建库方法和数据处理上都稍有特殊的一种测序方法。它的原理是首先提取短链RNA，<strong>直接</strong>在RNA两端连接接头后建库，然后对所有小RNA进行一起测序，通过数据处理提取出其中潜在的miRNA并进行表达量分析。由于小RNA的长度都很短，所以50bp长的单端测序已经足够可以获得全长序列。</p>
+<blockquote>
+<p><strong>5’ 接头污染现象</strong>：通常而言测序的时候是<strong>不可能会测到5’接头</strong>，因为5’接头属于测序引物，由于miRNA很短，在建库过程中其实有一定概率会出现引物自连现象，也就是接头后面连着接头，这就是5’ 接头污染现象。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/linker.jpg" alt="基于NGS的miRNA测序以及接头序列介绍"></p>
+<p>前体miRNA长度一般是70–120 bp，一般是茎环结构，也就是发夹结构，叫做hairpin。成熟之后，一般21-23 个nt。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/t017744ad0e981315d2.png"></p>
+<p><strong>miRNA的命名规则：</strong></p>
+<p>miRNA成熟体简写成miR，而前体写成mir，再根据其物种名称，及被发现的先后顺序加上阿拉伯数字，如hsa-miR-122；</p>
+<p>高度同源的miRNA在数字后写上英文小写字母(a,b,c,…)，如hsa-miR-34a，hsa-miR-34b，hsa-miR-34c等；</p>
+<p> 若成熟的miRNA相同，但pre-miRNA和pri-miRNA和编码他们的基因来自于不同的基因组，则使用数字来表示，例如，mir-194-1和mir-194-2表示两个pre-， pri-miRNA剪切后的成熟miRNA是完全相同的，但却是两个不同的来源。</p>
+<p>通常一个miRNA前体长度大约为70~80nt，很可能两个臂分别产生miRNA，则继续在名称之后加上-5p/-3p等，如hsa-miR-122-5p</p>
+<p><strong>②工具介绍：</strong></p>
+<ol>
+<li><p>miRDeep是款较早的软件，和mireap一样，用于分析miRNA深度测序数据，运行的结果需要自己编程序，分析数据，并且它们两个适用的物种有局限性：只限于有已知参考基因组的物种；比如人，鸡，小鼠，果蝇，线虫等</p>
+</li>
+<li><p>miRExpress 分析高通量测序数据，分析microRNA表达情况的工具，由台湾国立交通大学开发。</p>
+<p>官网：<a target="_blank" rel="noopener" href="http://mirexpress.mbc.nctu.edu.tw/usage.php">http://mirexpress.mbc.nctu.edu.tw/usage.php</a></p>
+<ul>
+<li>“Raw_data_parse”以FASTQ格式处理原始数据序列，并使用Tab（\t）为分隔符输出唯一的序列及其counts。</li>
+<li>“Trim_adapter”根据adaptor序列的输入处理是否包含adaptor的序列文件。</li>
+<li>“alignmentSIMD”处理序列和参考序列中的比对。</li>
+<li>“analysis”处理比对结果并构建miRNA表达谱</li>
+</ul>
+</li>
+<li><p><strong>DESeq</strong>   差异基因表达分析</p>
+<p>R包：<a target="_blank" rel="noopener" href="http://bioconductor.org/packages/release/bioc/html/DESeq.html">http://bioconductor.org/packages/release/bioc/html/DESeq.html</a></p>
+<p>是用于 <strong>RNA-seq的假设检验和差异基因表达分析</strong>的工具。DESeq 算法应用了负二项分布和似然比检验(LRT) ，基于count，它通过调整 m 值的平均值对数据进行标准化。DESeq2是DEseq的升级版，但是2只适用于有生物学重复的试验，而DEseq既可以做有生物学重复也可以做无重复（或部分重复的）试验。</p>
+</li>
+</ol>
+<h3 id="1-变量命名"><a href="#1-变量命名" class="headerlink" title="1. 变量命名"></a>1. 变量命名</h3><p>进入demo/miRNA/文件夹, 输入下面命令</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/sh</span> -ex
+OPTIND<span class="token operator">=</span>1
+
+PROJECT_HOME<span class="token operator">=</span><span class="token variable">$PWD</span>
+
+SCRIPT_HOME<span class="token operator">=</span><span class="token variable">$PROJECT_HOME</span>/perl
+BIN<span class="token operator">=</span><span class="token variable">$PROJECT_HOME</span>/bin
+RESULT_DIR<span class="token operator">=</span><span class="token variable">$PROJECT_HOME</span>/result
+DATA<span class="token operator">=</span><span class="token variable">$PROJECT_HOME</span>/data
+
+SAMPLE1<span class="token operator">=</span><span class="token string">"sample-1"</span>
+SAMPLE2<span class="token operator">=</span><span class="token string">"sample-2"</span>
+FASTQ1<span class="token operator">=</span><span class="token variable">$DATA</span>/sample-1.fastq
+FASTQ2<span class="token operator">=</span><span class="token variable">$DATA</span>/sample-2.fastq
+
+
+<span class="token function">mkdir</span> -p <span class="token variable">$RESULT_DIR</span>/<span class="token variable">$SAMPLE1</span>
+<span class="token function">mkdir</span> -p <span class="token variable">$RESULT_DIR</span>/<span class="token variable">$SAMPLE2</span>
+</code></pre>
+<p>运行过程截图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105071521902.png"></p>
+<h3 id="2-miRDeep-preProcessOfReads进行质量过滤清除接头"><a href="#2-miRDeep-preProcessOfReads进行质量过滤清除接头" class="headerlink" title="2. miRDeep preProcessOfReads进行质量过滤清除接头"></a>2. miRDeep preProcessOfReads进行质量过滤清除接头</h3><p>miRNA长度仅有22 nt，而测序一般至少都有50bp，因此需要去除一些接头序列。</p>
+<pre class=" language-bash"><code class="language-bash">
+<span class="token comment" spellcheck="true">## filter and remove adaptor</span>
+<span class="token variable">$BIN</span>/preProcessOfReads -i <span class="token variable">$FASTQ1</span> -script <span class="token variable">$SCRIPT_HOME</span> -o <span class="token variable">$RESULT_DIR</span>/<span class="token variable">$SAMPLE1</span>/sequence -a TCGTATGCCGTCTTCTGCTTG -min 18 -max 30 <span class="token operator">&amp;</span><span class="token operator">></span> /dev/null <span class="token operator">&amp;</span>
+<span class="token variable">$BIN</span>/preProcessOfReads -i <span class="token variable">$FASTQ2</span> -script <span class="token variable">$SCRIPT_HOME</span> -o <span class="token variable">$RESULT_DIR</span>/<span class="token variable">$SAMPLE2</span>/sequence -a TCGTATGCCGTCTTCTGCTTG -min 18 -max 30 <span class="token operator">&amp;</span><span class="token operator">></span> /dev/null <span class="token operator">&amp;</span>
+<span class="token function">wait</span></code></pre>
+<p>命令解释</p>
+<pre class=" language-bash"><code class="language-bash">-i 输入测序数据
+-script 指定需要使用的脚本的位置
+-o 指定输出位置
+-min  miRNA读段的最短长度
+-max  miRNA读段的最长长度
+-a 表示adaptor sequence TCGTATGCCGTCTTCTGCTTG
+<span class="token operator">&amp;</span> 表示后台运行 wait表示等后台运行完毕后再执行接下来的命令</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201108004116374.png">运行截图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105071617368.png"></p>
+<p>使用<code>less data/sample-1.fastaq</code>原有的测序序列，正常情况下，前端为miRNA序列，后端为3‘接头。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105074113221.png"></p>
+<p><code>less result/sample-1/sequence_adaper_3</code> 可以看到3’adaptor被清除了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105071830648.png"></p>
+<h3 id="3-使用awk-交换txt的一二两列"><a href="#3-使用awk-交换txt的一二两列" class="headerlink" title="3. 使用awk 交换txt的一二两列"></a>3. 使用awk 交换txt的一二两列</h3><pre class=" language-bash"><code class="language-bash">
+<span class="token comment" spellcheck="true">## generate temp file</span>
+<span class="token function">awk</span> <span class="token string">'{print <span class="token variable">$2</span> "\t" <span class="token variable">$1</span>}'</span> <span class="token variable">$RESULT_DIR</span>/<span class="token variable">$SAMPLE1</span>/sequence_cluster.txt <span class="token operator">></span> <span class="token variable">$RESULT_DIR</span>/<span class="token variable">${SAMPLE1}</span>.merge 
+<span class="token function">awk</span> <span class="token string">'{print <span class="token variable">$2</span> "\t" <span class="token variable">$1</span>}'</span> <span class="token variable">$RESULT_DIR</span>/<span class="token variable">$SAMPLE2</span>/sequence_cluster.txt <span class="token operator">></span> <span class="token variable">$RESULT_DIR</span>/<span class="token variable">${SAMPLE2}</span>.merge 
+</code></pre>
+<p>awk命令打印sequence_cluster.txt的第二列和第一列然后重定向到result/sample-1(sample-2).merge文件中</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105071538031.png"></p>
+<p>以sample-1为例子，查看原先的sequence_cluster.txt，左边是不同的miRNA序列，右边列是miRNA的counts</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105071910978.png"></p>
+<p>查看交换两列后的result/sample-1.merge</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105072821624.png"></p>
+<h3 id="4-miRExpress-alignmentSIMD比对和analysis计算表达量"><a href="#4-miRExpress-alignmentSIMD比对和analysis计算表达量" class="headerlink" title="4. miRExpress alignmentSIMD比对和analysis计算表达量"></a>4. miRExpress alignmentSIMD比对和analysis计算表达量</h3><p>①使用alignmentSIMD 比对</p>
+<p>将前面处理的测序得到的miRNA比对到前体miRNA序列上</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">## align</span>
+<span class="token variable">$BIN</span>/alignmentSIMD -r <span class="token variable">$DATA</span>/hsa_precursor.txt -i <span class="token variable">$RESULT_DIR</span>/<span class="token variable">${SAMPLE1}</span>.merge -o <span class="token variable">$RESULT_DIR</span>/<span class="token variable">${SAMPLE1}</span>/ 
+<span class="token variable">$BIN</span>/alignmentSIMD -r <span class="token variable">$DATA</span>/hsa_precursor.txt -i <span class="token variable">$RESULT_DIR</span>/<span class="token variable">${SAMPLE2}</span>.merge -o <span class="token variable">$RESULT_DIR</span>/<span class="token variable">${SAMPLE2}</span>/ 
+</code></pre>
+<p>查看命令</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201108112659554.png"></p>
+<pre class=" language-shell"><code class="language-shell">-r 前体miRNA
+-i 输入序列
+-o 输出文件夹</code></pre>
+<p>运行命令</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105071637283.png"></p>
+<p>②使用analysis计算miRNA表达量</p>
+<pre class=" language-shell"><code class="language-shell">
+## calculate expression (use miRExpress)
+$BIN/analysis -r $DATA/hsa_precursor.txt -m $DATA/hsa_miRNA.txt -d $RESULT_DIR/${SAMPLE1}/ -o ${SAMPLE1}.alignment -t ${SAMPLE1}.expression
+$BIN/analysis -r $DATA/hsa_precursor.txt -m $DATA/hsa_miRNA.txt -d $RESULT_DIR/${SAMPLE2}/ -o ${SAMPLE2}.alignment -t ${SAMPLE2}.expression</code></pre>
+<p>查看命令</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201108115217424.png"></p>
+<pre class=" language-shell"><code class="language-shell">-r 前体miRNA
+-m 成熟mRNA的信息
+-d 设置比对结果的文件夹
+-o 设置比对结果的文件名
+-t 输出表达量</code></pre>
+<p>运行命令</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105071745281.png"></p>
+<p>查看结果：</p>
+<p>以sample-1为例，使用less查看result/ sample-1.alignment文件</p>
+<p>以图中第一个的比对为例，hsa-mir-185，has代表homo sapiens，r小写是前体miRNA，下一列就是其序列hsa-miR-185-5p是hsa-mir-185 5’ 端的臂得到的miRNA，hsa-miR-185-3p则是从3’臂加工来的miRNA，这俩下面就是miRNA的比对结果，左边列代表miRNA序列，右边代表count数。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105071927400.png"></p>
+<p>查看sample-1表达量<code>less result/sample-1/sample-1.expression</code></p>
+<p>左边列为对应的前体miRNA和成熟miRNA，右边为总的count数</p>
+<img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105074555579.png" style="zoom: 67%;">
+
+<p>查看sample-2表达量<code>less result/sample-2/sample-2.expression</code></p>
+<img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105074646391.png" style="zoom:67%;">
+
+<h3 id="5-使用ln创建软链接"><a href="#5-使用ln创建软链接" class="headerlink" title="5. 使用ln创建软链接"></a>5. 使用ln创建软链接</h3><p>将expression文件夹的软链接直接放到result文件夹下</p>
+<pre class=" language-bash"><code class="language-bash">
+<span class="token function">ln</span> -sf  <span class="token variable">$RESULT_DIR</span>/<span class="token variable">${SAMPLE1}</span>/<span class="token variable">${SAMPLE1}</span>.expression <span class="token variable">$RESULT_DIR</span>/<span class="token variable">${SAMPLE1}</span>.expression
+<span class="token function">ln</span> -sf  <span class="token variable">$RESULT_DIR</span>/<span class="token variable">${SAMPLE2}</span>/<span class="token variable">${SAMPLE2}</span>.expression <span class="token variable">$RESULT_DIR</span>/<span class="token variable">${SAMPLE2}</span>.expression
+</code></pre>
+<p>使用man查看ln命令参数，链接类型分为硬链接和软链接两种，默认的链接类型是硬链接。如果要创建软链接必须使用”-s”选项，其实ln比较像win系统的快捷方式，软连接保存的是其代表的文件的绝对路径，硬链接 可以认为是同一个文件使用了多个别名。</p>
+<img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105071938538.png" style="zoom:67%;">
+
+<h3 id="6-使用merge-expression-py-将整合两个样本表达量，为DESeq计算做准备"><a href="#6-使用merge-expression-py-将整合两个样本表达量，为DESeq计算做准备" class="headerlink" title="6. 使用merge_expression.py 将整合两个样本表达量，为DESeq计算做准备"></a>6. 使用merge_expression.py 将整合两个样本表达量，为DESeq计算做准备</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># merge two samples' expression level, prepare for running DESeq (a R package)</span>
+<span class="token variable">$BIN</span>/merge_expression.py <span class="token variable">$RESULT_DIR</span>/<span class="token variable">${SAMPLE1}</span>.expression <span class="token variable">$RESULT_DIR</span>/<span class="token variable">${SAMPLE2}</span>.expression <span class="token operator">></span> <span class="token variable">$RESULT_DIR</span>/sample.expression.integral
+</code></pre>
+<p>查看merge_expression.py内容</p>
+<pre class=" language-python"><code class="language-python">
+<span class="token comment" spellcheck="true">#!/usr/bin/env python</span>
+<span class="token keyword">import</span> sys
+<span class="token keyword">from</span> collections <span class="token keyword">import</span> defaultdict
+<span class="token comment" spellcheck="true">#发现导入了defaultdict，defaultdict与普通的dict的区别在于，使用defaultdict任何未定义的key都会默认返回一个根据method_factory参数不同的默认值, 而相同情况下dict()会返回KeyError，相当于省去了创建key的一步</span>
+table <span class="token operator">=</span> defaultdict<span class="token punctuation">(</span><span class="token keyword">lambda</span><span class="token punctuation">:</span> defaultdict<span class="token punctuation">(</span>int<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 默认字典</span>
+<span class="token comment" spellcheck="true"># lambda函数做为临时参数或者中间参数，可以输入多个变量，直接能过传入想要的函数中，这里其实是返回的defaultdict默认的参数</span>
+<span class="token keyword">with</span> open<span class="token punctuation">(</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">as</span> reader<span class="token punctuation">:</span> <span class="token comment" spellcheck="true">#读取参数1，即sample-1</span>
+    <span class="token keyword">for</span> line <span class="token keyword">in</span> reader<span class="token punctuation">:</span>
+        gene<span class="token punctuation">,</span> expression <span class="token operator">=</span> line<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">"\t"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#使用\t分割</span>
+        table<span class="token punctuation">[</span>gene<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> expression <span class="token comment" spellcheck="true"># 各gene的value值，第一列放sample-1的表达量</span>
+
+<span class="token keyword">with</span> open<span class="token punctuation">(</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">as</span> reader<span class="token punctuation">:</span> <span class="token comment" spellcheck="true">#读取参数2，即sample-2</span>
+    <span class="token keyword">for</span> line <span class="token keyword">in</span> reader<span class="token punctuation">:</span>
+        gene<span class="token punctuation">,</span> expression <span class="token operator">=</span> line<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">"\t"</span><span class="token punctuation">)</span>
+        table<span class="token punctuation">[</span>gene<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> expression <span class="token comment" spellcheck="true">#第二列放sample-2的表达量</span>
+
+<span class="token keyword">print</span> <span class="token string">"miRNA\tsample1\tsample2"</span>
+<span class="token keyword">for</span> gene <span class="token keyword">in</span> table<span class="token punctuation">:</span>
+    result <span class="token operator">=</span> <span class="token punctuation">[</span>gene<span class="token punctuation">,</span> table<span class="token punctuation">[</span>gene<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> table<span class="token punctuation">[</span>gene<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#将字典整理为列表，</span>
+    <span class="token keyword">print</span> <span class="token string">"\t"</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>str<span class="token punctuation">(</span>r<span class="token punctuation">)</span> <span class="token keyword">for</span> r <span class="token keyword">in</span> result<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 使用\t合并列表，以三列形式打印，</span>
+</code></pre>
+<p>输入上面的命令，运行py，将两个样本表达量整合在一个表上</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105071801588.png"></p>
+<p>查看合并结果，行为miRNA名称，列为样本，值为count值</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201108123628526.png"></p>
+<h3 id="7-使用R包DESeq对miRNA进行差异表达分析"><a href="#7-使用R包DESeq对miRNA进行差异表达分析" class="headerlink" title="7. 使用R包DESeq对miRNA进行差异表达分析"></a>7. 使用R包DESeq对miRNA进行差异表达分析</h3><pre class=" language-shell"><code class="language-shell">
+# find differentially expressed miRNAs with DESeq
+Rscript $BIN/runDESeq.r $RESULT_DIR/sample.expression.integral $RESULT_DIR/sample.expression.diff</code></pre>
+<p>查看runDESeq.r脚本内容</p>
+<pre class=" language-R"><code class="language-R">library("DESeq") #加载DEseq包
+args <- commandArgs(T) # 将输入的变量赋值
+cds <- read.table(file=args[1], header=T, row.names=1)
+condition <- factor(c("sample1", "sample2"))
+cds <- newCountDataSet(cds, condition)
+cds <- estimateSizeFactors(cds) # 估计统计数的大小因子
+cds <- estimateDispersions(cds, method="blind", sharingMode="fit-only")
+res <- nbinomTest( cds, "sample1", "sample2")
+write.table(res, file=args[2], sep="\t", quote=F)</code></pre>
+<p>查看结果result/ sample.expression.diff</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105072003129.png"></p>
+<p>使用excel打开</p>
+<p>各列表示的是：</p>
+<ul>
+<li>id：feature identier</li>
+<li>baseMean：mean normalised counts, averaged over all samples from both conditions</li>
+<li>baseMeanA：mean normalised counts from condition A</li>
+<li>baseMeanB：mean normalised counts from condition B</li>
+<li>foldChange：fold change from condition A to B，差异倍数</li>
+<li>log2FoldChange ：the logarithm (to basis 2) of the fold change，取log2，这样可以让缩小差异特别大的和差异比较小的数值之间的差距。</li>
+<li>pval：pvalue for the statistical signicance of this change，差异的显著性</li>
+<li>padj：p-adjusted， for multiple testing with the Benjamini-Hochberg procedure，用来判定P值是否可信</li>
+</ul>
+<p>发现原文件多了一列序号，导致列名和列并不匹配，手动修改后，用excel查看</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201108131245447.png"></p>
+<h2 id="二、exome-seq"><a href="#二、exome-seq" class="headerlink" title="二、exome-seq"></a>二、exome-seq</h2><h3 id="背景和软件技术介绍-1"><a href="#背景和软件技术介绍-1" class="headerlink" title="背景和软件技术介绍"></a>背景和软件技术介绍</h3><p><strong>①外显子测序简介：</strong></p>
+<p>外显子（exon）是真核生物基因的一部分，包含着合成蛋白质所需要的信息。全部外显子，称为“外显子组”（Exome）。外显子组测序（Exome sequencing）是指利用序列捕获技术将全基因组外显子区域DNA捕捉并富集后进行高通量测序的基因组分析方法。由于外显子组测序只需针对外显子区域的DNA即可（例如：人类外显子组只占人类基因组长度的约1%，但是目前由DNA变异引起的疾病估计有85%以上来自于外显子组区域的变异），因此远比进行全基因组序列测序更简便、经济、高效，其目标区域覆盖度也更高，便于变异检测。结合公共数据库提供的大量外显子的数据，测序数据能更好的解释研究的结果。<strong>其不足之处是只能获得外显子区域内部或边界的变异信息，不能检测到基因组内较大的结构性变异（SV）。</strong></p>
+<p><strong>生物信息学分析流程</strong></p>
+<ol>
+<li>前期数据处理：<ul>
+<li>预处理：原始数据准备下载、质控过滤</li>
+<li>比对参考基因组（需要先构建索引）</li>
+<li>处理得到的比对bam文件（包括排序、索引、合并等等）</li>
+</ul>
+</li>
+<li>寻找变异：<ul>
+<li>利用GATK, bcftools 或 freebayes找到初步的raw variants</li>
+<li>对raw Variants 进行筛选</li>
+</ul>
+</li>
+<li>变异文件深度挖掘：<ul>
+<li>统计 variant 的各种分布情况和基因型信息</li>
+<li>变异注释</li>
+<li>结合相关数据库，寻找特定位点</li>
+</ul>
+</li>
+</ol>
+<p><strong>②基因组变异介绍：</strong></p>
+<ol>
+<li><p>单碱基变异，学名单核苷酸多态性（<strong>SNP</strong>），原来的定义是单个碱基导致的群体中广泛存在的（约1%）的多态性，后来指与参考基因组不同的位点，它最常见也最简单。正常人的全基因组测序结果中大概有几百万个SNP，外显子组中也存在数万个SNP。对于人来说，SNP之间的平均距离在1.2M左右，但部分SNP位点仅间隔数个碱基甚至相邻。SNP一般可以分为：</p>
+<ul>
+<li><p>发生在编码区的SNP，由于密码子具有简并性不一定会引起氨基酸的改变：引起氨基酸变化的叫做 <strong>non-Synonymous SNP</strong>，不引起改变的叫做<strong>Synonymous SNP</strong>。</p>
+</li>
+<li><p>如果氨基酸发生了改变，又有两种情况：氨基酸的密码子变成另一种，因而导致多肽链的氨基酸种类和顺序发生改变，这就是<strong>错义突变</strong>。如果突变导致编码氨基酸的密码子变成了终止子，蛋白质合成进行到该突变位点时会提前终止，就导致了<strong>无义突变</strong>。</p>
+</li>
+</ul>
+</li>
+<li><p>小片段的插入与缺失（合称<strong>InDel</strong>），一般发生在基因组上短的有序的基因片段，长度小于50bp。</p>
+</li>
+<li><p>更大范围的<strong>结构性变异（SV）</strong>，长度大于50bp的片段的插入、缺失（Big Indel），染色体倒位（Inversion）、染色体之间或者内部发生易位（Translocation）、拷贝数变异（CNV）、串联重复（Tandem repeat）、嵌合体（chimera）</p>
+</li>
+</ol>
+<p><strong>③软件介绍</strong></p>
+<ol>
+<li><p>BWA</p>
+<p>即Burrows-Wheeler-Alignment Tool，BWA 是一种能够将差异度较小的序列比对到一个较大的参考基因组上的软件包。目前版本的BWA主要使用三种算法，分别是BWA-backtrack， BWA-SW和BWA-MEM。其实之前短序列比对主要使用的是BWT算法。</p>
+<p>BWA-backtrack，软件中的aln，samse，sampe比对都使用是bwa-backtack算法，主要适合比较短的reads，尤其是100bp以下的；<br>BWA-SW中的SW 表示affine-gap Smith-Waterman；<br>BWA-MEM中的MEM表示maximal exact matches；BWA-SW和BWA-MEM都支持长read是和split比对，reads长度可以从70bp到1M，BWA-MEM是更新的算法，更快也更准确，是最推荐使用的算法，也是使用范围最广泛的。</p>
+</li>
+<li><p>GATK <a target="_blank" rel="noopener" href="https://software.broadinstitute.org/gatk/">https://software.broadinstitute.org/gatk/</a></p>
+<p>GATK 是 Genome Analysis ToolKit 的缩写，是一款从高通量测序数据中分析变异信息的软件，是目前最主流的snp calling 软件之一。GATK 设计之初是用于分析人类的全外显子和全基因组数据，随着不断发展，现在也可以用于其他的物种，还支持CNV和SV变异信息的检测。<br>寻找变异使用HaplotypeCaller，它利用实时de novo对有可能是变异的区域进行局部组装，寻找SNP和InDel。</p>
+<p>在官网上，提供了完整的分析流程，叫做GATK Best Practices。</p>
+</li>
+</ol>
+<h3 id="1-变量命名-1"><a href="#1-变量命名-1" class="headerlink" title="1. 变量命名"></a>1. 变量命名</h3><p>数据和软件配置相对路径</p>
+<p>可以看到文件夹下有NA12878 的fastaq文件和其index文件，以及人类参考基因组b37版本序列</p>
+<pre class=" language-bash"><code class="language-bash">DATA<span class="token operator">=</span><span class="token variable">$PWD</span>/data
+INDEX<span class="token operator">=</span><span class="token variable">$PWD</span>/index
+BIN<span class="token operator">=</span><span class="token variable">$PWD</span>/bin
+
+SAMPLE1<span class="token operator">=</span>NA12878.hiseq.wgs_chr20_2mb.30xPE_1.fastq
+SAMPLE2<span class="token operator">=</span>NA12878.hiseq.wgs_chr20_2mb.30xPE_2.fastq
+SAM<span class="token operator">=</span>NA12878
+
+REF_SNP<span class="token operator">=</span><span class="token variable">$INDEX</span>/dbsnp_b37_20.vcf
+REF_INDEL<span class="token operator">=</span><span class="token variable">$INDEX</span>/indels_b37_20.vcf
+REF<span class="token operator">=</span><span class="token variable">$INDEX</span>/human_b37_20.fasta
+
+ALIGNMENT<span class="token operator">=</span><span class="token variable">$PWD</span>/result/alignment
+GATK<span class="token operator">=</span><span class="token variable">$PWD</span>/result/GATK
+ANNO<span class="token operator">=</span><span class="token variable">$PWD</span>/result/annotation</code></pre>
+<h3 id="2-BWA比对，处理得到bam文件"><a href="#2-BWA比对，处理得到bam文件" class="headerlink" title="2. BWA比对，处理得到bam文件"></a>2. BWA比对，处理得到bam文件</h3><h4 id="①使用BWA把短读段比对到基因组上"><a href="#①使用BWA把短读段比对到基因组上" class="headerlink" title="①使用BWA把短读段比对到基因组上"></a>①使用BWA把短读段比对到基因组上</h4><p>BWA的使用需要两种输入文件：</p>
+<ol>
+<li>Reference genome data参考基因组</li>
+<li>Short reads data 短reads序列</li>
+</ol>
+<pre class=" language-bash"><code class="language-bash"><span class="token variable">$BIN</span>/bwa aln -q 15 -l 35 -k 2 -t 1 \
+    -f <span class="token variable">$ALIGNMENT</span>/<span class="token variable">$SAMPLE1</span>.sai \
+    <span class="token variable">$REF</span> \
+    <span class="token variable">$DATA</span>/<span class="token variable">$SAMPLE1</span> <span class="token operator">&amp;</span>
+
+
+<span class="token variable">$BIN</span>/bwa aln -q 15 -l 35 -k 2 -t 1 \
+    -f <span class="token variable">$ALIGNMENT</span>/<span class="token variable">$SAMPLE2</span>.sai \
+    <span class="token variable">$REF</span> \
+    <span class="token variable">$DATA</span>/<span class="token variable">$SAMPLE2</span> <span class="token operator">&amp;</span>
+
+<span class="token function">wait</span></code></pre>
+<p>命令介绍</p>
+<pre class=" language-shell"><code class="language-shell">
+aln gapped/ungapped alignment
+-q 15     quality threshold.
+-l 35    seed length，种子匹配区域长度。
+-k 2    在种子区域中最多只能由两个mismatch，
+-t 10    10个线程
+-f  输出</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105081639151.png"></p>
+<p>输出的是sai文件。</p>
+<h4 id="②使用bwa-sampe合并sai文件并进行压缩排序"><a href="#②使用bwa-sampe合并sai文件并进行压缩排序" class="headerlink" title="②使用bwa sampe合并sai文件并进行压缩排序"></a>②使用bwa sampe合并sai文件并进行压缩排序</h4><p>将两个sai文件合并成为一个sam文件，然后对sam文件压缩并且排序产生一个bam文件</p>
+<p> sampe 双端比对，smape中的 pe 是 paired-end 的简写</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#merge to read together with sampe</span>
+<span class="token variable">$BIN</span>/bwa sampe -f <span class="token variable">$ALIGNMENT</span>/<span class="token variable">$SAM</span>.sam \
+    -r <span class="token string">"@RG\tID:<span class="token variable">$SAM</span>\tLB:<span class="token variable">$SAM</span>\tSM:<span class="token variable">$SAM</span>\tPL:ILLUMINA"</span> \
+    <span class="token variable">$REF</span> \
+    <span class="token variable">$ALIGNMENT</span>/<span class="token variable">$SAMPLE1</span>.sai \
+    <span class="token variable">$ALIGNMENT</span>/<span class="token variable">$SAMPLE2</span>.sai \
+    <span class="token variable">$DATA</span>/<span class="token variable">$SAMPLE1</span> \
+    <span class="token variable">$DATA</span>/<span class="token variable">$SAMPLE2</span> 
+</code></pre>
+<p>由于bwa生成的sam文件是按照字典式的排序法进行的排序，之后我们要用的GATK是按照染色体组型进行的，因此我们需要对sam文件进行重排，压缩成二进制的bam文件</p>
+<pre class=" language-shell"><code class="language-shell">#sort sam and compress the sam to bam file
+java -jar $BIN/SortSam.jar \
+    SO=coordinate \
+    INPUT=$ALIGNMENT/$SAM.sam \
+    OUTPUT=$ALIGNMENT/$SAM.sam.bam \
+    VALIDATION_STRINGENCY=LENIENT \
+    CREATE_INDEX=true</code></pre>
+<p>运行命令</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105081716402.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105081750257.png"></p>
+<h4 id="③使用Picard的MarkDuplicate工具去除重复"><a href="#③使用Picard的MarkDuplicate工具去除重复" class="headerlink" title="③使用Picard的MarkDuplicate工具去除重复"></a>③使用Picard的MarkDuplicate工具去除重复</h4><p>在NGS测序之前都需要先构建测序文库：通过物理（超声）打断或者化学试剂（酶切）切断原始的DNA序列，然后选择特定长度范围的序列去进行PCR扩增并上机测序。这个过程中产生的重复reads，增大了变异检测结果的<strong>假阴率和假阳率</strong>。原因如下：</p>
+<ol>
+<li><p>PCR反应过程中也会带来新的碱基错误。发生在前几轮的PCR扩增发生的错误会在后续的PCR过程中扩大，同样带来假的变异；</p>
+</li>
+<li><p>PCR反应可能会对包含某一个碱基的DNA模版扩增更加剧烈（这个现象称为PCR Bias）</p>
+</li>
+<li><p>如果某个变异位点的变异碱基都是来自于PCR重复，而我们却认为它深度足够判断是真的变异位点，这个结论其实有很大可能是假阳性。</p>
+</li>
+</ol>
+<p>因此我们需要去除PCR扩增产生的重复片段，希望去除在测序过程中产生的一个片段被多次测序产生错误的影响。</p>
+<p>运行的是java脚本</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#MARK AND REMOVE DUPLICATES</span>
+java -jar <span class="token variable">$BIN</span>/MarkDuplicates.jar \
+    INPUT<span class="token operator">=</span><span class="token variable">$ALIGNMENT</span>/<span class="token variable">$SAM</span>.sam.bam \
+    OUTPUT<span class="token operator">=</span><span class="token variable">$ALIGNMENT</span>/<span class="token variable">$SAM</span>.sam.dedup.bam \
+    METRICS_FILE<span class="token operator">=</span><span class="token variable">$ALIGNMENT</span>/mark.metrics \
+    MAX_RECORDS_IN_RAM<span class="token operator">=</span>5000000 \
+    ASSUME_SORTED<span class="token operator">=</span>true \
+    VALIDATION_STRINGENCY<span class="token operator">=</span>LENIENT \
+    REMOVE_DUPLICATES<span class="token operator">=</span>true \
+    CREATE_INDEX<span class="token operator">=</span>true
+</code></pre>
+<pre class=" language-shell"><code class="language-shell">MAX_RECORDS_IN_RAM=5000000    在内存中一次最大能够处理5000000条reads</code></pre>
+<p>运行命令</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105081806148.png"></p>
+<h3 id="3-使用GATK进行变异检测"><a href="#3-使用GATK进行变异检测" class="headerlink" title="3. 使用GATK进行变异检测"></a>3. 使用GATK进行变异检测</h3><h4 id="①local-realignment-局部重比对和recalibration校对"><a href="#①local-realignment-局部重比对和recalibration校对" class="headerlink" title="①local realignment 局部重比对和recalibration校对"></a>①local realignment 局部重比对和recalibration校对</h4><p>这一步的目的就是<strong>将比对到indel附近的reads进行局部重新比对，将比对的错误率降到最低</strong>。一般来说，绝大部分需要进行重新比对的基因组区域，都是因为插入/缺失的存在，因为在indel附近的比对会出现大量的碱基错配，这些碱基的错配很容易被误认为SNP。</p>
+<p>RealignerTargetCreator定位出所有需要进行序列重比对的目标区域</p>
+<pre class=" language-shell"><code class="language-shell">DEDUP=$SAM.sam.dedup.bam
+
+#create interval
+
+java -jar $BIN/GenomeAnalysisTK.jar \
+    -T RealignerTargetCreator \
+    -R $REF \
+    -o $GATK/$DEDUP.intervals \
+    -I $ALIGNMENT/$DEDUP \
+    -known $REF_INDEL </code></pre>
+<p>IndelRealigner 对所有在第一步中找到的目标区域运用算法进行序列重比对，最后得到新的重比对bam文件。</p>
+<pre class=" language-shell"><code class="language-shell">#realignment
+java -jar $BIN/GenomeAnalysisTK.jar \
+    -T IndelRealigner \
+    -R $REF \
+    -I $ALIGNMENT/$DEDUP \
+    -targetIntervals $GATK/$DEDUP.intervals \
+    -known $REF_INDEL \
+    -o $GATK/$DEDUP.realigned.bam</code></pre>
+<p>在操作上GATK的recalibration被分为两步走：较正（BaseRecalibrator）以及输出（PrintReads）。之所以分为两步，是因为可以通过连续两次调用BaseRecalibrator来生成一个recalibration前后比对图，从而实现输出可视化效果及输出结果兼顾</p>
+<pre class=" language-shell"><code class="language-shell">#recalibration 
+java -jar $BIN/GenomeAnalysisTK.jar \
+    -T BaseRecalibrator \
+    -R $REF \
+    -I $GATK/$DEDUP.realigned.bam \
+    -knownSites $REF_SNP \
+    -knownSites $REF_INDEL \
+    -rf BadCigar \
+    -o $GATK/$DEDUP.realigned.bam.recal.grp
+
+
+# 使用PrintReads 做SNP检测
+java -jar $BIN/GenomeAnalysisTK.jar \
+    -T PrintReads \
+    -R $REF \
+    -I $GATK/$DEDUP.realigned.bam \
+    -BQSR $GATK/$DEDUP.realigned.bam.recal.grp \
+    -o $GATK/$DEDUP.realigned.bam.recal.bam</code></pre>
+<p>使用GATK的ReduceReads工具缩小文件，对BAM文件进行有损压缩，压缩后的文件 甚至可以小至压缩前的1/100大小。</p>
+<pre class=" language-shell"><code class="language-shell">
+java -jar $BIN/GenomeAnalysisTK.jar \
+    -T ReduceReads \
+    -R $REF \
+    -I $GATK/$DEDUP.realigned.bam.recal.bam \
+    -o $GATK/$DEDUP.realigned.bam.recal.reduced.bam
+</code></pre>
+<p>输入上述命令</p>
+<img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105082830416.png" style="zoom: 43%;">
+
+<img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105082703458.png" style="zoom:43%;">
+
+<img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105082307967.png" style="zoom:43%;">
+
+<img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105082758395.png" style="zoom:43%;">
+
+<img src="assets/image-20201105082214857.png" style="zoom:43%;">
+
+<h4 id="②使用HaplotypeCaller寻找SNP和Indel"><a href="#②使用HaplotypeCaller寻找SNP和Indel" class="headerlink" title="②使用HaplotypeCaller寻找SNP和Indel"></a>②使用HaplotypeCaller寻找SNP和Indel</h4><p>对于突变分析，基本的问题就是怎么判断一个突变是测序误差（random machine noise）还是真实的突变，这是一个large scale Bayesian inference problem。在GATK中提供了两种方法，一是不基于模型的UnifiedGenotyper，它速度非常快，不考虑相邻碱基的影响。另一个是基于体外拼接模型的HaplotypeCaller。后者是GATK推荐的方式，它还支持2倍体模式。</p>
+<p> HaplotypeCaller，简称HC，能过通过对活跃区域（也就是与参考基因组不同处较多的区域）局部重组装，同时寻找SNP和INDEL。</p>
+<pre class=" language-shell"><code class="language-shell">#call snv with hc
+mkdir $GATK/HC
+
+iBAM=$DEDUP.realigned.bam.recal.reduced.bam
+
+HC_DIR=$GATK/HC
+HC_NAME=NA12878.HC
+
+#discovery
+java -jar $BIN/GenomeAnalysisTK.jar \
+    -T HaplotypeCaller \
+    -R $REF \
+    --genotyping_mode DISCOVERY \
+    -nct 10 \
+    --dbsnp $REF_SNP \
+    -stand_emit_conf 10 \
+    -stand_call_conf 30 \
+    -I $GATK/$iBAM \
+    -o $HC_DIR/$HC_NAME.variants.vcf</code></pre>
+<pre class=" language-shell"><code class="language-shell">
+--dbsnp    是将已知的snp标记出来。
+--stand_call_conf 在变异检测过程中，用于区分低质量变异位点和高质量变异位点的阈值。只有质量值高于这个阈值的位点才会被视为高质量的。低于这个质量值的变异位点会在输出结果中标注LowQual
+--stand_emit_conf 在变异检测过程中，所容许的最小质量值。只有大于等于这个设定值的变异位点会被输出到结果中
+</code></pre>
+<p>运行命令</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105084614054.png"></p>
+<h4 id="③过滤SNP-indel"><a href="#③过滤SNP-indel" class="headerlink" title="③过滤SNP/indel"></a>③过滤SNP/indel</h4><p>这两个步骤是从variant文件中抽出snp和indel按照通过一定的标准filterexpression（过滤指标），最大可能地剔除假阳性的结果，并尽可能地保留最多的正确数据。这种方法也叫硬过滤</p>
+<pre class=" language-bash"><code class="language-bash">
+<span class="token comment" spellcheck="true">#使用SelectVariants，选出SNP</span>
+java -jar <span class="token variable">$BIN</span>/GenomeAnalysisTK.jar \
+    -R <span class="token variable">$REF</span> \
+    -T SelectVariants \
+    -V <span class="token variable">$HC_DIR</span>/<span class="token variable">$HC_NAME</span>.variants.vcf \
+    -selectType SNP \
+    -o <span class="token variable">$HC_DIR</span>/<span class="token variable">$HC_NAME</span>.snp.vcf
+<span class="token comment" spellcheck="true"># 为SNP作硬过滤</span>
+java -jar <span class="token variable">$BIN</span>/GenomeAnalysisTK.jar \
+    -R <span class="token variable">$REF</span> \
+    -T VariantFiltration \
+    -V <span class="token variable">$HC_DIR</span>/<span class="token variable">$HC_NAME</span>.snp.vcf \
+    --clusterWindowSize 10 \
+    --clusterSize 3 \
+    --filterExpression \
+    <span class="token string">"DP &lt; 8 || QD &lt; 2.0 || FS > 60.0 || MQ &lt; 40.0 || HaplotypeScore > 13.0 || MappingQualityRankSum &lt; -12.5 || ReadPosRankSum &lt; -8.0"</span> \
+    --filterName <span class="token string">"GATK_snp_filter"</span> \
+    -o <span class="token variable">$HC_DIR</span>/<span class="token variable">$HC_NAME</span>.snp.filter.tmp </code></pre>
+<pre><code>--clusterWinowSize 10    表示滑动窗口为10bp
+--clusterSize 3    表示在10bp中最多有3个snp
+--filterExpression 这个式子其实是过滤掉不要的变异位点</code></pre>
+<blockquote>
+<p>过滤使用的数据指标（这些指标都在VCF文件的INFO域中可以看到)</p>
+<ul>
+<li>QualByDepth（QD）:QD是变异质量值（Quality）除以覆盖深度（Depth）得到的比值,覆盖深度是这个位点上所有含有变异碱基的样本的覆盖深度之和, QD这个值描述的实际上就是单位深度的变异质量值.</li>
+<li>FisherStrand (FS): FS是一个通过Fisher检验的p-value转换而来的值，它要描述的是测序或者比对时对于只含有变异的read以及只含有参考序列碱基的read是否存在着明显的正负链特异性（Strand bias).把FS设置为大于60,是为了尽可能保留更多好的变异。</li>
+<li>StrandOddsRatio (SOR)：用的是symmetric odds ratio test，数据是一个2×2的列联表，考虑的其实就是ALT和REF这两个碱基的read覆盖方向的比例是否有偏，可以对FS进行校正。这里没有用到</li>
+<li>RMSMappingQuality (MQ)：是所有比对至该位点上的read的比对质量值的均方根（先平方、再平均、然后开方）它和平均值相比更能够准确地描述比对质量值的离散程度</li>
+<li>MappingQualityRankSumTest (MQRankSum)：根据REF和ALT的read的比对质量来评估可信度</li>
+<li>ReadPosRankSumTest (ReadPosRankSum)：: 通过变异在read的位置来评估变异可信度，通常在read的两端的错误率比较高</li>
+</ul>
+</blockquote>
+<p>运行命令</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105084920180.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105084954644.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105085025630.png"></p>
+<p><strong>过滤indel</strong></p>
+<pre class=" language-bash"><code class="language-bash">
+<span class="token comment" spellcheck="true">#filter indel</span>
+java -jar <span class="token variable">$BIN</span>/GenomeAnalysisTK.jar \
+    -R <span class="token variable">$REF</span> \
+    -T SelectVariants \
+    -V <span class="token variable">$HC_DIR</span>/<span class="token variable">$HC_NAME</span>.variants.vcf \
+    -selectType INDEL \
+    -o <span class="token variable">$HC_DIR</span>/<span class="token variable">$HC_NAME</span>.indel.vcf
+
+java -jar <span class="token variable">$BIN</span>/GenomeAnalysisTK.jar \
+    -R <span class="token variable">$REF</span> \
+    -T VariantFiltration \
+    -V <span class="token variable">$HC_DIR</span>/<span class="token variable">$HC_NAME</span>.indel.vcf \
+    --clusterWindowSize 10 \
+    --clusterSize 3 \
+    --filterExpression \
+    <span class="token string">"DP &lt; 8 || QD &lt; 3.0 || FS > 200.0 || ReadPosRankSum &lt; -20.0"</span> \
+    --filterName <span class="token string">"GATK_indel_filter"</span> \
+    -o <span class="token variable">$HC_DIR</span>/<span class="token variable">$HC_NAME</span>.indel.filter.tmp 
+</code></pre>
+<pre class=" language-bash"><code class="language-bash">
+--clusterWinowSize 10    表示滑动窗口为10bp
+--clusterSize 3    表示在10bp中最多有3个snp
+
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105085256568.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105085323288.png"></p>
+<p>VariantFiltration 功能仅会在 VCF 文件中对每个变异位点添加过滤注释，因此还需要用过滤注释提取出通过过滤标准的变异，重新合并过滤后的SNP和Indel</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#filter </span>
+<span class="token function">awk</span> -f <span class="token variable">$BIN</span>/pipe_pickup.awk <span class="token variable">$HC_DIR</span>/<span class="token variable">$HC_NAME</span>.snp.filter.tmp <span class="token operator">></span> <span class="token variable">$HC_DIR</span>/<span class="token variable">$HC_NAME</span>.snp.filter
+<span class="token function">awk</span> -f <span class="token variable">$BIN</span>/pipe_pickup.awk <span class="token variable">$HC_DIR</span>/<span class="token variable">$HC_NAME</span>.indel.filter.tmp <span class="token operator">></span> <span class="token variable">$HC_DIR</span>/<span class="token variable">$HC_NAME</span>.indel.filter
+</code></pre>
+<p>$BIN/pipe_pickup.awk内容</p>
+<pre class=" language-bash"><code class="language-bash">BEGIN<span class="token punctuation">{</span>
+        FS<span class="token operator">=</span><span class="token string">"    "</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">{</span>
+        if<span class="token punctuation">(</span>/^<span class="token comment" spellcheck="true">#/ || $7=="PASS") print $0;</span>
+<span class="token punctuation">}</span>
+~
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105084740194.png"></p>
+<h3 id="4-使用ANNOVAR对文件进行注释"><a href="#4-使用ANNOVAR对文件进行注释" class="headerlink" title="4.使用ANNOVAR对文件进行注释"></a>4.使用ANNOVAR对文件进行注释</h3><p>vcf文件中保存的突变位点不能直接使用，只有根据已有数据库进行注释，才能知道该位点的有何功能，是否与疾病相关以及其它信息。</p>
+<p>ANNOVAR是突变注释的常用软件，是一个perl编写的命令行工具，能在安装了perl解释器的多种操作系统上执行。允许多种输入文件格式，包括最常被使用的VCF格式。输出文件也有多种格式，包括注释过的VCF文件、用tab或者逗号分隔的txt文件。ANNOVAR能快速注释遗传变异并预测其功能</p>
+<p>对变量进行命名</p>
+<pre class=" language-shell"><code class="language-shell">HC_DIR=$GATK/HC
+HC_NAME=NA12878.HC
+mkdir $ANNO/snp
+mkdir $ANNO/indel
+
+FILE=NA12878
+
+SNP=$HC_DIR/$HC_NAME.snp.filter
+INDEL=$HC_DIR/$HC_NAME.indel.filter
+
+SNP_DIR=$ANNO/snp
+INDEL_DIR=$ANNO/indel
+
+HUMANDB=/project/liucj/REFDATA/humandb
+
+</code></pre>
+<pre><code>convert2annovar.pl是将得到的vcf文件转换成annovar能够识别的avinput文件
+table_annovar.pl是ANNOVAR这个软件中的一种注释方式，annovar有三种注释方式Gene-based Annotation(基于基因的注释)，Region-based Annotation（基于区域的注释），Filter-based Annotation（基于过滤的注释）。看起来很复杂实际做起来很简单，用table_annovar.pl进行注释，可一次性完成三种类型的注释。</code></pre>
+<p><strong>注释indel</strong></p>
+<pre class=" language-shell"><code class="language-shell">#annotate indel
+perl $BIN/convert2annovar.pl -format vcf4 -i $INDEL > $INDEL_DIR/$FILE.indel.vcf.avinput
+
+perl $BIN/table_annovar.pl \
+    $INDEL_DIR/$FILE.indel.vcf.avinput \
+    $HUMANDB \
+    -buildver hg19 \
+    -protocol refGene,ensGene,knownGene,ccdsGene,sift,cosmic65,esp6500si_all,snp137 \
+    -operation g,g,g,g,f,f,f,f \
+    -outfile $INDEL_DIR/$FILE.indel &</code></pre>
+<pre class=" language-shell"><code class="language-shell">-buildver hg19    采用的基因组是hg19版
+-protocol 是选择需要哪些内容进行注释</code></pre>
+<img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105085550174.png" style="zoom:40%;">
+
+<img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201105085616169.png" style="zoom:40%;">
+
+<p><strong>注释SNP位点</strong></p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#annotate snp</span>
+perl <span class="token variable">$BIN</span>/convert2annovar.pl -format vcf4 -i <span class="token variable">$SNP</span> <span class="token operator">></span> <span class="token variable">$SNP_DIR</span>/<span class="token variable">$FILE</span>.snp.vcf.avinput
+
+perl <span class="token variable">$BIN</span>/table_annovar.pl \
+    <span class="token variable">$SNP_DIR</span>/<span class="token variable">$FILE</span>.snp.vcf.avinput \
+    <span class="token variable">$HUMANDB</span> \
+    -buildver hg19 \
+    -protocol refGene,ensGene,knownGene,ccdsGene,sift,cosmic65,esp6500si_all,snp137 \
+    -operation g,g,g,g,f,f,f,f \
+    -outfile <span class="token variable">$SNP_DIR</span>/<span class="token variable">$FILE</span>.snp <span class="token operator">&amp;</span>
+</code></pre>
+<img src="assets/image-20201105090005719.png" style="zoom:50%;">
+
+<p>查看result/annotation/snp和 result/annotation/indel文件夹的结果文件情况</p>
+<img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201110231832918.png" style="zoom:53%;">
+
+<h3 id="5-查看SNP位点和indel位点注释文件"><a href="#5-查看SNP位点和indel位点注释文件" class="headerlink" title="5. 查看SNP位点和indel位点注释文件"></a>5. 查看SNP位点和indel位点注释文件</h3><p>将result/GATK文件夹下的NA12878.sam.dedup.bam.realigned.bam和NA12878.sam.dedup.bam.realigned.bai通过FileZilla传输到本地电脑，用IGV打开bam文件，选择人类基因组hg19，染色体chr20，然后选择感兴趣的SNP位点和indel位点。</p>
+<p><code>less result/annotation/snp/NA12878.snp.hg19_multianno.txt</code>，查看SNP位点情况</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201110231736520.png"></p>
+<p>选择一个SNP位点chr20:76771</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201111074331843.png"></p>
+<p>可以看到chr20：76771这个点参考基因组是C，而比对的reads上这个位置有一半是T一半是C，所以上面的Coverage显示一半红一半蓝</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201111074115513.png"></p>
+<p><code> less result/annotation/indel/NA12878.indel.hg19_multianno.txt</code>查看插入缺失位点情况</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201110231708272.png"></p>
+<p>选择一个缺失位点 chr20:1830449-1830452</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201110232647669.png"></p>
+<p>打开IGV查看情况，可以发现所在位置确实有4个read确实缺失了AAAT</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201111074645139.png"></p>
+<h2 id="附-：VCF文件的了解"><a href="#附-：VCF文件的了解" class="headerlink" title="附 ：VCF文件的了解"></a>附 ：VCF文件的了解</h2><blockquote>
+<p>全名是：Variant Call Format，它是存储变异位点的标准格式</p>
+<p>VCF使用UTF-8编码，有两大部分：一部分是注释信息（以##开头），一部分是具体突变信息</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/image-20201111080451014.png"></p>
+<p>数据文件的头信息（#表示），主要有CHROM、POS、ID、REF、ALT、QUAL、FILTER、INFO、FORAMT、SAMPLE【前8列必须要有】</p>
+<ul>
+<li><p>CHROM： 表示变异位点是在哪个contig 里call出来的，如果是人类全基因组的话那就是chr1…chr22，chrX,Y,M。</p>
+</li>
+<li><p>POS：变异位点相对于参考基因组所在的位置，如果是indel，就是第一个碱基所在的位置。</p>
+</li>
+<li><p>ID：如果call出来的SNP存在于dbSNP数据库里，就会显示相应的dbSNP里的rs编号。</p>
+</li>
+<li><p>REF和ALT：在这个变异位点处，参考基因组中所对应的碱基和研究对象基因组中所对应的碱基。【多个用逗号分隔；对于SNP是单个碱基的改变；对于InDel是碱基数量的改变】</p>
+</li>
+<li><p>QUAL：变异位点质量值（与测序数据一样也是用Phred格式表示）。Q=-10lgP， P是变异位点存在的概率。当Q=20时，错误率就控制在了0.01。</p>
+</li>
+<li><p>FILTER：通过标准的好的变异位点的FILTER一栏就会注释一个PASS，如果没有通过过滤，就会在FILTER这一栏提示除了PASS的其他信息。如果这一栏是一个“.”的话，就说明没有进行过任何过滤。</p>
+</li>
+<li><p>INFO：结合描述理解有关该位点的额外信息 【包含信息最多，形式为Tag=Value, 分号分隔】</p>
+</li>
+<li><p>FORMAT：变异位点格式</p>
+</li>
+<li><p>SMAPLE：使用的样本名称，由bam文件中@RG的SM标签决定</p>
+</li>
+</ul>
+<p>其中变异位点格式，例如GT:AD:DP:GQ:PL</p>
+<ul>
+<li>GT:样品的基因型（genotype）： 表示这个样本的基因型，对于一个二倍体生物，GT值表示的是这个样本在这个位点所携带的两个等位基因。0表示跟REF一样；1表示表示跟ALT一样；2表示第二个ALT。当只有一个ALT 等位基因的时候，0/0表示纯和且跟REF一致；0/1表示杂合，两个allele一个是ALT一个是REF；1/1表示纯和且都为ALT</li>
+<li>AD(Allele Depth)为sample中每一种allele的reads覆盖度,在diploid（二倍体，或可指代多倍型）中则是用逗号分隔的两个值，前者对应REF基因，后者对应ALT基因型</li>
+<li>DP(Depth)为sample中该位点的覆盖度，是所支持的两个AD值（逗号前和逗号后）的加和</li>
+<li>GQ:表示最可能的基因型的质量值。表示的意义同QUAL。</li>
+<li>PL: 对应3个以逗号隔开的值，这三个值分别表示该位点基因型是0/0，0/1，1/1的没经过先验的标准化Phred-scaled似然值（L）。这个值越小，支持概率就越大，也就是说是这个基因型的可能性越大。</li>
+</ul>
+</blockquote>
+<h2 id="附：参考资料"><a href="#附：参考资料" class="headerlink" title="附：参考资料"></a>附：参考资料</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://mubu.com/doc/7A3T8hpUlLv#">学徒第5月-miRNA-seq实战演练</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/MicroRNA">miRNA-wikipedia</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/34878471">GATK4.0和全基因组数据分析实践（下） - 黄树嘉的文章 - 知乎</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/emanlee/p/4562064.html">VCF （Variant Call Format）格式详解</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/news/180158">GATK4.0全基因组和全外显子组分析实战</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/64967200">如何理解人全外显子测序的Duplication问题？</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://qiubio.com/archives/3207">GATK练习题</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a84ff2b2ab59">Call变异？就是召唤啦！</a></p>
+</li>
+</ul>
+
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0/">
+                                    <span class="chip bg-color">基础练习</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/valine/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '6iI0iLCmPt2RF0cVJ4mpzk9g-MdYXbMMI',
+        appKey: '65lnN4gsqHUBYBdA1ULByihM',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'wavatar',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '欢迎留下您的足迹'
+    });
+</script>
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/e3b7.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="【生信资源与实践】第四次上机-NCBI">
+                        
+                        <span class="card-title">【生信资源与实践】第四次上机-NCBI</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            NCBI(National Center for Biotechnology information）即美国国家生物技术信息中心，由美国国立卫生医学图书馆（NLM）于1988年建立。该中心的任务是：为储存和分析分子生物学、生物化学、遗传学知识创建自动化系统；从事研究基于计算机的信息处理过程的高级方法，用于分析生物学上重要的分子和化合物的结构与功能；促进生物学研究人员和医护人员应用数据库和软件；努力协作以获取世界范围内的生物技术信息
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-25
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF/" class="post-category">
+                                    生物信息
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0/">
+                        <span class="chip bg-color">基础练习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/8849.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/medias/featureimages/4.jpg" class="responsive-img" alt="【生信资源与实践】第二次上机报告">
+                        
+                        <span class="card-title">【生信资源与实践】第二次上机报告</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            RNA-seq (HISAT - SAMtools- StringTie -ballgown）&Gene-Assembly
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF/" class="post-category">
+                                    生物信息
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0/">
+                        <span class="chip bg-color">基础练习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="136126210"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.5'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align"
+        style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+            <span id="year">2020</span>
+            
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">风渡巛</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">45.8k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "11";
+                    var startDate = "14";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已艰难运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已艰难运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Achuan-2" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:270992395@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=270992395" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 270992395" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/su-ji-xiong-62" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/su-ji-xiong-62" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+    <a href="https://space.bilibili.com/349243695" class="tooltipped" target="_blank" data-tooltip="关注我的B站: https://space.bilibili.com/349243695" data-position="top" data-delay="50">
+        <i >B</i>
+    </a>
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    
+    <!--动态线条背景-->
+    <script type="text/javascript" color="122 103 238" opacity='0.7' zIndex="-2" count="200"
+        src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+        </script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"superSample":2,"position":"right","width":150,"height":300,"hOffset":-30,"vOffset":60},"mobile":{"show":false,"scale":0.5},"react":{"opacity":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+</html>
