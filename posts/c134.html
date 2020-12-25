@@ -2590,7 +2590,7 @@ ans_points<span class="token punctuation">[</span>ans_points <span class="token 
 im <span class="token operator">=</span> Image<span class="token punctuation">.</span>fromarray<span class="token punctuation">(</span>ans_points<span class="token punctuation">.</span>astype<span class="token punctuation">(</span>np<span class="token punctuation">.</span>uint8<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"L"</span><span class="token punctuation">)</span>
 im<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token comment" spellcheck="true"># im.save("level_32/python.jpg")</span></code></pre>
-<p><strong>OutPut</strong><br><a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/rock/warmup.txt">warmup.txt</a></p>
+<p><strong>Output</strong><br><a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/rock/warmup.txt">warmup.txt</a></p>
 <pre><code>██×.█×.██
 █×.███××█
 ×.█████××
@@ -2635,7 +2635,7 @@ im<span class="token punctuation">.</span>show<span class="token punctuation">(<
 ×××××××××××××××××××█████××××××××
 </code></pre>
 <p>输入“python.html”到下一页面，直接搜索下面那段话 “Free” as in “Free speech”, not as in “free…<br>了解到“Free as in beer”指免费软件，“Free as in speech”指开源软件，答案就是“beer”。</p>
-<h2 id="level-33-remove-light-2020-12-25"><a href="#level-33-remove-light-2020-12-25" class="headerlink" title="level_33_remove light_2020.12.25"></a>level_33_remove light_2020.12.25</h2><p><strong>Solution</strong><br>不明白为什么32关那么难,33关又正常了…小小吐槽一下<br>这一关就是根据网页提示得到beer2.png图片,保存到本地,打开,发现图片是138*138的正方形<br>之前的网页源代码提示,”如果你被光蒙蔽了双眼，用它的力量移除它的力量。然后在灰烬中，另一个真相将向你光明正大地展示。”额,这句话真有哲理(●’◡’●)<br>总之,是之后用im.getdata()查看图片的灰度值,找到最大的两个数c0,c1,把等于c0,c1的数都变为255(白色),把小于的数都变成0(黑色),然后再删除等于c0和c1的数,得到的列表长度依然是一个平方数,之后需要重复操作33次,得到33张图片,发现33张图片里几张被方框括起来了,按顺序拼接,于是答案就为”gremlins”<br><strong>学习</strong></p>
+<h2 id="level-33-remove-light-2020-12-25"><a href="#level-33-remove-light-2020-12-25" class="headerlink" title="level_33_remove light_2020.12.25"></a>level_33_remove light_2020.12.25</h2><p>今天圣诞节嘞，圣诞快乐🎄！然而并没有收到礼物/(ㄒoㄒ)/~~<br><strong>Solution</strong><br>不明白为什么32关那么难,33关又正常了…小小吐槽一下<br>这一关就是根据网页提示得到beer2.png图片,保存到本地,打开,发现图片是138*138的正方形<br>之前的网页源代码提示,”如果你被光蒙蔽了双眼，用它的力量移除它的力量。然后在灰烬中，另一个真相将向你光明正大地展示。”额,这句话真有哲理(●’◡’●)<br>总之,是之后用im.getdata()查看图片的灰度值,找到最大的两个数c0,c1,把等于c0,c1的数都变为255(白色),把小于的数都变成0(黑色),然后再删除等于c0和c1的数,得到的列表长度依然是一个平方数,之后需要重复操作33次,得到33张图片,发现33张图片里几张被方框括起来了,按顺序拼接,于是答案就为”gremlins”<br><strong>学习</strong></p>
 <ul>
 <li>最后一关的输出我用了红色和绿色来美化输出哦,还回想起了<code>center(10,'*')</code></li>
 <li>numpy可能要学习一下<ul>
@@ -2682,7 +2682,7 @@ data_list <span class="token operator">=</span> list<span class="token punctuati
     im<span class="token punctuation">.</span>save<span class="token punctuation">(</span>f<span class="token string">'output/level_33/{i+1}.png'</span><span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">'\033[32m第{i+1}张图片成功保存至本地\033[0m'</span><span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p><strong>输出</strong><br><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201225110813-2020-12-25.png" alt="生成的33张图"></p>
+<p><strong>Output</strong><br><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201225110813-2020-12-25.png" alt="生成的33张图"></p>
 <p>撒花完结!!!!<br><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201225111138-2020-12-25.png"></p>
 
             </div>
