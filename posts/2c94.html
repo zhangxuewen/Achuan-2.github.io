@@ -701,7 +701,7 @@
 </tr>
 </tbody></table>
 <h3 id="1-5-vim"><a href="#1-5-vim" class="headerlink" title="1.5  vim"></a>1.5  vim</h3><p>vim有三种模式</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201225164227-2020-12-25.png"><br><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/2156635-20201108165416825-489408072-2020-12-25.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201225190902-2020-12-25.png"><br><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/2156635-20201108165416825-489408072-2020-12-25.png"></p>
 <h4 id="1-5-1-复制粘贴与删除撤回"><a href="#1-5-1-复制粘贴与删除撤回" class="headerlink" title="1.5.1 复制粘贴与删除撤回"></a>1.5.1 复制粘贴与删除撤回</h4><p>全部删除：按esc键后，先按gg（到达顶部），然后dG(选中内容光标移到最后一行 ,是大写相当于shift+G)</p>
 <p>全部复制：按esc键后，先按gg，然后ggyG</p>
 <p>全选高亮显示：按esc键后，先按gg，然后ggvG或者ggVG</p>
@@ -873,14 +873,13 @@ cuffdiff ucsc.hg19.chr21.genes.gtf \
 
 
 <h2 id="附：IGV的使用"><a href="#附：IGV的使用" class="headerlink" title="附：IGV的使用"></a>附：IGV的使用</h2><ol>
-<li>载入bam文件后会产生3个相关的tracks:</li>
-</ol>
+<li><p>载入bam文件后会产生3个相关的tracks:</p>
 <ul>
 <li>Alignment track :显示每个的reads的比对情况</li>
 <li>Coverage track：显示覆盖率和测序深度,如果某核苷酸与参考序列不同（超过20%reads）时，IGV会标出不同的颜色。即：A→绿色；C→蓝色；G→橙色;T→红色。</li>
 <li>Splice Junction Track：提供一个可选的横跨剪切位点(spanning splice junctions)的reads视图。红色向上弧形表示可变剪切基因位于正链，蓝色向下为负链；弧形的高度和厚度(thickness)与reads覆盖度成比例；</li>
 </ul>
-<ol start="2">
+</li>
 <li><p>补充IGV的颜色意思</p>
 <p>资料：</p>
 <ul>
