@@ -29,9 +29,9 @@
 
     <script src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="风渡巛" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="风渡巛" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -440,8 +440,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0/">
-                                <span class="chip bg-color">基础练习</span>
+                            <a href="/tags/%E7%94%9F%E4%BF%A1%E8%B5%84%E6%BA%90%E4%B8%8E%E5%AE%9E%E8%B7%B5/">
+                                <span class="chip bg-color">生信资源与实践</span>
                             </a>
                         
                     </div>
@@ -788,25 +788,25 @@ samtools <span class="token function">sort</span> accepted_hits.bam -o accepted_
 <span class="token comment" spellcheck="true">#samtools 对BAM文件建立索引</span>
 samtools index accepted_hits.sort.bam</code></pre>
 <p>以SRR493366.tophat为例，如下图</p>
-<p><img src="https://i.loli.net/2020/10/22/JFELbCXUm92nOfG.png" alt="image-20201018123105283"></p>
+<p><img src="https://i.loli.net/2020/10/22/JFELbCXUm92nOfG.png"></p>
 <p>然后对其他五个文件夹也是如此处理</p>
-<p><img src="https://i.loli.net/2020/10/22/4gy8qCGLlW21xIY.png" alt="image-20201016000414489"></p>
+<p><img src="https://i.loli.net/2020/10/22/4gy8qCGLlW21xIY.png"></p>
 <p>②使用具有sftp功能的软件FileZilla将Linux服务器上的文件传到自己电脑</p>
 <blockquote>
 <p>FileZilla  win 32位便携版 [<a target="_blank" rel="noopener" href="https://download.filezilla.cn/client/windows/FileZilla_3.50.0_win32.zip">下载地址</a>]</p>
 </blockquote>
 <p>输入Linux服务器ip地址211.67.31.245，自己的用户名，密码，端口22，点击链接即可</p>
-<p><img src="https://i.loli.net/2020/10/22/CDU2PzsvfRewTX4.png" alt="image-20201018123647589">        ③安装并打开IGV</p>
+<p><img src="https://i.loli.net/2020/10/22/CDU2PzsvfRewTX4.png">        ③安装并打开IGV</p>
 <blockquote>
 <p>IGV -Win版 included java [ <a target="_blank" rel="noopener" href="https://data.broadinstitute.org/igv/projects/downloads/2.8/IGV_Win_2.8.10-WithJava-installer.exe">下载地址</a>]</p>
 </blockquote>
 <p>将bam文件导入，选择hg19，chr21，通过调节右上角的页面缩放和点击上方的染色体位置来显示比对区域</p>
-<p><img src="https://i.loli.net/2020/10/22/juLhgswTmyx9tpX.png" alt="image-20201018124330084"></p>
+<p><img src="https://i.loli.net/2020/10/22/juLhgswTmyx9tpX.png"></p>
 <p>④查看比对结果</p>
 <p>SRR493366、SRR493367、SRR493368的比对结果：（位置-chr21:17,195,557-17,206,837）</p>
-<p><img src="https://i.loli.net/2020/10/22/2O4b1ASKTGPqueY.png" alt="image-20201018130338043"></p>
+<p><img src="https://i.loli.net/2020/10/22/2O4b1ASKTGPqueY.png"></p>
 <p>SRR493369、SRR493370、SRR4933671的比对结果：（位置-chr21:17,195,557-17,206,837）</p>
-<p><img src="https://i.loli.net/2020/10/22/k8lUQxVrBtPAHz4.png" alt="image-20201018130700036"></p>
+<p><img src="https://i.loli.net/2020/10/22/k8lUQxVrBtPAHz4.png"></p>
 <h3 id="2-5-使用Cufflinks计算表达水平"><a href="#2-5-使用Cufflinks计算表达水平" class="headerlink" title="2.5  使用Cufflinks计算表达水平"></a>2.5  使用Cufflinks计算表达水平</h3><p>Cufflinks下主要包含cufflinks,cuffmerge,cuffcompare和cuffdiff等几支主要的程序。主要用于转录组的组装和差异表达分析。</p>
 <p>cufflinks可以通过tophat2生成的accepted_hits.bam文件计算isoform的FPKM值然后输出gtf文件（GTF全称为gene transfer format，主要是用来对基因进行注释）</p>
 <p>cuffmerge的作用是将cufflinks生成的trans.gtf文件整合成一个文件，方便后面cuffdiff的进一步分析，但此次上机并没用到。</p>
@@ -918,8 +918,8 @@ cuffdiff ucsc.hg19.chr21.genes.gtf \
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0/">
-                                    <span class="chip bg-color">基础练习</span>
+                                <a href="/tags/%E7%94%9F%E4%BF%A1%E8%B5%84%E6%BA%90%E4%B8%8E%E5%AE%9E%E8%B7%B5/">
+                                    <span class="chip bg-color">生信资源与实践</span>
                                 </a>
                             
                         </div>
@@ -1264,8 +1264,8 @@ cuffdiff ucsc.hg19.chr21.genes.gtf \
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0/">
-                        <span class="chip bg-color">基础练习</span>
+                    <a href="/tags/%E7%94%9F%E4%BF%A1%E8%B5%84%E6%BA%90%E4%B8%8E%E5%AE%9E%E8%B7%B5/">
+                        <span class="chip bg-color">生信资源与实践</span>
                     </a>
                     
                 </div>
