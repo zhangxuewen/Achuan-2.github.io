@@ -479,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    17.7k
+                    18.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    86 分
+                    88 分
                 </div>
                 
 
@@ -512,57 +512,57 @@
 <p>It is just for fun - nothing waits for you at the end.</p>
 <p>Keep the scripts you write - they might become useful.</p>
 </blockquote>
-<p>希望每天都能坚持刷题哈！🚩</p>
-<h2 id="level-0-2020-10-28"><a href="#level-0-2020-10-28" class="headerlink" title="level_0_2020.10.28"></a>level_0_2020.10.28</h2><p><img src="https://i.loli.net/2020/11/14/HC8xwDEoN4hPyvn.png" alt="image-20201030232558358"></p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#! level 0</span>
-<span class="token comment" spellcheck="true"># http://www.pythonchallenge.com/pc/def/0.html</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">**</span><span class="token number">38</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># http://www.pythonchallenge.com/pc/def/274877906944.html</span></code></pre>
+<p>希望每天都能坚持刷题哈！🚩(然而并没有…)</p>
+<h2 id="level-0-2020-10-28"><a href="#level-0-2020-10-28" class="headerlink" title="level_0_2020.10.28"></a>level_0_2020.10.28</h2><p>Link: <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/def/0.html">http://www.pythonchallenge.com/pc/def/0.html</a><br><img src="https://i.loli.net/2020/11/14/HC8xwDEoN4hPyvn.png" alt="热身关"><br><strong>Solution</strong><br>就按照图片给乘方算吧!</p>
+<p><strong>Learned</strong><br>代码的强大</p>
 <blockquote>
 <p>现在回过头来看level 0， 想哭 ——2020.11.3 记</p>
 </blockquote>
-<h2 id="level-1-map-2020-10-27"><a href="#level-1-map-2020-10-27" class="headerlink" title="level 1_map_2020.10.27"></a>level 1_map_2020.10.27</h2><p><img src="https://i.loli.net/2020/11/14/Y2EqrAsKB9lHtQi.png" alt="image-20201030232612255"></p>
+<p><strong>Code</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#! level 0</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">**</span><span class="token number">38</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 274877906944</span></code></pre>
+<h2 id="level-1-map-2020-10-27"><a href="#level-1-map-2020-10-27" class="headerlink" title="level_1_map_2020.10.27"></a>level_1_map_2020.10.27</h2><p>Link : <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/def/274877906944.html">http://www.pythonchallenge.com/pc/def/274877906944.html</a><br><img src="https://i.loli.net/2020/11/14/Y2EqrAsKB9lHtQi.png" alt="level_1"><br><strong>Solution</strong><br>根据所给图片提示,发现K和M,O和Q,E和G都差两个字母,所以应该就是做一个映射表,把给的字符翻译出来</p>
+<p><strong>Learned</strong><br>其实还可以用map方法，但是需要用if判断，不然空格括号也被翻译了。<br><code>ord(char)</code>:返回char的ASCII序列值<br><code>chr(num)</code>:返回ASCII码对应的字符</p>
+<p><strong>Code</strong></p>
 <pre class=" language-python"><code class="language-python">
 <span class="token keyword">import</span> string
-http<span class="token punctuation">:</span> <span class="token operator">//</span> www<span class="token punctuation">.</span>pythonchallenge<span class="token punctuation">.</span>com<span class="token operator">/</span>pc<span class="token operator">/</span><span class="token keyword">def</span><span class="token operator">/</span>map<span class="token punctuation">.</span>html
 orginal_str <span class="token operator">=</span> "g fmnc wms bgblr rpylqjyrc gr zw fylb<span class="token punctuation">.</span> rfyrq ufyr amknsrcpq ypc dmp<span class="token punctuation">.</span> bmgle \
 gr gl zw fylb gq glcddgagclr ylb rfyr'q ufw rfgq rcvr gq qm jmle<span class="token punctuation">.</span> sqgle qrpgle<span class="token punctuation">.</span>kyicrpylq<span class="token punctuation">(</span><span class="token punctuation">)</span> gq pcamkkclbcb<span class="token punctuation">.</span> lmu ynnjw ml rfc spj<span class="token punctuation">.</span>"
 
 trans <span class="token operator">=</span> str<span class="token punctuation">.</span>maketrans<span class="token punctuation">(</span>string<span class="token punctuation">.</span>ascii_lowercase<span class="token punctuation">,</span>
                       string<span class="token punctuation">.</span>ascii_lowercase<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token operator">+</span> string<span class="token punctuation">.</span>ascii_lowercase<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># string.ascii_lowercase abcdefghijklmnopqrstuvwxyz</span>
+<span class="token comment" spellcheck="true"># string.ascii_lowercase = abcdefghijklmnopqrstuvwxyz</span>
 <span class="token comment" spellcheck="true"># string.ascii_lowercase[2:] + string.ascii_lowercase[:2] cdefghijklmnopqrstuvwxyzab</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>string<span class="token punctuation">.</span>ascii_lowercase<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token operator">+</span> string<span class="token punctuation">.</span>ascii_lowercase<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 changed_str <span class="token operator">=</span> orginal_str<span class="token punctuation">.</span>translate<span class="token punctuation">(</span>trans<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>changed_str<span class="token punctuation">)</span>
 <span class="token comment" spellcheck="true"># output i hope you didnt translate it by hand. thats what computers are for. doing it in by hand is inefficient and that's why this text is so long.</span>
 <span class="token comment" spellcheck="true"># using string.maketrans() is recommended. now apply on the url.</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>changed_str<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># http://www.pythonchallenge.com/pc/def/map.html</span>
+
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'map'</span><span class="token punctuation">.</span>translate<span class="token punctuation">(</span>trans<span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># http://www.pythonchallenge.com/pc/def/ocr.html</span></code></pre>
-<p>其实还可以用map方法，但是需要用if判断，不然空格括号也被翻译了。<br>ord(char):返回char的ASCII序列值</p>
-<p>chr(num):返回num对应的ASCII字符</p>
-<h2 id="level-2-ocr-2020-10-28"><a href="#level-2-ocr-2020-10-28" class="headerlink" title="level 2_ocr_2020.10.28"></a>level 2_ocr_2020.10.28</h2><p><img src="https://i.loli.net/2020/11/14/RL6ucAMmJ3k4vNn.png" alt="image-20201030232643852"></p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># ! level2</span>
-
-<span class="token triple-quoted-string string">"""? request和urllib的区别
-我们在使用python爬虫时，需要模拟发起网络请求，主要用到的库有requests库和python内置的urllib库，一般建议使用requests，它是对urllib的再次封装，它们使用的主要区别：
-requests可以直接构建常用的get和post请求并发起，urllib一般要先构建get或者post请求，然后再发起请求。 """</span>
-
-
+<span class="token comment" spellcheck="true"># ocr</span></code></pre>
+<h2 id="level-2-ocr-2020-10-28"><a href="#level-2-ocr-2020-10-28" class="headerlink" title="level_2_ocr_2020.10.28"></a>level_2_ocr_2020.10.28</h2><p>Link: <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/def/ocr.html">http://www.pythonchallenge.com/pc/def/ocr.html</a><br><img src="https://i.loli.net/2020/11/14/RL6ucAMmJ3k4vNn.png" alt="level_2"></p>
+<p><strong>Solution</strong><br>查看页面源代码,发现后面有一堆乱七八糟的字符,我们的任务就是把里面参杂的字母给挑出来</p>
+<p><strong>Learned</strong></p>
+<ul>
+<li>request和urllib的区别<br>我们在使用python爬虫时，需要模拟发起网络请求，主要用到的库有requests库和python内置的urllib库，一般建议使用requests，它是对urllib的再次封装，它们使用的主要区别：<br>requests可以直接构建常用的get和post请求并发起，urllib一般要先构建get或者post请求，然后再发起请求。</li>
+<li><code>requests.get(url).text</code> 获得html内容</li>
+<li><code>re.search</code> 找到匹配的字符串，只匹配一次</li>
+<li>获得需要处理的内容，\s可以匹配空格、Tab空白符）</li>
+<li><code>match.group(n)</code>返回子字符串,注意到group(0)永远是原始字符串，group(1)、group(2)……表示第1、2、……个子串。</li>
+<li><code>.</code>匹配除了换行的任意字符,<code>\s</code>匹配任何Unicode空白字符（包括 [ \t\n\r\f\v] ,?对它前面的正则式匹配0到1次重复</li>
+</ul>
+<p><strong>Code</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#  level2</span>
 <span class="token keyword">import</span> requests
 <span class="token keyword">import</span> re
 <span class="token keyword">from</span> collections <span class="token keyword">import</span> Counter
 html <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>
     <span class="token string">"http://www.pythonchallenge.com/pc/def/ocr.html"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text  <span class="token comment" spellcheck="true"># 获取HTML文档</span>
 
-<span class="token comment" spellcheck="true"># re.search 找到匹配的字符串，只匹配一次</span>
-
-<span class="token comment" spellcheck="true"># 获得需要处理的内容，\s可以匹配空格、Tab空白符）</span>
-<span class="token comment" spellcheck="true"># match.group()返回子字符串</span>
-<span class="token comment" spellcheck="true"># 注意到group(0)永远是原始字符串，group(1)、group(2)……表示第1、2、……个子串。</span>
 text <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span>r<span class="token string">"&lt;!--\n(%(.|\s)+)?\n-->"</span><span class="token punctuation">,</span> html<span class="token punctuation">)</span><span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-file <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">'level_2_data.txt'</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">)</span>
+file <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">'output/level_2_data.txt'</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">)</span>
 file<span class="token punctuation">.</span>write<span class="token punctuation">(</span>text<span class="token punctuation">)</span>
 final_text <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"[a-z]"</span><span class="token punctuation">,</span> text<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># findall 返回字符串列表</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>final_text<span class="token punctuation">)</span>
@@ -610,9 +610,15 @@ if __name__ == '__main__':
     main()
 """</span>
 </code></pre>
-<h2 id="level-3-equality-2020-10-29"><a href="#level-3-equality-2020-10-29" class="headerlink" title="level 3_equality_2020.10.29"></a>level 3_equality_2020.10.29</h2><p><img src="https://i.loli.net/2020/11/14/dXmwRVtqJkvEosO.png" alt="image-20201030232718170"></p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># http://www.pythonchallenge.com/pc/def/equality.html</span>
-
+<h2 id="level-3-equality-2020-10-29"><a href="#level-3-equality-2020-10-29" class="headerlink" title="level 3_equality_2020.10.29"></a>level 3_equality_2020.10.29</h2><p>Link : <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/def/equality.html">http://www.pythonchallenge.com/pc/def/equality.html</a><br><img src="https://i.loli.net/2020/11/14/dXmwRVtqJkvEosO.png" alt="level_3"></p>
+<p><strong>Solution</strong><br>根据图片底下的文字提示,需要找到源代码中被三个大写字母包围的小写字母,然后把它们拼接在一起,为linklist<br>打开 <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/def/linkedlist.html">http://www.pythonchallenge.com/pc/def/linkedlist.html</a> 提示linkedlist.php<br>再打开 <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/def/linkedlist.php">http://www.pythonchallenge.com/pc/def/linkedlist.php</a></p>
+<p><strong>Learned</strong></p>
+<ul>
+<li>findall用括号自动返回子串，当给出的正则表达式中带有多个括号时，列表的元素为多个字符串组成的tuple</li>
+<li><code>re.findall(r'[^A-Z][A-Z]{3}([a-z])[A-Z]{3}[^A-Z]', text)</code>匹配时需要注意既然约定了3个大写字母,那外围就是小写字母了!</li>
+</ul>
+<p><strong>Code</strong></p>
+<pre class=" language-python"><code class="language-python">
 <span class="token keyword">import</span> requests
 <span class="token keyword">import</span> re
 html <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"http://www.pythonchallenge.com/pc/def/equality.html"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text
@@ -624,19 +630,25 @@ results <span class="token operator">=</span> re<span class="token punctuation">
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>results<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#linkedlist</span>
 <span class="token comment" spellcheck="true"># ? 如果不括号起来，得到的结果会是</span>
 <span class="token comment" spellcheck="true"># !['qIQNlQSLi', 'eOEKiVEYj', 'aZADnMCZq', 'bZUTkLYNg', 'uCNDeHSBj', 'kOIXdKBFh', 'dXJVlGZVm', 'gZAGiLQZx', 'vCJAsACFl', 'qKWGtIDCj']</span>
-<span class="token comment" spellcheck="true"># 所以说findall用括号自动返回子串，当给出的正则表达式中带有多个括号时，列表的元素为多个字符串组成的tuple</span>
-
-<span class="token comment" spellcheck="true">#打开 http://www.pythonchallenge.com/pc/def/linkedlist.html 得到linkedlist.php</span>
-<span class="token comment" spellcheck="true">#再打开 http://www.pythonchallenge.com/pc/def/linkedlist.php</span></code></pre>
-<h2 id="level-4-linkedlist-2020-10-30"><a href="#level-4-linkedlist-2020-10-30" class="headerlink" title="level 4_linkedlist_2020.10.30"></a>level 4_linkedlist_2020.10.30</h2><p><img src="https://i.loli.net/2020/11/14/1a8I2zg9c3CShUB.png" alt="image-20201030232815229"></p>
+<span class="token comment" spellcheck="true"># 所以说findall用括号自动返回子串，当给出的正则表达式中带有多个括号时，列表的元素为多个字符串组成的tuple</span></code></pre>
+<h2 id="level-4-linkedlist-2020-10-30"><a href="#level-4-linkedlist-2020-10-30" class="headerlink" title="level_4_linkedlist_2020.10.30"></a>level_4_linkedlist_2020.10.30</h2><p>Link :<a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/def/linkedlist.php">http://www.pythonchallenge.com/pc/def/linkedlist.php</a><br><img src="https://i.loli.net/2020/11/14/1a8I2zg9c3CShUB.png" alt="level_4头图"></p>
+<p><strong>Solution</strong><br>点击<a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=12345">linkedlist.php?nothing=12345</a>这个链接,进入的页面显示and the next nothing is 44827,反复操作,发现这一关就是疯狂跳转网页</p>
+<p><strong>Learned</strong><br>要注意函数的局部变量和全局变量呀<br>request 尝试多次连接页面</p>
+<pre class=" language-python"><code class="language-python">    i <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">while</span> i <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">:</span>
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            html <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> timeout<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text
+            <span class="token keyword">return</span> html
+        <span class="token keyword">except</span> requests<span class="token punctuation">.</span>exceptions<span class="token punctuation">.</span>RequestException<span class="token punctuation">:</span>
+            i <span class="token operator">+=</span> <span class="token number">1</span></code></pre>
+<p><strong>Code</strong></p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> re
 <span class="token keyword">import</span> requests
 
 
 <span class="token keyword">def</span> <span class="token function">next_page</span><span class="token punctuation">(</span>link<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">global</span> steps
-    html <span class="token operator">=</span> gethtml<span class="token punctuation">(</span><span class="token string">"http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=%s"</span> <span class="token operator">%</span>
-        link<span class="token punctuation">)</span>
+    <span class="token keyword">global</span> steps <span class="token comment" spellcheck="true"># 使得函数内的step和全局变量为一个变量</span>
+    html <span class="token operator">=</span> gethtml<span class="token punctuation">(</span>f<span class="token string">"http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing={link}"</span><span class="token punctuation">)</span>
     <span class="token keyword">try</span><span class="token punctuation">:</span>
         hint <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span>r<span class="token string">'.*\s(\d+)'</span><span class="token punctuation">,</span> html<span class="token punctuation">)</span><span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
     <span class="token keyword">except</span> AttributeError<span class="token punctuation">:</span>
@@ -663,7 +675,7 @@ results <span class="token operator">=</span> re<span class="token punctuation">
 
 
 <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>link<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
         link <span class="token operator">=</span> next_page<span class="token punctuation">(</span>link<span class="token punctuation">)</span>
         <span class="token keyword">if</span> link <span class="token operator">==</span> <span class="token string">'stop'</span><span class="token punctuation">:</span>
             <span class="token keyword">break</span>
@@ -677,30 +689,69 @@ run<span class="token punctuation">(</span>link<span class="token punctuation">)
 run<span class="token punctuation">(</span><span class="token number">8022</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 16044//2=8022</span>
 <span class="token comment" spellcheck="true"># 最终输出结果peak.html，打开http://www.pythonchallenge.com/pc/def/peak.html</span>
 </code></pre>
-<h2 id="level-5-peak-2020-10-31"><a href="#level-5-peak-2020-10-31" class="headerlink" title="level 5_peak_2020.10.31"></a>level 5_peak_2020.10.31</h2><p><img src="https://i.loli.net/2020/10/31/gGHW3n5NeKUZBY9.png" alt="The Python Challenge Daily Record.9-2020-10-31-21-46-09"><br>今日收获<br><code>requests.get(url).text</code> 是获得纯文本内容<br><code>requests.get(url).content</code>是二进制内容<br><code>urllib.urlopen(url)</code> 返回的是文件对象，用read()查看</p>
-<p>pickle hell 的读音是pickle，pickle是python语言的一个标准模块，能对数据进行序列化和反序列化，序列化过程将文本信息转变为二进制数据流。反序列化便可以得到原始的数据<br>这样便于存储数据和发送数据<br><code>pickle.dump() </code>序列化<br><code>pickle.load()</code> 反序列化方法</p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># http://www.pythonchallenge.com/pc/def/peak.html</span>
-<span class="token keyword">import</span> re
+<h2 id="level-5-peak-2020-10-31"><a href="#level-5-peak-2020-10-31" class="headerlink" title="level_5_peak_2020.10.31"></a>level_5_peak_2020.10.31</h2><p>Link: <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/def/peak.html">http://www.pythonchallenge.com/pc/def/peak.html</a></p>
+<p><img src="https://i.loli.net/2020/10/31/gGHW3n5NeKUZBY9.png" alt="level_5"><br><strong>Solution</strong><br>点击<a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/def/banner.p">banner.p</a>，发现页面只有这样的长~条</p>
+<pre><code>(lp0
+(lp1
+(S' '
+p2
+I95
+tp3
+aa(lp4
+(g2
+I14
+tp5
+a(S'#'
+p6
+I5
+tp7
+a(g2
+I70
+tp8
+a(g6
+I5
+tp9
+a(g2
+I1
+tp10
+aa(lp11
+(g2
+I15
+tp12</code></pre>
+<p>之前源代码提示”peak hell sounds familiar “,peak hell 的谐音是pickle，就用pickle处理数据，发现是一个二维数组，每行都以[(‘ ‘/‘#’, 数字)],这种形式存放内容单位, 而列表的每行数字相加都为95，猜测前面是打印的内容，后面跟着是打印的数量，最后竟然在终端输出为一个大大的“channel”!</p>
+<p><strong>Learned</strong><br>爬虫</p>
+<ul>
+<li><code>requests.get(url).text</code> 是获得纯文本内容</li>
+<li><code>requests.get(url).content</code>是二进制内容</li>
+<li><code>urllib.urlopen(url)</code> 返回的是文件对象，用read()查看</li>
+</ul>
+<p><code>pickle</code>是python语言的一个标准模块，能对数据进行序列化和反序列化，序列化过程将文本信息转变为二进制数据流。反序列化便可以得到原始的数据。这样便于存储数据和发送数据</p>
+<ul>
+<li><code>pickle.dump() </code>序列化</li>
+<li><code>pickle.load()</code> 反序列化方法</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> re
 <span class="token keyword">import</span> requests
 <span class="token keyword">import</span> pickle
 
 <span class="token comment" spellcheck="true"># 获取二进制的数据</span>
 content<span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"http://www.pythonchallenge.com/pc/def/banner.p"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>content
-<span class="token comment" spellcheck="true"># 或者用python内置的urllib模块，urllib.urlopen(url).read()，打开一个url的方法，返回一个文件对象，然后用read()阅读文件内容</span>
 <span class="token comment" spellcheck="true"># print(content)</span>
 data <span class="token operator">=</span> pickle<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>content<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 发现是一个二维数组，以[(' ', 95)]这种形式存放内容单位</span>
+<span class="token comment" spellcheck="true"># 发现是一个二维数组，每行都以[(' '/'#', 数字)],这种形式存放内容单位</span>
 <span class="token keyword">for</span> line <span class="token keyword">in</span> data<span class="token punctuation">:</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>line<span class="token punctuation">)</span>
 
-<span class="token comment" spellcheck="true"># 每行相加都为95，猜测前面是打印的内容，后面跟着是打印的数量</span>
+<span class="token comment" spellcheck="true"># 列表的每行相加都为95，猜测前面是打印的内容，后面跟着是打印的数量</span>
 <span class="token keyword">for</span> line <span class="token keyword">in</span> data<span class="token punctuation">:</span>
     output <span class="token operator">=</span> <span class="token string">''</span>
     <span class="token keyword">for</span> c <span class="token keyword">in</span> line<span class="token punctuation">:</span>
         output <span class="token operator">+=</span>c<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span>c<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>output<span class="token punctuation">)</span>
 
-</code></pre>
+<span class="token comment" spellcheck="true">##得到channel的输出</span>
+<span class="token comment" spellcheck="true">## http://www.pythonchallenge.com/pc/def/channel.html</span></code></pre>
+<p><strong>Output</strong></p>
 <pre><code>
               #####                                                                      #####
                ####                                                                       ####
@@ -1172,7 +1223,7 @@ draw_img<span class="token punctuation">.</span>save<span class="token punctuati
 <p><img src="https://i.loli.net/2020/11/14/toJBKS8TMUdWv6s.png" alt="藏文字的图"></p>
 <p><img src="https://i.loli.net/2020/11/14/248rDqWKUiw3TJp.png" alt="合成的图片"></p>
 <p>所以点击进入下一关： <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/return/evil.html">http://www.pythonchallenge.com/pc/return/evil.html</a></p>
-<h3 id="学到的知识-pillow："><a href="#学到的知识-pillow：" class="headerlink" title="学到的知识-pillow："></a>学到的知识-pillow：</h3><p>感觉好几关都和图像处理有关欸！就稍微补一点pillow库的知识吧</p>
+<h3 id="Learned的知识-pillow："><a href="#Learned的知识-pillow：" class="headerlink" title="Learned的知识-pillow："></a>Learned的知识-pillow：</h3><p>感觉好几关都和图像处理有关欸！就稍微补一点pillow库的知识吧</p>
 <p><a target="_blank" rel="noopener" href="https://liam.page/2015/04/22/pil-tutorial-basic-usage/">PIL 简明教程 - 基本用法</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014320027235877860c87af5544f25a8deeb55141d60c5000#0">廖雪峰 - Pillow</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e8d058767dfa#%E5%9B%BE%E5%83%8F%E9%80%9A%E9%81%93%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2%E8%A3%81%E5%89%AA">python PIL 图像处理</a></p>
@@ -1925,7 +1976,7 @@ new<span class="token punctuation">.</span>show<span class="token punctuation">(
 <h2 id="level-23-2020-12-15"><a href="#level-23-2020-12-15" class="headerlink" title="level_23_2020.12.15"></a>level_23_2020.12.15</h2><blockquote>
 <p>额，之前为了考试周，于是拖了好久，然后就一直捡不起来了哇！剧刷腻了，b站搞笑视频也觉得不好玩了，就又回来写python了<br>希望之后可以一直坚持下去哇！！！！</p>
 </blockquote>
-<p>解题思路：源代码里的’va gur snpr bs jung?’明显也是解码，title为”what is this module?“，结合后面的”it can’t find it. this is an undocumented module”，猜测为this模块（就是大名鼎鼎的The Zen of Python啦）！<br>方法1：可以尝试用ocr那题（level_1）的代码试试，依次检验26个偏移量能否得到一个有含义的句子</p>
+<p>解题Solution：源代码里的’va gur snpr bs jung?’明显也是解码，title为”what is this module?“，结合后面的”it can’t find it. this is an undocumented module”，猜测为this模块（就是大名鼎鼎的The Zen of Python啦）！<br>方法1：可以尝试用ocr那题（level_1）的代码试试，依次检验26个偏移量能否得到一个有含义的句子</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">ocr</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     text <span class="token operator">=</span> <span class="token string">'va gur snpr bs jung?'</span>
     <span class="token keyword">for</span> offset <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">26</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -1985,13 +2036,13 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 Gur Mra bs Clguba, ol Gvz Crgref</code></pre>
-<p>思路2：<br>如果尝试输入<code>print(this.s)</code>,你会发现得到的是The Zen of python的加密版本，输入<code>print(this.d)</code>,得到的解密本字典,所以推理得到给的那个字符串也是这样加密的<br>方法2:<br>简单粗暴</p>
+<p>Solution2：<br>如果尝试输入<code>print(this.s)</code>,你会发现得到的是The Zen of python的加密版本，输入<code>print(this.d)</code>,得到的解密本字典,所以推理得到给的那个字符串也是这样加密的<br>方法2:<br>简单粗暴</p>
 <pre class=" language-python"><code class="language-python">text <span class="token operator">=</span> <span class="token string">'va gur snpr bs jung?'</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">[</span>this<span class="token punctuation">.</span>d<span class="token punctuation">.</span>get<span class="token punctuation">(</span>c<span class="token punctuation">,</span>c<span class="token punctuation">)</span> <span class="token keyword">for</span> c <span class="token keyword">in</span> text<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#in the face of what?</span></code></pre>
 <blockquote>
 <p>老实说,隔了这么久,不知道再继续玩python challenge还有没有必要哈,但是我好像确实没什么其他想到能做的事了(咸鱼一只),所以就脚踏实地吧,总要坚持一件事,我也相信前方或许会有意想不到的收获.不知道为什么,进入大三之后,整个人变得浮躁不堪,静不下心去踏实学东西,我觉得这样很糟!</p>
 </blockquote>
-<h2 id="level-24-maze-2020-12-16"><a href="#level-24-maze-2020-12-16" class="headerlink" title="level_24_maze_2020.12.16"></a>level_24_maze_2020.12.16</h2><p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/maze-2020-12-18.png" alt="maze">]<br>发现Vscode真的适合把图片放大到像素级<br><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201218190652-2020-12-18.png" alt="图片放大"><br><strong>思路</strong><br>  这一关真的好有趣呀，就是得先找到迷宫的entrance和exit，然后就需要使用数据结构的知识来走迷宫啦，我用的是栈深度搜索，队列就是广度搜索了吧，收集走迷宫的路径每个像素位置以及点的R通道值，然后转化为二进制数据，发现开头是PK，提示为压缩包，所以就将数据生成为压缩包，解压即得到下一关提示。<br><strong>学到</strong></p>
+<h2 id="level-24-maze-2020-12-16"><a href="#level-24-maze-2020-12-16" class="headerlink" title="level_24_maze_2020.12.16"></a>level_24_maze_2020.12.16</h2><p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/maze-2020-12-18.png" alt="maze">]<br>发现Vscode真的适合把图片放大到像素级<br><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201218190652-2020-12-18.png" alt="图片放大"><br><strong>Solution</strong><br>  这一关真的好有趣呀，就是得先找到迷宫的entrance和exit，然后就需要使用数据结构的知识来走迷宫啦，我用的是栈深度搜索，队列就是广度搜索了吧，收集走迷宫的路径每个像素位置以及点的R通道值，然后转化为二进制数据，发现开头是PK，提示为压缩包，所以就将数据生成为压缩包，解压即得到下一关提示。<br><strong>Learned</strong></p>
 <ul>
 <li>二进制开头b’PK’为压缩包</li>
 <li><code>ImageDraw.Draw</code>模块</li>
@@ -2039,7 +2090,7 @@ open<span class="token punctuation">(</span><span class="token string">'output/l
 </code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/level_24_path-2020-12-18.png" alt="level_24_path"><br><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201218190741-2020-12-18.png" alt="放大图片"></p>
 <h2 id="level-25-wave拼图-2020-12-17"><a href="#level-25-wave拼图-2020-12-17" class="headerlink" title="level_25_wave拼图_2020.12.17"></a>level_25_wave拼图_2020.12.17</h2><p>Link: <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/hex/lake.html">http://www.pythonchallenge.com/pc/hex/lake.html</a><br><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201218184825-2020-12-18.png" alt="关卡图"></p>
-<p><strong>思路：</strong><br>看到图片名是“lake1.jpg”，根据提示尝试获取“lake1.wav”，文件存在，猜测应该还有“lake2.wav”，“lake3.wav”，……于是构造一个网络爬虫<br>以音频方式打开文件，发现都是杂音，根据图片中拼图的提示，将每个音频转化一共图片，25个正好对应了关卡图中5*5拼图，然后把25个图片拼在一起，就得到结果啦<br><strong>学到：</strong></p>
+<p><strong>Solution：</strong><br>看到图片名是“lake1.jpg”，根据提示尝试获取“lake1.wav”，文件存在，猜测应该还有“lake2.wav”，“lake3.wav”，……于是构造一个网络爬虫<br>以音频方式打开文件，发现都是杂音，根据图片中拼图的提示，将每个音频转化一共图片，25个正好对应了关卡图中5*5拼图，然后把25个图片拼在一起，就得到结果啦<br><strong>Learned：</strong></p>
 <ul>
 <li>python创建文件不会自动创建文件夹吗<ul>
 <li>是的，如果路径不存在，必须手动先创建，可以使用os.makedirs(path) <a target="_blank" rel="noopener" href="https://blog.csdn.net/Homewm/article/details/80766894">https://blog.csdn.net/Homewm/article/details/80766894</a></li>
@@ -2110,7 +2161,7 @@ im <span class="token operator">=</span> Image<span class="token punctuation">.<
         im<span class="token punctuation">.</span>paste<span class="token punctuation">(</span>block_im<span class="token punctuation">,</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">)</span>
 im<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">"output/level_25/result.jpg"</span><span class="token punctuation">)</span></code></pre>
 <h2 id="level-26-md5-2020-12-18"><a href="#level-26-md5-2020-12-18" class="headerlink" title="level_26_md5_2020.12.18"></a>level_26_md5_2020.12.18</h2><p>Link: <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/hex/decent.html">http://www.pythonchallenge.com/pc/hex/decent.html</a></p>
-<p><strong>思路：</strong><br>源码说已经得到邮箱了（我咋不知道），原来早在第19关网页的源代码就给了个邮箱，<a href="mailto:leopold.moz@pythonchallenge.com">leopold.moz@pythonchallenge.com</a>，然后发送，标题为Apologize，内容为Sorry的邮件，你就可以得到以下回复:</p>
+<p><strong>Solution：</strong><br>源码说已经得到邮箱了（我咋不知道），原来早在第19关网页的源代码就给了个邮箱，<a href="mailto:leopold.moz@pythonchallenge.com">leopold.moz@pythonchallenge.com</a>，然后发送，标题为Apologize，内容为Sorry的邮件，你就可以得到以下回复:</p>
 <blockquote>
 <p>Never mind that.</p>
 <p>Have you found my broken zip?</p>
@@ -2118,9 +2169,9 @@ im<span class="token punctuation">.</span>save<span class="token punctuation">(<
 <p>Can you believe what one mistake can lead to?</p>
 </blockquote>
 <p>意思就是说之前我们maze那关得到的压缩包不是除了图片还有一共压缩包吗？如果解压的话就会提示校验值错误，这个回复就是说压缩包的二进制数据有一个错误，要让咱一个个尝试，把它改对，用md5来校验文件是否修复好。（然而之前我用bzip不修复照样也解压出来了……有点尴尬,,ԾㅂԾ,,）<br>最后得到的图片显示”speed”,然后再结合Hurry up, I’m missing the boat,下一关网址就是”speedboat”</p>
-<p><strong>学到：</strong></p>
+<p><strong>Learned：</strong></p>
 <ul>
-<li>原来python终端可以打印出颜色呀，学到了<ul>
+<li>原来python终端可以打印出颜色呀，Learned了<ul>
 <li>Python基础之控制台输出颜色 <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_33567641/article/details/82769523">https://blog.csdn.net/qq_33567641/article/details/82769523</a></li>
 </ul>
 </li>
@@ -2149,8 +2200,8 @@ data <span class="token operator">=</span> open<span class="token punctuation">(
 repair<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
 </code></pre>
 <h2 id="level-27-between-the-tables-2020-12-19"><a href="#level-27-between-the-tables-2020-12-19" class="headerlink" title="level_27_between the tables_2020.12.19"></a>level_27_between the tables_2020.12.19</h2><p>Link: <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/hex/speedboat.html">http://www.pythonchallenge.com/pc/hex/speedboat.html</a></p>
-<p><strong>思路</strong><br>点击图片就能直接进入下一关，然而不知账号密码。<br>这一关涉及到图像色板、映射、常见但依旧不了解的二进制数据处理还有keyword模块<br>也没啥思路了，毕竟是copy别人的代码嘛！</p>
-<p><strong>学到</strong></p>
+<p><strong>Solution</strong><br>点击图片就能直接进入下一关，然而不知账号密码。<br>这一关涉及到图像色板、映射、常见但依旧不了解的二进制数据处理还有keyword模块<br>也没啥Solution了，毕竟是copy别人的代码嘛！</p>
+<p><strong>Learned</strong></p>
 <ul>
 <li>im.getpalette()以列表形式返回图像调色板，putpalette给对象加上调色板，相当于上色,然而暂时不懂调色板是什么东东</li>
 <li>im.tobytes()，把图片转化为二进制</li>
@@ -2199,8 +2250,8 @@ im2<span class="token punctuation">.</span>putdata<span class="token punctuation
 <p>最终得到</p>
 <pre class=" language-python"><code class="language-python"><span class="token punctuation">{</span>b<span class="token string">'print'</span><span class="token punctuation">,</span> b<span class="token string">'../ring/bell.html'</span><span class="token punctuation">,</span> b<span class="token string">'repeat'</span><span class="token punctuation">,</span> b<span class="token string">'exec'</span><span class="token punctuation">,</span> b<span class="token string">'switch'</span><span class="token punctuation">}</span></code></pre>
 <p>值得注意的是，“print”和“exec”在Python2中式关键字，在Python3中变成了函数，所以没有被去掉。<br>经过尝试，bell.html网页的用户名为repeat，密码为switch。<br>Over！ </p>
-<h2 id="level-28-many-pairs-ring-ring-2020-12-20"><a href="#level-28-many-pairs-ring-ring-2020-12-20" class="headerlink" title="level_28_many pairs ring-ring_2020.12.20"></a>level_28_many pairs ring-ring_2020.12.20</h2><p><strong>思路</strong><br>本关考察对图片和字节流的处理能力。提示让我们大声说“RING-RING-RING”，是指“RING”谐音“GREEN”，就是指RGB的绿色通道。我们需要将绿色通道的数据两两配对，每组作差取绝对值，例如 green = [55, 97, 73, 115, 120, 78, ……]，操作后的结果是 diff = [42, 42, 42, ……]。查看列表diff的值，发现几乎都是“42”，去掉数值“42”，剩下的数值转成字符构成一条语句：<br>whodunnit().split()[0] ?<br>whodunnit直译是侦探小说,但明显不是这个意思,结合本关的谐音,可以知道是who done it的谐音,再结合<code>.split()[0] </code>可以知道是问python之父是谁<br>当然是那个死胖子,Guido啦,哈哈哈哈<br><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201220133143-2020-12-20.png" alt="Guido van Rossum"></p>
-<p><strong>学到</strong></p>
+<h2 id="level-28-many-pairs-ring-ring-2020-12-20"><a href="#level-28-many-pairs-ring-ring-2020-12-20" class="headerlink" title="level_28_many pairs ring-ring_2020.12.20"></a>level_28_many pairs ring-ring_2020.12.20</h2><p><strong>Solution</strong><br>本关考察对图片和字节流的处理能力。提示让我们大声说“RING-RING-RING”，是指“RING”谐音“GREEN”，就是指RGB的绿色通道。我们需要将绿色通道的数据两两配对，每组作差取绝对值，例如 green = [55, 97, 73, 115, 120, 78, ……]，操作后的结果是 diff = [42, 42, 42, ……]。查看列表diff的值，发现几乎都是“42”，去掉数值“42”，剩下的数值转成字符构成一条语句：<br>whodunnit().split()[0] ?<br>whodunnit直译是侦探小说,但明显不是这个意思,结合本关的谐音,可以知道是who done it的谐音,再结合<code>.split()[0] </code>可以知道是问python之父是谁<br>当然是那个死胖子,Guido啦,哈哈哈哈<br><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201220133143-2020-12-20.png" alt="Guido van Rossum"></p>
+<p><strong>Learned</strong></p>
 <ul>
 <li><code>list(im.split()[1].getdata())</code> 获得green像素值列表</li>
 <li><code>abs(a-b)for a, b in zip(green[0::2], green[1::2])</code> 列表的前一个减后一个</li>
@@ -2223,7 +2274,7 @@ filtered <span class="token operator">=</span> list<span class="token punctuatio
 <span class="token comment" spellcheck="true"># 过滤后的数据转化为二进制并解码</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>bytes<span class="token punctuation">(</span>filtered<span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># whodunnit().split()[0] ?</span>
 </code></pre>
-<h2 id="level-29-silence-2020-12-21"><a href="#level-29-silence-2020-12-21" class="headerlink" title="level_29_silence_2020.12.21"></a>level_29_silence_2020.12.21</h2><p><strong>思路</strong><br>一开始看源代码我是懵逼的，看了答案才知道html原来后面的行有玄机！一旦把每行的长度整理成数字列表之后，然后转化为二进制，发现又是BZ开头，用bz2解压，得到下一关的hint<br><img src="https://pic4.zhimg.com/80/v2-f44b0a3b683e58e8e9dffaba4d2da6bf.png" alt="你以为空无一物"><br><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201221181345-2020-12-21.png" alt="程序员的浪漫"><br><strong>学到</strong></p>
+<h2 id="level-29-silence-2020-12-21"><a href="#level-29-silence-2020-12-21" class="headerlink" title="level_29_silence_2020.12.21"></a>level_29_silence_2020.12.21</h2><p><strong>Solution</strong><br>一开始看源代码我是懵逼的，看了答案才知道html原来后面的行有玄机！一旦把每行的长度整理成数字列表之后，然后转化为二进制，发现又是BZ开头，用bz2解压，得到下一关的hint<br><img src="https://pic4.zhimg.com/80/v2-f44b0a3b683e58e8e9dffaba4d2da6bf.png" alt="你以为空无一物"><br><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201221181345-2020-12-21.png" alt="程序员的浪漫"><br><strong>Learned</strong></p>
 <ul>
 <li>这一关真的好秒呀，论程序员的浪漫，可以用这关来装逼，隐藏想说的话！</li>
 <li>网页Authorization这个始终记不住……</li>
@@ -2262,8 +2313,8 @@ num_list <span class="token operator">=</span> list<span class="token punctuatio
 data <span class="token operator">=</span> bytes<span class="token punctuation">(</span><span class="token punctuation">[</span>len<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> raw<span class="token punctuation">]</span><span class="token punctuation">)</span>
 <span class="token comment" spellcheck="true"># 解压二进制</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>bz2<span class="token punctuation">.</span>decompress<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># Merry Christmas</span></code></pre>
-<h2 id="level-30-图片翻转质数之积-2020-12-22"><a href="#level-30-图片翻转质数之积-2020-12-22" class="headerlink" title="level_30_图片翻转质数之积_2020.12.22"></a>level_30_图片翻转质数之积_2020.12.22</h2><p><strong>思路</strong><br>根据提示，下载“yankeedoodle.csv”，里面是一堆浮点数<br>还以为原来的行列可能有玄机，谁知道是直接数多少个数，然后发现可以拆分为两个质数的积，7367 = 53*139， 构造一个53*139的图片，得到一个带公式的图片<code>n = str(x[i])[5] + str(x[i+1])[5] + str(x[i+2])[6]</code>，就按照这个公式来处理csv得到的数据，最终得到“look at grandpa”的提示，剩下的信息别想太多，确实没用</p>
-<p><strong>学到</strong></p>
+<h2 id="level-30-图片翻转质数之积-2020-12-22"><a href="#level-30-图片翻转质数之积-2020-12-22" class="headerlink" title="level_30_图片翻转质数之积_2020.12.22"></a>level_30_图片翻转质数之积_2020.12.22</h2><p><strong>Solution</strong><br>根据提示，下载“yankeedoodle.csv”，里面是一堆浮点数<br>还以为原来的行列可能有玄机，谁知道是直接数多少个数，然后发现可以拆分为两个质数的积，7367 = 53*139， 构造一个53*139的图片，得到一个带公式的图片<code>n = str(x[i])[5] + str(x[i+1])[5] + str(x[i+2])[6]</code>，就按照这个公式来处理csv得到的数据，最终得到“look at grandpa”的提示，剩下的信息别想太多，确实没用</p>
+<p><strong>Learned</strong></p>
 <ul>
 <li>图片左右翻转 <code>img.transpose(Image.FLIP_LEFT_RIGHT)</code></li>
 <li>图片旋转 <code>img.transpose(Image.ROTATE_90)</code></li>
@@ -2302,10 +2353,10 @@ res <span class="token operator">=</span> bytes<span class="token punctuation">(
 <span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span></code></pre>
 <p>得到的图片<br><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201222110626-2020-12-22.png" alt="formula"><br>最终输出结果</p>
 <pre><code>b'So, you found the hidden message.\nThere is lots of room here for a long message, but we only need very little space to say "look at grandpa", so the rest is just garbage. \nVTZ.l\'\x7ftf*Om@I"p]</code></pre>
-<h2 id="level-31-Mandelbrot-set-2020-12-23"><a href="#level-31-Mandelbrot-set-2020-12-23" class="headerlink" title="level_31_Mandelbrot set_2020.12.23"></a>level_31_Mandelbrot set_2020.12.23</h2><p><strong>思路</strong><br>点击图片进入下一关,需要用户名和密码,用户名是“kohsamui”，密码是“thailand”，进入第二部分。<br>第二部分的图片名词为mandelbrot,而图片的雪花本身就是曼德博集合.</p>
+<h2 id="level-31-Mandelbrot-set-2020-12-23"><a href="#level-31-Mandelbrot-set-2020-12-23" class="headerlink" title="level_31_Mandelbrot set_2020.12.23"></a>level_31_Mandelbrot set_2020.12.23</h2><p><strong>Solution</strong><br>点击图片进入下一关,需要用户名和密码,用户名是“kohsamui”，密码是“thailand”，进入第二部分。<br>第二部分的图片名词为mandelbrot,而图片的雪花本身就是曼德博集合.</p>
 <p>注意到网页源代码的window和option标签，我们需要构造一个复平面，宽度对应x轴，高度对应y轴，范围由window标签给出。<br>left=“0.34” top=“0.57” width=“0.036” height=“0.027”<br>w = 640px —— x轴 范围 [left, left+width] = [0.34, 0.376]<br>h = 480px —— y轴 范围 [top, top+height] = [0.57, 0.597]</p>
 <p>对于每个像素点,根据比例计算其在复平面的坐标(x,y) ,记复数c=x+yi,从z0=0开始迭代,迭代公式为zi+1=zi**2+c,c=x+yi,<br>记Mandelbrot集为M,根据定理,若复数c ∈ M  ，则|zi| &lt; 2, ∀ i ∈ N<br>迭代次数由option标签给出，最多128次，若迭代完128次，其模仍小于2，则该点的颜色值为127，若|zi|&lt;2 and|zi+1|&gt;=2, 则该点颜色为i，对应图片的palette表<br>然后将得到的list绘制图片比较两张图的像素差异,把不同的像素点提取出来,最后转化成黑白的图片,图片为阿雷西博信息,所以答案为“arecibo ”</p>
-<p><strong>学到</strong></p>
+<p><strong>Learned</strong></p>
 <ul>
 <li>复习图像模式,P-8bit-使用调色板映射到其他任何模式,L-8bit-黑白…对,我又忘记了(,,ԾㅂԾ,,)</li>
 <li>感觉对getpalette(),putpalete()的理解加深了,返回的列表其实是[r, g, b, r, g, b…],三个一个RGB排列下去,P模式，才具有调色板属性,RGB模式getpixel((x,y))是RGB值,而P模式getpixel((x,y))是一个值,即索引,大小范围在0~255之间<br>调色板就是来减少存储空间使用量的,它存储着256种不同的调色方案<br>以下代码将会打印出图像img的调色板情况，按照256个配色方案*3个通道值的格式排列：<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>img<span class="token punctuation">.</span>getpalette<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">256</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
@@ -2380,7 +2431,7 @@ im2<span class="token punctuation">.</span>resize<span class="token punctuation"
 im2<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">"output/level_31/result.jpg"</span><span class="token punctuation">)</span>
 </code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/mandelbrot_2-2020-12-23.gif" alt="mandelbrot"><br><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/result-2020-12-23.jpg" alt="Arecibo message"></p>
-<h2 id="level-32-刻印-2020-12-24"><a href="#level-32-刻印-2020-12-24" class="headerlink" title="level_32_刻印_2020.12.24"></a>level_32_刻印_2020.12.24</h2><p><strong>思路</strong><br>啊，没有思路，完全不知道这是啥，等以后补吧<br>学习<br>见识到复杂的代码，觉得自己毫无长进吧<br><strong>学到</strong><br><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Nonogram">Nonogram</a>,一种类似于数独的游戏，每一行每一列的数字来填格子，行列都符合的图案就是要求的答案</p>
+<h2 id="level-32-刻印-2020-12-24"><a href="#level-32-刻印-2020-12-24" class="headerlink" title="level_32_刻印_2020.12.24"></a>level_32_刻印_2020.12.24</h2><p><strong>Solution</strong><br>啊，没有Solution，完全不知道这是啥，等以后补吧<br>学习<br>见识到复杂的代码，觉得自己毫无长进吧<br><strong>Learned</strong><br><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Nonogram">Nonogram</a>,一种类似于数独的游戏，每一行每一列的数字来填格子，行列都符合的图案就是要求的答案</p>
 <p><strong>代码</strong></p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
 <span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
@@ -2584,7 +2635,7 @@ im<span class="token punctuation">.</span>show<span class="token punctuation">(<
 ×××××××××××××××××××█████××××××××
 </code></pre>
 <p>输入“python.html”到下一页面，直接搜索下面那段话 “Free” as in “Free speech”, not as in “free…<br>了解到“Free as in beer”指免费软件，“Free as in speech”指开源软件，答案就是“beer”。</p>
-<h2 id="level-33-remove-light-2020-12-25"><a href="#level-33-remove-light-2020-12-25" class="headerlink" title="level_33_remove light_2020.12.25"></a>level_33_remove light_2020.12.25</h2><p><strong>思路</strong><br>不明白为什么32关那么难,33关又正常了…小小吐槽一下<br>这一关就是根据网页提示得到beer2.png图片,保存到本地,打开,发现图片是138*138的正方形<br>之前的网页源代码提示,”如果你被光蒙蔽了双眼，用它的力量移除它的力量。然后在灰烬中，另一个真相将向你光明正大地展示。”<br>额,这句话真有哲理<br>总之,是之后用im.getdata()查看图片的灰度值,找到最大的两个数c0,c1,把等于c0,c1的数都变为255(白色),把小于的数都变成0(黑色),然后再删除等于c0和c1的数,得到的列表长度依然是一个平方数,之后需要重复操作33次,得到33张图片,发现33张图片里几张被方框括起来了,按顺序拼接,于是答案就为”gremlins”<br><strong>学习</strong></p>
+<h2 id="level-33-remove-light-2020-12-25"><a href="#level-33-remove-light-2020-12-25" class="headerlink" title="level_33_remove light_2020.12.25"></a>level_33_remove light_2020.12.25</h2><p><strong>Solution</strong><br>不明白为什么32关那么难,33关又正常了…小小吐槽一下<br>这一关就是根据网页提示得到beer2.png图片,保存到本地,打开,发现图片是138*138的正方形<br>之前的网页源代码提示,”如果你被光蒙蔽了双眼，用它的力量移除它的力量。然后在灰烬中，另一个真相将向你光明正大地展示。”额,这句话真有哲理(●’◡’●)<br>总之,是之后用im.getdata()查看图片的灰度值,找到最大的两个数c0,c1,把等于c0,c1的数都变为255(白色),把小于的数都变成0(黑色),然后再删除等于c0和c1的数,得到的列表长度依然是一个平方数,之后需要重复操作33次,得到33张图片,发现33张图片里几张被方框括起来了,按顺序拼接,于是答案就为”gremlins”<br><strong>学习</strong></p>
 <ul>
 <li>最后一关的输出我用了红色和绿色来美化输出哦,还回想起了<code>center(10,'*')</code></li>
 <li>numpy可能要学习一下<ul>
@@ -3229,7 +3280,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">18.3k</span>&nbsp;字
+                class="white-color">18.8k</span>&nbsp;字
             
             
             
