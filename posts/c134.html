@@ -472,7 +472,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-27
+                    2020-12-29
                 </div>
                 
 
@@ -1595,8 +1595,24 @@ hint_im<span class="token punctuation">.</span>show<span class="token punctuatio
 <p>search the Internet,it turns out that level is the birthlevel of Morzart<br><img src="https://pic4.zhimg.com/80/v2-ad0333fa1bed4567f48c101b475c72c8.png"></p>
 <p>so click this <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/return/mozart.html">link</a>, to level 16</p>
 <p>PS: I just found writing in Engslish is much more convinent for markdown</p>
-<h2 id="level-16-mozart-2020-11-11"><a href="#level-16-mozart-2020-11-11" class="headerlink" title="level_16_mozart_2020.11.11"></a>level_16_mozart_2020.11.11</h2><p>Link : <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/return/mozart.html">http://www.pythonchallenge.com/pc/return/mozart.html</a><br>今天双十一啦，可惜我啥也没买，继续刷题吧！<br><img src="https://pic4.zhimg.com/80/v2-a1b87902b7e9e867338f52bef9af76f0.png" alt="Image"></p>
-<p>方法一：使用ImageChops.offset()对图像进行偏移</p>
+<h2 id="level-16-ImageChops-amp-numpy-roll-2020-11-11"><a href="#level-16-ImageChops-amp-numpy-roll-2020-11-11" class="headerlink" title="level_16_ImageChops &amp; numpy.roll_2020.11.11"></a>level_16_ImageChops &amp; numpy.roll_2020.11.11</h2><p>Link : <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/return/mozart.html">http://www.pythonchallenge.com/pc/return/mozart.html</a></p>
+<p>今天双十一啦，可惜我啥也没买，继续刷题吧！<br><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201229213540-2020-12-29.png"></p>
+<p><strong>🖊Learned</strong><br>今日所学<br>ImageChops 模块包含许多算术图像操作，称为通道操作（“chops”）。这些可以用于各种用途，包括特殊效果、图像合成、算法绘制等</p>
+<ul>
+<li>Image.histogram()返回图像的直方图。直方图作为像素计数列表返回，它的x轴是像素值，y轴是对应的像素在图像里的数量。</li>
+<li>PIL.ImageChops.offset(image, xoffset, yoffset=None),返回数据被给定距离偏移的图像的副本。数据环绕边缘。如果 yoffset 如果省略，则假定等于 X偏移.</li>
+<li>Image.paste(im,box)将一张图粘贴到另一张图像上。变量box或者是一个给定左上角的2元组，或者是定义了左，上，右和下像素坐标的4元组，或者为空（与（0，0）一样）。如果给定4元组，被粘贴的图像的尺寸必须与区域尺寸一样。</li>
+</ul>
+<p>NumPy 是一个主要用于数组计算的数学库</p>
+<ul>
+<li>np.array(image),image类 转 numpy，一行一行的用数字代表各个像素</li>
+<li>tolist()将数组或者矩阵转换成列表</li>
+<li>list.index(),从列表中找出某个值第一个匹配项的索引位置。</li>
+<li>numpy.roll(a,&nbsp;shift,&nbsp;axis=None)沿着给定轴滚动数组元素。超出最后位置的元素将会滚动到第一个位置。<pre class=" language-python"><code class="language-python">a1 <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>np<span class="token punctuation">.</span>roll<span class="token punctuation">(</span>a1<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># [ 2  3  4  5  6  7  8  9 10  0  1]</span></code></pre>
+</li>
+</ul>
+<p><strong>🔑Solution</strong><br>方法一：使用ImageChops.offset()对图像进行偏移</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image<span class="token punctuation">,</span> ImageChops
 <span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
 <span class="token comment" spellcheck="true"># NumPy 是一个主要用于数组计算的数学库</span>
@@ -1608,9 +1624,13 @@ image <span class="token operator">=</span> Image<span class="token punctuation"
 frequency <span class="token operator">=</span><span class="token punctuation">[</span>x <span class="token keyword">for</span> x <span class="token keyword">in</span> image<span class="token punctuation">.</span>histogram<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">if</span> x <span class="token operator">%</span> image<span class="token punctuation">.</span>height <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">and</span> x <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">]</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>frequency<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># [2400]</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>image<span class="token punctuation">.</span>histogram<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>index<span class="token punctuation">(</span><span class="token number">2400</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 返回频次为2400的x轴坐标195，即pink颜色</span>
+
+<span class="token comment" spellcheck="true"># 查看是不是这个颜色</span>
 tmp <span class="token operator">=</span> image<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>
 tmp<span class="token punctuation">.</span>frombytes<span class="token punctuation">(</span>bytes<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">195</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token punctuation">(</span>tmp<span class="token punctuation">.</span>height <span class="token operator">*</span> tmp<span class="token punctuation">.</span>width<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 tmp<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 对图片每行偏移</span>
 <span class="token keyword">for</span> y <span class="token keyword">in</span> range<span class="token punctuation">(</span>image<span class="token punctuation">.</span>size<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token comment" spellcheck="true">#(left, upper, right, lower)-tuple.</span>
     box <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> y<span class="token punctuation">,</span> image<span class="token punctuation">.</span>size<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> y <span class="token operator">+</span> <span class="token number">1</span>
@@ -1622,7 +1642,7 @@ tmp<span class="token punctuation">.</span>show<span class="token punctuation">(
 
 image<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">"output/level_16_mozart.gif_1.gif"</span><span class="token punctuation">)</span>
 </code></pre>
-<p><img src="https://pic4.zhimg.com/80/v2-2f7ef0326d5fb12bb41cd5b11cd7b8a7.gif" alt="Image"><br>方法二：使用numpy.roll对图片进行偏移<br>不知道为什么得到的是灰色的？？？</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201229213738-2020-12-29.png"><br>方法二：使用numpy.roll对图片进行偏移<br>不知道为什么得到的是灰色的？？？</p>
 <pre class=" language-python"><code class="language-python">
 image <span class="token operator">=</span> Image<span class="token punctuation">.</span>open<span class="token punctuation">(</span><span class="token string">"assets/mozart.gif"</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>image<span class="token punctuation">.</span>mode<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 模式“P”为8位彩色图像，它的每个像素用8个bit表示，其对应的彩色值是按照调色板查询出来的。</span>
@@ -1632,28 +1652,16 @@ shifted <span class="token operator">=</span> <span class="token punctuation">[<
 <span class="token comment" spellcheck="true"># 根据二进制数据创建图像</span>
 Image<span class="token punctuation">.</span>frombytes<span class="token punctuation">(</span><span class="token string">"P"</span><span class="token punctuation">,</span> image<span class="token punctuation">.</span>size<span class="token punctuation">,</span> b<span class="token string">""</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>shifted<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">"output/level_16_mozart.gif_2"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># romance</span>
 </code></pre>
-<p><img src="https://pic4.zhimg.com/80/v2-28895d771fe0487fc63264c776c9d3fe.gif" alt="Image"></p>
-<p>今日所学<br>ImageChops 模块包含许多算术图像操作，称为通道操作（“chops”）。这些可以用于各种用途，包括特殊效果、图像合成、算法绘制等<br>NumPy 是一个主要用于数组计算的数学库</p>
-<ul>
-<li>Image.histogram()返回图像的直方图。直方图作为像素计数列表返回，它的x轴是像素值，y轴是对应的像素在图像里的数量。</li>
-<li>PIL.ImageChops.offset(image, xoffset, yoffset=None),返回数据被给定距离偏移的图像的副本。数据环绕边缘。如果 yoffset 如果省略，则假定等于 X偏移.</li>
-<li>Image.paste(im,box)将一张图粘贴到另一张图像上。变量box或者是一个给定左上角的2元组，或者是定义了左，上，右和下像素坐标的4元组，或者为空（与（0，0）一样）。如果给定4元组，被粘贴的图像的尺寸必须与区域尺寸一样。</li>
-<li>np.array(image),image类 转 numpy，一行一行的用数字代表各个像素</li>
-<li>tolist()将数组或者矩阵转换成列表</li>
-<li>list.index(),从列表中找出某个值第一个匹配项的索引位置。</li>
-<li>numpy.roll(a,&nbsp;shift,&nbsp;axis=None)沿着给定轴滚动数组元素。超出最后位置的元素将会滚动到第一个位置。<pre class=" language-python"><code class="language-python">a1 <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>np<span class="token punctuation">.</span>roll<span class="token punctuation">(</span>a1<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># [ 2  3  4  5  6  7  8  9 10  0  1]</span></code></pre>
-</li>
-</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201229213813-2020-12-29.png"></p>
 <p>click to next level: <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/return/romance.html">http://www.pythonchallenge.com/pc/return/romance.html</a></p>
-<h2 id="level-17-romance-2020-11-12"><a href="#level-17-romance-2020-11-12" class="headerlink" title="level_17_romance_2020.11.12"></a>level_17_romance_2020.11.12</h2><p>这一关基本是爬虫+复习关了，好难，直接copy代码了🤢<br>参考资料：</p>
+<h2 id="level-17-cookie-amp-urllib-parse-2020-11-12"><a href="#level-17-cookie-amp-urllib-parse-2020-11-12" class="headerlink" title="level_17_cookie &amp; urllib.parse_2020.11.12"></a>level_17_cookie &amp; urllib.parse_2020.11.12</h2><p>这一关基本是爬虫+复习关了，好难，直接copy代码了🤢<br>参考资料：</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ea3ae84022e5">Python Challenge[17]-Recgat简书</a></li>
 <li><a target="_blank" rel="noopener" href="http://kwangka.github.io/2015/01/31/pc17/">Python Challenge (Level 17)曾梦想仗剑走天涯</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.hackingnote.com/en/python-challenge-solutions/level-17">hackingnote</a></li>
 </ul>
-<h3 id="cookie和获取cookie"><a href="#cookie和获取cookie" class="headerlink" title="cookie和获取cookie"></a>cookie和获取cookie</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/22396872">Cookie 是什么</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/MuWinter/article/details/75313476">如何查看cookies</a></p>
-<p>Cookie 是浏览器访问服务器后，服务器传给浏览器的一段数据。浏览器需要保存这段数据，不得轻易删除。<br>第一个作用是识别用户身份。<br>第二个作用是记录历史。<br><img src="https://pic4.zhimg.com/80/v2-f2cb2b740b2589d354433051c8823b75.png" alt="Image"><br><strong>如何获取cookie</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201229214859-2020-12-29.png"><br><strong>🖊Learned</strong><br>cookie和获取cookie<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/22396872">Cookie 是什么</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/MuWinter/article/details/75313476">如何查看cookies</a></p>
+<p>Cookie 是浏览器访问服务器后，服务器传给浏览器的一段数据。浏览器需要保存这段数据，不得轻易删除。<br>第一个作用是识别用户身份。<br>第二个作用是记录历史。<br><strong>如何获取cookie</strong></p>
 <ul>
 <li>使用httplib2库，cookie信息包含在httplib2.Http().request()返回的Response实例中。<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> httplib2<span class="token punctuation">,</span>re
 h <span class="token operator">=</span> httplib2<span class="token punctuation">.</span>Http<span class="token punctuation">(</span><span class="token string">'.Cache'</span><span class="token punctuation">)</span>
@@ -1676,7 +1684,8 @@ cookie <span class="token operator">=</span> h<span class="token punctuation">.<
 <span class="token keyword">from</span> urllib<span class="token punctuation">.</span>parse <span class="token keyword">import</span> quote_plus
 req <span class="token operator">=</span> Request<span class="token punctuation">(</span>url<span class="token punctuation">,</span> headers <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">"Cookie"</span><span class="token punctuation">:</span> <span class="token string">"info="</span> <span class="token operator">+</span> quote_plus<span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>urlopen<span class="token punctuation">(</span>req<span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<h3 id="urllib-parse"><a href="#urllib-parse" class="headerlink" title="urllib.parse"></a>urllib.parse</h3><p>parse是解析的意思，urllib.parse提供了一些辅助方法，用于对url进行编码、解码。url中是不能出现一些特殊的符号的，有些符号有特殊的用途。我们知道以get方式提交数据的时候，会在url中添加key=value这样的字符串，所以在value中是不允许有’=’，因此要对其进行编码；与此同时服务器接收到这些参数的时候，要进行解码，还原成原始的数据。<br>quote_plus：这个方法是将一些特殊的字符串转换为固定的一些符号字母数字组合</p>
+<p><strong>urllib.parse</strong></p>
+<p>parse是解析的意思，urllib.parse提供了一些辅助方法，用于对url进行编码、解码。url中是不能出现一些特殊的符号的，有些符号有特殊的用途。我们知道以get方式提交数据的时候，会在url中添加key=value这样的字符串，所以在value中是不允许有’=’，因此要对其进行编码；与此同时服务器接收到这些参数的时候，要进行解码，还原成原始的数据。<br>quote_plus：这个方法是将一些特殊的字符串转换为固定的一些符号字母数字组合</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> parse
 d <span class="token operator">=</span> parse<span class="token punctuation">.</span>quote<span class="token punctuation">(</span><span class="token string">'a&amp;b/c'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#未编码斜线</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span>
@@ -1705,7 +1714,7 @@ d1 <span class="token operator">=</span> parse<span class="token punctuation">.<
 <span class="token operator">>></span><span class="token operator">></span>parse<span class="token punctuation">.</span>urlencode<span class="token punctuation">(</span>params<span class="token punctuation">)</span>
 <span class="token string">'appid=1&amp;mch_id=1&amp;body=1&amp;out_trade_no=1&amp;total_fee=1&amp;spbill_create_ip=1&amp;notify_url=1&amp;trade_type=1&amp;nonce_str=1'</span></code></pre>
 <p>经urllib.parse.unquote_to_bytes(string)方法转换返回的对象可以正常解压，该方法功能是将%xx转义替换为其等效的single-octet字符（unquote_plus()和unquote()是单个字符），以字节对象返回。不像unquote_plus()能将+转为空格，unquote_to_bytes()需要手动替换。</p>
-<h3 id="解题代码"><a href="#解题代码" class="headerlink" title="解题代码"></a>解题代码</h3><p>refer to level 4 <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/def/linkedlist.php">http://www.pythonchallenge.com/pc/def/linkedlist.php</a></p>
+<p><strong>🔑Solution</strong><br>refer to level 4 <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/def/linkedlist.php">http://www.pythonchallenge.com/pc/def/linkedlist.php</a></p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib<span class="token punctuation">.</span>request <span class="token keyword">import</span> urlopen
 <span class="token keyword">from</span> urllib<span class="token punctuation">.</span>parse <span class="token keyword">import</span> unquote_plus<span class="token punctuation">,</span>unquote_to_bytes
 <span class="token keyword">import</span> re<span class="token punctuation">,</span> bz2
@@ -1765,11 +1774,11 @@ conn <span class="token operator">=</span> ServerProxy<span class="token punctua
 
 <span class="token comment" spellcheck="true">#is it the 26th already?</span>
 <span class="token comment" spellcheck="true"># call his father and inform him that "the flowers are on their way". he'll understand.</span>
-url <span class="token operator">=</span> url <span class="token operator">=</span> <span class="token string">"http://www.pythonchallenge.com/pc/stuff/violin.php"</span>
+url <span class="token operator">=</span> <span class="token string">"http://www.pythonchallenge.com/pc/stuff/violin.php"</span>
 msg <span class="token operator">=</span> <span class="token string">"the flowers are on their way"</span>
 req <span class="token operator">=</span> Request<span class="token punctuation">(</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">"Cookie"</span><span class="token punctuation">:</span> <span class="token string">"info="</span> <span class="token operator">+</span> quote_plus<span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>urlopen<span class="token punctuation">(</span>req<span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<p>output</p>
+<p><strong>output</strong></p>
 <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>it's me. what do you want?<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
@@ -1783,18 +1792,20 @@ req <span class="token operator">=</span> Request<span class="token punctuation"
 oh well, don't you dare to forget the balloons.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></code></pre>
-<h2 id="level-18-ballons-2020-11-13"><a href="#level-18-ballons-2020-11-13" class="headerlink" title="level_18_ballons_2020.11.13"></a>level_18_ballons_2020.11.13</h2><p><img src="https://pic4.zhimg.com/80/v2-35ed8d88887ea76a93f2742932cedc83.png" alt="Image"><br>Link: <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/return/balloons.html">http://www.pythonchallenge.com/pc/return/balloons.html</a></p>
-<h3 id="1-区分两个数据的异同difflib-Differ-compare-a-b"><a href="#1-区分两个数据的异同difflib-Differ-compare-a-b" class="headerlink" title="1.区分两个数据的异同difflib.Differ().compare(a, b)"></a>1.区分两个数据的异同difflib.Differ().compare(a, b)</h3><p><code>difflib.Differ().compare(a, b)</code> will generate<br>lines start with +: appear in a not in b<br>lines start with -: appear in b not in a<br>others: appear in both</p>
-<h3 id="2-bytes-amp-int-str-16"><a href="#2-bytes-amp-int-str-16" class="headerlink" title="2.bytes()&amp;int(str,16)"></a>2.bytes()&amp;int(str,16)</h3><p>16进制形式的字符如何转成字节码，用bytes()<br>首先要先用int(str,16)将字符列表转化为10进制的数字列表，才能用bytes()</p>
-<h3 id="3-list-53"><a href="#3-list-53" class="headerlink" title="3.list [:53]"></a>3.list [:53]</h3><p>忘了，列表切片是左开右闭了……😳</p>
+<h2 id="level-18-ballons-2020-11-13"><a href="#level-18-ballons-2020-11-13" class="headerlink" title="level_18_ballons_2020.11.13"></a>level_18_ballons_2020.11.13</h2><p>Link: <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/return/balloons.html">http://www.pythonchallenge.com/pc/return/balloons.html</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201229215541-2020-12-29.png"></p>
+<p><strong>🖊Learned</strong><br>1.区分两个数据的异同difflib.Differ().compare(a, b)<br><code>difflib.Differ().compare(a, b)</code> will generate<br>lines start with +: appear in a not in b<br>lines start with -: appear in b not in a<br>others: appear in both</p>
+<p>2.bytes()&amp;int(str,16)<br>16进制形式的字符如何转成字节码，用bytes()<br>首先要先用int(str,16)将字符列表转化为10进制的数字列表，才能用bytes()</p>
+<p>3.list [:53]<br>忘了，列表切片是左开右闭了……😳</p>
 <pre class=" language-python"><code class="language-python">bytes<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">74</span><span class="token punctuation">,</span> <span class="token number">158</span><span class="token punctuation">,</span> <span class="token number">198</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">185</span><span class="token punctuation">,</span> <span class="token number">141</span><span class="token punctuation">,</span> <span class="token number">219</span><span class="token punctuation">,</span> <span class="token number">243</span><span class="token punctuation">,</span> <span class="token number">80</span><span class="token punctuation">,</span> <span class="token number">141</span><span class="token punctuation">,</span> <span class="token number">74</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">112</span><span class="token punctuation">,</span> <span class="token number">154</span><span class="token punctuation">,</span> <span class="token number">121</span><span class="token punctuation">,</span> <span class="token number">49</span><span class="token punctuation">,</span> <span class="token number">149</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 <span class="token comment" spellcheck="true"># → b'J\x9e\xc6\x05\n\xb9\x8d\xdb\xf3P\x8dJdp\x9ay1\x95'</span></code></pre>
-<p>go to <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/return/bright.html">http://www.pythonchallenge.com/pc/return/bright.html</a>, show </p>
+<p><strong>🔑Solution</strong><br>go to <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/return/bright.html">http://www.pythonchallenge.com/pc/return/bright.html</a> , then show </p>
 <blockquote>
-<p>ness<br>so go to <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/return/brightness.html">http://www.pythonchallenge.com/pc/return/brightness.html</a></p>
-<!-- maybe consider deltas.gz -->
+<p>ness<br>so go to <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/return/brightness.html">http://www.pythonchallenge.com/pc/return/brightness.html</a><br>maybe consider deltas.gz </p>
 </blockquote>
-<p>下载delta.gz,打开delta.txt，明显看到两栏很相似的信息，前面提示这一关要tell the difference，对于这两栏的信息，我们要用到difflib来比较它们，然后将得到的信息decode，输出为三张图片<br><img src="https://pic4.zhimg.com/80/v2-824904b23ee2f5cbd6bd6cf282d84b8c.png" alt="delta.txt"><br><strong>解题代码</strong></p>
+<p>下载delta.gz,打开delta.txt，明显看到两栏很相似的信息，前面提示这一关要tell the difference，对于这两栏的信息，我们要用到difflib来比较它们，然后将得到的信息decode，输出为三张图片</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201229215755-2020-12-29.png"></p>
+<p><strong>💻Code</strong></p>
 <pre class=" language-python"><code class="language-python">
 <span class="token keyword">import</span> gzip
 <span class="token keyword">import</span> difflib
@@ -1830,22 +1841,18 @@ f1<span class="token punctuation">.</span>close<span class="token punctuation">(
 f2<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <p><img src="https://pic4.zhimg.com/80/v2-52ca5bb9b74c6c1a7d80ee1d58d94be0.png" alt="f"></p>
-<div align="center" style="color:red">f.png</div>
-
 <p><img src="https://pic4.zhimg.com/80/v2-4df5f46e8ff0e6af8a5f8b355c32574f.png" alt="f1"></p>
-<div align="center" style="color:red">f2.png</div>
-
 <p><img src="https://pic4.zhimg.com/80/v2-b2d6a66e7468e84f9e2fc1c7ce145539.png" alt="f2"></p>
-<div align="center" style="color:red">f2.png</div>
-
-<p>so next level: <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/hex/bin.html">http://www.pythonchallenge.com/pc/hex/bin.html</a><br>username: butter<br>password: fly</p>
-<h2 id="level-19-bin-2020-11-14"><a href="#level-19-bin-2020-11-14" class="headerlink" title="level_19_bin_2020.11.14"></a>level_19_bin_2020.11.14</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yongdaimi/p/10722355.html">音频属性相关：声道、采样率、采样位数、样本格式、比特率</a></p>
+<p>so next level: <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/hex/bin.html">http://www.pythonchallenge.com/pc/hex/bin.html</a></p>
+<h2 id="level-19-bin-2020-11-14"><a href="#level-19-bin-2020-11-14" class="headerlink" title="level_19_bin_2020.11.14"></a>level_19_bin_2020.11.14</h2><p>Link: <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/hex/bin.html">http://www.pythonchallenge.com/pc/hex/bin.html</a><br>username: butter<br>password: fly</p>
+<p><strong>🖊Learned</strong><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yongdaimi/p/10722355.html">音频属性相关：声道、采样率、采样位数、样本格式、比特率</a></p>
 <blockquote>
-<p>WAV有三个重要的参数：声道数、取样频率和量化位数。<br>声道数：可以是单声道或者是双声道<br>采样频率：一秒内对声音信号的采集次数，常用的有8kHz, 16kHz, 32kHz, &gt;48kHz, 11.025kHz, 22.05kHz, 44.1kHz<br>量化位数：用多少bit表达一次采样所采集的数据，通常有8bit、16bit、24bit和&gt;32bit等几种<br>Wave_read.getnchannels()<br>返回声道数量（1 为单声道，2 为立体声）</p>
+<p>WAV有三个重要的参数：声道数、取样频率和量化位数。<br>声道数：可以是单声道或者是双声道<br>采样频率：一秒内对声音信号的采集次数，常用的有8kHz, 16kHz, 32kHz, 48kHz, 11.025kHz, 22.05kHz, 44.1kHz<br>量化位数：用多少bit表达一次采样所采集的数据，通常有8bit、16bit、24bit和32bit等几种<br>Wave_read.getnchannels()<br>返回声道数量（1 为单声道，2 为立体声）</p>
 <p>Wave_read.getsampwidth()<br>返回采样字节长度。</p>
 <p>Wave_read.getframerate()<br>返回采样频率。</p>
-<p>Wave_read.getnframes()¶<br>返回音频总帧数。<br>Wave_read.readframes(n)<br>读取并返回以 bytes 对象表示的最多 n 帧音频。</p>
+<p>Wave_read.getnframes()<br>返回音频总帧数。<br>Wave_read.readframes(n)<br>读取并返回以 bytes 对象表示的最多 n 帧音频。</p>
 </blockquote>
+<p><strong>💻Code</strong></p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> base64
 <span class="token keyword">import</span> wave
 
@@ -2002,8 +2009,9 @@ response <span class="token operator">=</span> urllib<span class="token punctuat
 <p>啊啊啊啊，昨天忙着做分子生物学作业和整hexo的域名，后来24：00电脑准时没电关机啦，只好厚脸皮今天补啦！</p>
 </blockquote>
 <blockquote>
-<p>Yes! This is really level 21 in here. And yes, After you solve &gt;it, you’ll be in level 22!<br>Now for the level:<br>We used to play this game when we were kids<br>When I had no idea what to do, I looked backwards.<br>这一关主要过程是对package.pack文件不断进行解压。根据上一次解压得到的结果，判断下一次解压用zlib还是bz2，以及判断得到的数据是正向的还是要reverse.<br>考察多种编码格式的运用，观察“package.pack”中的数据，发现是以b”x\x9c”开头的，这是zlib算法压缩的数据，使用zlib模块解码。重复几次，发现有以b”BZ”开头的，这是bz2压缩的数据，使用bz2模块解码。又重复几次，发现有以b”\x80\x8d”开头的，看看第2条提示，发现字节流是以b”\x9cx”结尾的，反转整个字节流。最终得到一句话“look at your logs”。</p>
+<p>Yes! This is really level 21 in here. And yes, After you solve &gt;it, you’ll be in level 22!<br>Now for the level:<br>We used to play this game when we were kids<br>When I had no idea what to do, I looked backwards.</p>
 </blockquote>
+<p>这一关主要过程是对package.pack文件不断进行解压。根据上一次解压得到的结果，判断下一次解压用zlib还是bz2，以及判断得到的数据是正向的还是要reverse.<br>考察多种编码格式的运用，观察“package.pack”中的数据，发现是以b”x\x9c”开头的，这是zlib算法压缩的数据，使用zlib模块解码。重复几次，发现有以b”BZ”开头的，这是bz2压缩的数据，使用bz2模块解码。又重复几次，发现有以b”\x80\x8d”开头的，看看第2条提示，发现字节流是以b”\x9cx”结尾的，反转整个字节流。最终得到一句话“look at your logs”。</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> zlib
 <span class="token keyword">import</span> bz2
 
@@ -2044,8 +2052,7 @@ result <span class="token operator">=</span> <span class="token string">""</span
     #######      #######    ##          ##          #########   ##     ## 
       ###          ###      ##          ##          ##########  ##      ##</code></pre>
 <h2 id="level-22-2020-11-17"><a href="#level-22-2020-11-17" class="headerlink" title="level_22_2020.11.17"></a>level_22_2020.11.17</h2><p><a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/hex/copper.html">http://www.pythonchallenge.com/pc/hex/copper.html</a></p>
-<p><img src="https://pic4.zhimg.com/80/v2-d85ac1b3c4e471f8dc8f6cd22cbafdbe.png" alt="leverl_22"></p>
-<p><strong>🔑Solution</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201229220700-2020-12-29.png"><br><strong>🔑Solution</strong></p>
 <p>查看源代码提示下载文件“white.gif”<a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/hex/white.gif">http://www.pythonchallenge.com/pc/hex/white.gif</a></p>
 <p>发现每一帧都是黑的，但每一帧都有一个像素点不是纯黑的 RGB != (0,0,0)，且该像素都在中心点(100,100)附近，再由游戏摇杆得到启发。举例来说，详见下表</p>
 <table>
