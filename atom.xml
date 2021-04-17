@@ -6,7 +6,7 @@
   <link href="https://achuan-2.top/atom.xml" rel="self"/>
   
   <link href="https://achuan-2.top/"/>
-  <updated>2020-11-17T09:06:58.582Z</updated>
+  <updated>2021-04-17T12:57:15.065Z</updated>
   <id>https://achuan-2.top/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Arduino智能小车</title>
+    <link href="https://achuan-2.top/posts/17b5.html"/>
+    <id>https://achuan-2.top/posts/17b5.html</id>
+    <published>2021-04-17T12:52:16.000Z</published>
+    <updated>2021-04-17T12:57:15.065Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;本次智能小车包括以下三个模块：自动寻迹，超声波测距，蓝牙控制。各模块设计意图如下详述： &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt; 自动寻迹：&lt;br&gt;（1）设计方式：在车身下靠近地面处装两个灰度传感器。&lt;br&gt;（2） 设计功能：实现小车从出发区沿着白色路面的黑色轨迹到达停车区，要求:</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>阿巛的Hexo博客搭建</title>

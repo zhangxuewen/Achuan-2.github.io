@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="阿巛的Hexo博客搭建, Python Bioinformatics 宅男 书呆子 自言自语">
+    <meta name="keywords" content="Arduino智能小车, Python Bioinformatics 宅男 书呆子 自言自语">
     <meta name="description" content="一条没有故事的巛">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>阿巛的Hexo博客搭建 | 风渡巛</title>
+    <title>Arduino智能小车 | 风渡巛</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/awesome/css/all.css">
@@ -318,12 +318,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">阿巛的Hexo博客搭建</h1>
+                    <h1 class="description center-align post-title">Arduino智能小车</h1>
                 </div>
             </div>
         </div>
@@ -452,28 +452,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-15
+                    2021-04-17
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-17
+                    2021-04-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    493
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -488,49 +488,180 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ul>
-<li>图片加载优化</li>
-<li>滚动条美化</li>
-<li>增加artitalk说说页面</li>
-<li>博客优化</li>
-<li>CDN加速</li>
-<li>绑定域名(github、coding双绑定)</li>
-<li>证书认证</li>
-<li>滚动条美化</li>
-</ul>
-<pre class=" language-css"><code class="language-css"><span class="token comment" spellcheck="true">/***** 滚动条 *****/</span>
-<span class="token comment" spellcheck="true">/* 滚动条里面的小方块 */</span>
-<span class="token selector"><span class="token pseudo-element">::-webkit-scrollbar-thumb</span> </span><span class="token punctuation">{</span>
-    <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token hexcode">#FF2A68</span><span class="token punctuation">;</span>
-    <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">-webkit-linear-gradient</span><span class="token punctuation">(</span><span class="token number">45</span>deg,<span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">255</span>,<span class="token number">255</span>,<span class="token number">255</span>,<span class="token number">.4</span><span class="token punctuation">)</span> <span class="token number">25%</span>,transparent <span class="token number">25%</span>,transparent <span class="token number">50%</span>,<span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">255</span>,<span class="token number">255</span>,<span class="token number">255</span>,<span class="token number">.4</span><span class="token punctuation">)</span> <span class="token number">50%</span>,<span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">255</span>,<span class="token number">255</span>,<span class="token number">255</span>,<span class="token number">.4</span><span class="token punctuation">)</span> <span class="token number">75%</span>,transparent <span class="token number">75%</span>,transparent<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">3</span>em<span class="token punctuation">;</span>
+                <p>本次智能小车包括以下三个模块：自动寻迹，超声波测距，蓝牙控制。各模块设计意图如下详述： </p>
+<ol>
+<li> 自动寻迹：<br>（1）设计方式：在车身下靠近地面处装两个灰度传感器。<br>（2） 设计功能：实现小车从出发区沿着白色路面的黑色轨迹到达停车区，要求: <pre><code> a. 若两个传感器都没有检测到黑线时，小车直线前进。 
+ b. 若有一侧传感器检测到黑线时，小车向该侧转弯。 </code></pre>
+（3） 设计实现 : 对于不同的情况，在代码中控制不同车轮的转动与停止以及车速。在实际情况中应根据电池电量，车轮损坏，传感器灵敏度等实际情况调整左右轮的转速。</li>
+<li>超声波测距<br>（1）设计方式：在车身前上方安装超声波传感器和蜂鸣器<br>（2）设计功能：当启动该功能之后小车一边超声测距一边开始向前自动循迹同时响起蜂鸣器，大约离障碍物10cm时即终点线前方，蜂鸣器关闭，小车停止<br>（3）设计实现：导入超声波测距模块，通过实际测量障碍物在小车10cm前方时message值，在测距大于10cm时，使用自动循迹函数循迹并响起蜂鸣器，测距小于10cm时，关闭蜂鸣器停止小车，</li>
+<li>   蓝牙控制：<br>(1) 设计方式：小车内部安装有蓝牙设备，手机安装蓝牙串口通信助手。<br>(2) 设计功能：手机通过“蓝牙串口通信助手”软件给智能小车发送相关的遥控指令，控制小车按规定路径到达终点。<br>如 f：前进 b：后退 l：左转 r：右转 s：停止<br>(3) 设计实现：在代码中为不同指令编写函数，通过控制不同车轮的转动与静止以及转速实现。</li>
+</ol>
+<p><img src="https://b3logfile.com/siyuan/1610205759005/assets/image-20210417205509-1sgheao.png" alt="流程图"><br>代码</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> L_state <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//定义状态，初始为蓝牙控制模式</span>
+
+<span class="token keyword">void</span> <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// put your setup code here, to run once:</span>
+<span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">//初始化串口</span>
+  Serial<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token number">9600</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//定义接口类型oid loop()</span>
+    <span class="token function">pinMode</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span> INPUT<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 左侧灰度传感器端口-16</span>
+    <span class="token function">pinMode</span><span class="token punctuation">(</span><span class="token number">17</span><span class="token punctuation">,</span> INPUT<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 右侧灰度传感器端口-17</span>
+    <span class="token function">pinMode</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span> OUTPUT<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 右电机反转端口-9</span>
+    <span class="token function">pinMode</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> OUTPUT<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 右电机正转端口-10</span>
+    <span class="token function">pinMode</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> OUTPUT<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 左电机反转端口-5</span>
+    <span class="token function">pinMode</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> OUTPUT<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//左电机正转端口-6</span>
+    <span class="token function">pinMode</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">,</span> OUTPUT<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//蜂鸣器端口-11</span>
+    <span class="token comment" spellcheck="true">//输出清零</span>
+    <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">digitalWrite</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span> LOW<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 测距发射端口15,低电平</span>
+  <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">/* 滚动条的轨道 */</span>
-<span class="token selector"><span class="token pseudo-element">::-webkit-scrollbar-track</span> </span><span class="token punctuation">{</span>
-    <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token hexcode">#ffcaca</span>ff<span class="token punctuation">;</span>
-    <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">3</span>em<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//主函数</span>
+<span class="token keyword">void</span> <span class="token function">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">char</span> getstr <span class="token operator">=</span> Serial<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//读取HC-05蓝牙模块接收的字符</span>
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span>getstr<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+  <span class="token keyword">case</span> <span class="token string">'l'</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">//左转</span>
+    <span class="token function">drive_left</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token string">'r'</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">//右转</span>
+    <span class="token function">drive_right</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token string">'f'</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">//前进</span>
+    <span class="token function">drive_forward</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token string">'b'</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">//后退</span>
+    <span class="token function">drive_back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token string">'d'</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">//减速</span>
+    <span class="token function">speed_down</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token string">'s'</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">//暂停</span>
+    <span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token string">'t'</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">//自动寻迹</span>
+    <span class="token function">_trace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token string">'i'</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">//超声检测</span>
+    <span class="token function">_supersound</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">default</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">//unknow command!</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">/* 滚动条整体部分 */</span>
-<span class="token selector"><span class="token pseudo-element">::-webkit-scrollbar</span> </span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">8</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">15</span>px<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//自动寻迹函数</span>
+<span class="token keyword">void</span> <span class="token function">_trace</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span><span class="token function">digitalRead</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">digitalRead</span><span class="token punctuation">(</span><span class="token number">17</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//如果右侧传感器探测到黑线，向右转</span>
+  <span class="token punctuation">{</span>
+    <span class="token function">turn_right</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">else</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span><span class="token function">digitalRead</span><span class="token punctuation">(</span><span class="token number">17</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">digitalRead</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//如果左侧传感器探测到黑线，向左转</span>
+    <span class="token punctuation">{</span>
+      <span class="token function">turn_left</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span> <span class="token comment" spellcheck="true">//两侧传感器均探测到黑线或白线，直行</span>
+    <span class="token punctuation">{</span>
+      <span class="token function">drive_forward</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//超声波测距函数</span>
+<span class="token keyword">int</span> <span class="token function">ardublockUltrasonicSensorCodeAutoGeneratedReturnCM</span><span class="token punctuation">(</span><span class="token keyword">int</span> trigPin<span class="token punctuation">,</span> <span class="token keyword">int</span> echoPin<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">long</span> duration<span class="token punctuation">;</span>
+  <span class="token function">pinMode</span><span class="token punctuation">(</span>trigPin<span class="token punctuation">,</span> OUTPUT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">pinMode</span><span class="token punctuation">(</span>echoPin<span class="token punctuation">,</span> INPUT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">digitalWrite</span><span class="token punctuation">(</span>trigPin<span class="token punctuation">,</span> LOW<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">delayMicroseconds</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">digitalWrite</span><span class="token punctuation">(</span>trigPin<span class="token punctuation">,</span> HIGH<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">delayMicroseconds</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">digitalWrite</span><span class="token punctuation">(</span>trigPin<span class="token punctuation">,</span> LOW<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  duration <span class="token operator">=</span> <span class="token function">pulseIn</span><span class="token punctuation">(</span>echoPin<span class="token punctuation">,</span> HIGH<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  duration <span class="token operator">=</span> duration <span class="token operator">/</span> <span class="token number">58</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>duration <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">(</span>duration <span class="token operator">></span> <span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> duration<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//返回距离</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//超声检测</span>
+<span class="token keyword">void</span> <span class="token function">_supersound</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  Serial<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"message"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  Serial<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token function">ardublockUltrasonicSensorCodeAutoGeneratedReturnCM</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  Serial<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">//开启超声检测</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">ardublockUltrasonicSensorCodeAutoGeneratedReturnCM</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 检测前方有障碍物,message &lt;= 45</span>
+    <span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">noTone</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//蜂鸣器无声</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">else</span>
+  <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 前方暂无障碍物，自动循迹前行</span>
+    <span class="token function">_trace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">tone</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">440</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//蜂鸣器启动</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/******小车行驶函数******/</span>
+
+<span class="token comment" spellcheck="true">//小车左转</span>
+<span class="token keyword">void</span> <span class="token function">drive_left</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">220</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//右边轮子正转</span>
+  <span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//小车右转</span>
+<span class="token keyword">void</span> <span class="token function">drive_right</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">220</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//左边轮子正转</span>
+  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 小车前进</span>
+<span class="token keyword">void</span> <span class="token function">drive_forward</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">250</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 小车后退</span>
+<span class="token keyword">void</span> <span class="token function">drive_back</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//左右轮反转</span>
+  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">250</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 小车减速</span>
+<span class="token keyword">void</span> <span class="token function">speed_down</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">160</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">160</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 小车停止</span>
+<span class="token keyword">void</span> <span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
-<h2 id="全站CDN加速"><a href="#全站CDN加速" class="headerlink" title="全站CDN加速"></a>全站CDN加速</h2><p>CDN的全称是Content Delivery Network，即内容分发网络。CDN是构建在网络之上的内容分发网络，依靠部署在各地的边缘服务器，通过中心平台的负载均衡、内容分发、调度等功能模块，使用户就近获取所需内容，降低网络拥塞，提高用户访问响应速度和命中率。CDN的关键技术主要有内容存储和分发技术。——百度百科<br>用法：</p>
-<pre class=" language-http"><code class="language-http"><span class="token header-name keyword">https:</span>//cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径</code></pre>
-<h2 id="SEO优化"><a href="#SEO优化" class="headerlink" title="SEO优化"></a>SEO优化</h2><p>SEO（Search Engine Optimization）：汉译为搜索引擎优化。是一种方式：利用搜索引擎的规则提高网站在有关搜索引擎内的自然排名。 ——百度百科<br>请参考这篇博文：<a target="_blank" rel="noopener" href="https://blog.sky03.cn/posts/42790.html#toc-heading-18">https://blog.sky03.cn/posts/42790.html#toc-heading-18</a></p>
-<h2 id="新建文章自动打开本地-Markdown-编辑器"><a href="#新建文章自动打开本地-Markdown-编辑器" class="headerlink" title="新建文章自动打开本地 Markdown 编辑器"></a>新建文章自动打开本地 Markdown 编辑器</h2><p>写新文章时，需要控制台执行 hexo new “文章名字”，这样就会在_posts 下生成一篇新文章，但需要手动打开，挺麻烦，只需要在站点根目录下新建 scripts 目录，然后再新建 auto_open.js，在文件填入一下内容</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> spawn <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'child_process'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>exec<span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">// Hexo 2.x 用户复制这段</span>
-<span class="token comment" spellcheck="true">//hexo.on('new', function(path){</span>
-  <span class="token comment" spellcheck="true">//spawn('start  "markdown编辑器绝对路径.exe" ' + path);</span>
-<span class="token comment" spellcheck="true">//});</span>
-
-<span class="token comment" spellcheck="true">// Hexo 3 用户复制这段</span>
-hexo<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'new'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">{</span>
-<span class="token comment" spellcheck="true">//   spawn('start  "D:\Program Files\Typora\Typora.exe" ' + data.path); // Typora</span>
-  <span class="token function">spawn</span><span class="token punctuation">(</span><span class="token string">'start  "D:\\Program_Files\\Microsoft VS Code\\Code.exe" '</span> <span class="token operator">+</span> data<span class="token punctuation">.</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//VSCode</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 
             </div>
             <hr/>
@@ -848,9 +979,10 @@ hexo<span class="token punctuation">.</span><span class="token function">on</spa
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/posts/17b5.html">
                     <div class="card-image">
@@ -868,9 +1000,9 @@ hexo<span class="token punctuation">.</span><span class="token function">on</spa
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-17
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -879,6 +1011,7 @@ hexo<span class="token punctuation">.</span><span class="token function">on</spa
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -889,43 +1022,32 @@ hexo<span class="token punctuation">.</span><span class="token function">on</spa
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/c134.html">
+                <a href="/posts/a881.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201225124223-2020-12-25.png" class="responsive-img" alt="The Python Challenge Daily Record">
                         
-                        <span class="card-title">The Python Challenge Daily Record</span>
+                        <img src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/medias/featureimages/1.jpg" class="responsive-img" alt="阿巛的Hexo博客搭建">
+                        
+                        <span class="card-title">阿巛的Hexo博客搭建</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Python Challenge是首个谜语编程网站。挑战者需要连续挑战33个需要编程才能解开的谜题以锻炼自己的编程能力。
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-15
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Python/" class="post-category">
-                                    Python
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            风渡巛
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/python%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0/">
-                        <span class="chip bg-color">python基础练习</span>
-                    </a>
-                    
                 </div>
                 
             </div>
