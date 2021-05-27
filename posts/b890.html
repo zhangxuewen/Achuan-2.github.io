@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="阿巛的Hexo博客搭建, Python Bioinformatics 宅男 书呆子 自言自语">
+    <meta name="keywords" content="蛋白质组学备考, Python Bioinformatics 宅男 书呆子 自言自语">
     <meta name="description" content="一条没有故事的巛">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>阿巛的Hexo博客搭建 | 风渡巛</title>
+    <title>蛋白质组学备考 | 风渡巛</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/awesome/css/all.css">
@@ -318,12 +318,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">阿巛的Hexo博客搭建</h1>
+                    <h1 class="description center-align post-title">蛋白质组学备考</h1>
                 </div>
             </div>
         </div>
@@ -440,8 +440,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Hexo/">
-                                <span class="chip bg-color">Hexo</span>
+                            <a href="/tags/%E7%94%9F%E7%89%A9/">
+                                <span class="chip bg-color">生物</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%BB%84%E5%AD%A6/">
+                                <span class="chip bg-color">组学</span>
                             </a>
                         
                     </div>
@@ -452,8 +456,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                前端
+                            <a href="/categories/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                本科课程
                             </a>
                         
                     </div>
@@ -465,7 +469,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-15
+                    2021-05-27
                 </div>
                 
 
@@ -479,14 +483,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    493
+                    2.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    10 分
                 </div>
                 
 
@@ -501,49 +505,195 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ul>
-<li>图片加载优化</li>
-<li>滚动条美化</li>
-<li>增加artitalk说说页面</li>
-<li>博客优化</li>
-<li>CDN加速</li>
-<li>绑定域名(github、coding双绑定)</li>
-<li>证书认证</li>
-<li>滚动条美化</li>
-</ul>
-<pre class=" language-css"><code class="language-css"><span class="token comment" spellcheck="true">/***** 滚动条 *****/</span>
-<span class="token comment" spellcheck="true">/* 滚动条里面的小方块 */</span>
-<span class="token selector"><span class="token pseudo-element">::-webkit-scrollbar-thumb</span> </span><span class="token punctuation">{</span>
-    <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token hexcode">#FF2A68</span><span class="token punctuation">;</span>
-    <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">-webkit-linear-gradient</span><span class="token punctuation">(</span><span class="token number">45</span>deg,<span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">255</span>,<span class="token number">255</span>,<span class="token number">255</span>,<span class="token number">.4</span><span class="token punctuation">)</span> <span class="token number">25%</span>,transparent <span class="token number">25%</span>,transparent <span class="token number">50%</span>,<span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">255</span>,<span class="token number">255</span>,<span class="token number">255</span>,<span class="token number">.4</span><span class="token punctuation">)</span> <span class="token number">50%</span>,<span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">255</span>,<span class="token number">255</span>,<span class="token number">255</span>,<span class="token number">.4</span><span class="token punctuation">)</span> <span class="token number">75%</span>,transparent <span class="token number">75%</span>,transparent<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">3</span>em<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">/* 滚动条的轨道 */</span>
-<span class="token selector"><span class="token pseudo-element">::-webkit-scrollbar-track</span> </span><span class="token punctuation">{</span>
-    <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token hexcode">#ffcaca</span>ff<span class="token punctuation">;</span>
-    <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">3</span>em<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">/* 滚动条整体部分 */</span>
-<span class="token selector"><span class="token pseudo-element">::-webkit-scrollbar</span> </span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">8</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">15</span>px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<h2 id="全站CDN加速"><a href="#全站CDN加速" class="headerlink" title="全站CDN加速"></a>全站CDN加速</h2><p>CDN的全称是Content Delivery Network，即内容分发网络。CDN是构建在网络之上的内容分发网络，依靠部署在各地的边缘服务器，通过中心平台的负载均衡、内容分发、调度等功能模块，使用户就近获取所需内容，降低网络拥塞，提高用户访问响应速度和命中率。CDN的关键技术主要有内容存储和分发技术。——百度百科<br>用法：</p>
-<pre class=" language-http"><code class="language-http"><span class="token header-name keyword">https:</span>//cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径</code></pre>
-<h2 id="SEO优化"><a href="#SEO优化" class="headerlink" title="SEO优化"></a>SEO优化</h2><p>SEO（Search Engine Optimization）：汉译为搜索引擎优化。是一种方式：利用搜索引擎的规则提高网站在有关搜索引擎内的自然排名。 ——百度百科<br>请参考这篇博文：<a target="_blank" rel="noopener" href="https://blog.sky03.cn/posts/42790.html#toc-heading-18">https://blog.sky03.cn/posts/42790.html#toc-heading-18</a></p>
-<h2 id="新建文章自动打开本地-Markdown-编辑器"><a href="#新建文章自动打开本地-Markdown-编辑器" class="headerlink" title="新建文章自动打开本地 Markdown 编辑器"></a>新建文章自动打开本地 Markdown 编辑器</h2><p>写新文章时，需要控制台执行 hexo new “文章名字”，这样就会在_posts 下生成一篇新文章，但需要手动打开，挺麻烦，只需要在站点根目录下新建 scripts 目录，然后再新建 auto_open.js，在文件填入一下内容</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> spawn <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'child_process'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>exec<span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">// Hexo 2.x 用户复制这段</span>
-<span class="token comment" spellcheck="true">//hexo.on('new', function(path){</span>
-  <span class="token comment" spellcheck="true">//spawn('start  "markdown编辑器绝对路径.exe" ' + path);</span>
-<span class="token comment" spellcheck="true">//});</span>
-
-<span class="token comment" spellcheck="true">// Hexo 3 用户复制这段</span>
-hexo<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'new'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">{</span>
-<span class="token comment" spellcheck="true">//   spawn('start  "D:\Program Files\Typora\Typora.exe" ' + data.path); // Typora</span>
-  <span class="token function">spawn</span><span class="token punctuation">(</span><span class="token string">'start  "D:\\Program_Files\\Microsoft VS Code\\Code.exe" '</span> <span class="token operator">+</span> data<span class="token punctuation">.</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//VSCode</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                <h1 id="蛋白质组学名词解释汇总"><a href="#蛋白质组学名词解释汇总" class="headerlink" title="蛋白质组学名词解释汇总"></a>蛋白质组学名词解释汇总</h1><h2 id="蛋白质组学绪论"><a href="#蛋白质组学绪论" class="headerlink" title="蛋白质组学绪论"></a>蛋白质组学绪论</h2><p>【**蛋白质组(Proteome)**】的概念最先由Marc Wilkins提出，指由一个基因组(Genome)，或一个细胞、组织表达的所有蛋白质(protein). 蛋白质组的概念与基因组的概念有许多差别，它随着组织、甚至环境状态的不同而改变。 在转录时，一个基因可以多种mRNA形式剪接，一个蛋白质组不是一个基因组的直接产物，蛋白质组中蛋白质的数目有时可以超过基因组的数目</p>
+<p>【<strong>蛋白质组学</strong>( proteomics)】是研究蛋白质组或应用大规模蛋白质分离和识别技术研究蛋白质组的一门学科，是对基因组所表达的整套蛋白质的分析。指系统研究某一基因组所表达的所有蛋白质，包括组成蛋白质一级结构的氨基酸序列，蛋白质的丰度，蛋白质的修饰以及蛋白质之间的相互作用。</p>
+<p>【<strong>基因组</strong>Genome】：在生物学中，是指一个生物体所包含的DNA（部分病毒是RNA）里的全部遗传信息。基因组包括基因和非编码DNA。更精确地讲，一个生物体的基因组是指一套染色体中的完整的DNA序列。</p>
+<p>【<strong>基因组学</strong>Genomics】：基因组学是对生物体所有基因进行集体表征、定量研究及不同基因组比较研究的一门交叉生物学学科。基因组学主要研究基因组的结构、功能、进化、定位和编辑等，以及它们对生物体的影响。。对所有基因进行基因组作图（包括遗传图谱、物理图谱、转录图谱）、核酸序列测定、基因定位和基因功能分析的科学。基因组学包括结构基因组学（structural genomics)、功能基因组学（functional genomics)、比较基因组学(Comparative genomics)。</p>
+<table>
+<thead>
+<tr>
+<th>基因组</th>
+<th>蛋白质组</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>同一性：同一个体的基因组不论是在不同的发育阶段或不同种类的细胞里都是一样的；</td>
+<td>多样性：对于不同类型的细胞或同一个细胞在不同的生理状态下，蛋白质组的构成是不同的；</td>
+</tr>
+<tr>
+<td>有限性：基因组无论大小，其核苷酸的数量和序列是一定的，；对基因组序列的测定是一种“有限”的工作。</td>
+<td>无限性：由于细胞内大部分蛋白质存在翻译后修饰，包括磷酸化、糖基化、酰基化等，很难确定蛋白质组的蛋白质数量；对蛋白质组的蛋白质种类的确定是一种“无限”的工作。</td>
+</tr>
+<tr>
+<td>静态：一个个体的基因组自个体诞生到死亡，始终保持不变；</td>
+<td>动态：个体的蛋白质组，作为新陈代谢的主要执行者，在个体的生命活动中却总是变动的；</td>
+</tr>
+<tr>
+<td>周期性：基因组通常位于细胞核内，比较稳定，序列和功能一般不受空间的影响，但是在发育的不同阶段和不同的细胞周期，mRNA的表达是不一样的；</td>
+<td>空间性：不同的蛋白质分布在细胞的不同部位，它们的功能与其空间定位密切相关；许多蛋白质在细胞内不是静止的，他们常常在不同的亚细胞环境里运动而发挥作用</td>
+</tr>
+<tr>
+<td>孤立行为：基因组表达的各种mRNA是彼此孤立的，互不干扰；</td>
+<td>相互作用：蛋白质组中的各种蛋白质却是彼此间有着广泛的相互作用。</td>
+</tr>
+<tr>
+<td>单一手段：在基因组研究中，DNA测序技术是最基本和最主要的工具，因为基因组的均一性和简单性使得一种单一的技术就能胜任基因组的研究任务；</td>
+<td>多种技术：在蛋白质组研究中，需要的研究技术远远不止一种，并且技术的难度也远远大于基因组的研究技术；蛋白质组研究技术可以简单地分为两大类：蛋白质组分离技术，蛋白质组的鉴定技术，其核心是质谱技术。</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>基因组解释能发生什么？转录组解释将发生什么？蛋白组解释在发生什么？代谢组解释已发生什么</p>
+</blockquote>
+<p>【<strong>生物信息学Bioinformatics</strong>】生物信息学(Bioinformatics)是随着人类基因组计划的启动而兴起的一门新的交叉学科, 由林华安博士在1987年首次提出的 。生物信息学包含了生物信息的获取、处理、储存、分析和解释等方面, 集合数学、统计 、计算机与生物医学等工具研究, 阐明大量生物学数据所包含的生物学意义。具体来讲, 生物信息学是把核酸、蛋白质等生物大分子数据库作为主要研究对象, 用数学、统计、计算机科学等为主要研究手段, 对大量生物学原始试验数据进行存储 、整理 、管理、注释 、加工, 使之成为具有明确生物学意义的生物信息。通过对生物信息的查询、搜索、比较、分析, 从中获取基因编码、基因调控 、核酸和蛋白质结构功能及其相互关系等知识,从而探索未知世界。<br>生物信息学的发展大致经历了 3个阶段 :①前基因组时代, 标志性工作包括生物数据库的建立、检索工具的开发以及DNA 和蛋白质序列分析;②基因组时代, 标志性工作包括基因寻找和识别、网络数据库系统的建立和交互界面的开发;③后基因组时代, 标志是大规模基因组分析、蛋白质组分析以及各种数据的比较和整合</p>
+<p>【<strong>简述蛋白质组信息学的主要研究内容</strong>】<br><strong>蛋白质序列与结构信息学</strong>：利用蛋白质组信息学数据库，将获得的蛋白序列通过序列比对，可以获得相应的结构信息，进而推测其功能或者鉴定其是否为蛋白质家族的新成员。<br><strong>蛋白质相互作用信息学</strong>：蛋白质相互作用网络的研究、蛋白质相互作用方法学的研究、蛋白质相互作用模拟的研究等。<br><strong>功能蛋白质组信息学</strong>：根据功能不同可以对蛋白质进行分类，序列同源性高的蛋白质之间可能具有相似的功能，有些蛋白之间的序列信息相关较大，但从结构域水平上它们又具有同源性，也可能具有相似的功能。<br><strong>蛋白质组遗传信息学</strong>：通过对蛋白质组学的研究，揭示同一类蛋白质组的遗传信息特征及其与蛋白质组表达的关系</p>
+<p><strong>Quantitative Proteomics</strong>：定量蛋白质组学，把一个基因组表达的全部蛋白质或一个复杂的混合体系中所有的蛋白质进行精确的定量并加以鉴定的一门学科。</p>
+<p><strong>Comparative Proteomics</strong>：比较蛋白质组学，比较不同蛋白质组的差异与相似性的学科；</p>
+<p><strong>蛋白质组学的目标</strong>是要回答关于蛋白质的4个方面的问题：①细胞中蛋白质的含量。②定位。③活性。④修饰。在整体水平上研究细胞内蛋白质的组成及其活动规律。具体指：阐明生命细胞代谢、信号传导和调控网络的组织结构和动力学，并理解这些网络如何在病理和生理中执行和失去功能，又如何通过干预（如药物或基因）改变它们的功能。</p>
+<p><strong>蛋白质的各种谱</strong><br>蛋白质表达谱——全谱<br>蛋白质差异表达谱——差异谱<br>蛋白质翻译后修饰——修饰谱<br>蛋白质相互作用——功能谱<br>蛋白质结构——结构谱</p>
+<p><strong>蛋白质组学的研究方法</strong>主要有：①蛋白质双向电泳。②氨基酸序列测定（包括N端测序和C端测序）。③质谱。④生物信息学。</p>
+<p>【<strong>密码子表</strong>】有6个密码子的氨基酸：亮氨酸、精氨酸、丝氨酸</p>
+<p><img src="https://www.timedoo.com/wp-content/uploads/2018/12/v2-1e2834574a4f8f8c1394936224f8f4fd_hd.jpg" alt="吴思涵博士教程：有关氨基酸密码子表，教科书还漏了许多重点– 肽度TIMEDOO"></p>
+<p>【<strong>氨基酸缩写表</strong>】</p>
+<p>体内20种氨基酸按理化性质可分为4组：<br>①非极性、疏水性氨基酸：甘氨酸、丙氨酸、缬氨酸、亮氨酸、异亮氨酸、苯丙氨酸和脯氨酸。<br>②极性、中性氨基酸：色氨酸、丝氨酸、酪氨酸、半胱氨酸、蛋氨酸、天冬酰胺、谷氨酰胺和苏氨酸。<br>③酸性的氨基酸：天冬氨酸和谷氨酸。<br>④碱性氨基酸：赖氨酸、精氨酸和组氨酸。</p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>中文名称</strong></th>
+<th align="center"><strong>英文名称</strong></th>
+<th align="center"><strong>三字母缩写</strong></th>
+<th align="center"><strong>单字母符号</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">甘氨酸</td>
+<td align="center">Glycine</td>
+<td align="center">Gly</td>
+<td align="center">G</td>
+</tr>
+<tr>
+<td align="center">丙氨酸</td>
+<td align="center">Alanine</td>
+<td align="center">Ala</td>
+<td align="center">A</td>
+</tr>
+<tr>
+<td align="center">缬氨酸</td>
+<td align="center">Valine</td>
+<td align="center">Val</td>
+<td align="center">V</td>
+</tr>
+<tr>
+<td align="center">亮氨酸</td>
+<td align="center">Leucine</td>
+<td align="center">Leu</td>
+<td align="center">L</td>
+</tr>
+<tr>
+<td align="center">异亮氨酸</td>
+<td align="center">Isoleucine</td>
+<td align="center">Ile</td>
+<td align="center">I</td>
+</tr>
+<tr>
+<td align="center">脯氨酸</td>
+<td align="center">Proline</td>
+<td align="center">Pro</td>
+<td align="center">P</td>
+</tr>
+<tr>
+<td align="center">苯丙氨酸</td>
+<td align="center">Phenylalanine</td>
+<td align="center">Phe</td>
+<td align="center">F</td>
+</tr>
+<tr>
+<td align="center">酪氨酸</td>
+<td align="center">Tyrosine</td>
+<td align="center">Tyr</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td align="center">色氨酸</td>
+<td align="center">Tryptophan</td>
+<td align="center">Trp</td>
+<td align="center">W</td>
+</tr>
+<tr>
+<td align="center">丝氨酸</td>
+<td align="center">Serine</td>
+<td align="center">Ser</td>
+<td align="center">S</td>
+</tr>
+<tr>
+<td align="center">苏氨酸</td>
+<td align="center">Threonine</td>
+<td align="center">Thr</td>
+<td align="center">T</td>
+</tr>
+<tr>
+<td align="center">半胱氨酸</td>
+<td align="center">Cystine</td>
+<td align="center">Cys</td>
+<td align="center">C</td>
+</tr>
+<tr>
+<td align="center">蛋氨酸</td>
+<td align="center">Methionine</td>
+<td align="center">Met</td>
+<td align="center">M</td>
+</tr>
+<tr>
+<td align="center">天冬酰胺</td>
+<td align="center">Asparagine</td>
+<td align="center">Asn</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td align="center">谷氨酰胺</td>
+<td align="center">Glutarnine</td>
+<td align="center">Gln</td>
+<td align="center">Q</td>
+</tr>
+<tr>
+<td align="center">天冬氨酸</td>
+<td align="center">Asparticacid</td>
+<td align="center">Asp</td>
+<td align="center">D</td>
+</tr>
+<tr>
+<td align="center">谷氨酸</td>
+<td align="center">Glutamicacid</td>
+<td align="center">Glu</td>
+<td align="center">E</td>
+</tr>
+<tr>
+<td align="center">赖氨酸</td>
+<td align="center">Lysine</td>
+<td align="center">Lys</td>
+<td align="center">K</td>
+</tr>
+<tr>
+<td align="center">精氨酸</td>
+<td align="center">Arginine</td>
+<td align="center">Arg</td>
+<td align="center">R</td>
+</tr>
+<tr>
+<td align="center">组氨酸</td>
+<td align="center">Histidine</td>
+<td align="center">His</td>
+<td align="center">H</td>
+</tr>
+</tbody></table>
+<p>【<strong>32P标记核苷酸和蛋白质标记的P是α，β，γ</strong>？】</p>
+<p>标记核酸的末端常用[γ-^32^P]ATP</p>
+<p>标记合成DNA的核酸用各种[a-^32^P]dNTP</p>
+<p>^32^P-ATP标记磷酸化蛋白γ位</p>
+<p>【<strong>CBB考马斯亮蓝</strong>】：Coomassie Brilliant Blue，考马斯亮兰G-250染料，在酸性溶液中与蛋白质结合，使染料的最大吸收峰(lmax)的位置，由465nm变为 595nm，溶液的颜色也由棕黑色变为兰色。通过测定595nm处光吸收的增加量可知与其结合蛋白质的量。研究发现，染料主要是与蛋白质中的碱性氨基酸(特别是精氨酸)和芳香族氨基酸残基相结合。</p>
+<p>【<strong>胰蛋白酶</strong>】：胰蛋白酶（trypsin）是目前“Bottom-up”策略中使用最广泛的蛋白水解酶，能特异性酶切赖氨酸和精氨酸<u>C端</u>的肽键（Lys-X和Arg-X）。它的两个主要优势是：（1）酶切位点特异性高；（2）酶解得到的肽段产物两端各有一个碱性基团，有利于质谱的鉴定。但是由于胰酶在赖氨酸上的酶切效率比较低，因此常常产生不完全酶解的肽段，影响定量结果。</p>
+<p>【<strong>胰凝乳蛋白酶</strong>】：是一种丝氨酸内肽酶，对苯丙氨酸，色氨酸和酪氨酸侧链（主要是较大的疏水残基）具有底物特异性。</p>
+<p>【<strong>报告基因  (reporter gene)</strong> 】是一种编码可被检测的蛋白质或酶的基因，也就是说，是一个其表达产物非常容易被鉴定的基因。把它的编码序列和基因表达调节序列相融合形成嵌合基因，或与其它目的基因相融合，在调控序列控制下进行表达，从而利用它的表达产物来标定目的基因的表达调控，筛选得到转化体。</p>
+<p>【<strong>等电点（ isoelectric point</strong>）】在某一 pH的溶液中，氨基酸或蛋白质解离成阳离子和阴离子的趋势或程度相等，成为兼性离子， 呈电中性， 此时溶液的pH称为该氨基酸或蛋白质的等电点。</p>
 
             </div>
             <hr/>
@@ -557,8 +707,12 @@ hexo<span class="token punctuation">.</span><span class="token function">on</spa
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Hexo/">
-                                    <span class="chip bg-color">Hexo</span>
+                                <a href="/tags/%E7%94%9F%E7%89%A9/">
+                                    <span class="chip bg-color">生物</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%BB%84%E5%AD%A6/">
+                                    <span class="chip bg-color">组学</span>
                                 </a>
                             
                         </div>
@@ -869,12 +1023,13 @@ hexo<span class="token punctuation">.</span><span class="token function">on</spa
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/17b5.html">
+                <a href="/posts/37ea.html">
                     <div class="card-image">
                         
-                        <img src="https://i.loli.net/2021/04/17/UGeTQ91Sf6PWqxb.png" class="responsive-img" alt="Arduino智能小车">
                         
-                        <span class="card-title">Arduino智能小车</span>
+                        <img src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/medias/featureimages/5.jpg" class="responsive-img" alt="Linus Carl Pauling">
+                        
+                        <span class="card-title">Linus Carl Pauling</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -885,8 +1040,61 @@ hexo<span class="token punctuation">.</span><span class="token function">on</spa
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-17
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-27
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E4%BA%BA%E7%89%A9%E4%BC%A0/" class="post-category">
+                                    人物传
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%94%9F%E7%89%A9/">
+                        <span class="chip bg-color">生物</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%A7%91%E5%AD%A6%E5%AE%B6/">
+                        <span class="chip bg-color">科学家</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/a0e.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="生信数据挖掘备考">
+                        
+                        <span class="card-title">生信数据挖掘备考</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-27
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -902,56 +1110,16 @@ hexo<span class="token punctuation">.</span><span class="token function">on</spa
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%89%8B%E5%B7%A5/">
-                        <span class="chip bg-color">手工</span>
+                    <a href="/tags/%E7%94%9F%E4%BF%A1/">
+                        <span class="chip bg-color">生信</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/c134.html">
-                    <div class="card-image">
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201225124223-2020-12-25.png" class="responsive-img" alt="The Python Challenge Daily Record">
-                        
-                        <span class="card-title">The Python Challenge Daily Record</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Python Challenge是首个谜语编程网站。挑战者需要连续挑战33个需要编程才能解开的谜题以锻炼自己的编程能力。
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-14
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Python/" class="post-category">
-                                    Python
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">
+                        <span class="chip bg-color">数据挖掘</span>
+                    </a>
                     
-                    <a href="/tags/python%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0/">
-                        <span class="chip bg-color">python基础练习</span>
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
                     </a>
                     
                 </div>

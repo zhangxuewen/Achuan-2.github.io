@@ -6,7 +6,7 @@
   <link href="https://achuan-2.top/atom.xml" rel="self"/>
   
   <link href="https://achuan-2.top/"/>
-  <updated>2021-04-17T13:00:47.585Z</updated>
+  <updated>2021-05-27T01:59:22.279Z</updated>
   <id>https://achuan-2.top/</id>
   
   <author>
@@ -17,11 +17,95 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Linus Carl Pauling</title>
+    <link href="https://achuan-2.top/posts/37ea.html"/>
+    <id>https://achuan-2.top/posts/37ea.html</id>
+    <published>2021-05-27T01:45:27.000Z</published>
+    <updated>2021-05-27T01:59:22.279Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;生平&quot;&gt;&lt;a href=&quot;#生平&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="人物传" scheme="https://achuan-2.top/categories/%E4%BA%BA%E7%89%A9%E4%BC%A0/"/>
+    
+    
+    <category term="生物" scheme="https://achuan-2.top/tags/%E7%94%9F%E7%89%A9/"/>
+    
+    <category term="科学家" scheme="https://achuan-2.top/tags/%E7%A7%91%E5%AD%A6%E5%AE%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>蛋白质组学备考</title>
+    <link href="https://achuan-2.top/posts/b890.html"/>
+    <id>https://achuan-2.top/posts/b890.html</id>
+    <published>2021-05-27T01:41:55.000Z</published>
+    <updated>2021-05-27T01:59:50.899Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;蛋白质组学名词解释汇总&quot;&gt;&lt;a href=&quot;#蛋白质组学名词解释汇总&quot; class=&quot;headerlink&quot; title=&quot;蛋白质组学名词解释汇总&quot;&gt;&lt;/a&gt;蛋白质组学名词解释汇总&lt;/h1&gt;&lt;h2 id=&quot;蛋白质组学绪论&quot;&gt;&lt;a href=&quot;#蛋白质组学绪论&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="本科课程" scheme="https://achuan-2.top/categories/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+    <category term="生物" scheme="https://achuan-2.top/tags/%E7%94%9F%E7%89%A9/"/>
+    
+    <category term="组学" scheme="https://achuan-2.top/tags/%E7%BB%84%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>生信数据挖掘备考</title>
+    <link href="https://achuan-2.top/posts/a0e.html"/>
+    <id>https://achuan-2.top/posts/a0e.html</id>
+    <published>2021-05-27T01:31:06.000Z</published>
+    <updated>2021-05-27T02:08:53.521Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;生信数据挖掘备考&quot;&gt;&lt;a href=&quot;#生信数据挖掘备考&quot; class=&quot;headerlink&quot; title=&quot;生信数据挖掘备考&quot;&gt;&lt;/a&gt;生信数据挖掘备考&lt;/h1&gt;&lt;p&gt;成绩比例：考试（ 60％）＋上机实践（30％）+ 平时（10%）&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="本科课程" scheme="https://achuan-2.top/categories/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+    <category term="生信" scheme="https://achuan-2.top/tags/%E7%94%9F%E4%BF%A1/"/>
+    
+    <category term="数据挖掘" scheme="https://achuan-2.top/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
+    
+    <category term="机器学习" scheme="https://achuan-2.top/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Arduino智能小车</title>
     <link href="https://achuan-2.top/posts/17b5.html"/>
     <id>https://achuan-2.top/posts/17b5.html</id>
     <published>2021-04-17T12:52:16.000Z</published>
-    <updated>2021-04-17T13:00:47.585Z</updated>
+    <updated>2021-05-27T02:01:26.728Z</updated>
     
     
       
@@ -36,6 +120,10 @@
     
     
     
+    <category term="本科课程" scheme="https://achuan-2.top/categories/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+    <category term="手工" scheme="https://achuan-2.top/tags/%E6%89%8B%E5%B7%A5/"/>
     
   </entry>
   
@@ -44,7 +132,7 @@
     <link href="https://achuan-2.top/posts/a881.html"/>
     <id>https://achuan-2.top/posts/a881.html</id>
     <published>2020-11-15T11:57:21.000Z</published>
-    <updated>2020-11-17T09:06:58.582Z</updated>
+    <updated>2021-05-27T02:00:53.547Z</updated>
     
     
       
@@ -65,6 +153,10 @@
     
     
     
+    <category term="前端" scheme="https://achuan-2.top/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="Hexo" scheme="https://achuan-2.top/tags/Hexo/"/>
     
   </entry>
   
