@@ -6,7 +6,7 @@
   <link href="https://achuan-2.top/atom.xml" rel="self"/>
   
   <link href="https://achuan-2.top/"/>
-  <updated>2021-06-17T02:51:58.842Z</updated>
+  <updated>2021-08-13T01:55:39.921Z</updated>
   <id>https://achuan-2.top/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>GitHub 提交代码时 emoji 表情的使用</title>
+    <link href="https://achuan-2.top/posts/b8c8.html"/>
+    <id>https://achuan-2.top/posts/b8c8.html</id>
+    <published>2021-08-11T14:01:46.000Z</published>
+    <updated>2021-08-13T01:55:39.921Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;执行 &lt;code&gt;git commit&lt;/code&gt; 时使用 emoji 为本次提交打上一个 “标签”， 使得此次 commit 的主要工作得以凸现，也能够使得其在整个提交历史中易于区分与查找，添加了 emoji</summary>
+        
+      
+    
+    
+    
+    <category term="Github" scheme="https://achuan-2.top/categories/Github/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>不发朋友圈的人</title>
     <link href="https://achuan-2.top/posts/e98d.html"/>
     <id>https://achuan-2.top/posts/e98d.html</id>
     <published>2021-06-17T02:51:17.000Z</published>
-    <updated>2021-06-17T02:51:58.842Z</updated>
+    <updated>2021-06-17T02:52:20.367Z</updated>
     
     
       
@@ -48,7 +71,7 @@
     <link href="https://achuan-2.top/posts/80a3.html"/>
     <id>https://achuan-2.top/posts/80a3.html</id>
     <published>2021-06-17T02:50:38.000Z</published>
-    <updated>2021-06-17T02:51:02.825Z</updated>
+    <updated>2021-06-17T02:52:20.369Z</updated>
     
     
       
@@ -73,7 +96,7 @@
     <link href="https://achuan-2.top/posts/80ed.html"/>
     <id>https://achuan-2.top/posts/80ed.html</id>
     <published>2021-06-17T02:49:30.000Z</published>
-    <updated>2021-06-17T02:50:15.538Z</updated>
+    <updated>2021-06-17T02:52:20.371Z</updated>
     
     
       

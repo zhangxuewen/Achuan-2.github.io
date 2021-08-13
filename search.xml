@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>GitHub 提交代码时 emoji 表情的使用</title>
+      <link href="posts/b8c8.html"/>
+      <url>posts/b8c8.html</url>
+      
+        <content type="html"><![CDATA[<p>执行 <code>git commit</code> 时使用 emoji 为本次提交打上一个 “标签”， 使得此次 commit 的主要工作得以凸现，也能够使得其在整个提交历史中易于区分与查找，添加了 emoji 表情的提交记录真的能包含很多有用信息，阅读体验非常棒。</p><table><thead><tr><th align="left">emoji</th><th align="left">emoji 代码</th><th align="left">commit 说明</th></tr></thead><tbody><tr><td align="left">🔖 (书签)</td><td align="left"><code>:bookmark:</code></td><td align="left"><strong>发行 / 版本标签</strong></td></tr><tr><td align="left">📝 (备忘录)</td><td align="left"><code>:memo:</code></td><td align="left"><strong>撰写文档</strong></td></tr><tr><td align="left">🐛 (bug)</td><td align="left"><code>:bug:</code></td><td align="left"><strong>修复 bug</strong></td></tr><tr><td align="left">🎨 (调色板)</td><td align="left"><code>:art:</code></td><td align="left"><strong>改进代码结构 / 代码格式</strong></td></tr><tr><td align="left">🔧 (扳手)</td><td align="left"><code>:wrench:</code></td><td align="left"><strong>修改配置文件</strong></td></tr><tr><td align="left">🔥 (火焰)</td><td align="left"><code>:fire:</code></td><td align="left"><strong>移除代码或文件</strong></td></tr><tr><td align="left">💄 (口红)</td><td align="left"><code>:lipstick:</code></td><td align="left">更新 UI 和样式文件</td></tr><tr><td align="left">⚡️(闪电)</td><td align="left"><code>:zap:</code></td><td align="left">提高性能</td></tr><tr><td align="left">✨ (火花)</td><td align="left"><code>:sparkles:</code></td><td align="left">引入新功能</td></tr><tr><td align="left">✏️ (铅笔)</td><td align="left"><code>:pencil2:</code></td><td align="left">修复错别字</td></tr><tr><td align="left">🚀 (火箭)</td><td align="left"><code>:rocket:</code></td><td align="left">部署功能</td></tr><tr><td align="left">🚑 (急救车)</td><td align="left"><code>:ambulance:</code></td><td align="left">重要补丁</td></tr><tr><td align="left">🎉 (庆祝)</td><td align="left"><code>:tada:</code></td><td align="left">初次提交</td></tr><tr><td align="left">🚨 (警车灯)</td><td align="left"><code>:rotating_light:</code></td><td align="left">移除 linter 警告</td></tr><tr><td align="left">🚧 (施工)</td><td align="left"><code>:construction:</code></td><td align="left">工作进行中</td></tr><tr><td align="left">✅ (白色复选框)</td><td align="left"><code>:white_check_mark:</code></td><td align="left">增加测试</td></tr><tr><td align="left">🔨 (锤子)</td><td align="left"><code>:hammer:</code></td><td align="left">重大重构</td></tr><tr><td align="left">🔒 (锁)</td><td align="left"><code>:lock:</code></td><td align="left">修复安全问题</td></tr><tr><td align="left">🍎 (苹果)</td><td align="left"><code>:apple:</code></td><td align="left">修复 macOS 下的问题</td></tr><tr><td align="left">🐧 (企鹅)</td><td align="left"><code>:penguin:</code></td><td align="left">修复 Linux 下的问题</td></tr><tr><td align="left">🏁 (旗帜)</td><td align="left"><code>:checked_flag:</code></td><td align="left">修复 Windows 下的问题</td></tr><tr><td align="left">💚 (绿心)</td><td align="left"><code>:green_heart:</code></td><td align="left">修复 CI 构建问题</td></tr><tr><td align="left">⬇️ (下降箭头)</td><td align="left"><code>:arrow_down:</code></td><td align="left">降级依赖</td></tr><tr><td align="left">⬆️ (上升箭头)</td><td align="left"><code>:arrow_up:</code></td><td align="left">升级依赖</td></tr><tr><td align="left">👷 (工人)</td><td align="left"><code>:construction_worker:</code></td><td align="left">添加 CI 构建系统</td></tr><tr><td align="left">📈 (上升趋势图)</td><td align="left"><code>:chart_with_upwards_trend:</code></td><td align="left">添加分析或跟踪代码</td></tr><tr><td align="left">➖ (减号)</td><td align="left"><code>:heavy_minus_sign:</code></td><td align="left">减少一个依赖</td></tr><tr><td align="left">🐳 (鲸鱼)</td><td align="left"><code>:whale:</code></td><td align="left">Docker 相关工作</td></tr><tr><td align="left">➕ (加号)</td><td align="left"><code>:heavy_plug_sign:</code></td><td align="left">增加一个依赖</td></tr><tr><td align="left">🌐 (地球)</td><td align="left"><code>:globe_with_meridians:</code></td><td align="left">国际化与本地化</td></tr><tr><td align="left">👌 (OK 手势)</td><td align="left"><code>:ok_hand:</code></td><td align="left">由于代码审查更改而更新代码</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> Github </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>不发朋友圈的人</title>
       <link href="posts/e98d.html"/>
       <url>posts/e98d.html</url>
