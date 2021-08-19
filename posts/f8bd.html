@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Arduino智能小车, Python Bioinformatics 宅男 书呆子 自言自语">
+    <meta name="keywords" content="无离线不笔记为什么我要放弃wolai，选择思源笔记？, Python Bioinformatics 宅男 书呆子 自言自语">
     <meta name="description" content="一条没有故事的巛">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Arduino智能小车 | 风渡巛</title>
+    <title>无离线不笔记为什么我要放弃wolai，选择思源笔记？ | 风渡巛</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/libs/awesome/css/all.css">
@@ -318,12 +318,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://i.loli.net/2021/04/17/UGeTQ91Sf6PWqxb.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Arduino智能小车</h1>
+                    <h1 class="description center-align post-title">无离线不笔记为什么我要放弃wolai，选择思源笔记？</h1>
                 </div>
             </div>
         </div>
@@ -440,8 +440,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%89%8B%E5%B7%A5/">
-                                <span class="chip bg-color">手工</span>
+                            <a href="/tags/%E6%80%9D%E6%BA%90%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">思源笔记</span>
                             </a>
                         
                     </div>
@@ -452,8 +452,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/" class="post-category">
-                                本科课程
+                            <a href="/categories/%E6%8A%98%E8%85%BE/" class="post-category">
+                                折腾
                             </a>
                         
                     </div>
@@ -465,28 +465,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-17
+                    2021-08-19
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-27
+                    2021-08-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    5.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    18 分
                 </div>
                 
 
@@ -501,178 +501,117 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>本次智能小车包括以下三个模块：自动寻迹，超声波测距，蓝牙控制。各模块设计意图如下详述： </p>
-<ol>
-<li> 自动寻迹：<br>（1）设计方式：在车身下靠近地面处装两个灰度传感器。<br>（2） 设计功能：实现小车从出发区沿着白色路面的黑色轨迹到达停车区，要求:<br> a. 若两个传感器都没有检测到黑线时，小车直线前进。<br> b. 若有一侧传感器检测到黑线时，小车向该侧转弯。<br>（3） 设计实现 : 对于不同的情况，在代码中控制不同车轮的转动与停止以及车速。在实际情况中应根据电池电量，车轮损坏，传感器灵敏度等实际情况调整左右轮的转速。</li>
-<li>超声波测距<br>（1）设计方式：在车身前上方安装超声波传感器和蜂鸣器<br>（2）设计功能：当启动该功能之后小车一边超声测距一边开始向前自动循迹同时响起蜂鸣器，大约离障碍物10cm时即终点线前方，蜂鸣器关闭，小车停止<br>（3）设计实现：导入超声波测距模块，通过实际测量障碍物在小车10cm前方时message值，在测距大于10cm时，使用自动循迹函数循迹并响起蜂鸣器，测距小于10cm时，关闭蜂鸣器停止小车，</li>
-<li>   蓝牙控制：<br>(1) 设计方式：小车内部安装有蓝牙设备，手机安装蓝牙串口通信助手。<br>(2) 设计功能：手机通过“蓝牙串口通信助手”软件给智能小车发送相关的遥控指令，控制小车按规定路径到达终点。<br>如 f：前进 b：后退 l：左转 r：右转 s：停止<br>(3) 设计实现：在代码中为不同指令编写函数，通过控制不同车轮的转动与静止以及转速实现。</li>
-</ol>
-<p><img src="https://b3logfile.com/siyuan/1610205759005/assets/image-20210417205509-1sgheao.png" alt="流程图"><br>代码</p>
-<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> L_state <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//定义状态，初始为蓝牙控制模式</span>
-
-<span class="token keyword">void</span> <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// put your setup code here, to run once:</span>
-<span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">//初始化串口</span>
-  Serial<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token number">9600</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//定义接口类型oid loop()</span>
-    <span class="token function">pinMode</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span> INPUT<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 左侧灰度传感器端口-16</span>
-    <span class="token function">pinMode</span><span class="token punctuation">(</span><span class="token number">17</span><span class="token punctuation">,</span> INPUT<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 右侧灰度传感器端口-17</span>
-    <span class="token function">pinMode</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span> OUTPUT<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 右电机反转端口-9</span>
-    <span class="token function">pinMode</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> OUTPUT<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 右电机正转端口-10</span>
-    <span class="token function">pinMode</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> OUTPUT<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 左电机反转端口-5</span>
-    <span class="token function">pinMode</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> OUTPUT<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//左电机正转端口-6</span>
-    <span class="token function">pinMode</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">,</span> OUTPUT<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//蜂鸣器端口-11</span>
-    <span class="token comment" spellcheck="true">//输出清零</span>
-    <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">digitalWrite</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span> LOW<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 测距发射端口15,低电平</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//主函数</span>
-<span class="token keyword">void</span> <span class="token function">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-  <span class="token keyword">char</span> getstr <span class="token operator">=</span> Serial<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//读取HC-05蓝牙模块接收的字符</span>
-  <span class="token keyword">switch</span> <span class="token punctuation">(</span>getstr<span class="token punctuation">)</span>
-  <span class="token punctuation">{</span>
-  <span class="token keyword">case</span> <span class="token string">'l'</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">//左转</span>
-    <span class="token function">drive_left</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">break</span><span class="token punctuation">;</span>
-  <span class="token keyword">case</span> <span class="token string">'r'</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">//右转</span>
-    <span class="token function">drive_right</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">break</span><span class="token punctuation">;</span>
-  <span class="token keyword">case</span> <span class="token string">'f'</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">//前进</span>
-    <span class="token function">drive_forward</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">break</span><span class="token punctuation">;</span>
-  <span class="token keyword">case</span> <span class="token string">'b'</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">//后退</span>
-    <span class="token function">drive_back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">break</span><span class="token punctuation">;</span>
-  <span class="token keyword">case</span> <span class="token string">'d'</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">//减速</span>
-    <span class="token function">speed_down</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">break</span><span class="token punctuation">;</span>
-  <span class="token keyword">case</span> <span class="token string">'s'</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">//暂停</span>
-    <span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">break</span><span class="token punctuation">;</span>
-  <span class="token keyword">case</span> <span class="token string">'t'</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">//自动寻迹</span>
-    <span class="token function">_trace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">break</span><span class="token punctuation">;</span>
-  <span class="token keyword">case</span> <span class="token string">'i'</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">//超声检测</span>
-    <span class="token function">_supersound</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">break</span><span class="token punctuation">;</span>
-  <span class="token keyword">default</span><span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true">//unknow command!</span>
-    <span class="token keyword">break</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//自动寻迹函数</span>
-<span class="token keyword">void</span> <span class="token function">_trace</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span><span class="token function">digitalRead</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">digitalRead</span><span class="token punctuation">(</span><span class="token number">17</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//如果右侧传感器探测到黑线，向右转</span>
-  <span class="token punctuation">{</span>
-    <span class="token function">turn_right</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-  <span class="token keyword">else</span>
-  <span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span><span class="token function">digitalRead</span><span class="token punctuation">(</span><span class="token number">17</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">digitalRead</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//如果左侧传感器探测到黑线，向左转</span>
-    <span class="token punctuation">{</span>
-      <span class="token function">turn_left</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">else</span> <span class="token comment" spellcheck="true">//两侧传感器均探测到黑线或白线，直行</span>
-    <span class="token punctuation">{</span>
-      <span class="token function">drive_forward</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//超声波测距函数</span>
-<span class="token keyword">int</span> <span class="token function">ardublockUltrasonicSensorCodeAutoGeneratedReturnCM</span><span class="token punctuation">(</span><span class="token keyword">int</span> trigPin<span class="token punctuation">,</span> <span class="token keyword">int</span> echoPin<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-  <span class="token keyword">long</span> duration<span class="token punctuation">;</span>
-  <span class="token function">pinMode</span><span class="token punctuation">(</span>trigPin<span class="token punctuation">,</span> OUTPUT<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">pinMode</span><span class="token punctuation">(</span>echoPin<span class="token punctuation">,</span> INPUT<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">digitalWrite</span><span class="token punctuation">(</span>trigPin<span class="token punctuation">,</span> LOW<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">delayMicroseconds</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">digitalWrite</span><span class="token punctuation">(</span>trigPin<span class="token punctuation">,</span> HIGH<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">delayMicroseconds</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">digitalWrite</span><span class="token punctuation">(</span>trigPin<span class="token punctuation">,</span> LOW<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  duration <span class="token operator">=</span> <span class="token function">pulseIn</span><span class="token punctuation">(</span>echoPin<span class="token punctuation">,</span> HIGH<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  duration <span class="token operator">=</span> duration <span class="token operator">/</span> <span class="token number">58</span><span class="token punctuation">;</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>duration <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">(</span>duration <span class="token operator">></span> <span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> false<span class="token punctuation">;</span>
-  <span class="token keyword">return</span> duration<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//返回距离</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//超声检测</span>
-<span class="token keyword">void</span> <span class="token function">_supersound</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-  Serial<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"message"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  Serial<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token function">ardublockUltrasonicSensorCodeAutoGeneratedReturnCM</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  Serial<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token comment" spellcheck="true">//开启超声检测</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">ardublockUltrasonicSensorCodeAutoGeneratedReturnCM</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-  <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 检测前方有障碍物,message &lt;= 45</span>
-    <span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">noTone</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//蜂鸣器无声</span>
-  <span class="token punctuation">}</span>
-  <span class="token keyword">else</span>
-  <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 前方暂无障碍物，自动循迹前行</span>
-    <span class="token function">_trace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">tone</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">440</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//蜂鸣器启动</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">/******小车行驶函数******/</span>
-
-<span class="token comment" spellcheck="true">//小车左转</span>
-<span class="token keyword">void</span> <span class="token function">drive_left</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">220</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//右边轮子正转</span>
-  <span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//小车右转</span>
-<span class="token keyword">void</span> <span class="token function">drive_right</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">220</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//左边轮子正转</span>
-  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">// 小车前进</span>
-<span class="token keyword">void</span> <span class="token function">drive_forward</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">250</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">// 小车后退</span>
-<span class="token keyword">void</span> <span class="token function">drive_back</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//左右轮反转</span>
-  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">250</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">// 小车减速</span>
-<span class="token keyword">void</span> <span class="token function">speed_down</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">160</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">160</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">// 小车停止</span>
-<span class="token keyword">void</span> <span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-  <span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token function">analogWrite</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+                <p>首先我得承认 <a target="_blank" rel="noopener" href="https://www.wolai.com/h28vei6yicsXWBcSX4xnin">wolai</a> 是一款优秀的在线笔记软件，编辑体验非常好，我个人从 wolai 早期阶段就开始使用，也曾每天追更新、深度体验了非常久的时间，但渐渐的我发现，wolai 并不是我理想的笔记软件。我期待的笔记是支持本地同步而不是纯粹的云端笔记，<strong>我不想要</strong>打开笔记要考虑有没有网络、打开页面要等待时间、查看图片要等待时间、上传图片要考虑是否合规、上传附件到软件来管理却还不能编辑。wolai 最近也做了很多体验的优化，OCR 图片识别文字、支持图片、手写识别数学公式等，也出了飞行模式。</p>
+<p>但总的来说，wolai 的定位是在线笔记软件，更多的是用于团队在线协作，尽管出了飞行模式（在有网情况下只能手动切换，且几乎只能编辑笔记、不能使用稍微高级点的功能），主要目标用户也是需要云端笔记的用户群体。而如果你是和我一样的，喜欢本地笔记软件、喜欢无网络无干扰进行创作、有大文档编辑需求、有分享文章到其他平台需求的用户，那么我非常推荐你使用思源笔记。我也认为，云端笔记的使用和本地笔记使用并不冲突，你可以在本地笔记记录较为私人的事情、有待完善的想法稿件，然后在云端平台诸如语雀、知乎、博客园甚至 wolai 等等分享自己的创作。总之，我非常推荐你试试这款软件。软件的官网可以看这里：<a target="_blank" rel="noopener" href="https://b3log.org/siyuan/">思源官网</a></p>
+<p>我使用思源笔记的十大理由</p>
+<h2 id="理由一：⚔️-以数据安全为首位"><a href="#理由一：⚔️-以数据安全为首位" class="headerlink" title="理由一：⚔️ 以数据安全为首位"></a>理由一：⚔️ 以数据安全为首位</h2><p>“本地优先、确保隐私安全是思源最基本的初心，只要思源存在一天这一点就不会改变，没有任何力量能改变这个初心。”</p>
+<p><br>比起众多在线笔记软件，思源笔记更在乎你的数据安全，提出”无离线不笔记”的口号，并支持端到端加密同步和备份，思源在进行备份和同步前会进行数据加密，加密后的数据可以放心地进行网络传输和托管。</p>
+<p>加密和解密过程完全在本地设备上进行​，加密算法为业界公认安全的 AES GCM​，除非知道密码或者暴力破解，否则不可能被解密（开发者也无法解密）​，用户设置的密码使用程序内置密钥加密后存储在本地​。​于是你的笔记想记啥就记啥，放啥图片去同步、备份也不怕有审查、泄露的风险（除非你把这些图片上传到图床）。这使得同步与隐私兼具！还可以将思源加密的备份文件上传到其他云盘。</p>
+<p><img src="https://b3logfile.com/siyuan/1610205759005/assets/image-20210815154125-whdthe1.png" alt="思源笔记云端功能截图，可以看到端到端加密、云端同步、云端备份、本地备份，多重保险，保护你的数据安全" title="思源笔记云端功能截图，可以看到端到端加密、云端同步、云端备份、本地备份，多重保险，保护你的数据安全"></p>
+<p>本地文件和文件夹都以时间码 +7 位随机字符组​来命名存储，并以 json 格式存储笔记，单从外部资源管理器，难以知晓笔记内容。而目前也已支持应用内锁屏。</p>
+<p>作为本地笔记不怕跑路，而且开发者 D 大在思源笔记 1.2.0 也做出了承诺：<a target="_blank" rel="noopener" href="https://ld246.com/article/1626313293676">思源笔记 v1.2.0 发布，一个全新的开始 - LianDi (ld246.com)</a></p>
+<p><img src="https://b3logfile.com/siyuan/1610205759005/assets/image-20210815152706-y2an0cn.png" alt="image.png" title="思源笔记 v1.2.0 发布，一个全新的开始"></p>
+<h2 id="理由二：✍️-强大的编辑体验"><a href="#理由二：✍️-强大的编辑体验" class="headerlink" title="理由二：✍️ 强大的编辑体验"></a>理由二：✍️ 强大的编辑体验</h2><ul>
+<li>支持 <strong>超大文档编辑</strong> ，对大文档启用动态加载，支持百万字大文档的流畅编辑。这是云端笔记很难达到的水平。</li>
+<li>支持常见 md 语法 ， <strong>所见即所得渲染，</strong> 免去 Typora 似的即时渲染点击当行加载源码的割裂感，专注内容。</li>
+<li><strong>强大的笔记查阅体验</strong> ：本地笔记的打开速度自不用多说，思源笔记还支持多窗口管理页签，能够分屏查看实时编辑笔记，并支持前进、后退功能，有非常接近于浏览器的多窗口阅读体验。不像一些笔记软件需要多开软件，才能同时查看多篇笔记。</li>
+<li><strong>基于块的操作模式</strong> ，基于块的操作模式，以<strong>斜杆菜单 <code>/</code> 和块标菜单</strong>作为操作入口，交互主要参考 <a target="_blank" rel="noopener" href="https://www.notion.so/">Notion</a>。像堆乐高积木似的完成你的创作。并且也对中文输入做了优化，中文可按  “ / “弹出斜杆菜单，而按“" 无论是英文还是中文都不会弹出斜杠菜单（虽然这俩都可以输入顿号），方便用户 <strong>输入顿号</strong> 。</li>
+<li><strong>灵活的父子文档结构</strong> ：v1.2.5 从传统文件夹结构，改为了父子文档结构，支持文档无限嵌套，比起文件夹结构，能够在父文档补充信息，将父文档当做 moc 页面。同时这种父子文档，比起 notion 、wolai 更加灵活，在父子文档并不强制显示子文档，可以灵活使用块引用，而不是把父文档纯粹当成个人建站页面。如需展示全部文档，可以使用 toc 模板（以块引形式展示所有子文档）；或是一开始就在父文档使用 [[ 新建子文档、ctrl+[ 将已有文字转化为子文档。目前新建块引路径留空默认是新建成子文档，配置为ˋ ../ ˋ意味着建立同级文档，也可以配置到笔记本下指定路径。</li>
+<li><strong>文档包围大纲：</strong> 有完善的文档编辑体验 <strong>，</strong> 同时大纲功能同样强大，通过大纲式笔记用法来梳理要点、快速整理，大纲交互主要参考 <a target="_blank" rel="noopener" href="https://workflowy.com/">Workflowy</a>。大纲支持 zoom in（可以理解为专注模式，使用 ctrl+click，只显示部分内容，便于专注写作和聚焦学习）、支持大纲的折叠、展开。</li>
+<li><strong>支持分栏功能</strong> ：在思源笔记中以<strong>超级块</strong>方式实现多分栏结构，支持横向和竖向超级块（竖向超级块常用于放置在横向超级块内、或是将不同块合并为一个大块），通过复制粘贴也能<strong>保留</strong>分栏结构。</li>
+<li><strong>更强大的双向链接功能</strong> ：块引可以悬浮、直接编辑，充分利用双链笔记的优势，而且粒度到块，块级引用！有着块级的关系图！</li>
+<li><strong>块折叠</strong> ：相比 wolai 、notion 只有折叠块，思源笔记中 <strong>所有类型的块都支持用 alt+ 点击块标的方式折叠</strong> ！</li>
+<li><strong>支持自定义块属性</strong> ，书签、命名、别名，也支持自定义属性，可玩性很大，思源功能完善后，估计能对块属性玩出花来。目前已有大佬在浏览器插件借助块属性实现文字批注功能！</li>
+<li><strong>灵活的块样式调整</strong> ：支持调整每个块的 <strong>宽度</strong> ，支持对块设置 <strong>居中</strong> 、居左、居右，支持对文字和块设置 <strong>背景色和文字颜色</strong> ，都可设置 13 种颜色并支持主题自定义！</li>
+<li><strong>传统功能完备</strong> ：不仅支持书签，还支持标签、书签功能。书签、标签同样可用于块内。在思源笔记中，可以把书签当成收藏置顶功能，用于常用笔记以方便快速打开，标签用于摆脱传统文件树分类模式，实现笔记的多分类、便于汇总、检索笔记。</li>
+<li><strong>支持模板功能</strong> ：可以创建简单的模板用于日常使用，也可以使用 Golang 、块引、嵌入，实现具有复杂功能模板。（注：目前只支持在 工作空间/data/template 下新建 md 文件来实现模板创作，暂不支持笔记内直接新建模板）</li>
+<li><strong>更快的资料剪藏体验</strong> ：借助<a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/siyuan/hkcgjbeblifaincobbcfiffbpgoafepk">思源官方扩展</a>和 web clipper 插件（目前 <a target="_blank" rel="noopener" href="https://github.com/webclipper/web-clipper">alpha</a> 版才支持剪藏思源），可以剪藏部分内容或是文章到思源笔记。并且思源笔记的剪藏不是通过云端，而是直接剪藏到本地！这意味着，没有了一些笔记软件剪藏我还需等待加载的过程！</li>
+<li><strong>文件可支持多种排序</strong> ：自定义拖拽排序、首字母排序、自然排序（自然排序）<ul>
+<li>补充：自然排序和按首字母排序的区别<ul>
+<li>自然排序：1 2 11 12 （会按数字大小排序）</li>
+<li>首字母排序：1 11 12 2 （按首字排序）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>支持中西文之间自动插入空格，</strong> 不像 wolai 是通过添加间距实现，思源就是纯粹的空格，这意味着你可以把中英文间隔完善的文稿分享到其他平台。</li>
+<li><strong>更好的图片使用体验：支持 md 图片批注语法</strong> ，可使用 <code>![anchor text](address "title")</code> 的语法批注文字，也可以直接鼠标右键输入批注和提示文字， <strong>批注文字默认居中</strong> 。可以直接拖动图片右侧的 sidebar <strong>直接调整大小，</strong> 复制图片支持复制图片 md 语法和复制 png 格式两种模式 <strong>，</strong> 复制 md 语法到思源 <strong>能保留原来的图片批注和大小设置</strong> 。回忆起之前使用 typora 想要添加图片居中批注，还得痛苦的使用 <code>&lt;center&gt;text&lt;/center&gt; </code></li>
+<li>支持使用 <code>alt+M</code> 快捷键快速收起和唤出思源笔记客户端，比起使用 alt+tab 切换应用速度快很多。</li>
+<li><strong>支持自定义快捷键</strong> 。</li>
+<li><strong>支持代码形式创建图谱</strong> ：图谱支持脑图（较简陋）、流程图、甘特图、时序图、五线谱等</li>
+</ul>
+<p>思源 1.2.5 截图</p>
+<p><img src="https://b3logfile.com/siyuan/1610205759005/assets/image-20210819172142-zk552tk.png" alt="思源笔记 1.2.5 页面截图" title="思源笔记1.2.5 页面截图"></p>
+<h2 id="理由三：⚡️-强大的笔记汇总能力"><a href="#理由三：⚡️-强大的笔记汇总能力" class="headerlink" title="理由三：⚡️ 强大的笔记汇总能力"></a>理由三：⚡️ 强大的笔记汇总能力</h2><ul>
+<li>可以使用 SQL 语法整理嵌入笔记，实现<strong>随机抽取笔记，归纳汇总</strong>功能（例如查找所有加粗、所有高亮、所有包含关键字、指定日期等的笔记）</li>
+<li>支持给块起命名、别名便于搜索</li>
+</ul>
+<p><img src="https://b3logfile.com/siyuan/1610205759005/assets/image-20210815152743-k5lzzaz.png" alt="汇总所有加粗文字示意，需要使用简单的 sql 语句" title="汇总所有加粗文字示意，需要使用简单的sql语句"></p>
+<h2 id="理由四：✉️-方便的多平台分享能力"><a href="#理由四：✉️-方便的多平台分享能力" class="headerlink" title="理由四：✉️ 方便的多平台分享能力"></a>理由四：✉️ 方便的多平台分享能力</h2><p>思源笔记的写作功能强大，支持多平台导出，支持直接<strong>复制到知乎、语雀、微信</strong>平台。</p>
+<p>同时拥有几乎完美的 <strong>图床解决方案</strong> ，即 <strong>本地图床和云端图床共存</strong> 。更方便管理图片，有利于文章永久本地化。再也不需要纠结一篇文章是使用本地图床还是云端图床，或是保留两份图床文档。还支持批量删除本地资源文件夹内未引用的图片。目前暂不支持自定义外部图床，但也省的用户折腾图床。之后会支持管理删除图床照片。</p>
+<p>思源从 1.2.0 后，从被污染的 md 格式彻底改为了 json 格式（至于为什么，见下面更多信息里的『纯粹的 markdown』），但支持免费导出标准 md、word、pdf、html 等格式。</p>
+<p><img src="https://b3logfile.com/siyuan/1610205759005/assets/image-20210815152829-r76gggz.png" alt="ctrl+alt+9 预览模式" title="ctrl+alt+9 预览模式"></p>
+<h2 id="理由五：✨-支持自定义主题，有社区集市"><a href="#理由五：✨-支持自定义主题，有社区集市" class="headerlink" title="理由五：✨ 支持自定义主题，有社区集市"></a>理由五：✨ 支持自定义主题，有社区集市</h2><p>支持自定义主题，集市有用户制作的主题，图标，模板，可以下载使用，提升颜值和易用性。换个皮，就像换了个软件。</p>
+<p>挂件块集市已上架，可用于扩展功能，使用斜杆菜单可唤出插入挂件块。目前用户分享的挂件块有笔记热图、运行代码、图形化汇总笔记、事项管理。也有用户在开发浏览器扩展，大大扩展思源笔记的功能。虽然目前的集市氛围比不上 obsdian ，但可以小小期待下未来有更多开发者加入。</p>
+<p> 挂件块集市于 1.2.5 alpha6 版本开始内测，在 1.9.0 之前只对订阅用户开放，1.9.0 之后对所有用户开放。</p>
+<p><img src="https://b3logfile.com/siyuan/1610205759005/assets/image-20210819173057-5p7wvdw.png" alt="2021.8.19 思源笔记集市部分截图" title="2021.8.19 思源笔记集市部分截图"></p>
+<p><img src="https://b3logfile.com/siyuan/1610205759005/assets/preview-20210606112927-brn31lv.png" alt="本人制作的 Tsundoku Light 主题，欢迎使用及 star!" title="本人制作的Tsundoku Light主题，欢迎使用及star!"></p>
+<p>本人制作了<a target="_blank" rel="noopener" href="https://github.com/Achuan-2/siyuan-themes-tsundoku-light"> Tsundoku 系列</a> 主题，欢迎使用及 star!</p>
+<h2 id="理由六：❤️-价格公道，订阅政策良心"><a href="#理由六：❤️-价格公道，订阅政策良心" class="headerlink" title="理由六：❤️ 价格公道，订阅政策良心"></a>理由六：❤️ 价格公道，订阅政策良心</h2><p>v1.2.2 起 <strong>本地功能已全部免费</strong> ，目前付费功能只有图床和端到端加密同步和备份，非常良心。一次订阅， <strong>续订价格终身将按第一次订阅时价格付费</strong> ，也就是以后涨价了，还是用第一次订阅价格付费。第一次见过这么良心的价格政策。所以劝感兴趣的朋友越早上车越好！目前云端功能付费价格是 96 一年，与友商对比，算是比较合理。预计思源笔记在 2.0 后会订阅价格将会涨价。<br>（注：目前因为种种原因，于 2021.8.15 已砍掉教育优惠，详情可见<a target="_blank" rel="noopener" href="https://ld246.com/article/1628685591154">思源笔记官方公告</a>）</p>
+<p>如果想付费使用云端功能的朋友，可以使用推荐 ： <strong>B3XX0Y8</strong> ，可增加 500 MB 云端空间和 多 7 天使用期。如果推荐满 32 人，联系开发者 D 大，可以晋升为永久用户！！！</p>
+<p>目前云端初始空间是 8 GB，使用别人的推荐码订阅 + 自己推荐码被使用可增加 32*500MB，即 16 GB，可以免费扩容到 24 GB。对于纯粹的本地笔记来说，已足够使用。（大文件可以通过链接本地文件、文件夹或是云盘方式解决）后续或许会推出购买空间的形式来扩容。</p>
+<p><img src="https://b3logfile.com/siyuan/1610205759005/assets/image-20210815153038-cruyz51.png" alt="思源订阅常见问题" title="思源订阅常见问题"></p>
+<p><img src="https://b3logfile.com/siyuan/1610205759005/assets/image-20210819172324-09z54uv.png" alt="思源笔记的会员功能" title="思源笔记的会员功能"></p>
+<h2 id="理由七：✈️-功能更新非常快，未来可期"><a href="#理由七：✈️-功能更新非常快，未来可期" class="headerlink" title="理由七：✈️ 功能更新非常快，未来可期"></a>理由七：✈️ 功能更新非常快，未来可期</h2><p><a href="https://link.zhihu.com/?target=https://link.ld246.com/forward?goto=https%253A%252F%252Fb3log.org%252Fsiyuan">思源笔记</a>的前身是开源的<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/143272542">链滴笔记</a>。之后以闭源商业化的形式继续推进，这就是是思源笔记的来由。</p>
+<p>思源笔记<a target="_blank" rel="noopener" href="https://github.com/siyuan-note/siyuan/releases/tag/v0.1.0">第一个版本</a>发布于 2020 年 8 月 31 号，2021 年 4 月开始重写思源，从即时渲染改成所见即所得模式，只经过两个月的内测和公测就发布了 v1.2.0 正式版。还没一年，思源就已经功能这么强大了。</p>
+<p>开发效率真的非常高，在 github 可以看到软件的更新计划，提的意见如果合理能够说服开发者，就会被采纳并可能很快上线。每次版本更新几乎都在加入新特性！</p>
+<p>真不知道思源笔记 v2.0 会发展成什么样子，期待</p>
+<p>思源，未来可期！</p>
+<p><img src="https://b3logfile.com/siyuan/1610205759005/assets/image-20210815153101-xbco50z.png" alt="2021.8.15 截取的思源当前 v2 计划" title="2021.8.15截取的思源当前v2计划"></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/400005265">【长期更新】思源笔记更新进展追踪 - 知乎 (zhihu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://ld246.com/tag/siyuan-announcement">思源笔记公告 - LianDi (ld246.com)</a></p>
+<blockquote>
+<p>八卦一下：思源笔记的开发者只有两人，D 和 V，两人是夫妻，且育有一子小 d</p>
+</blockquote>
+<h2 id="理由八：‍⚜️-支持私有部署"><a href="#理由八：‍⚜️-支持私有部署" class="headerlink" title="理由八：‍⚜️ 支持私有部署"></a>理由八：‍⚜️ 支持私有部署</h2><p>使用思源笔记的朋友，可能会经常接触到一个词“手机伺服”，完全可以不使用官方的同步功能。直接手机开热点或使用个人 WIFI ，让笔记电脑通过 局域网 ip+6806 端口在浏览器端打开思源笔记，做到手机电脑实时同步操纵数据的体验。该功能的主要用途是将笔记数据保存在手机，使用电脑端进行复杂编辑，增强的数据安全性和便携性。当然一些不想要付费云端功能，又希望手机、电脑能使用思源笔记同步数据的，也可以勉强借助这种方式缓缓。</p>
+<blockquote>
+<p>另外目前思源笔记暂时没有 ios 端（因为 D 和 V 无 iphone 或 ipad ……），如果确实需要 ipad 编辑查看笔记，也可以使用安卓手机或者电脑开伺服功能，然后 ipad 使用浏览器打开思源笔记（当然很麻烦啦，期待思源早日出 IOS 端吧）</p>
+</blockquote>
+<p><img src="https://b3logfile.com/siyuan/1610205759005/assets/image-20210815153132-c0q21df.png" alt="image.png" title="设置-关于-网络伺服"></p>
+<p>思源笔记也支持部署 docker，有能力的技术宅们去折腾吧。</p>
+<p>ps: 在<strong>保证思源客户端打开的</strong>同时，也能通过 <a target="_blank" rel="noopener" href="http://127.0.0.1:6806/">http://<strong>127.0.0.1:6806/</strong></a> 地址直接打开思源笔记。实现思源笔记客户端多开</p>
+<p>点击下面的地址不用切换浏览器 UA 就可以打开手机端和电脑端界面</p>
+<ul>
+<li>手机端：<a target="_blank" rel="noopener" href="http://127.0.0.1:6806/stage/build/mobile/">http://127.0.0.1:6806/stage/build/mobile/</a></li>
+<li>电脑端：<a target="_blank" rel="noopener" href="http://127.0.0.1:6806/stage/build/desktop/">http://127.0.0.1:6806/stage/build/desktop/</a></li>
+</ul>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="理由九：⛪️-背后有成熟的社区"><a href="#理由九：⛪️-背后有成熟的社区" class="headerlink" title="理由九：⛪️ 背后有成熟的社区"></a>理由九：⛪️ 背后有成熟的社区</h2><p>D 和 V 还开发了<a target="_blank" rel="noopener" href="https://ld246.com/article/1440573175609">链滴社区</a>，其社区有着<strong>平等・自由・奔放</strong>的价值观。</p>
+<p>在链滴的<a target="_blank" rel="noopener" href="https://ld246.com/domain/siyuan">思源笔记</a>专栏，可以提交使用过程中遇到的 bug 、合理的功能建议，分享自己的笔记心得。同时在这个社区，也可以讨论技术、生活等，气氛非常友好。</p>
+<p><img src="https://b3logfile.com/siyuan/1610205759005/assets/image-20210819172656-dsg66jy.png" alt="链滴社区-截图时间 2021.8.19" title="链滴社区-截图时间2021.8.19"></p>
+<h2 id="☎️-你可能需要的信息汇总"><a href="#☎️-你可能需要的信息汇总" class="headerlink" title="☎️ 你可能需要的信息汇总"></a>☎️ 你可能需要的信息汇总</h2><p><strong>思源笔记的相关网址</strong></p>
+<p>软件官网：<a href="https://link.zhihu.com/?target=https://b3log.org/siyuan/">https://b3log.org/siyuan/</a></p>
+<p>Github 页面： <a href="https://link.zhihu.com/?target=https://github.com/siyuan-note/siyuan">https://github.com/siyuan-note/siyuan</a></p>
+<p>思源笔记官方 QQ 群：724713327​</p>
+<p>社区： <a href="https://link.zhihu.com/?target=https://ld246.com/domain/siyuan">https://ld246.com/domain/siyuan</a></p>
+<p>捐赠渠道： <a href="https://link.zhihu.com/?target=https://ld246.com/sponsor">https://ld246.com/sponsor</a></p>
+<p>订阅地址： <a target="_blank" rel="noopener" href="https://ld246.com/subscribe/siyuan">https://ld246.com/subscribe/siyuan</a>， 目前 ￥96/年，一次付费永久都是这个价格，教育邮箱哪怕回收都是 64，感兴趣的老哥尽早占位，不用以后等涨价咸鱼转手也好，阿巛的思源笔记订阅码：B3XX0Y8（在买会员时使用订阅推荐码可增加 500 MB 云端空间和 7 天使用期）</p>
+<p>语雀思源手册： <a target="_blank" rel="noopener" href="https://www.yuque.com/siyuannote/ngd5zk">https://www.yuque.com/siyuannote/ngd5zk</a></p>
+<p><strong>思源笔记的一些重要公告</strong></p>
+<p>思源笔记缘起：<a target="_blank" rel="noopener" href="https://ld246.com/article/1619868273581">https://ld246.com/article/1619868273581</a></p>
+<p>思源笔记 v1.2.0 发布，一个全新的开始 - LianDi: <a target="_blank" rel="noopener" href="https://ld246.com/article/1626313293676">https://ld246.com/article/1626313293676</a></p>
+<p>关于思源笔记使用第三方同步盘可能造成数据损坏的问题：<a target="_blank" rel="noopener" href="https://ld246.com/article/1626537583158">https://ld246.com/article/1626537583158</a></p>
+<p>思源笔记 v1.2.0 将移除 WebDAV 支持，请提前迁移数据：<a target="_blank" rel="noopener" href="https://ld246.com/article/1619520201279">https://ld246.com/article/1619520201279</a></p>
+<p>思源笔记 v1.1.x 数据迁移至 v1.2.x 的说明: <a target="_blank" rel="noopener" href="https://ld246.com/article/1622710344891">https://ld246.com/article/1622710344891</a></p>
+<p>关于思源笔记暂停教育优惠的公告：<a target="_blank" rel="noopener" href="https://ld246.com/article/1628685591154">https://ld246.com/article/1628685591154</a></p>
+<h2 id="☕️-后话"><a href="#☕️-后话" class="headerlink" title="☕️ 后话"></a>☕️ 后话</h2><blockquote>
+<p>有机械者必有机事，有机事者必有机心。机心存于胸中，则纯白不备，纯白不备，则神生不定；神生不定者，道之所不载也</p>
+</blockquote>
+<p>在使用笔记软件之前，朋友，我希望你先思考下</p>
+<p>我为什么记笔记？<br>我为什么要用电子笔记？<br>我应该记什么？<br>我应该怎么记笔记？<br>我应该怎么将笔记真正用于提升自我，而不是写完就当个宝贝封存积灰？</p>
+<p>做事之前请多问问自己 why、what 和 how，搞清楚自己的需求和目的很重要，不是看见大家都在使用 notion、语雀、OneNote、印象、wolai、飞书以及各种双链笔记（ob、rr、re、logseq、葫芦笔记等等），大吹特吹，声称笔记软件是第二大脑，卡片笔记写作有多好、双链软件神乎其神，你就去用。我在这里推荐“思源笔记”，仅仅是希望一款优秀的软件能被人看到，希望真正有此需求的人能恰好使用到这款软件。</p>
+<p>我也可以很明确的告诉你，从思源 1.2.5 来看，思源根本不适合用于团队协作，不适合当作存粹的 md 编辑器，它适用于个人的知识管理。思源追求的功能很多，它很重。思源 v1.2 起把笔记的存储格式改为 json、v1.2.5 把文件名用 id 存储，这点有好有坏，好处在于让一些功能借助唯一的 id 号变得更容易实现更稳定了，坏处在于用户想在资源管理器操作笔记的难度大大加大了。但对我来说影响不大，因为我把思源笔记看作是 OneNote 的支持 Markdown 和双链的版本来使用，我用 OneNote 的时候压根不会在意其底层格式是什么，不会说要查看本地文件，也希望你在使用思源的时候专心创作，注重内容，而非形式，只要它的功能强大、能免费且方便导出 md、pdf、word 就已足够。千万别把它当作协作笔记软件或是 typora 来使用，你会很折腾，吃力不讨好。合适的工具请做合适的事情。</p>
+<p>人类很擅长使用工具，但是最怕的是， <strong>你，仅仅只会使用工具</strong> 。<br>只是毫无创造的模仿、拷贝，随波逐流<br>我希望你能善用工具，努力提升自我，实现自己的愿望，<br>而不是为了记笔记而记笔记、为了合群而磨灭个性<br>我希望你学会找到自己最好的学习和生活方式<br>而不是被营销号的各种最佳学习方法、最佳笔记软件搞得晕头转向</p>
+<p>希望大家能善用工具，努力提升，加油！<br>有机会将分享下我个人的笔记使用经验和学习经验。</p>
 
             </div>
             <hr/>
@@ -686,8 +625,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%89%8B%E5%B7%A5/">
-                                    <span class="chip bg-color">手工</span>
+                                <a href="/tags/%E6%80%9D%E6%BA%90%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">思源笔记</span>
                                 </a>
                             
                         </div>
@@ -994,17 +933,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/23b2.html">
+                <a href="/posts/f8bd.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="小熊的独白">
+                        <img src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/medias/featureimages/22.jpg" class="responsive-img" alt="无离线不笔记为什么我要放弃wolai，选择思源笔记？">
                         
-                        <span class="card-title">小熊的独白</span>
+                        <span class="card-title">无离线不笔记为什么我要放弃wolai，选择思源笔记？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1014,26 +954,27 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-17
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%85%E4%BA%8B/" class="post-category">
-                                    故事
+                            <a href="/categories/%E6%8A%98%E8%85%BE/" class="post-category">
+                                    折腾
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%A0%91%E6%B4%9E/">
-                        <span class="chip bg-color">树洞</span>
+                    <a href="/tags/%E6%80%9D%E6%BA%90%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">思源笔记</span>
                     </a>
                     
                 </div>
@@ -1047,13 +988,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/a881.html">
+                <a href="/posts/b8c8.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/medias/featureimages/1.jpg" class="responsive-img" alt="阿巛的Hexo博客搭建">
+                        <img src="https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2.github.io/medias/featureimages/21.jpg" class="responsive-img" alt="GitHub 提交代码时 emoji 表情的使用">
                         
-                        <span class="card-title">阿巛的Hexo博客搭建</span>
+                        <span class="card-title">GitHub 提交代码时 emoji 表情的使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1064,27 +1005,19 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-11
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                    前端
+                            <a href="/categories/Github/" class="post-category">
+                                    Github
                                 </a>
                             
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
-                    </a>
-                    
                 </div>
                 
             </div>
