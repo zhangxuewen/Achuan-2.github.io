@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>解决使用代理时 Win10 UWP 应用无法联网问题</title>
+      <link href="posts/840d.html"/>
+      <url>posts/840d.html</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>平时经常需要使用网络代理，但是它开着的时候，总会导致我电脑里 UWP 应用出现无法联网的状态，EXE 应用不受影响。每次使用 UWP 应用时把代理关了就可以正常联网了。了解到是 UWP 的一些特殊原因，具体原因如下：</p><p>Win10 所有 UWP 应用均运行在被称为 App Container 的虚拟沙箱环境中，App Container 可以保证应用安全性，但同时也阻止了网络流量发送到本机（即 loopback）， 使大部分网络抓包调试工具无法对 UWP 应用进行流量分析。同样的，该机制也阻止了 UWP 应用访问 localhost，即使你在系统设置中启用了代理，也无法令 UWP 应用访问本地代理服务器。% 老实说，没看懂这句话 %</p></blockquote><p>不用其他软件，以<strong>管理员权限</strong>启动 powershell 敲下面命令即可：</p><p> <code>import-module appx -usewindowspowershell</code><br><code>foreach ($n in (get-appxpackage).packagefamilyname) {checknetisolation loopbackexempt -a -n="$n"}</code><br>如果只想对某个特定 UWP 应用设置代理，用 <code>$n=(get-appxpackage *应用名的独特部分，比如邮件应用是commu*).packagefamilyname | checknetisolation loopbackexempt -a -n="$n"</code></p><p><strong>如果哪天需要恢复网络隔离，是敲什么命令恢复？</strong></p><p><code>checknetisolation loopbackexempt -c</code> 全部恢复网络隔离<br><code>$n=(get-appxpackage *应用名的独特部分，比如邮件应用是commu*).packagefamilyname | checknetisolation loopbackexempt -d -n="$n"</code> 针对某个应用恢复隔离<br>具体怎么用建议自己 powershell/cmd 里敲 <code>checknetisolation loopbackexempt /?</code> 自己学</p><blockquote><p><a href="https://github.com/2dust/v2rayN/issues/1280">路由规则疑似无法完全替代 PAC。 · Issue #1280 · 2dust/v2rayN (github.com)</a></p><p><a href="https://zhuanlan.zhihu.com/p/55906778">解决使用代理时 Win10 UWP 应用无法联网问题 - 知乎 (zhihu.com)</a></p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 折腾 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> v2ray,Win10 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>无离线不笔记为什么我要放弃wolai，选择思源笔记？</title>
       <link href="posts/f8bd.html"/>
       <url>posts/f8bd.html</url>
