@@ -468,21 +468,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-19
+                    2021-09-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    390
+                    892
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -497,12 +497,64 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>执行 <code>git commit</code> 时使用 emoji 为本次提交打上一个 “标签”， 使得此次 commit 的主要工作得以凸现，也能够使得其在整个提交历史中易于区分与查找，添加了 emoji 表情的提交记录真的能包含很多有用信息，阅读体验非常棒。</p>
-<p>快速调用emoji</p>
+                <blockquote>
+<p>🌏Reference</p>
 <ul>
-<li>见<a target="_blank" rel="noopener" href="https://gitmoji.dev/">gtimoji</a></li>
-<li>vscode Gitmoji插件</li>
+<li><a target="_blank" rel="noopener" href="https://gitmoji.dev/?utm_source=ld246.com">gitmoji | An emoji guide for your commit messages</a></li>
+<li><a target="_blank" rel="noopener" href="https://dev.to/javidjms/git-write-better-commits-with-gitmoji-3193">🔨 [git]: Write better commits with Gitmoji - DEV Community</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Kimi-Gao/Program-Blog/issues/71">用 emoji 表情提交代码指南 · Issue #71 · Kimi-Gao/Program-Blog (github.com)</a></li>
 </ul>
+</blockquote>
+<p><img src="https://b3logfile.com/siyuan/1610205759005/assets/image-20210921211205-remwfyi.png" alt="image.png"></p>
+<p>一条标准的 git commit 应该为</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>type<span class="token operator">></span> <span class="token punctuation">[</span>scope<span class="token punctuation">]</span>: <span class="token string">"Message"</span></code></pre>
+<p><strong>type</strong> must be one of the following mentioned below :</p>
+<ul>
+<li><build>: Build related changes (eg: npm related/ adding external dependencies)</build></li>
+<li><chore>: A code change that external user won’t see (eg: change to .gitignore)</chore></li>
+<li><docs>: Documentation related changes</docs></li>
+<li><feat>: Introduction of a new feature</feat></li>
+<li><fix>: Resolve an issue directly linked to development (bugfixes)</fix></li>
+<li><hotfix>: Resolve an issue directly linked to production (patches)</hotfix></li>
+<li><test>: Add/Update test cases</test></li>
+<li><performance>: Add code that improves performance</performance></li>
+<li><refactor>: Update for code for maintainability (clean code)</refactor></li>
+</ul>
+<p><strong>scope</strong> is optional and must be a noun that represents the section of the codebase</p>
+<p><strong>Message</strong> should be imperative and should describe the commit with a clear message/keywords.</p>
+<p>such as</p>
+<pre class=" language-markdown"><code class="language-markdown">feat(home, components): Add login button
+feat(home, components): Add login modal
+fix(home, components): Resolve issue with modal collapses
+chore(home): Move icons folder
+feat(newsletter): Add Newsletter component
+feat(navbar): Add navbar container</code></pre>
+<p>Now we can replace the <type> with an emoji :</type></p>
+<p>🎨 Improve structure / format of the code.</p>
+<p>⚡️ Improve performance.</p>
+<p>🔥 Remove code or files.</p>
+<p>🐛 Fix a bug.</p>
+<p>✨ Introduce new features.</p>
+<p>📝 Add or update documentation.</p>
+<p>🚀 Deploy stuff.</p>
+<p>💚 Fix CI Build.</p>
+<p>👷 Add or update CI build system.</p>
+<p>🔧 Add or update configuration files.</p>
+<p>🔨 Add or update development scripts.</p>
+<p>⚰️ Remove dead code.</p>
+<p>Example of commits :</p>
+<pre class=" language-markdown"><code class="language-markdown">✨ (home, components): Add login button
+✨ (home, components): Add login modal
+🐛 (home, components): Resolve issue with modal collapses
+🚚 (home): Move icons folder
+✨ (newsletter): Add Newsletter component
+✨ (navbar): Add navbar container
+🔥 (navbar): Remove old navbar file
+✅ (home): Add login test case
+🎨 (home, component): Improve login modal
+📦️ (npm): Add react-table
+🔨 Update script start-server.js</code></pre>
+<p>比较专业的 github repo 都会使用 gitmoji 进行管理 commit：执行 <code>git commit</code> 时使用 emoji 为本次提交打上一个 “标签”， 使得此次 commit 的主要工作得到凸现，提高阅读体验，同时也能够当作标签功能使得其在整个提交历史中易于区分与查找。</p>
 <table>
 <thead>
 <tr>
@@ -512,161 +564,366 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="left">🔖 (书签)</td>
+<td align="left">🔖</td>
 <td align="left"><code>:bookmark:</code></td>
-<td align="left"><strong>发行 / 版本标签</strong></td>
+<td align="left"><strong>Release / Version tags.</strong></td>
 </tr>
 <tr>
-<td align="left">📝 (备忘录)</td>
+<td align="left">📝</td>
 <td align="left"><code>:memo:</code></td>
-<td align="left"><strong>撰写文档</strong></td>
+<td align="left"><strong>Add or update documentation.</strong></td>
 </tr>
 <tr>
-<td align="left">🐛 (bug)</td>
-<td align="left"><code>:bug:</code></td>
-<td align="left"><strong>修复 bug</strong></td>
-</tr>
-<tr>
-<td align="left">🎨 (调色板)</td>
-<td align="left"><code>:art:</code></td>
-<td align="left"><strong>改进代码结构 / 代码格式</strong></td>
-</tr>
-<tr>
-<td align="left">🔧 (扳手)</td>
-<td align="left"><code>:wrench:</code></td>
-<td align="left"><strong>修改配置文件</strong></td>
-</tr>
-<tr>
-<td align="left">🔥 (火焰)</td>
-<td align="left"><code>:fire:</code></td>
-<td align="left"><strong>移除代码或文件</strong></td>
-</tr>
-<tr>
-<td align="left">💄 (口红)</td>
-<td align="left"><code>:lipstick:</code></td>
-<td align="left">更新 UI 和样式文件</td>
-</tr>
-<tr>
-<td align="left">⚡️(闪电)</td>
-<td align="left"><code>:zap:</code></td>
-<td align="left">提高性能</td>
-</tr>
-<tr>
-<td align="left">✨ (火花)</td>
-<td align="left"><code>:sparkles:</code></td>
-<td align="left">引入新功能</td>
-</tr>
-<tr>
-<td align="left">✏️ (铅笔)</td>
+<td align="left">✏️</td>
 <td align="left"><code>:pencil2:</code></td>
-<td align="left">修复错别字</td>
+<td align="left">Fix typos.</td>
 </tr>
 <tr>
-<td align="left">🚀 (火箭)</td>
-<td align="left"><code>:rocket:</code></td>
-<td align="left">部署功能</td>
+<td align="left">📄</td>
+<td align="left"><code>:page_facing_up:</code></td>
+<td align="left">Add or update license</td>
 </tr>
 <tr>
-<td align="left">🚑 (急救车)</td>
-<td align="left"><code>:ambulance:</code></td>
-<td align="left">重要补丁</td>
+<td align="left">✨</td>
+<td align="left"><code>:sparkles:</code></td>
+<td align="left">Introduce new features.</td>
 </tr>
 <tr>
-<td align="left">🎉 (庆祝)</td>
+<td align="left">🎉</td>
 <td align="left"><code>:tada:</code></td>
-<td align="left">初次提交</td>
+<td align="left">Begin a project.</td>
 </tr>
 <tr>
-<td align="left">🚨 (警车灯)</td>
+<td align="left">💥</td>
+<td align="left"><code>:boom:</code></td>
+<td align="left">Introduce breaking changes.</td>
+</tr>
+<tr>
+<td align="left">🎨</td>
+<td align="left"><code>:art:</code></td>
+<td align="left"><strong>Improve structure / format of the code.</strong></td>
+</tr>
+<tr>
+<td align="left">⚡️</td>
+<td align="left"><code>:zap:</code></td>
+<td align="left">Improve performance.</td>
+</tr>
+<tr>
+<td align="left">🐛</td>
+<td align="left"><code>:bug:</code></td>
+<td align="left"><strong>Fix a bug.</strong></td>
+</tr>
+<tr>
+<td align="left">🚑</td>
+<td align="left"><code>:ambulance:</code></td>
+<td align="left">Critical hotfix.</td>
+</tr>
+<tr>
+<td align="left">💡</td>
+<td align="left"><code>:bulb:</code></td>
+<td align="left">Add or update comments in source code</td>
+</tr>
+<tr>
+<td align="left">🔥</td>
+<td align="left"><code>:fire:</code></td>
+<td align="left"><strong>Remove code or files.</strong></td>
+</tr>
+<tr>
+<td align="left">🗑️</td>
+<td align="left"><code>:wastebasket:</code></td>
+<td align="left">Deprecate code that needs to be cleaned up.。</td>
+</tr>
+<tr>
+<td align="left">🚚</td>
+<td align="left"><code>:truck:</code></td>
+<td align="left">Move or rename resources (e.g.: files, paths, routes).</td>
+</tr>
+<tr>
+<td align="left">💩</td>
+<td align="left"><code>:poop:</code></td>
+<td align="left">Write bad code that needs to be improved.</td>
+</tr>
+<tr>
+<td align="left">⚰️</td>
+<td align="left"><code>:coffin:</code><br></td>
+<td align="left">Remove dead code.</td>
+</tr>
+<tr>
+<td align="left">📸</td>
+<td align="left"><code>:camera_flash:</code><br></td>
+<td align="left">Add or update snapshots.</td>
+</tr>
+<tr>
+<td align="left">💄</td>
+<td align="left"><code>:lipstick:</code></td>
+<td align="left">Add or update the UI and style files.</td>
+</tr>
+<tr>
+<td align="left">💫</td>
+<td align="left"><code>:dizzy:</code></td>
+<td align="left">Add or update animations and transitions.</td>
+</tr>
+<tr>
+<td align="left">🍱</td>
+<td align="left"><code>:bento:</code></td>
+<td align="left">Add or update assets.</td>
+</tr>
+<tr>
+<td align="left">🙈</td>
+<td align="left"><code>:see_no_evil:</code></td>
+<td align="left">Add or update a .gitignore file.</td>
+</tr>
+<tr>
+<td align="left">⏪️</td>
+<td align="left"><code>:rewind:</code></td>
+<td align="left">Revert changes</td>
+</tr>
+<tr>
+<td align="left">🔀</td>
+<td align="left"><code>:twisted_rightwards_arrows:</code></td>
+<td align="left">Merge branches.</td>
+</tr>
+<tr>
+<td align="left">🔧</td>
+<td align="left"><code>:wrench:</code></td>
+<td align="left"><strong>Add or update configuration files.</strong></td>
+</tr>
+<tr>
+<td align="left">🚀</td>
+<td align="left"><code>:rocket:</code></td>
+<td align="left">Deploy stuff.</td>
+</tr>
+<tr>
+<td align="left">🚨</td>
 <td align="left"><code>:rotating_light:</code></td>
-<td align="left">移除 linter 警告</td>
+<td align="left">Fix compiler / linter warnings.</td>
 </tr>
 <tr>
-<td align="left">🚧 (施工)</td>
+<td align="left">🚧</td>
 <td align="left"><code>:construction:</code></td>
-<td align="left">工作进行中</td>
+<td align="left">Work in progress.</td>
 </tr>
 <tr>
-<td align="left">✅ (白色复选框)</td>
+<td align="left">✅</td>
 <td align="left"><code>:white_check_mark:</code></td>
-<td align="left">增加测试</td>
+<td align="left">Add, update, or pass tests.</td>
 </tr>
 <tr>
-<td align="left">🔨 (锤子)</td>
+<td align="left">💬</td>
+<td align="left"><code>:speech_balloon:</code></td>
+<td align="left">Add or update text and literals.</td>
+</tr>
+<tr>
+<td align="left">🍻</td>
+<td align="left"><code>:beers:</code></td>
+<td align="left">Write code drunkenly.</td>
+</tr>
+<tr>
+<td align="left">👽️</td>
+<td align="left"><code>:alien:</code></td>
+<td align="left">Update code due to external API changes.</td>
+</tr>
+<tr>
+<td align="left">🔨</td>
 <td align="left"><code>:hammer:</code></td>
-<td align="left">重大重构</td>
+<td align="left">Add or update development scripts.</td>
 </tr>
 <tr>
-<td align="left">🔒 (锁)</td>
+<td align="left">🔒</td>
 <td align="left"><code>:lock:</code></td>
-<td align="left">修复安全问题</td>
+<td align="left">Fix security issues.</td>
 </tr>
 <tr>
-<td align="left">🍎 (苹果)</td>
-<td align="left"><code>:apple:</code></td>
-<td align="left">修复 macOS 下的问题</td>
-</tr>
-<tr>
-<td align="left">🐧 (企鹅)</td>
-<td align="left"><code>:penguin:</code></td>
-<td align="left">修复 Linux 下的问题</td>
-</tr>
-<tr>
-<td align="left">🏁 (旗帜)</td>
+<td align="left">🏁</td>
 <td align="left"><code>:checked_flag:</code></td>
 <td align="left">修复 Windows 下的问题</td>
 </tr>
 <tr>
-<td align="left">💚 (绿心)</td>
-<td align="left"><code>:green_heart:</code></td>
-<td align="left">修复 CI 构建问题</td>
+<td align="left">🍎</td>
+<td align="left"><code>:apple:</code></td>
+<td align="left">修复 macOS 下的问题</td>
 </tr>
 <tr>
-<td align="left">⬇️ (下降箭头)</td>
-<td align="left"><code>:arrow_down:</code></td>
-<td align="left">降级依赖</td>
+<td align="left">🐧</td>
+<td align="left"><code>:penguin:</code></td>
+<td align="left">修复 Linux 下的问题</td>
 </tr>
 <tr>
-<td align="left">⬆️ (上升箭头)</td>
-<td align="left"><code>:arrow_up:</code></td>
-<td align="left">升级依赖</td>
-</tr>
-<tr>
-<td align="left">👷 (工人)</td>
-<td align="left"><code>:construction_worker:</code></td>
-<td align="left">添加 CI 构建系统</td>
-</tr>
-<tr>
-<td align="left">📈 (上升趋势图)</td>
-<td align="left"><code>:chart_with_upwards_trend:</code></td>
-<td align="left">添加分析或跟踪代码</td>
-</tr>
-<tr>
-<td align="left">➖ (减号)</td>
-<td align="left"><code>:heavy_minus_sign:</code></td>
-<td align="left">减少一个依赖</td>
-</tr>
-<tr>
-<td align="left">🐳 (鲸鱼)</td>
+<td align="left">🐳</td>
 <td align="left"><code>:whale:</code></td>
 <td align="left">Docker 相关工作</td>
 </tr>
 <tr>
-<td align="left">➕ (加号)</td>
+<td align="left">♻️</td>
+<td align="left"><code>:recycle:</code></td>
+<td align="left">Refactor code</td>
+</tr>
+<tr>
+<td align="left">👷</td>
+<td align="left"><code>:construction_worker:</code></td>
+<td align="left">Add or update CI build system.</td>
+</tr>
+<tr>
+<td align="left">💚</td>
+<td align="left"><code>:green_heart:</code></td>
+<td align="left">fix CI Build.</td>
+</tr>
+<tr>
+<td align="left">📈</td>
+<td align="left"><code>:chart_with_upwards_trend:</code></td>
+<td align="left">Add or update analytics or track code</td>
+</tr>
+<tr>
+<td align="left">⬆️</td>
+<td align="left"><code>:arrow_up:</code></td>
+<td align="left">升级依赖</td>
+</tr>
+<tr>
+<td align="left">⬇️</td>
+<td align="left"><code>:arrow_down:</code></td>
+<td align="left">降级依赖</td>
+</tr>
+<tr>
+<td align="left">➕</td>
 <td align="left"><code>:heavy_plug_sign:</code></td>
-<td align="left">增加一个依赖</td>
+<td align="left">Add a dependency.</td>
 </tr>
 <tr>
-<td align="left">🌐 (地球)</td>
+<td align="left">➖</td>
+<td align="left"><code>:heavy_minus_sign:</code></td>
+<td align="left">Remove a dependency.</td>
+</tr>
+<tr>
+<td align="left">📌</td>
+<td align="left"><code>:pushpin:</code></td>
+<td align="left">Pin dependencies to specific versions</td>
+</tr>
+<tr>
+<td align="left">🌐</td>
 <td align="left"><code>:globe_with_meridians:</code></td>
-<td align="left">国际化与本地化</td>
+<td align="left">Internationalization and localization.</td>
 </tr>
 <tr>
-<td align="left">👌 (OK 手势)</td>
-<td align="left"><code>:ok_hand:</code></td>
-<td align="left">由于代码审查更改而更新代码</td>
+<td align="left">🧪</td>
+<td align="left"><code>:test_tube:</code></td>
+<td align="left">Add a failing test.</td>
+</tr>
+<tr>
+<td align="left">👔</td>
+<td align="left"><code>:necktie:</code><br></td>
+<td align="left">Add or update business logic</td>
+</tr>
+<tr>
+<td align="left">🧐</td>
+<td align="left"><code>:monocle_face:</code><br></td>
+<td align="left">Data exploration/inspection.</td>
+</tr>
+<tr>
+<td align="left">🩹</td>
+<td align="left"><code>:adhesive_bandage:</code></td>
+<td align="left">Simple fix for a non-critical issue.</td>
+</tr>
+<tr>
+<td align="left">🛂</td>
+<td align="left"><code>:passport_control:</code></td>
+<td align="left">Work on code related to authorization, roles and permissions.</td>
+</tr>
+<tr>
+<td align="left">🥅</td>
+<td align="left"><code>:goal_net:</code></td>
+<td align="left">Catch errors.</td>
+</tr>
+<tr>
+<td align="left">🚩</td>
+<td align="left"><code>:triangular_flag_on_post:</code></td>
+<td align="left">Add, update, or remove feature flags.</td>
+</tr>
+<tr>
+<td align="left">🌱</td>
+<td align="left"><code>:seedling:</code></td>
+<td align="left">Add or update seed files.</td>
+</tr>
+<tr>
+<td align="left">🏷️</td>
+<td align="left"><code>:label:</code></td>
+<td align="left">Add or update types.</td>
+</tr>
+<tr>
+<td align="left">🔍️</td>
+<td align="left"><code>:mag:</code></td>
+<td align="left">Improve SEO.</td>
+</tr>
+<tr>
+<td align="left">⚗️</td>
+<td align="left"><code>:alembic:</code></td>
+<td align="left">Perform experiments.</td>
+</tr>
+<tr>
+<td align="left">🥚</td>
+<td align="left"><code>:egg:</code></td>
+<td align="left">Add or update an easter egg.</td>
+</tr>
+<tr>
+<td align="left">🤡</td>
+<td align="left"><code>:clown_face:</code></td>
+<td align="left">Mock things.</td>
+</tr>
+<tr>
+<td align="left">📱</td>
+<td align="left"><code>:iphone:</code></td>
+<td align="left">Work on responsive design</td>
+</tr>
+<tr>
+<td align="left">🏗️</td>
+<td align="left"><code>:building_construction:</code></td>
+<td align="left">Make architectural changes.</td>
+</tr>
+<tr>
+<td align="left">🚸</td>
+<td align="left"><code>:children_crossing:</code></td>
+<td align="left">Improve user experience / usability.</td>
+</tr>
+<tr>
+<td align="left">👥</td>
+<td align="left"><code>:busts_in_silhouette:</code></td>
+<td align="left">Add or update contributor(s).</td>
+</tr>
+<tr>
+<td align="left">🔇</td>
+<td align="left"><code>:mute:</code></td>
+<td align="left">Remove logs.</td>
+</tr>
+<tr>
+<td align="left">🔊</td>
+<td align="left"><code>:loud_sound:</code></td>
+<td align="left">Add or update logs.</td>
+</tr>
+<tr>
+<td align="left">🗃️</td>
+<td align="left"><code>:card_file_box:</code></td>
+<td align="left">Perform database related changes.</td>
+</tr>
+<tr>
+<td align="left">♿️</td>
+<td align="left"><code>:wheelchair:</code></td>
+<td align="left">Improve accessibility.</td>
+</tr>
+<tr>
+<td align="left">📦️</td>
+<td align="left"><code>:package:</code></td>
+<td align="left">Add or update compiled files or packages.</td>
 </tr>
 </tbody></table>
+<p>一些工具</p>
+<ul>
+<li>vscode 插件: <a target="_blank" rel="noopener" href="https://github.com/vtrois/gitmoji-vscode">vtrois/gitmoji-vscode: 😜 An emoji tool with your git commit messages for VS Code (github.com)</a>，可以在 vscode 提交 commit 时插入 gitmoji<br><img src="https://b3logfile.com/siyuan/1610205759005/assets/image-20210921203150-c6tv640.png" alt="image.png"></li>
+<li>utools 插件 GitEmoji，目前暂时并不好用，是直接复制冒号语法到剪贴板不会直接粘贴，而且搜索竟然不能直接搜英文……<br><img src="https://b3logfile.com/siyuan/1610205759005/assets/image-20210921202948-16o5g5o.png" alt="image.png"></li>
+</ul>
+<blockquote>
+<p>番外：</p>
+<p>所以如果做了一个练习代码的仓库，每次提交新建一个文件，好多博客都没提到这个，应该用什么 emoji 呢</p>
+<p>决定了用 🌑<code>:new_moon:</code></p>
+</blockquote>
 
             </div>
             <hr/>
@@ -1278,7 +1535,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">32.2k</span>&nbsp;字
+                class="white-color">32.7k</span>&nbsp;字
             
             
             

@@ -75,14 +75,17 @@
     <link href="https://achuan-2.top/posts/b8c8.html"/>
     <id>https://achuan-2.top/posts/b8c8.html</id>
     <published>2021-08-11T14:01:46.000Z</published>
-    <updated>2021-08-19T13:47:37.986Z</updated>
+    <updated>2021-09-21T13:43:30.660Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;执行 &lt;code&gt;git commit&lt;/code&gt; 时使用 emoji 为本次提交打上一个 “标签”， 使得此次 commit 的主要工作得以凸现，也能够使得其在整个提交历史中易于区分与查找，添加了 emoji</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;🌏Reference&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://gitmoji.dev/?utm_source=ld246.com&quot;&gt;gitmoji | An emoji guide for your commit</summary>
         
       
     
