@@ -6,7 +6,7 @@
   <link href="https://achuan-2.top/atom.xml" rel="self"/>
   
   <link href="https://achuan-2.top/"/>
-  <updated>2021-09-20T02:25:39.493Z</updated>
+  <updated>2021-10-04T09:17:54.276Z</updated>
   <id>https://achuan-2.top/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Github Profile Readme美化效果汇总</title>
+    <link href="https://achuan-2.top/posts/8dd0.html"/>
+    <id>https://achuan-2.top/posts/8dd0.html</id>
+    <published>2021-10-04T09:15:53.000Z</published>
+    <updated>2021-10-04T09:17:54.276Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;语雀版本：&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="折腾致死" scheme="https://achuan-2.top/categories/%E6%8A%98%E8%85%BE%E8%87%B4%E6%AD%BB/"/>
+    
+    
+    <category term="Github" scheme="https://achuan-2.top/tags/Github/"/>
+    
+  </entry>
   
   <entry>
     <title>解决使用代理时 Win10 UWP 应用无法联网问题</title>
