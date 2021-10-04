@@ -34,8 +34,8 @@
     }
 
     function onTouchMove(e) {
-        if (e.touches.length &gt; 0) {
-            for (var i = 0; i &lt; e.touches.length; i++) {
+        if (e.touches.length > 0) {
+            for (var i = 0; i < e.touches.length; i++) {
                 addParticle(e.touches[i].clientX, e.touches[i].clientY, possibleColors[Math.floor(Math.random() * possibleColors.length)]);
             }
         }
@@ -57,13 +57,13 @@
     function updateParticles() {
 
         // Updated
-        for (var i = 0; i &lt; particles.length; i++) {
+        for (var i = 0; i < particles.length; i++) {
             particles[i].update();
         }
 
         // Remove dead particles
-        for (var i = particles.length - 1; i &gt;= 0; i--) {
-            if (particles[i].lifeSpan &lt; 0) {
+        for (var i = particles.length - 1; i >= 0; i--) {
+            if (particles[i].lifeSpan < 0) {
                 particles[i].die();
                 particles.splice(i, 1);
             }
@@ -98,7 +98,7 @@
         this.init = function(x, y, color) {
 
             this.velocity = {
-                x: (Math.random() &lt; 0.5 ? -1 : 1) * (Math.random() / 2),
+                x: (Math.random() < 0.5 ? -1 : 1) * (Math.random() / 2),
                 y: 1
             };
 

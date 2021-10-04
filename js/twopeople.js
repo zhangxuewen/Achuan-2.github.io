@@ -1,9 +1,9 @@
-// Made with Zdog
+	          // Made with Zdog
 	var BokehShape = Zdog.Shape.subclass({
 	  bokehSize: 5,
 	  bokehLimit: 64 });
 	BokehShape.prototype.updateBokeh = function () {
-	  // bokeh 0 -&gt; 1
+	  // bokeh 0 -> 1
 	  this.bokeh = Math.abs(this.sortValue) / this.bokehLimit;
 	  this.bokeh = Math.max(0, Math.min(1, this.bokeh));
 	  return this.bokeh;
@@ -463,7 +463,7 @@
 	  var angleX = TAU / featherPartCount / 2;
 	  var sector = TAU * radius / 2 / featherPartCount;
 
-	  for (var i = 0; i &lt; featherPartCount; i++) {
+	  for (var i = 0; i < featherPartCount; i++) {
 	    var curve = Math.cos(i / featherPartCount * TAU * 3 / 4 + TAU * 1 / 4);
 	    var x = 4 - curve * 2;
 	    var y0 = sector / 2;
@@ -511,7 +511,7 @@
 	(function () {
 
 	  var rodCount = 14;
-	  for (var i = 0; i &lt; rodCount; i++) {
+	  for (var i = 0; i < rodCount; i++) {
 	    var zRotor = new Zdog.Anchor({
 	      addTo: illo,
 	      rotate: { z: TAU / rodCount * i } });
@@ -540,7 +540,7 @@
 	(function () {
 	  var dotCount = 64;
 
-	  for (var i = 0; i &lt; dotCount; i++) {
+	  for (var i = 0; i < dotCount; i++) {
 	    var yRotor = new Zdog.Anchor({
 	      addTo: illo,
 	      rotate: { y: TAU / dotCount * i } });
