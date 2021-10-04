@@ -1,53 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>风渡巛</title>
-  
+  <title>Achuan-2</title>
+  <icon>https://www.gravatar.com/avatar/f2f0ed01445cd135c8a922421c0e085a</icon>
   <subtitle>用心沉淀</subtitle>
-  <link href="https://achuan-2.top/atom.xml" rel="self"/>
+  <link href="https://achuan-2.github.io/atom.xml" rel="self"/>
   
-  <link href="https://achuan-2.top/"/>
-  <updated>2021-10-04T09:20:46.955Z</updated>
-  <id>https://achuan-2.top/</id>
+  <link href="https://achuan-2.github.io/"/>
+  <updated>2021-10-04T11:43:30.976Z</updated>
+  <id>https://achuan-2.github.io/</id>
   
   <author>
-    <name>风渡巛</name>
-    
+    <name>Achuan-2</name>
+    <email>achuan-2@outlook.com</email>
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
     <title>Github Profile Readme美化效果汇总</title>
-    <link href="https://achuan-2.top/posts/8dd0.html"/>
-    <id>https://achuan-2.top/posts/8dd0.html</id>
+    <link href="https://achuan-2.github.io/posts/8dd0.html"/>
+    <id>https://achuan-2.github.io/posts/8dd0.html</id>
     <published>2021-10-04T09:15:53.000Z</published>
-    <updated>2021-10-04T09:20:46.955Z</updated>
+    <updated>2021-10-04T11:43:30.976Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;语雀版本：&lt;a</summary>
-        
-      
+    <summary type="html">美化你的Github Profile</summary>
     
     
     
-    <category term="折腾致死" scheme="https://achuan-2.top/categories/%E6%8A%98%E8%85%BE%E8%87%B4%E6%AD%BB/"/>
+    <category term="折腾致死" scheme="https://achuan-2.github.io/categories/%E6%8A%98%E8%85%BE%E8%87%B4%E6%AD%BB/"/>
     
     
-    <category term="Github" scheme="https://achuan-2.top/tags/Github/"/>
+    <category term="Github" scheme="https://achuan-2.github.io/tags/Github/"/>
     
   </entry>
   
   <entry>
     <title>解决使用代理时 Win10 UWP 应用无法联网问题</title>
-    <link href="https://achuan-2.top/posts/840d.html"/>
-    <id>https://achuan-2.top/posts/840d.html</id>
+    <link href="https://achuan-2.github.io/posts/840d.html"/>
+    <id>https://achuan-2.github.io/posts/840d.html</id>
     <published>2021-09-20T02:14:57.000Z</published>
-    <updated>2021-10-04T09:28:34.670Z</updated>
+    <updated>2021-10-04T10:41:09.010Z</updated>
     
     
       
@@ -62,21 +55,21 @@
     
     
     
-    <category term="折腾" scheme="https://achuan-2.top/categories/%E6%8A%98%E8%85%BE/"/>
+    <category term="折腾致死" scheme="https://achuan-2.github.io/categories/%E6%8A%98%E8%85%BE%E8%87%B4%E6%AD%BB/"/>
     
     
-    <category term="v2ray" scheme="https://achuan-2.top/tags/v2ray/"/>
+    <category term="v2ray" scheme="https://achuan-2.github.io/tags/v2ray/"/>
     
-    <category term="Win10" scheme="https://achuan-2.top/tags/Win10/"/>
+    <category term="Win10" scheme="https://achuan-2.github.io/tags/Win10/"/>
     
   </entry>
   
   <entry>
     <title>GitHub 提交代码时 emoji 表情的使用</title>
-    <link href="https://achuan-2.top/posts/b8c8.html"/>
-    <id>https://achuan-2.top/posts/b8c8.html</id>
+    <link href="https://achuan-2.github.io/posts/b8c8.html"/>
+    <id>https://achuan-2.github.io/posts/b8c8.html</id>
     <published>2021-08-11T14:01:46.000Z</published>
-    <updated>2021-10-04T09:20:44.778Z</updated>
+    <updated>2021-10-04T10:41:15.370Z</updated>
     
     
       
@@ -92,17 +85,19 @@
     
     
     
-    <category term="Github" scheme="https://achuan-2.top/categories/Github/"/>
+    <category term="折腾致死" scheme="https://achuan-2.github.io/categories/%E6%8A%98%E8%85%BE%E8%87%B4%E6%AD%BB/"/>
     
+    
+    <category term="Github" scheme="https://achuan-2.github.io/tags/Github/"/>
     
   </entry>
   
   <entry>
     <title>不发朋友圈的人</title>
-    <link href="https://achuan-2.top/posts/e98d.html"/>
-    <id>https://achuan-2.top/posts/e98d.html</id>
+    <link href="https://achuan-2.github.io/posts/e98d.html"/>
+    <id>https://achuan-2.github.io/posts/e98d.html</id>
     <published>2021-06-17T02:51:17.000Z</published>
-    <updated>2021-10-04T09:29:07.342Z</updated>
+    <updated>2021-10-04T10:34:48.525Z</updated>
     
     
       
@@ -119,17 +114,17 @@
     
     
     
-    <category term="树洞" scheme="https://achuan-2.top/categories/%E6%A0%91%E6%B4%9E/"/>
+    <category term="树洞" scheme="https://achuan-2.github.io/categories/%E6%A0%91%E6%B4%9E/"/>
     
     
   </entry>
   
   <entry>
     <title>外公再见</title>
-    <link href="https://achuan-2.top/posts/80a3.html"/>
-    <id>https://achuan-2.top/posts/80a3.html</id>
+    <link href="https://achuan-2.github.io/posts/80a3.html"/>
+    <id>https://achuan-2.github.io/posts/80a3.html</id>
     <published>2021-06-17T02:50:38.000Z</published>
-    <updated>2021-10-04T09:29:18.107Z</updated>
+    <updated>2021-10-04T10:34:46.197Z</updated>
     
     
       
@@ -142,19 +137,19 @@
     
     
     
-    <category term="树洞" scheme="https://achuan-2.top/categories/%E6%A0%91%E6%B4%9E/"/>
+    <category term="树洞" scheme="https://achuan-2.github.io/categories/%E6%A0%91%E6%B4%9E/"/>
     
     
-    <category term="故事" scheme="https://achuan-2.top/tags/%E6%95%85%E4%BA%8B/"/>
+    <category term="故事" scheme="https://achuan-2.github.io/tags/%E6%95%85%E4%BA%8B/"/>
     
   </entry>
   
   <entry>
     <title>爷爷再见</title>
-    <link href="https://achuan-2.top/posts/80ed.html"/>
-    <id>https://achuan-2.top/posts/80ed.html</id>
+    <link href="https://achuan-2.github.io/posts/80ed.html"/>
+    <id>https://achuan-2.github.io/posts/80ed.html</id>
     <published>2021-06-17T02:49:30.000Z</published>
-    <updated>2021-10-04T09:29:35.535Z</updated>
+    <updated>2021-10-04T10:34:41.799Z</updated>
     
     
       
@@ -167,19 +162,19 @@
     
     
     
-    <category term="树洞" scheme="https://achuan-2.top/categories/%E6%A0%91%E6%B4%9E/"/>
+    <category term="树洞" scheme="https://achuan-2.github.io/categories/%E6%A0%91%E6%B4%9E/"/>
     
     
-    <category term="故事" scheme="https://achuan-2.top/tags/%E6%95%85%E4%BA%8B/"/>
+    <category term="故事" scheme="https://achuan-2.github.io/tags/%E6%95%85%E4%BA%8B/"/>
     
   </entry>
   
   <entry>
     <title>小熊的独白</title>
-    <link href="https://achuan-2.top/posts/23b2.html"/>
-    <id>https://achuan-2.top/posts/23b2.html</id>
+    <link href="https://achuan-2.github.io/posts/23b2.html"/>
+    <id>https://achuan-2.github.io/posts/23b2.html</id>
     <published>2021-06-17T02:42:43.000Z</published>
-    <updated>2021-10-04T09:29:26.365Z</updated>
+    <updated>2021-10-04T10:34:43.842Z</updated>
     
     
       
@@ -194,17 +189,17 @@
     
     
     
-    <category term="树洞" scheme="https://achuan-2.top/categories/%E6%A0%91%E6%B4%9E/"/>
+    <category term="树洞" scheme="https://achuan-2.github.io/categories/%E6%A0%91%E6%B4%9E/"/>
     
     
   </entry>
   
   <entry>
     <title>阿巛的Hexo博客搭建</title>
-    <link href="https://achuan-2.top/posts/a881.html"/>
-    <id>https://achuan-2.top/posts/a881.html</id>
+    <link href="https://achuan-2.github.io/posts/a881.html"/>
+    <id>https://achuan-2.github.io/posts/a881.html</id>
     <published>2020-11-15T11:57:21.000Z</published>
-    <updated>2021-10-04T09:28:18.464Z</updated>
+    <updated>2021-10-04T10:34:36.574Z</updated>
     
     
       
@@ -225,19 +220,19 @@
     
     
     
-    <category term="前端" scheme="https://achuan-2.top/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="折腾致死" scheme="https://achuan-2.github.io/categories/%E6%8A%98%E8%85%BE%E8%87%B4%E6%AD%BB/"/>
     
     
-    <category term="Hexo" scheme="https://achuan-2.top/tags/Hexo/"/>
+    <category term="Hexo" scheme="https://achuan-2.github.io/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>The Python Challenge Daily Record</title>
-    <link href="https://achuan-2.top/posts/c134.html"/>
-    <id>https://achuan-2.top/posts/c134.html</id>
+    <link href="https://achuan-2.github.io/posts/c134.html"/>
+    <id>https://achuan-2.github.io/posts/c134.html</id>
     <published>2020-11-14T03:18:09.000Z</published>
-    <updated>2021-10-04T09:28:14.675Z</updated>
+    <updated>2021-10-04T11:42:27.932Z</updated>
     
     
       
@@ -250,10 +245,10 @@
     
     
     
-    <category term="Python" scheme="https://achuan-2.top/categories/Python/"/>
+    <category term="Python" scheme="https://achuan-2.github.io/categories/Python/"/>
     
     
-    <category term="python基础练习" scheme="https://achuan-2.top/tags/python%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0/"/>
+    <category term="python基础练习" scheme="https://achuan-2.github.io/tags/python%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0/"/>
     
   </entry>
   
