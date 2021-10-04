@@ -3524,11 +3524,11 @@ li.categoryBar-list-item:nth-child(1) {
   background: linear-gradient(to left,rgb(56 212 239 / 90%),rgba(17, 153, 142, 0.8));
 }
 li.categoryBar-list-item:nth-child(2) {
-  background: -webkit-linear-gradient(left,rgb(157 17 241 / 80%),rgba(208, 117, 110, 0.9));
-  background: -moz-linear-gradient(left,rgb(157 17 241 / 80%),rgba(208, 117, 110, 0.9));
-  background: -o-linear-gradient(left,rgb(157 17 241 / 80%),rgba(208, 117, 110, 0.9));
-  background: -ms-linear-gradient(left,rgb(157 17 241 / 80%),rgba(208, 117, 110, 0.9));
-  background: linear-gradient(to right,rgb(157 17 241 / 80%),rgba(208, 117, 110, 0.9));
+  background: -webkit-linear-gradient(left,rgb(225 211 234 / 80%),rgb(84 74 73 / 90%));
+  background: -moz-linear-gradient(left,rgb(225 211 234 / 80%),rgb(84 74 73 / 90%));
+  background: -o-linear-gradient(left,rgb(225 211 234 / 80%),rgb(84 74 73 / 90%));
+  background: -ms-linear-gradient(left,rgb(225 211 234 / 80%),rgb(84 74 73 / 90%));
+  background: linear-gradient(to right,rgb(225 211 234 / 80%),rgb(84 74 73 / 90%));
 }
 li.categoryBar-list-item:nth-child(3) {
   background: -webkit-linear-gradient(right,rgba(56,214,117,0.9),rgba(17,84,153,0.8));
