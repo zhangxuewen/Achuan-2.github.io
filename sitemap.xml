@@ -2,41 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://achuan-2.github.io/posts/c134.html</loc>
-    
-    <lastmod>2021-10-04</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://achuan-2.github.io/posts/8dd0.html</loc>
-    
-    <lastmod>2021-10-04</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://achuan-2.github.io/posts/b8c8.html</loc>
-    
-    <lastmod>2021-10-04</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://achuan-2.github.io/link/index.html</loc>
-    
-    <lastmod>2021-10-04</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://achuan-2.github.io/posts/840d.html</loc>
-    
-    <lastmod>2021-10-04</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://achuan-2.github.io/posts/e98d.html</loc>
     
     <lastmod>2021-10-04</lastmod>
@@ -44,7 +9,7 @@
   </url>
   
   <url>
-    <loc>https://achuan-2.github.io/posts/80a3.html</loc>
+    <loc>https://achuan-2.github.io/posts/a881.html</loc>
     
     <lastmod>2021-10-04</lastmod>
     
@@ -58,14 +23,49 @@
   </url>
   
   <url>
-    <loc>https://achuan-2.github.io/posts/80ed.html</loc>
+    <loc>https://achuan-2.github.io/posts/840d.html</loc>
     
     <lastmod>2021-10-04</lastmod>
     
   </url>
   
   <url>
-    <loc>https://achuan-2.github.io/posts/a881.html</loc>
+    <loc>https://achuan-2.github.io/posts/b8c8.html</loc>
+    
+    <lastmod>2021-10-04</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://achuan-2.github.io/posts/8dd0.html</loc>
+    
+    <lastmod>2021-10-04</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://achuan-2.github.io/posts/c134.html</loc>
+    
+    <lastmod>2021-10-04</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://achuan-2.github.io/link/index.html</loc>
+    
+    <lastmod>2021-10-04</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://achuan-2.github.io/posts/80a3.html</loc>
+    
+    <lastmod>2021-10-04</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://achuan-2.github.io/posts/80ed.html</loc>
     
     <lastmod>2021-10-04</lastmod>
     
@@ -123,7 +123,7 @@
 
   
   <url>
-    <loc>https://achuan-2.github.io/tags/%E6%95%85%E4%BA%8B/</loc>
+    <loc>https://achuan-2.github.io/tags/Github/</loc>
     <lastmod>2021-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -151,7 +151,7 @@
   </url>
   
   <url>
-    <loc>https://achuan-2.github.io/tags/Github/</loc>
+    <loc>https://achuan-2.github.io/tags/%E6%95%85%E4%BA%8B/</loc>
     <lastmod>2021-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -167,14 +167,14 @@
 
   
   <url>
-    <loc>https://achuan-2.github.io/categories/%E6%A0%91%E6%B4%9E/</loc>
+    <loc>https://achuan-2.github.io/categories/%E6%8A%98%E8%85%BE%E8%87%B4%E6%AD%BB/</loc>
     <lastmod>2021-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://achuan-2.github.io/categories/%E6%8A%98%E8%85%BE%E8%87%B4%E6%AD%BB/</loc>
+    <loc>https://achuan-2.github.io/categories/%E6%A0%91%E6%B4%9E/</loc>
     <lastmod>2021-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
