@@ -43,3 +43,60 @@
     background-color: #49B1F5;
 }
 
+
+/* 去除时钟背景 */
+.card-widget.card-clock  .card-glass .card-background {
+    background-color: unset !important;
+    box-shadow: unset !important;
+}
+
+h1{
+    text-align: center;
+    font-size: 1.75em !important;
+    color: var(--h1-color);
+}
+h2 {
+    color:var(--h2-color);
+    font-size: 1.55em !important;
+}
+h3 {
+    color:var(--h3-color);
+
+    font-size: 1.35em !important;
+
+}
+h3:before {
+    content: "| ";
+
+
+}
+h4 {
+    font-size: 1.2em !important;
+    color: var(--h4-color);
+}
+h5 {
+    font-size: 1.1em!important;
+    color: var(--h5-color);
+}
+
+blockquote {
+    margin: 0 0 1rem;
+    padding: 0.1rem 0.8rem;
+    border-left: 0rem solid #49b1f5;
+    border: 2px solid #8aacac;
+    background-color: transparent;
+    border-radius: 0.31em;
+}
+
+#article-container code {
+    padding: 0.1rem 0.2rem;
+    background: var(--inline-code-background);
+    color: inherit;
+    border: 1px solid #c6c6c73f;
+    border-radius: 3px;
+}
+
+#he-plugin-simple {
+    top: 1rem !important;
+    left: 8rem !important;
+}
