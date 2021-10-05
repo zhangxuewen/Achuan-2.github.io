@@ -1,0 +1,232 @@
+title: Achuan-2
+subtitle: 用心沉淀
+description: 一条没有故事的巛
+keywords: Python Bioinformatics 宅男 书呆子 自言自语
+author: Achuan-2
+email: achuan-2@outlook.com
+language: zh-CN
+timezone: ''
+url: 'https://achuan-2.github.io/'
+root: /
+permalink: 'posts/:abbrlink.html'
+permalink_defaults: null
+pretty_urls:
+    trailing_index: true
+    trailing_html: true
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: ':lang'
+skip_render: null
+new_post_name: ':title.md'
+default_layout: post
+titlecase: false
+external_link:
+    enable: true
+    field: site
+    exclude: ''
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+    enable: true
+    line_number: false
+    auto_detect: false
+    tab_replace: null
+prism_plugin:
+    mode: preprocess
+    theme: tomorrow
+    line_number: false
+    custom_css: null
+prismjs:
+    enable: false
+    preprocess: true
+    line_number: true
+    tab_replace: ''
+search:
+    path: search.xml
+    field: post
+    content: true
+permalink_pinyin:
+    enable: true
+    separator: '-'
+githubEmojis:
+    enable: true
+    className: github-emoji
+    inject: true
+    styles: null
+    customEmojis: null
+feed:
+    type: atom
+    path: atom.xml
+    limit: 20
+    hub: null
+    content: null
+    content_limit: 140
+    content_limit_delim: ' '
+    order_by: '-date'
+index_generator:
+    path: ''
+    per_page: 18
+    order_by: '-date'
+default_category: uncategorized
+category_map: null
+tag_map: null
+meta_generator: true
+date_format: YYYY-MM-DD
+time_format: 'HH:mm:ss'
+updated_option: mtime
+per_page: 12
+pagination_dir: page
+include: null
+exclude: null
+ignore: null
+theme: butterfly
+deploy:
+    type: git
+    repo: 'git@github.com:Achuan-2/Achuan-2.github.io.git'
+    branch: master
+live2d:
+    enable: true
+    model:
+        scale: 1
+        hHeadPos: 0.5
+        vHeadPos: 0.618
+        use: live2d-widget-model-koharu
+    display:
+        superSample: 2
+        position: left
+        width: 150
+        height: 300
+        # 水平
+        hOffset: 0  
+        # 垂直
+        vOffset: 300
+    mobile:
+        show: false
+        scale: 0.3
+    react:
+        opacity: 0.7
+        opacityOnHover: 0.2
+abbrlink:
+    alg: crc16
+    rep: hex
+sitemap:
+    path: sitemap.xml
+baidusitemap:
+    path: baidusitemap.xml
+
+
+# Ice Kano Plus_in
+# Hexo Github Canlendar
+# Author: Ice Kano
+# Modify: Lete乐特
+githubcalendar:
+    enable: true
+    enable_page: /
+    user: Achuan-2
+    layout:
+        type: id
+        name: recent-posts
+        index: 0
+    githubcalendar_html: '<div class="recent-post-item" style="width:100%;height:auto;padding:10px;"><div id="github_loading" style="width:10%;height:100%;margin:0 auto;display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg></div><div id="github_container"></div></div>'
+    pc_minheight: 280px
+    mobile_minheight: 0px
+    # 以下色调选择喜欢的一行保留即可。其余注释。—————akilar的糖果色
+    # color: "['#e4dfd7', '#f9f4dc', '#f7e8aa', '#f7e8aa', '#f8df72', '#fcd217', '#fcc515', '#f28e16', '#fb8b05', '#d85916', '#f43e06']" #橘黄色调
+    # color: "['#ebedf0', '#fdcdec', '#fc9bd9', '#fa6ac5', '#f838b2', '#f5089f', '#c4067e', '#92055e', '#540336', '#48022f', '#30021f']" #浅紫色调
+    color: "['#ebedf0', '#d3ecdd', '#8ddeb5', '#bef5cb', '#85e89d', '#34d058', '#28a745', '#22863a', '#176f2c', '#165c26', '#55bb8e']" #翠绿色调
+    # color: "['#ebedf0', '#f1f8ff', '#dbedff', '#c8e1ff', '#79b8ff', '#2188ff', '#0366d6', '#005cc5', '#044289', '#032f62', '#05264c']" #天青色调
+    api: https://python-github-calendar-api.vercel.app/api
+    # api: https://python-gitee-calendar-api.vercel.app/api
+    calendar_js: https://cdn.jsdelivr.net/gh/Zfour/hexo-github-calendar@1.21/hexo_githubcalendar.js
+    plus_style: ""
+
+magnet:
+    enable: true
+    priority: 1
+    enable_page: /
+    type: categories
+    devide: 2
+    display:
+        - name: 树洞
+          display_name: 树洞
+          icon: 🍃
+        - name: Python
+          display_name: 折腾致死
+          icon: 🎮
+        - name: 折腾致死
+          display_name: 折腾致死
+          icon: 🐱‍👓
+    color_setting:
+        text_color: black
+        text_hover_color: white
+        background_color: "#f2f2f2"
+        background_hover_color: "#49b1f5"
+    layout:
+        type: id
+        name: recent-posts
+        index: 0
+    temple_html: '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet">${temple_html_item}</div></div>'
+    plus_style: ""
+
+
+# hexo-butterfly-swiper
+# see https://akilar.top/posts/8e1264d1/
+swiper:
+  enable: true # 开关
+  priority: 5 #过滤器优先权
+  enable_page: all # 应用页面
+  timemode: date #date/updated
+  layout: # 挂载容器类型
+    type: id
+    name: recent-posts
+    index: 0
+  default_descr:                                                                                                                    
+  custom_css: https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.6/css/swiper.min.css #自定义swiper css依赖
+  custom_js: https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.6/js/swiper.min.js #自定义swiper js依赖
+
+
+  # electric_clock
+# see https://akilar.top/posts/4e39cf4a/
+electric_clock:
+  priority: 0
+  enable: true
+  enable_page: all
+  layout:
+    type: class
+    name: aside-content
+    index: 0
+  temple_html: '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img id="card-clock-loading" src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-clock/clock/images/weather/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading" class="entered loading"></div></div></div></div></div>'
+
+history_calendar:
+  priority: 0
+  enable: true
+  enable_page: /
+  layout:
+    type: class
+    name: sticky_layout
+    index: 0
+  temple_html: '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>'
+
+aplayer:
+  asset_inject: false
+  meting: true
+
+
+
+markdown:
+  plugins:
+    - plugin:
+      name: '@neilsustc/markdown-it-katex'
+      options:
+        strict: false
+
+# 随机文章
+random:
+  path: # 随机链接路径，默认"random/index.html"
