@@ -90,7 +90,7 @@ theme: butterfly
 deploy:
     type: git
     repo: 'git@github.com:Achuan-2/Achuan-2.github.io.git'
-    branch: master
+    branch: public
 live2d:
     enable: true
     model:
