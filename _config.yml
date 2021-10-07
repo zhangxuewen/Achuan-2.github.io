@@ -91,28 +91,32 @@ deploy:
     type: git
     repo: 'git@github.com:Achuan-2/Achuan-2.github.io.git'
     branch: public
-live2d:
-    enable: true
-    model:
-        scale: 1
-        hHeadPos: 0.5
-        vHeadPos: 0.618
-        use: live2d-widget-model-koharu
-    display:
-        superSample: 2
-        position: left
-        width: 150
-        height: 300
-        # 水平
-        hOffset: 0  
-        # 垂直
-        vOffset: 300
-    mobile:
-        show: false
-        scale: 0.3
-    react:
-        opacity: 0.7
-        opacityOnHover: 0.2
+# live2d:
+#     enable: false
+#     scriptFrom: https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js
+#     pluginRootPath: live2dw/ # 插件在站点上的根目录(相对路径)
+#     pluginJsPath: lib/ # 脚本文件相对与插件根目录路径
+#     pluginModelPath: assets/ # 模型文件相对与插件根目录路径
+#     model:
+#         scale: 1
+#         hHeadPos: 0.5
+#         vHeadPos: 0.618
+#         use: live2d-widget-model-koharu
+#     display:
+#         superSample: 2
+#         position: left
+#         width: 150
+#         height: 300
+#         # 水平
+#         hOffset: 0  
+#         # 垂直
+#         vOffset: 300
+#     mobile:
+#         show: false
+#         scale: 0.3
+#     react:
+#         opacity: 0.7
+#         opacityOnHover: 0.2
 abbrlink:
     alg: crc16
     rep: hex
@@ -158,7 +162,7 @@ magnet:
           display_name: 树洞
           icon: 🍃
         - name: Python
-          display_name: 折腾致死
+          display_name: Python
           icon: 🎮
         - name: 折腾致死
           display_name: 折腾致死
@@ -202,7 +206,7 @@ electric_clock:
     type: class
     name: aside-content
     index: 0
-  temple_html: '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img id="card-clock-loading" src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-clock/clock/images/weather/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading" class="entered loading"></div></div></div></div></div>'
+  temple_html: '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img id="card-clock-loading" src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-clock/clock/images/weather/loading.gif" style="height: 120px; width: 90%;position:absolute;top: 0px;left:10px;" data-ll-status="loading" class="entered loading"></div></div></div></div></div>'
 
 history_calendar:
   priority: 0
@@ -230,3 +234,6 @@ markdown:
 # 随机文章
 random:
   path: # 随机链接路径，默认"random/index.html"
+#看板娘
+live2d:
+  enable: true

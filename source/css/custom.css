@@ -49,7 +49,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #49B1F5;
+    background-color: #71ca80;
     background-image: -webkit-linear-gradient( 45deg, rgba(255, 255, 255, 0.4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 75%, transparent 75%, transparent);
     border-radius: 2em;
 }
@@ -60,7 +60,7 @@
 
 ::-moz-selection {
     color: #fff;
-    background-color: #49B1F5;
+    background-color: #71ca80;
 }
 
 
@@ -140,4 +140,99 @@ img {
 #rightside_config {
     display: none !important;
     opacity: 0 !important;
+}
+
+
+.card-clock-weather,
+.card-clock-location,
+.card-clock-humidity,
+.card-clock-dackorlight,
+.card-clock-ip {
+    display: none !important;
+}
+
+.card-widget.card-clock {
+    height: 100px;
+}
+.card-clock-clockdate, .card-clock-ip {
+    top: -18px;
+    display: block;
+    position: relative;
+}
+.card-clock-time {
+    flex: 1;
+    font-family: UnidreamLED;
+    font-size: 38px;
+    text-align: center;
+    line-height: 1.5;
+    position: relative;
+    top: -23px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 1023px) {
+    #live2d-widget {
+        display: none;
+    }
+}
+
+.avatar-img img:hover {
+        -webkit-transform: rotate(
+    0deg
+    );
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+.avatar-img:hover {
+        transform: scale(1.2);
+        transition: all 0.2s ease;
+}
+#waifu {
+    /* cursor: grab;
+    height: 250px;
+	width: 250px; */
+    transform: scale(0.7) !important;
+    bottom: -44px !important;
+    left: -60px !important;
+    /* top: -180px !important;
+    left: -74px !important; */
+}
+#waifu-tips{
+    /* top: -154px !important; */
+    width: 158px !important;
+    left: 14px !important;
+    font-size: 17px !important;
+}
+
+#waifu-tool .fa-comment,
+/* #waifu-tool .fa-user-circle, */
+#waifu-tool .fa-camera-retro,
+#waifu-tool .fa-info-circle,
+#waifu-tool .fa-paper-plane{
+    display: none !important;
+} 
+.aplayer-narrow .aplayer-body {
+    bottom: 400px !important;
+    left: -68px !important;
+}
+.aplayer-body {
+    bottom: 400px !important;
+}
+.aplayer .aplayer-pic .aplayer-pause {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #fff;
+    bottom: 24px !important;
+    right: 24px !important; 
+}
+.aplayer-withlist[data-type="playlist"] {
+    bottom: 140px !important;
+}
+.aplayer.aplayer-fixed .aplayer-list {
+    margin-bottom: 0px !important;
+}
+
+#rightside {
+    right: 6px !important;
 }
