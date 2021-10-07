@@ -18,6 +18,7 @@
  */
 
 (function() {
+	if (!GLOBAL_CONFIG_SITE.isHome) return;
 	const script = document.currentScript,
 		fontSize = script?.getAttribute("size") || 16,
 		fontName = script?.getAttribute("font") || "monospace";
