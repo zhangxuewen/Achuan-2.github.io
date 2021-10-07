@@ -169,11 +169,6 @@ img {
     top: -23px;
 }
 
-@media screen and (min-width: 300px) and (max-width: 1023px) {
-    #live2d-widget {
-        display: none;
-    }
-}
 
 .avatar-img img:hover {
         -webkit-transform: rotate(
@@ -192,9 +187,9 @@ img {
     /* cursor: grab;
     height: 250px;
 	width: 250px; */
-    transform: scale(0.7) !important;
-    bottom: -44px !important;
-    left: -60px !important;
+    transform: scale(0.9) !important;
+    bottom: -17px !important;
+    left: -30px !important;
     /* top: -180px !important;
     left: -74px !important; */
 }
@@ -205,7 +200,7 @@ img {
     font-size: 17px !important;
 }
 
-#waifu-tool .fa-comment,
+/* #waifu-tool .fa-comment, */
 /* #waifu-tool .fa-user-circle, */
 #waifu-tool .fa-camera-retro,
 #waifu-tool .fa-info-circle,
@@ -233,6 +228,17 @@ img {
     margin-bottom: 0px !important;
 }
 
-#rightside {
+/* #rightside {
     right: 6px !important;
 }
+
+
+@media screen and (min-width: 300px) and (max-width: 1023px) {
+    #live2d-widget {
+        display: none;
+    }
+    #rightside {
+    right: 0px !important;
+}
+
+} */
