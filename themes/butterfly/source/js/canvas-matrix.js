@@ -17,7 +17,9 @@
  *  GNU General Public License for more details.
  */
 
-(function() {
+(function () {
+	// whether just use in home page,if you need it, just cancel the annonation
+	//if (!GLOBAL_CONFIG_SITE.isHome) return;
 	const script = document.currentScript,
 		fontSize = script?.getAttribute("size") || 16,
 		fontName = script?.getAttribute("font") || "monospace";
