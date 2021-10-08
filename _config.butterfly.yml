@@ -870,7 +870,7 @@ inject:
     - <script  src="/js/cursor.js"></script>
     - <script defer src="https://rmt.dogedoge.com/fetch/~/source/jsdelivr/npm/jquery@latest/dist/jquery.min.js"></script>
     - <script defer data-pjax src="/js/fishes.js"></script>
-    # - <script defer data-pjax src="/js/canvas-matrix.js"></script>
+    - <script defer data-pjax src="/js/canvas-matrix.js"></script>
     # - <script defer src="https://cdn.jsdelivr.net/npm/canvas-matrix.js@0/canvas-matrix.min.js" size="20" font="arial"></script>
     - <script src="https://cdn.jsdelivr.net/gh/xiabo2/CDN@latest/fishes.js"></script>
     - <script defer data-pjax src="https://cdn.jsdelivr.net/gh/sirxemic/jquery.ripples/dist/jquery.ripples.js"></script>
