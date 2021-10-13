@@ -4,7 +4,7 @@ author: 风渡巛
 # top: true
 cover: https://cdn.jsdelivr.net/gh/Achuan-2/Achuan-2/assets/github-contribution-grid-snake.svg
 toc: true
-description         : 美化你的Github Profile
+description: 美化你的Github Profile
 tags: Github
 categories: 折腾致死
 swiper_index: 1
@@ -17,7 +17,7 @@ password:
 
 这是我目前的 [Github 首页](https://github.com/Achuan-2)
 
-![image.png](https://b3logfile.com/siyuan/1610205759005/assets/image-20211003215053-rhqi2qt.png)
+![](https://b3logfile.com/siyuan/1610205759005/assets/image-20211003215053-rhqi2qt.png)
 
 酷吧，虽然咱代码不会写，首先气势不能输，逼格总是要先装起来的，装着装着，说不定，就会写代码了呢！！！（大误 😄）
 
@@ -27,7 +27,7 @@ password:
 
 需要新建一个和 Github 用户名相同的仓库，新建时会有下面这样的提示
 
-![image.png](https://b3logfile.com/siyuan/1610205759005/assets/image-20210422162917-nhr8qgb.png)
+![](https://b3logfile.com/siyuan/1610205759005/assets/image-20210422162917-nhr8qgb.png)
 
 默认生成的 Readme 有注释文字，但是咱不用它（或许你想要在 Readme 简要介绍自己，也可）斤斤计较斤斤计较急急急急急急
 
@@ -58,11 +58,11 @@ Github 地址：[DenverCoder1/readme-typing-svg](https://github.com/DenverCoder1
 
 打字特效生成网站：[Readme Typing SVG - Demo Site ](https://readme-typing-svg.herokuapp.com/demo/)
 
-![image.png](https://b3logfile.com/siyuan/1610205759005/assets/image-20210923193843-nhk3q99.png)
+![](https://b3logfile.com/siyuan/1610205759005/assets/image-20210923193843-nhk3q99.png)
 
 效果图：
 
-![](https://camo.githubusercontent.com/614b9ac74f377ffdf091e10c7489c43e4f941bbcc43854177714745c691f0c82/68747470733a2f2f726561646d652d747970696e672d7376672e6865726f6b756170702e636f6d3f636f6c6f723d3238363936422673697a653d32312663656e7465723d74727565266c696e65733d2545392539372541412545392539372541412545352538462539312545342542412541452545462542432538432545392539372541412545392539372541412545352538462539312545342542412541453b41636875616e2d322b254537254135253944254534254244254130254534254242253841254536253937254135254536253834253839254535254246254142)
+![](https://camo.githubusercontent.com/614b9ac74f377ffdf091e10c7489c43e4f941bbcc43854177714745c691f0c82/68747470733a2f2f726561646d652d747970696e672d7376672e6865726f6b756170702e636f6d3f636f6c6f723d3238363936422673697a653d32312663656e7465723d74727565266c696e65733d2545392539372541412545392539372541412545352538462539312545342542412541452545462542432538432545392539372541412545392539372541412545352538462539312545342542412541453b41636875616e2d322b254537254135253944254534254244254130254534254242253841254536253937254135254536253834253839254535254246254142 "阿巛祝你今日愉快")
 
 ```html
 <p align="center">
@@ -89,7 +89,7 @@ Github 地址：[DenverCoder1/readme-typing-svg](https://github.com/DenverCoder1
 > * `color` 填写一个十六进制的颜色代码，前面不加#。
 > * 剩下两个分别是数据牌右侧展示数据的前缀和后缀，前缀可以不填，后缀可选填 ` followers`
 >
-> ![image.png](https://b3logfile.com/siyuan/1610205759005/assets/image-20211003232429-qvs59ye.png)
+> ![](https://b3logfile.com/siyuan/1610205759005/assets/image-20211003232429-qvs59ye.png)
 >
 > 生成结果点击此处查看：[Github  Followers](https://img.shields.io/badge/dynamic/json?color=272626&label=Github&query=%24.data.totalSubs&suffix=%20followers&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dgithub%26queryKey%3DAchuan-2)
 >
@@ -118,7 +118,7 @@ Github 地址：[DenverCoder1/readme-typing-svg](https://github.com/DenverCoder1
 
 如果不想显示关注者数目，则使用静态图标，以语雀徽标为例，填入
 
-![image.png](https://b3logfile.com/siyuan/1610205759005/assets/image-20211009094152-kucuk89.png)
+![](https://b3logfile.com/siyuan/1610205759005/assets/image-20211009094152-kucuk89.png)
 
 得到 `https://img.shields.io/badge/Yuque-blog-63cd77`，![](https://img.shields.io/badge/Yuque-blog-63cd77)
 
@@ -241,7 +241,7 @@ Github 地址： [Platane/snk](https://github.com/Platane/snk)
 
 资料：[利用 GitHub actions 在主页展示最近动态 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/356976287)
 
-![image.png](https://b3logfile.com/siyuan/1610205759005/assets/image-20211003214150-m45rqy5.png)
+![](https://b3logfile.com/siyuan/1610205759005/assets/image-20211003214150-m45rqy5.png)
 
 1. 创建 `./.github/workflows/update-events.yml` 文件，填入，修改 `blog_rss_link` 和 `douban_name`
    ```yaml
@@ -298,13 +298,13 @@ Github 地址： [Platane/snk](https://github.com/Platane/snk)
 
 Github 地址：[athul/waka-readme](https://github.com/athul/waka-readme)
 
-![image.png](https://b3logfile.com/siyuan/1610205759005/assets/image-20211003231703-mgydeyo.png)
+![](https://b3logfile.com/siyuan/1610205759005/assets/image-20211003231703-mgydeyo.png)
 
 ## 9 链滴动态
 
 资料：[使用 GitHub Actions 对 GitHub Profile 个人主页进行自动更新](https://ld246.com/article/1595248018192)
 
-![image.png](https://b3logfile.com/siyuan/1610205759005/assets/image-20211004094355-qb2xscy.png)
+![](https://b3logfile.com/siyuan/1610205759005/assets/image-20211004094355-qb2xscy.png)
 
 ## 其他参考资料
 

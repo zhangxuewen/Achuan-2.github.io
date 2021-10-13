@@ -39,7 +39,7 @@ Windows 下载地址：[Git for Windows](https://gitforwindows.org/)
 
 现在 Windows Terminal 有了图形界面，直接选择就好
 
-![image.png](https://b3logfile.com/siyuan/1610205759005/assets/image-20211007202529-jvvde8k.png)
+![](https://b3logfile.com/siyuan/1610205759005/assets/image-20211007202529-jvvde8k.png)
 
 具体 json 文件配置
 
@@ -69,7 +69,7 @@ Windows 下载地址：[Git for Windows](https://gitforwindows.org/)
 
 前排提示：我最初在网上搜索，发现之前许多教程里的 json 变量 `“terminal.integrated.shell.windows”` 已经过时了，现在是需要配置 profiles。
 
-![image.png](https://b3logfile.com/siyuan/1610205759005/assets/image-20211007202849-btud4ia.png)
+![](https://b3logfile.com/siyuan/1610205759005/assets/image-20211007202849-btud4ia.png)
 
 参考官网的文档：[Integrated Terminal in Visual Studio Code](https://code.visualstudio.com/docs/editor/integrated-terminal)
 
@@ -130,7 +130,7 @@ Windows 下载地址：[Git for Windows](https://gitforwindows.org/)
 
 有用户 @ 主机名，MINGW64，绝对路径。其中前面两个都是固定的，所以就想要把这个隐藏
 
-![image.png](https://b3logfile.com/siyuan/1610205759005/assets/image-20211007204520-6yp7nad.png)
+![](https://b3logfile.com/siyuan/1610205759005/assets/image-20211007204520-6yp7nad.png)
 
 在 Git-Bash 中我们输入以下代码: `vi ~/.bash_profile` , 然后把以下内容添加到配置文件里面。我这里是隐藏了用户 @ 主机，同时把绝对路径改成了只显示当前文件夹， 需要看全路径的话用 `pwd` 就显示了。这样不至于截图、被人看到时，太暴露隐私哈哈哈。
 
@@ -156,7 +156,7 @@ export PS1="\[\e[32;1m\]\W $\[\e[0m\]\[\033[32m\]\$(parse_git_branch)\[\033[00m\
 
 粘贴完后，`source .bash_profile` 的结果
 
-![image.png](https://b3logfile.com/siyuan/1610205759005/assets/image-20211001212927-dmflipx.png)
+![](https://b3logfile.com/siyuan/1610205759005/assets/image-20211001212927-dmflipx.png)
 
 补充下环境下默认的特殊符号所代表的意义：
 
@@ -252,7 +252,7 @@ alt + d 可以直接把光标移动到资源管理器地址栏，对于不同终
   * 方法三：直接右键吧，为啥这么折腾
   * 方法四：utools 快捷命令
   * 为什么我直接输入 code 就是打开一个 sh 脚本呢，我用 `start .` 打开这个脚本的目录，突然恍然大悟，原来就是因为这个 code 文件影响到了我直接用 code，我看了下脚本，这个应该是用于 wsl 启动的（我随口说的，你可以尝试去掉这个文件，然而也不能通过在地址栏输入 code 打开 VSCode 就是了）
-    ![image.png](https://b3logfile.com/siyuan/1610205759005/assets/image-20211007210214-gb86vj8.png)
+    ![](https://b3logfile.com/siyuan/1610205759005/assets/image-20211007210214-gb86vj8.png)
 
 ### 3.4 添加一些常用别名增加效率
 

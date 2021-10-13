@@ -19,7 +19,7 @@ tags: Github
 > * [用 emoji 表情提交代码指南 · Issue #71 · Kimi-Gao/Program-Blog (github.com)](https://github.com/Kimi-Gao/Program-Blog/issues/71)
 >
 
-![image.png](https://b3logfile.com/siyuan/1610205759005/assets/image-20210921211205-remwfyi.png)
+![](https://b3logfile.com/siyuan/1610205759005/assets/image-20210921211205-remwfyi.png)
 
 一条标准的 git commit 应该为
 
@@ -174,9 +174,9 @@ Example of commits :
 一些工具
 
 * vscode 插件: [vtrois/gitmoji-vscode: 😜 An emoji tool with your git commit messages for VS Code (github.com)](https://github.com/vtrois/gitmoji-vscode)，可以在 vscode 提交 commit 时插入 gitmoji
-  ![image.png](https://b3logfile.com/siyuan/1610205759005/assets/image-20210921203150-c6tv640.png)
+  ![](https://b3logfile.com/siyuan/1610205759005/assets/image-20210921203150-c6tv640.png)
 * utools 插件 GitEmoji，目前暂时并不好用，是直接复制冒号语法到剪贴板不会直接粘贴，而且搜索竟然不能直接搜英文……
-  ![image.png](https://b3logfile.com/siyuan/1610205759005/assets/image-20210921202948-16o5g5o.png)
+  ![](https://b3logfile.com/siyuan/1610205759005/assets/image-20210921202948-16o5g5o.png)
 
 > 番外：
 >
