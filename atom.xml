@@ -6,7 +6,7 @@
   <link href="https://achuan-2.github.io/atom.xml" rel="self"/>
   
   <link href="https://achuan-2.github.io/"/>
-  <updated>2021-10-07T14:25:28.832Z</updated>
+  <updated>2021-10-13T03:33:37.214Z</updated>
   <id>https://achuan-2.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://achuan-2.github.io/posts/be43.html"/>
     <id>https://achuan-2.github.io/posts/be43.html</id>
     <published>2021-10-07T14:13:07.000Z</published>
-    <updated>2021-10-07T14:25:28.832Z</updated>
+    <updated>2021-10-13T03:33:37.214Z</updated>
     
     
     <summary type="html">Git Bash内置了Vim和多数Linux命令，使用Git Bash为默认终端能提高 Win 端终端操作文件的效率</summary>
@@ -40,7 +40,7 @@
     <link href="https://achuan-2.github.io/posts/8dd0.html"/>
     <id>https://achuan-2.github.io/posts/8dd0.html</id>
     <published>2021-10-04T09:15:53.000Z</published>
-    <updated>2021-10-09T07:45:57.307Z</updated>
+    <updated>2021-10-13T03:31:57.329Z</updated>
     
     
     <summary type="html">美化你的Github Profile</summary>
@@ -88,7 +88,7 @@
     <link href="https://achuan-2.github.io/posts/b8c8.html"/>
     <id>https://achuan-2.github.io/posts/b8c8.html</id>
     <published>2021-08-11T14:01:46.000Z</published>
-    <updated>2021-10-04T15:21:22.311Z</updated>
+    <updated>2021-10-13T03:33:17.139Z</updated>
     
     
     <summary type="html">执行 `git commit` 时使用 emoji 为本次提交打上一个 “标签”， 使得此次 commit 的主要工作得到凸现，提高阅读体验，同时也能够当作标签功能使得其在整个提交历史中易于区分与查找。</summary>
