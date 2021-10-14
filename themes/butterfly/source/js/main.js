@@ -225,7 +225,8 @@ document.addEventListener('DOMContentLoaded', function () {
   function addPhotoFigcaption () {
     document.querySelectorAll('#article-container img').forEach(function (item) {
       const parentEle = item.parentNode
-      const altValue = item.title || item.alt
+      // const altValue = item.title || item.alt
+      const altValue = item.title
       if (altValue && !parentEle.parentNode.classList.contains('justified-gallery')) {
         const ele = document.createElement('div')
         ele.className = 'img-alt is-center'
