@@ -28,7 +28,7 @@ highlight_theme: mac light #  darker / pale night / light / ocean / mac / mac li
 highlight_copy: true # copy button
 highlight_lang: true # show the code language
 highlight_shrink: true # true: shrink the code blocks / false: expand the code blocks | none: expand code blocks and hide the button
-highlight_height_limit: 200 # unit: px
+highlight_height_limit: 600 # unit: px
 code_word_wrap: false
 
 
@@ -591,7 +591,7 @@ beautify:
 # Global font settings
 # Don't modify the following settings unless you know how they work (非必要不要修改)
 font:
-  global-font-size: 
+  global-font-size: 17px
   code-font-size: 
   font-family: 'alibaba-puhuiti'
   code-font-family:
