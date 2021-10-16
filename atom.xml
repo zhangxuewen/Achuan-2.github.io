@@ -6,7 +6,7 @@
   <link href="https://achuan-2.github.io/atom.xml" rel="self"/>
   
   <link href="https://achuan-2.github.io/"/>
-  <updated>2021-10-14T03:23:18.225Z</updated>
+  <updated>2021-10-16T15:25:20.850Z</updated>
   <id>https://achuan-2.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://achuan-2.github.io/posts/4491.html"/>
     <id>https://achuan-2.github.io/posts/4491.html</id>
     <published>2021-10-14T01:40:27.000Z</published>
-    <updated>2021-10-14T03:23:18.225Z</updated>
+    <updated>2021-10-16T15:25:20.850Z</updated>
     
     
       
@@ -266,10 +266,10 @@
   
   <entry>
     <title>The Python Challenge Daily Record</title>
-    <link href="https://achuan-2.github.io/posts/c134.html"/>
-    <id>https://achuan-2.github.io/posts/c134.html</id>
+    <link href="https://achuan-2.github.io/posts/c134npm.html"/>
+    <id>https://achuan-2.github.io/posts/c134npm.html</id>
     <published>2020-11-14T03:18:09.000Z</published>
-    <updated>2021-10-16T15:23:12.655Z</updated>
+    <updated>2021-10-16T15:45:36.810Z</updated>
     
     
     <summary type="html">Python Challenge是首个谜语编程网站。挑战者需要连续挑战33个需要编程才能解开的谜题以锻炼自己的编程能力。</summary>
