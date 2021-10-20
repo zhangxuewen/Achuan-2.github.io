@@ -1,11 +1,10 @@
 ---
 title: The Python Challenge Daily Record
 # top: true
-cover: https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201225124223-2020-12-25.png
+cover: https://cdn.jsdelivr.net/gh/Achuan-2/Picbed@pic/assets/16343563911301634356391105.png
 toc: true
 author: Achuan-2
 tags: python基础练习
-top_img: https://cdn.jsdelivr.net/gh/Achuan-2/PicBed/assets/20201225124223-2020-12-25.png
 categories: Python
 swiper_index: 1
 abbrlink: c134
