@@ -11,7 +11,8 @@
     --h3-color: #34b3c6;
     --h4-color: #03a1b9cc;
     --h5-color: #58c6d6;
-    --blockquote-color: #8aacac;
+    --blockquote-border-color: #9fc0d6;
+    --blockquote-background-color: #e6eeee5c;
     --inline-code-background: #e7ecef;
 }
 
@@ -24,7 +25,8 @@
     --h3-color: #43b8ca;
     --h4-color: #06a0b7;
     --h5-color: #03889c;
-    --blockquote-color: #8aacac;
+    --blockquote-border-color: #699495;
+    --blockquote-background-color: #26333ea6;
     --inline-code-background: #225764;
 }
 
@@ -101,13 +103,16 @@ h5 {
 
 blockquote {
     margin: 0 0 1rem;
-    padding: 0.1rem 0.8rem;
-    border-left: 0rem solid #49b1f5;
-    border: 2px solid #8aacac;
-    background-color: transparent;
-    border-radius: 0.31em;
+    padding: .1rem .8rem;
+    border-left: 4px solid var(--blockquote-border-color);
+    background-color: var(--blockquote-background-color);
+    border-radius: .31em;
+    color: inherit;
+    opacity: 0.85;
 }
-
+#article-container a {
+    color: #49b1b2;
+}
 #article-container code {
     padding: 0.1rem 0.2rem;
     background: var(--inline-code-background);
