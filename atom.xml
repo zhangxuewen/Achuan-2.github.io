@@ -6,7 +6,7 @@
   <link href="https://achuan-2.github.io/atom.xml" rel="self"/>
   
   <link href="https://achuan-2.github.io/"/>
-  <updated>2021-10-21T08:50:22.913Z</updated>
+  <updated>2021-10-21T08:51:03.445Z</updated>
   <id>https://achuan-2.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://achuan-2.github.io/posts/aa22.html"/>
     <id>https://achuan-2.github.io/posts/aa22.html</id>
     <published>2021-10-21T08:48:29.000Z</published>
-    <updated>2021-10-21T08:50:22.913Z</updated>
+    <updated>2021-10-21T08:51:03.445Z</updated>
     
     
     <summary type="html">Windows 里有一个很有用的命令 「start」, `start .` 用资源管理器打开当前目录（或用 `explorer .`），`start  file` 用默认软件打开这个文件，这样就不用开了终端，还要手动去找这个文件再查看了，工作流得到优化。</summary>
@@ -40,7 +40,7 @@
     <link href="https://achuan-2.github.io/posts/c83a.html"/>
     <id>https://achuan-2.github.io/posts/c83a.html</id>
     <published>2021-10-21T08:47:25.000Z</published>
-    <updated>2021-10-21T08:50:58.625Z</updated>
+    <updated>2021-10-21T09:16:48.488Z</updated>
     
     
     <summary type="html">直接在终端打开当前文件夹</summary>
