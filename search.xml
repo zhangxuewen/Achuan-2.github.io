@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>Windows 在终端启动软件查看文件</title>
+      <link href="/posts/aa22.html"/>
+      <url>/posts/aa22.html</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://b3logfile.com/siyuan/1610205759005/assets/image-20211021164936-rvbln8t.png" alt="image.png"></p><h2 id="在终端如何快速查看文件">在终端如何快速查看文件</h2><ul><li>Windows 里有一个很有用的命令 「start」, <code>start .</code> 用资源管理器打开当前目录（或用 <code>explorer .</code>），<code>start  file</code> 用默认软件打开这个文件，这样就不用开了终端，还要手动去找这个文件再查看了，工作流得到优化。</li></ul><h2 id="在终端以-VSCode-打开当前项目">在终端以 VSCode 打开当前项目</h2><ul><li>首先需要在环境变量 Path 中添加 VSCode 的 Code.exe 地址，比如我的是 <code>D:\Program_Files\Microsoft VS Code\Code.exe</code></li><li>然后在终端下使用 <code>code ./</code> 就可以打开当前项目</li></ul><blockquote><p>Windows 的最佳终端体验目前于我来说是 Windows Terminal+Git Bash</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 折腾致死 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Windows 资源管理器地址栏的妙用</title>
+      <link href="/posts/c83a.html"/>
+      <url>/posts/c83a.html</url>
+      
+        <content type="html"><![CDATA[<p>资源管理器地址妙用-&gt; 直接在终端打开当前文件夹.</p><p><img src="https://b3logfile.com/siyuan/1610205759005/assets/image-20211021164511-y3o6w00.png" alt="image.png"></p><p>alt + d 可以直接把光标移动到资源管理器地址栏，对于不同需求</p><ul><li><p>在当前路径打开 cmd： 地址栏输入 <code>cmd</code>，回车</p></li><li><p>在当前路径打开 Windows Terminal：地址栏输入 <code>wt</code>，回车</p></li><li><p>在当前路径打开 Git Bash：  地址栏输入 <code>bash</code>，回车</p></li><li><p>在当前路径打开 jupyer notebook：地址栏输入 <code>jupyter notebook</code> 回车。</p></li><li><p>在当前路径打开 jupyterlab：地址栏输入 <code>jupyter lab</code>，回车</p></li><li><p>在当前路径用 VSCode :</p><ul><li>方法一：输入 <code>code.cmd .</code>，回车。必须要加 <code>.</code>，不然只是打开 VSCode 软件，而不会打开当前文件夹</li><li>方法二：新建变量 code，输入 VSCode 地址，然后在地址栏就可以输入 %code%（还是上面那个输入快点，不用按 shift）</li><li>方法三：直接右键吧，为啥这么折腾（༼ つ ◕_◕ ༽つ）</li><li>方法四：utools 快捷命令</li></ul><blockquote><p>为什么我直接输入 code 就是打开一个 sh 脚本呢，我用 <code>start .</code> 打开这个脚本的目录，突然恍然大悟，原来就是因为这个 code 文件影响到了我直接用 code，我看了下脚本，这个应该是用于 wsl 启动的（我随口说的，你可以尝试去掉这个文件，然而也不能通过在地址栏输入 code 打开 VSCode 就是了）<br><img src="https://b3logfile.com/siyuan/1610205759005/assets/image-20211007210214-gb86vj8.png" alt="image.png"></p></blockquote></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 折腾致死 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>总结:如何获取网站的 favicon</title>
       <link href="/posts/e5b8.html"/>
       <url>/posts/e5b8.html</url>
