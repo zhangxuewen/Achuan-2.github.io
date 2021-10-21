@@ -6,7 +6,7 @@
   <link href="https://achuan-2.github.io/atom.xml" rel="self"/>
   
   <link href="https://achuan-2.github.io/"/>
-  <updated>2021-10-16T15:25:20.850Z</updated>
+  <updated>2021-10-21T05:01:58.253Z</updated>
   <id>https://achuan-2.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>总结:如何获取网站的 favicon</title>
+    <link href="https://achuan-2.github.io/posts/e5b8.html"/>
+    <id>https://achuan-2.github.io/posts/e5b8.html</id>
+    <published>2021-10-21T04:55:26.000Z</published>
+    <updated>2021-10-21T05:01:58.253Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;⛄ 前情&lt;/p&gt;
+&lt;p&gt;之前思源笔记的 Tsundoku 主题我添加了超链接的图标，真的是一个一个图标手动添加的，超累，而且网站图标如何快速获取也是一个问题，之前找不到就直接上 iconfont</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://achuan-2.github.io/categories/Web/"/>
+    
+    
+    <category term="Javascript" scheme="https://achuan-2.github.io/tags/Javascript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>番外：Markdown的完整图片语法</title>
     <link href="https://achuan-2.github.io/posts/4491.html"/>
     <id>https://achuan-2.github.io/posts/4491.html</id>
     <published>2021-10-14T01:40:27.000Z</published>
-    <updated>2021-10-16T15:25:20.850Z</updated>
+    <updated>2021-10-20T02:19:35.780Z</updated>
     
     
       
@@ -228,39 +255,6 @@
     
     <category term="树洞" scheme="https://achuan-2.github.io/categories/%E6%A0%91%E6%B4%9E/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>阿巛的Hexo博客搭建</title>
-    <link href="https://achuan-2.github.io/posts/a881.html"/>
-    <id>https://achuan-2.github.io/posts/a881.html</id>
-    <published>2020-11-15T11:57:21.000Z</published>
-    <updated>2021-10-04T15:28:07.740Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;ul&gt;
-&lt;li&gt;图片加载优化&lt;/li&gt;
-&lt;li&gt;滚动条美化&lt;/li&gt;
-&lt;li&gt;增加artitalk说说页面&lt;/li&gt;
-&lt;li&gt;博客优化&lt;/li&gt;
-&lt;li&gt;CDN加速&lt;/li&gt;
-&lt;li&gt;绑定域名(github、coding双绑定)&lt;/li&gt;
-&lt;li&gt;证书认证&lt;/li&gt;
-&lt;li&gt;滚</summary>
-        
-      
-    
-    
-    
-    <category term="折腾致死" scheme="https://achuan-2.github.io/categories/%E6%8A%98%E8%85%BE%E8%87%B4%E6%AD%BB/"/>
-    
-    
-    <category term="Hexo" scheme="https://achuan-2.github.io/tags/Hexo/"/>
     
   </entry>
   
